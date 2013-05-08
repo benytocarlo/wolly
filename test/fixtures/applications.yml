@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  fb_app_id: MyString
+  fb_app_secret: MyString
+  share_caption: MyString
+  share_description: MyString
+  invite_message: MyString
+
+two:
+  name: MyString
+  fb_app_id: MyString
+  fb_app_secret: MyString
+  share_caption: MyString
+  share_description: MyString
+  invite_message: MyString

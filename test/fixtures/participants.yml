@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  facebook_id: MyString
+  facebook_name: MyString
+  facebook_first_name: MyString
+  facebook_middle_name: MyString
+  facebook_last_name: MyString
+  facebook_gender: MyString
+  facebook_locale: MyString
+  rut: MyString
+  address: MyString
+  phone: MyString
+  occupation: MyString
+  city: MyString
+  province: MyString
+  country: MyString
+
+two:
+  facebook_id: MyString
+  facebook_name: MyString
+  facebook_first_name: MyString
+  facebook_middle_name: MyString
+  facebook_last_name: MyString
+  facebook_gender: MyString
+  facebook_locale: MyString
+  rut: MyString
+  address: MyString
+  phone: MyString
+  occupation: MyString
+  city: MyString
+  province: MyString
+  country: MyString

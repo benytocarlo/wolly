@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  participant: 
+  application: 
+  answer: MyString
+  wants_to_be_mailed: false
+
+two:
+  participant: 
+  application: 
+  answer: MyString
+  wants_to_be_mailed: false
