@@ -1,0 +1,2 @@
+module FbAppClaroGanateLaParabolicaHelper
+end
