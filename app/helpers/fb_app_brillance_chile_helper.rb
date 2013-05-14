@@ -1,0 +1,2 @@
+module FbAppBrillanceChileHelper
+end
