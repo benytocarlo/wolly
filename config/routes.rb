@@ -1,5 +1,8 @@
 Wolly::Application.routes.draw do
-  post "fb_app_claro_ganate_la_parabolica/index" => "fb_app_claro_ganate_la_parabolica#index"
+  post "fb_app_claro_ganate_la_parabolica"        => "fb_app_claro_ganate_la_parabolica#index"
+  get "fb_app_claro_ganate_la_parabolica_premios" => "fb_app_claro_ganate_la_parabolica#premios"
+  get "fb_app_claro_ganate_la_parabolica_ranking" => "fb_app_claro_ganate_la_parabolica#ranking"
+  get "fb_app_claro_ganate_la_parabolica_bases"   => "fb_app_claro_ganate_la_parabolica#bases"
   post "fb_app_example/canvas"
   get "fb_app_claro_ganate_la_parabolica/share", :as => :fb_app_claro_ganate_la_parabolica_share
 

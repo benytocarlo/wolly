@@ -1,2 +1,18 @@
+<script type="text/javascript" charset="utf-8">
+	$(window).load(function(){
+		$("#fb_app_login").click(function(){
+			FB.login(function(response){
+				if (response.authResponse){
+					alert("HOLA");
+				}
+			},{scope:'<%= @scope %>'});
+		});
+	});
+</script>
 <h1>FbAppClaroGanateLaParabolica#index</h1>
 <p>Find me in app/views/fb_app_claro_ganate_la_parabolica/index.html.erb</p>
+<p>Tu signed_request es: <%= session[:signed_request] %></p>
+<p>El id de tu usuario de Facebook es: <%= session[:signed_request][:user_id] %></p>
+<p>Los datos de tu usuario de Facebook son: <%= @me %></p>
+<a id="fb_app_login" href="#">Ingresar</a>
+<%= link_to "Compartir", fb_app_example_share_path %>

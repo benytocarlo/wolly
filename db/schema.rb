@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20130508172331) do
 
   create_table "applications", :force => true do |t|
     t.string   "name"
-    t.string   "fb_app_id"
+    t.string   "fb_app_idnumber"
     t.string   "fb_app_secret"
     t.string   "share_caption"
     t.string   "share_description"

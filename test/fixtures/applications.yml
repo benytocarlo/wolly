@@ -2,7 +2,7 @@
 
 one:
   name: MyString
-  fb_app_id: MyString
+  fb_app_idnumber: MyString
   fb_app_secret: MyString
   share_caption: MyString
   share_description: MyString
@@ -10,7 +10,7 @@ one:
 
 two:
   name: MyString
-  fb_app_id: MyString
+  fb_app_idnumber: MyString
   fb_app_secret: MyString
   share_caption: MyString
   share_description: MyString
