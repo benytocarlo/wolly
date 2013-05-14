@@ -1,2 +1,0 @@
-class FbAppBrillanceChileController < ApplicationController
-end

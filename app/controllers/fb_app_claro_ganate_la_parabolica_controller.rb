@@ -37,7 +37,6 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   def ranking
     @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id}"])
     
-    
     @regions = Array.new
     @regions << { :name => 'Tarapacá',           :points => @participations.count{ |participation| participation.answer == '1' } }
     @regions << { :name => 'Antofagasta',        :points => @participations.count{ |participation| participation.answer == '2' } }
@@ -56,7 +55,6 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     @regions << { :name => 'Los Ríos',           :points => @participations.count{ |participation| participation.answer == '15' } }
     @regions = @regions.sort_by { |region| region[:points].to_i }
     @regions = @regions.reverse!    
-
   end
   
   def bases

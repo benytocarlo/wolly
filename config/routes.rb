@@ -1,4 +1,8 @@
 Wolly::Application.routes.draw do
+  get "fb_app_brilliance_chile/index"
+
+  get "fb_app_brilliance_chile/share"
+
   post "fb_app_claro_ganate_la_parabolica"        => "fb_app_claro_ganate_la_parabolica#index"
   get "fb_app_claro_ganate_la_parabolica_premios" => "fb_app_claro_ganate_la_parabolica#premios"
   get "fb_app_claro_ganate_la_parabolica_ranking" => "fb_app_claro_ganate_la_parabolica#ranking"
