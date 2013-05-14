@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first: 1
+  second: 1
+  third: 1
+  fourth: 1
+  fifth: 1
+  sixth: 1
+  seventh: 1
+  eighth: 1
+  ninth: 1
+  tenth: 1
+  eleventh: 1
+  twelfth: 1
+  thirteenth: 1
+  fourteenth: 1
+  fifteenth: 1
+
+two:
+  first: 1
+  second: 1
+  third: 1
+  fourth: 1
+  fifth: 1
+  sixth: 1
+  seventh: 1
+  eighth: 1
+  ninth: 1
+  tenth: 1
+  eleventh: 1
+  twelfth: 1
+  thirteenth: 1
+  fourteenth: 1
+  fifteenth: 1
