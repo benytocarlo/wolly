@@ -1,0 +1,2 @@
+module FbAppBrillianceChileHelper
+end

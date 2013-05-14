@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_brilliance_chile", :media => "all" %>
+  <%= javascript_include_tag "fb_app_brilliance_chile" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="fb-root"></div>
+  <script type="text/javascript" charset="utf-8">
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId  : <%= @app_id %>,
+        status : true,
+        cookie : true, 
+        xfbml  : true  
+      });
+      FB.Canvas.setAutoGrow(true);
+    };
+    (function(d) {
+      var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+      js = d.createElement('script'); js.id = id; js.async = true;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+  </script>
+<%= yield %>
+</body>
+</html>
