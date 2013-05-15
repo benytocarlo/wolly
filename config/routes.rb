@@ -2,6 +2,7 @@ Wolly::Application.routes.draw do
   post "fb_app_brilliance_chile"                  => "fb_app_brilliance_chile#index"
   post "fb_app_brilliance_chile/canvas"
   get "fb_app_brilliance_chile/share", :as => :fb_app_brilliance_chile_share
+  get "fb_app_brilliance_chile/new_participant"   => "fb_app_brilliance_chile#new_participant"
 
   post "fb_app_claro_ganate_la_parabolica"        => "fb_app_claro_ganate_la_parabolica#index"
   get "fb_app_claro_ganate_la_parabolica_premios" => "fb_app_claro_ganate_la_parabolica#premios"

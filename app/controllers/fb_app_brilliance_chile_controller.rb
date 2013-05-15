@@ -25,6 +25,16 @@ class FbAppBrillianceChileController < ApplicationController
       end
     end    
   end
+  
+  ##
+  # Borrar este método luego que estén pasados los participantes.
+  def new_participant
+    Participant.create(
+      :facebook_id => params[:facebook_id],
+      :facebook_name => params[:facebook_name],
+      :facebook_email => params[:facebook_email]
+    )
+  end
 
   def share
   end
