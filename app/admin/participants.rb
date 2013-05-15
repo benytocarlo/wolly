@@ -5,11 +5,7 @@ ActiveAdmin.register Participant do
     column :facebook_name        
     column :facebook_gender           
     column :rut
-    column :address
-    column :occupation
-    column :city
-    column :province
-    column :country           
+    column :address           
     default_actions                   
   end
 end
