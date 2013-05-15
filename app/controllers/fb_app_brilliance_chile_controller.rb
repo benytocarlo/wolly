@@ -34,6 +34,7 @@ class FbAppBrillianceChileController < ApplicationController
       :facebook_name => params[:facebook_name],
       :facebook_email => params[:facebook_email]
     )
+    render :nothing => true, :status => 200, :content_type => 'text/html'
   end
 
   def share
