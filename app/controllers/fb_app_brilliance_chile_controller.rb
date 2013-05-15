@@ -1,7 +1,7 @@
 #coding: utf-8
 class FbAppBrillianceChileController < ApplicationController
   layout "fb_app_brilliance_chile"
-  before_filter :parse_facebook_signed_request
+  before_filter :parse_facebook_signed_request, :except => [:new_participant]
 
   def parse_facebook_signed_request
     @app_id = '544692335588916' if Rails.env.development?
