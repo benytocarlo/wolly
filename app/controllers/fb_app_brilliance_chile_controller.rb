@@ -30,7 +30,7 @@ class FbAppBrillianceChileController < ApplicationController
   # Borrar este método luego que estén pasados los participantes.
   def new_participant
     Participant.create(
-      :facebook_id => params[:facebook_id],
+      :facebook_idnumber => params[:facebook_id],
       :facebook_name => params[:facebook_name],
       :facebook_email => params[:facebook_email]
     )
