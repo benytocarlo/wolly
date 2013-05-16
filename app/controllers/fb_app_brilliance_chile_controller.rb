@@ -41,8 +41,6 @@ class FbAppBrillianceChileController < ApplicationController
   def especificaciones
   end
 
-  # Este método es como un participant new y un participation new
-  #  
   def concurso    
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
@@ -57,8 +55,6 @@ class FbAppBrillianceChileController < ApplicationController
     end
   end
 
-  # Este método es como un participant create y un participation create
-  # 
   def share
     if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
