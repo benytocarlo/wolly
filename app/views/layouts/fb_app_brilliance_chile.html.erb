@@ -25,6 +25,13 @@
       d.getElementsByTagName('head')[0].appendChild(js);
     }(document));
   </script>
+  <ul id="menu">
+    <li><%= link_to "INICIO",           fb_app_brilliance_chile_path %></li>
+    <li><%= link_to "VIDEO",            fb_app_brilliance_chile_video_path %></li>
+    <li><%= link_to "ESPECIFICACIONES", fb_app_brilliance_chile_especificaciones_path %></li>
+    <li><%= link_to "CONCURSO",         fb_app_brilliance_chile_concurso_path %></li>
+    <li><%= link_to "BASES",            "/documents/fb_app_brilliance_chile_-_bases.pdf", :format => 'pdf', :target => '_blank' %></li>
+  </ul>  
 <%= yield %>
 </body>
 </html>

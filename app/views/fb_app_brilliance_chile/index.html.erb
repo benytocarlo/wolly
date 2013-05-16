@@ -1,2 +1,13 @@
-<h1>FbAppBrillianceChile#index</h1>
-<p>Find me in app/views/fb_app_brilliance_chile/index.html.erb and laugh at me.</p>
+<script type="text/javascript" charset="utf-8">
+	$(window).load(function(){
+		$("#fb_app_login").click(function(){
+			FB.login(function(response){
+				if (response.authResponse){
+					location.href = '<%= fb_app_brilliance_chile_concurso_path %>';
+				}
+			},{scope:'<%= @scope %>'});
+		});
+	});
+</script>
+<h1>Brilliance Chile | Index</h1>
+<%= link_to "PARTICIPAR", fb_app_brilliance_chile_concurso_path, :id => :fb_app_login, :href => '#' %>
