@@ -12,7 +12,12 @@ class FbAppBrillianceChileController < ApplicationController
     session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
     @graph = Koala::Facebook::API.new(session[:signed_request][:oauth_token])
     load_facebook_user
+    load_fanpage
   end   
+  
+  def load_fanpage
+    @fanpage = @graph.get_object(session[:signed_request][:page][:id]).deep_symbolize_keys
+  end
   
   def load_facebook_user
     @me_from_graph = @graph.get_object("me").deep_symbolize_keys
