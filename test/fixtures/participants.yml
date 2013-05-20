@@ -1,13 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  facebook_id: MyString
+  facebook_idnumber: "1059921425"
   facebook_name: MyString
   facebook_first_name: MyString
   facebook_middle_name: MyString
   facebook_last_name: MyString
   facebook_gender: MyString
   facebook_locale: MyString
+  facebook_email: 1@test.user
   rut: MyString
   address: MyString
   phone: MyString
@@ -17,13 +18,14 @@ one:
   country: MyString
 
 two:
-  facebook_id: MyString
-  facebook_name: MyString
+  facebook_idnumber: "1322018165"
+  facebook_name: Wraf Wraf
   facebook_first_name: MyString
   facebook_middle_name: MyString
   facebook_last_name: MyString
   facebook_gender: MyString
   facebook_locale: MyString
+  facebook_email: 2@test.user
   rut: MyString
   address: MyString
   phone: MyString
