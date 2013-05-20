@@ -1,17 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  fb_app_idnumber: MyString
-  fb_app_secret: MyString
+  name: Brilliance
+  fb_app_idnumber: "544692335588916"
+  fb_app_secret: 6d2bd813e5f63c4224b8998be4e9ae6f
   share_caption: MyString
   share_description: MyString
   invite_message: MyString
 
-two:
-  name: MyString
-  fb_app_idnumber: MyString
-  fb_app_secret: MyString
-  share_caption: MyString
-  share_description: MyString
-  invite_message: MyString
+
