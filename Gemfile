@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'koala'
 gem 'country-select'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'sqlite3'
@@ -10,7 +11,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'newrelic_rpm'
 end
 
 group :assets do
