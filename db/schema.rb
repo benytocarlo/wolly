@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515205232) do
+ActiveRecord::Schema.define(:version => 20130520135127) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20130515205232) do
     t.string   "invite_message"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "ga"
   end
 
   create_table "fb_app_claro_ganate_la_parabolicas", :force => true do |t|
