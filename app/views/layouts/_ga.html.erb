@@ -1,4 +1,4 @@
-<% unless @app.ga.empty? %>
+<% unless @app.ga.blank? %>
   <script type="text/javascript" charset="utf-8">
     var _gaq = _gaq || []; 
     _gaq.push(['_setAccount', '<%= @app.ga %>']); 
