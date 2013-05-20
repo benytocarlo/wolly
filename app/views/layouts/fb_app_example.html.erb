@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 <head>
-  <title><%= @app.name %></title>	
+  <title><%= @app.name unless @app.name.blank? %></title>	
   <%= stylesheet_link_tag    "fb_app_example", :media => "all" %>
   <%= javascript_include_tag "fb_app_example" %>
   <%= csrf_meta_tags %>
