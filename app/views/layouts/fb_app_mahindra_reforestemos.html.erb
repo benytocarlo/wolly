@@ -13,7 +13,7 @@
     <li><%= link_to "Inicio",  fb_app_claro_ganate_la_parabolica_path %></li>
     <li><%= link_to "Premios", fb_app_claro_ganate_la_parabolica_premios_path %></li>
     <li><%= link_to "Ranking", fb_app_claro_ganate_la_parabolica_ranking_path %></li>
-    <li><%= link_to "Bases",   "/documents/fb_app_claro_ganate_la_parabolica_-_bases.pdf", :format => 'pdf', :target => '_blank' %></li>
+    <li><%= link_to "Bases",   "/documents/<%= controller_path %>_-_bases.pdf", :format => 'pdf', :target => '_blank' %></li>
   </ul>  
 <%= yield %>
 </body>
