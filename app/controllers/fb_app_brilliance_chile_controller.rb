@@ -24,7 +24,7 @@ class FbAppBrillianceChileController < ApplicationController
   end
   
   def index
-    if params[:signed_request].blank?
+    if params[:signed_request].blank? # nil? o empty?
       redirect_to "https://www.facebook.com/hmgdev/app_#{@app_id}" if Rails.env.development?
       redirect_to "https://www.facebook.com/Brilliancechile/app_#{@app_id}" if Rails.env.production?
     else

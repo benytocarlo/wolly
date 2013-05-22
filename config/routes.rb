@@ -6,8 +6,8 @@ Wolly::Application.routes.draw do
   post "fb_app_brilliance_chile/canvas"
   get "fb_app_brilliance_chile/video"             => "fb_app_brilliance_chile#video"
   get "fb_app_brilliance_chile/especificaciones"  => "fb_app_brilliance_chile#especificaciones"
-  get "fb_app_brilliance_chile/concurso"          => "fb_app_brilliance_chile#concurso"
-  post "fb_app_brilliance_chile/share", :as => :fb_app_brilliance_chile_share
+  get "fb_app_brilliance_chile/concurso"          => "fb_app_brilliance_chile#concurso"           , :as => :perro 
+  post "fb_app_brilliance_chile/share"            => "fb_app_brilliance_chile#share"              , :as => :fb_app_brilliance_chile_share
   get "fb_app_brilliance_chile/new_participant"   => "fb_app_brilliance_chile#new_participant"
 
   post "fb_app_claro_ganate_la_parabolica"        => "fb_app_claro_ganate_la_parabolica#index"
