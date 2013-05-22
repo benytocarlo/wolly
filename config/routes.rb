@@ -1,6 +1,5 @@
 Wolly::Application.routes.draw do
-  #post "fb_app_mahindra" => "fb_app_mahindra#index"
-  #post "fb_app_haima" => "fb_app_haima#index"
+  post "fb_app_mahindra_reforestemos" => "fb_app_mahindra_reforestemos#index"
 
   post "fb_app_brilliance_chile"                  => "fb_app_brilliance_chile#index"
   post "fb_app_brilliance_chile/canvas"
