@@ -10,6 +10,14 @@ Wolly::Application.routes.draw do
   post "fb_app_brilliance_chile/share"            => "fb_app_brilliance_chile#share"              , :as => :fb_app_brilliance_chile_share
   get "fb_app_brilliance_chile/new_participant"   => "fb_app_brilliance_chile#new_participant"
 
+  post "fb_app_mahindra_xuv"                  => "fb_app_mahindra_xuv#index"
+  post "fb_app_mahindra_xuv/canvas"
+  get "fb_app_mahindra_xuv/video"             => "fb_app_mahindra_xuv#video"
+  get "fb_app_mahindra_xuv/especificaciones"  => "fb_app_mahindra_xuv#especificaciones"
+  get "fb_app_mahindra_xuv/concurso"          => "fb_app_mahindra_xuv#concurso"
+  post "fb_app_mahindra_xuv/share"            => "fb_app_mahindra_xuv#share"              , :as => :fb_app_mahindra_xuv_share
+  get "fb_app_mahindra_xuv/new_participant"   => "fb_app_mahindra_xuv#new_participant"
+
   post "fb_app_claro_ganate_la_parabolica"        => "fb_app_claro_ganate_la_parabolica#index"
   get "fb_app_claro_ganate_la_parabolica_premios" => "fb_app_claro_ganate_la_parabolica#premios"
   get "fb_app_claro_ganate_la_parabolica_ranking" => "fb_app_claro_ganate_la_parabolica#ranking"
