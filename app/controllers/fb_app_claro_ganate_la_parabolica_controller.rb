@@ -2,6 +2,8 @@
 class FbAppClaroGanateLaParabolicaController < ApplicationController
   layout "fb_app_claro_ganate_la_parabolica"
   before_filter :parse_facebook_signed_request
+  before_filter :load_facebook_user, :except => :index
+  before_filter :load_fanpage, :except => :index
   
   def parse_facebook_signed_request
     @app_id = '576458172388003' if Rails.env.development?
@@ -11,8 +13,6 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     @scope = 'email,read_stream,publish_stream,user_photos'
     session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
     @graph = Koala::Facebook::API.new(session[:signed_request][:oauth_token])
-    load_facebook_user
-    load_fanpage
   end
 
   def index
