@@ -1,39 +1,39 @@
 <div id="registro">
   <%= render :partial => "fb_app_claro_ganate_la_parabolica/menu" %>
-  <form class="reg_form">
+  <%= form_tag("/registro", :method => "post", :class => "reg_form") do %>
     <table border=0>
       <tr>
         <td>Nombre</td>
         <td>
-        <input type=text name="nombre">
+        <input type=text name="nombre" value="<%= @nombre %>">
         <span>x</span>
         </td>
       </tr>
       <tr>
         <td>Rut</td>
         <td>
-        <input type=text name="rut">
+        <input type=text name="rut" value="<%= @rut %>">
         <span>x</span>
         </td>
       </tr>
       <tr>
         <td>Correo</td>
         <td>
-        <input type=text name="correo">
+        <input type=text name="correo" value="<%= @correo %>">
         <span>x</span>
         </td>
       </tr>
       <tr>
         <td>Teléfono</td>
         <td>
-        <input type=text name="telefono">
+        <input type=text name="telefono" value="<%= @telefono %>">
         <span>x</span>
         </td>
       </tr>
       <tr>
         <td>Región</td>
         <td>
-        <input type=text name="region">
+        <input type=text name="region" value="<%= @region %>">
         <span>x</span>
         </td>
       </tr>  
@@ -43,5 +43,5 @@
         </td>
       </tr>
     </table>
-  </form>
+  <% end %>
 </div>
