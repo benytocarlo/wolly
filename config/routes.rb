@@ -18,6 +18,8 @@ Wolly::Application.routes.draw do
   get "fb_app_claro_ganate_la_parabolica_bases"        => "fb_app_claro_ganate_la_parabolica#bases"
   get "fb_app_claro_ganate_la_parabolica/share", :as => :fb_app_claro_ganate_la_parabolica_share
 
+  post "fb_app_paco_rabanne"             => "fb_app_paco_rabanne#index"
+
   post "fb_app_example" => "fb_app_example#index"
   post "fb_app_example/canvas"
   get "fb_app_example/share", :as => :fb_app_example_share
