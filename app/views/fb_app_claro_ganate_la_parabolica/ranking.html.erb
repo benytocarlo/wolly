@@ -1,6 +1,16 @@
-<h1><%= @app.name %> | Ranking</h1>
-<ul>
-  <% @regions.each do |region| %>
-    <li><%= region %></li>
-  <% end %>
-</ul>
+<div id="rank">
+  <%= render :partial => "layouts/facebook_javascript_sdk_share" %>
+  <%= render :partial => "fb_app_claro_ganate_la_parabolica/menu" %>
+  <table class="rank_table" border="0" cellspacing="0" cellpadding="0">
+    <% @regions.each_with_index do |region,index| %>
+      <tr class=<%= "rank_first" if index == 1 %>>
+        <td><strong><%= index + 1 %></strong></td>
+        <td><%= region[:number] %></td>
+        <td><%= region[:name] %></li>
+      </tr>
+    <% end %>
+  </table>
+  <iframe class="rank_video" width="433" height="244" src="http://www.youtube.com/embed/UF6FjpxVVmI?rel=0" frameborder="0" allowfullscreen></iframe>
+  <h2 class="rank_btn_a"><a href="#">Comparte</a></h2>
+  <h2 class="rank_btn_b"><a href="#">Invita</a></h2>
+</div>

@@ -1,4 +1,6 @@
 ActiveAdmin.register Participant do
+  menu :label => "Participantes"
+  
   index do                            
     column :facebook_idnumber
     column :facebook_email                 

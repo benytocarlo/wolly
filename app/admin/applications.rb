@@ -1,4 +1,6 @@
 ActiveAdmin.register Application do
+  menu :label => "Aplicaciones"
+  
   index do
     column :name
     column :fb_app_idnumber

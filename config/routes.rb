@@ -9,10 +9,13 @@ Wolly::Application.routes.draw do
   post "fb_app_brilliance_chile/share"            => "fb_app_brilliance_chile#share"              , :as => :fb_app_brilliance_chile_share
   get "fb_app_brilliance_chile/new_participant"   => "fb_app_brilliance_chile#new_participant"
 
-  post "fb_app_claro_ganate_la_parabolica"        => "fb_app_claro_ganate_la_parabolica#index"
-  get "fb_app_claro_ganate_la_parabolica_premios" => "fb_app_claro_ganate_la_parabolica#premios"
-  get "fb_app_claro_ganate_la_parabolica_ranking" => "fb_app_claro_ganate_la_parabolica#ranking"
-  get "fb_app_claro_ganate_la_parabolica_bases"   => "fb_app_claro_ganate_la_parabolica#bases"
+  post "fb_app_claro_ganate_la_parabolica"             => "fb_app_claro_ganate_la_parabolica#index"
+  get  "fb_app_claro_ganate_la_parabolica"             => "fb_app_claro_ganate_la_parabolica#index"
+  get "fb_app_claro_ganate_la_parabolica_premios"      => "fb_app_claro_ganate_la_parabolica#premios"
+  get "fb_app_claro_ganate_la_parabolica_registro"     => "fb_app_claro_ganate_la_parabolica#registro"
+  get "fb_app_claro_ganate_la_parabolica_ranking"      => "fb_app_claro_ganate_la_parabolica#ranking"
+  get "fb_app_claro_ganate_la_parabolica_laparabolica" => "fb_app_claro_ganate_la_parabolica#laparabolica"
+  get "fb_app_claro_ganate_la_parabolica_bases"        => "fb_app_claro_ganate_la_parabolica#bases"
   get "fb_app_claro_ganate_la_parabolica/share", :as => :fb_app_claro_ganate_la_parabolica_share
 
   post "fb_app_example" => "fb_app_example#index"
