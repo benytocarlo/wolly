@@ -57,7 +57,7 @@ module Wolly
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
-    config.assets.precompile += ['fb_app_claro_ganate_la_parabolica.css']
+    config.assets.precompile += ['.css', '.js']
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
