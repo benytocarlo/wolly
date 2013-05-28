@@ -55,8 +55,11 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   end
 
   def canvas
-    render :js => "<script>window.location.top = 'https://www.facebook.com/clarochile/app_#{@app_id}'</script>" if Rails.env.production?
-    redirect_to "https://www.facebook.com/hmgdev/app_#{@app_id}" if Rails.env.development?
+    @page_url = "https://www.facebook.com/hmgdev/app_#{@app_id}" if Rails.env.development?
+    @page_url = "https://www.facebook.com/clarochile/app_#{@app_id}" if Rails.env.production?
+    render :redirect
+    #render :js => "window.location.top = 'https://www.facebook.com/clarochile/app_#{@app_id}'" if Rails.env.production?
+    #redirect_to "https://www.facebook.com/hmgdev/app_#{@app_id}" if Rails.env.development?
     #redirect_to "https://www.facebook.com/clarochile/app_#{@app_id}" if Rails.env.production?
   end
 
