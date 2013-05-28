@@ -1,6 +1,6 @@
 <div id="registro">
   <%= render :partial => "fb_app_claro_ganate_la_parabolica/menu" %>
-  <%= form_tag("/registro", :method => "post", :class => "reg_form") do %>
+  <%= form_tag(fb_app_claro_ganate_la_parabolica_registro_path, :method => "post", :class => "reg_form") do %>
     <table border=0>
       <tr>
         <td>Nombre</td>
@@ -39,7 +39,7 @@
       </tr>  
       <tr>
         <td>
-        <h2 class="reg_btn"><a href="#">Siguiente</a></h2>
+          <%= submit_tag :siguiente, :class => "btn_input" %>
         </td>
       </tr>
     </table>
