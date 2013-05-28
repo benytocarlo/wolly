@@ -15,14 +15,6 @@ class FbAppBrillianceChileController < ApplicationController
     load_fanpage
   end   
   
-  def load_fanpage
-    @fanpage = @graph.get_object(session[:signed_request][:page][:id]).deep_symbolize_keys
-  end
-  
-  def load_facebook_user
-    @me_from_graph = @graph.get_object("me").deep_symbolize_keys
-  end
-  
   def index
     if params[:signed_request].blank? # nil? o empty?
       redirect_to "https://www.facebook.com/hmgdev/app_#{@app_id}" if Rails.env.development?

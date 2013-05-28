@@ -1,6 +1,5 @@
 Wolly::Application.routes.draw do
-  #post "fb_app_mahindra" => "fb_app_mahindra#index"
-  #post "fb_app_haima" => "fb_app_haima#index"
+  post "fb_app_mahindra_reforestemos" => "fb_app_mahindra_reforestemos#index"
 
   post "fb_app_brilliance_chile"                  => "fb_app_brilliance_chile#index"
   post "fb_app_brilliance_chile/canvas"
@@ -10,6 +9,23 @@ Wolly::Application.routes.draw do
   post "fb_app_brilliance_chile/share"            => "fb_app_brilliance_chile#share"              , :as => :fb_app_brilliance_chile_share
   get "fb_app_brilliance_chile/new_participant"   => "fb_app_brilliance_chile#new_participant"
 
+
+  post "fb_app_claro_ganate_la_parabolica"             => "fb_app_claro_ganate_la_parabolica#index"
+  get  "fb_app_claro_ganate_la_parabolica"             => "fb_app_claro_ganate_la_parabolica#index"
+  get "fb_app_claro_ganate_la_parabolica_premios"      => "fb_app_claro_ganate_la_parabolica#premios"
+  get "fb_app_claro_ganate_la_parabolica_registro"     => "fb_app_claro_ganate_la_parabolica#registro"
+  get "fb_app_claro_ganate_la_parabolica_ranking"      => "fb_app_claro_ganate_la_parabolica#ranking"
+  get "fb_app_claro_ganate_la_parabolica_laparabolica" => "fb_app_claro_ganate_la_parabolica#laparabolica"
+  get "fb_app_claro_ganate_la_parabolica_bases"        => "fb_app_claro_ganate_la_parabolica#bases"
+  get "fb_app_claro_ganate_la_parabolica/share", :as => :fb_app_claro_ganate_la_parabolica_share
+
+  post "fb_app_paco_rabanne"             => "fb_app_paco_rabanne#index"
+  get "fb_app_paco_rabanne/video"             => "fb_app_paco_rabanne#video"
+  get "fb_app_paco_rabanne/especificaciones"  => "fb_app_paco_rabanne#especificaciones"
+  get "fb_app_paco_rabanne/concurso"
+  post "fb_app_paco_rabanne/share"
+  get "fb_app_paco_rabanne/new_participant"   => "fb_app_paco_rabanne#new_participant"
+  
   post "fb_app_mahindra_xuv"                  => "fb_app_mahindra_xuv#index"
   post "fb_app_mahindra_xuv/canvas"
   get "fb_app_mahindra_xuv/video"             => "fb_app_mahindra_xuv#video"
@@ -17,12 +33,6 @@ Wolly::Application.routes.draw do
   get "fb_app_mahindra_xuv/concurso"          => "fb_app_mahindra_xuv#concurso"
   post "fb_app_mahindra_xuv/share"            => "fb_app_mahindra_xuv#share"              , :as => :fb_app_mahindra_xuv_share
   get "fb_app_mahindra_xuv/new_participant"   => "fb_app_mahindra_xuv#new_participant"
-
-  post "fb_app_claro_ganate_la_parabolica"        => "fb_app_claro_ganate_la_parabolica#index"
-  get "fb_app_claro_ganate_la_parabolica_premios" => "fb_app_claro_ganate_la_parabolica#premios"
-  get "fb_app_claro_ganate_la_parabolica_ranking" => "fb_app_claro_ganate_la_parabolica#ranking"
-  get "fb_app_claro_ganate_la_parabolica_bases"   => "fb_app_claro_ganate_la_parabolica#bases"
-  get "fb_app_claro_ganate_la_parabolica/share", :as => :fb_app_claro_ganate_la_parabolica_share
 
   post "fb_app_example" => "fb_app_example#index"
   post "fb_app_example/canvas"
