@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title></title>	
+  <%= stylesheet_link_tag    "fb_app_paco_rabanne/style", :media => "all" %>
+  <%= javascript_include_tag "fb_app_paco_rabanne" %>
+  <%= javascript_include_tag "jquery.fancybox" %>
+  <%= csrf_meta_tags %>
+</head>
+<body screen_capture_injected='true'>
+<div id="fb-root"></div>
+<script type="text/javascript" charset="utf-8">
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId  : 426276337470229,
+      status : true,
+      cookie : true, 
+      xfbml  : true  
+    });    
+  };
+  (function(d) {
+    var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/all.js";
+    d.getElementsByTagName('head')[0].appendChild(js);
+  }(document));
+</script>
+  <div id='header'>
+  </div>
+  <%= yield %>
+  <div id='footer'></div>
+  </div>
+</html>

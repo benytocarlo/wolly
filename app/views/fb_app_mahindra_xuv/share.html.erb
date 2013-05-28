@@ -3,11 +3,11 @@
     $(".sharefb").click(function(){
       FB.ui({
           method: 'feed',
-          name: 'Paco Rabanne',
-          link: '',
+          name: '<%= @app.name %>',
+          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
           picture: 'http://wolly.herokuapp.com/images/<%= controller_path %>/75x75.jpeg',
-          caption: 'caption',
-          description: 'description'
+          caption: '<%= @app.share_caption %>',
+          description: '<%= @app.share_description %>'
         },
         function(response) {
         
@@ -16,7 +16,7 @@
     });
     $(".invitar").click(function(){
       FB.ui({ method: 'apprequests',
-            message: 'message',
+            message: '<%= @app.invite_message %>',
             filters: ['app_non_users'],
             title: 'Invitación',
       max_recipients: '50'
@@ -25,13 +25,7 @@
   });
 </script>
 
-<div class="wrapper exito">
-  <div class='content'>
-    <center>
-      <div class="social_share">
-        <%= link_to "", "#", :class => 'compartir sharefb' %>
-        <%= link_to "", "#", :class => 'invitar' %>
-      </div>  
-    </center>
-  </div>
-</div>
+
+<h1>Brilliance Chile | Gracias</h1>
+<%= link_to "", "#", :class => 'compartir sharefb' %>
+<%= link_to "", "#", :class => 'invitar' %>
