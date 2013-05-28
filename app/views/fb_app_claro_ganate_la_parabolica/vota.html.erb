@@ -1,0 +1,36 @@
+<div id="vota">
+  <%= render :partial => "fb_app_claro_ganate_la_parabolica/menu" %>
+  <div class="vota_bg">
+  	<ul>
+      <li><a href="#" regionId="1"><span>I</span> &nbsp Región de Tarapacá</a></li>
+      <li><a href="#" regionId="2"><span>II</span> &nbsp Región de Antofagasta</a></li>
+      <li><a href="#" regionId="3"><span>III</span> &nbsp Región de Atacama</a></li>
+      <li><a href="#" regionId="4"><span>IV</span> &nbsp Región de Coquimbo</a></li>
+      <li><a href="#" regionId="5"><span>V</span> &nbsp Región de Valparaiso</a></li>
+      <li><a href="#" regionId="6"><span>VI</span> &nbsp Región de O´Higgins</a></li>
+      <li><a href="#" regionId="7"><span>VII</span> &nbsp Región del Maule</a></li>
+      <li><a href="#" regionId="8"><span>VIII</span> &nbsp Región del Bío Bío</a></li>
+      <li><a href="#" regionId="9"><span>IX</span> &nbsp Región de la Araucanía</a></li>
+      <li><a href="#" regionId="10"><span>X</span> &nbsp Región de los Lagos</a></li>
+      <li><a href="#" regionId="11"><span>XI</span> &nbsp Región de Aisén</a></li>
+      <li><a href="#" regionId="12"><span>XII</span> &nbsp Región de Magallanes</a></li>
+      <li><a href="#" regionId="13"><span>XIII</span> &nbsp Región Metropolitana</a></li>
+      <li><a href="#" regionId="14"><span>XIV</span> &nbsp Región de los Ríos</a></li>
+      <li><a href="#" regionId="15"><span>XV</span> &nbsp Región de Arica y Parinacota</a></li>
+    </ul>
+  </div>
+  <%= form_tag(fb_app_claro_ganate_la_parabolica_vota_path, :method => "post", :class => "reg_form") do %>
+    <%= hidden_field_tag(:region, "", :id => :region) %>
+    <%= submit_tag :siguiente, :class => "btn_input" %>
+  <% end %>
+</div>
+<script>
+  $("li a").click(function(){
+    $("#region").val($(this).attr('regionId'));
+  });
+</script>
+
+
+
+
+

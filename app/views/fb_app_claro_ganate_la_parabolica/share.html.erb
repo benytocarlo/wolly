@@ -1,2 +1,14 @@
-<h1>FbAppClaroGanateLaParabolica#share</h1>
-<p>Find me in app/views/fb_app_claro_ganate_la_parabolica/share.html.erb</p>
+<div id="felicitaciones">
+  <%= render :partial => "layouts/facebook_javascript_sdk_share" %>
+  <%= render :partial => "fb_app_claro_ganate_la_parabolica/menu" %>
+  <div>
+      <div class="fel_hd" style="width: <%= @nivel_hd %>px;">
+        <%= image_tag("#{controller_path}/img_hd.jpg") %>
+      </div>
+      <div class="fel_px">
+        <%= image_tag("#{controller_path}/img_px.jpg") %>
+      </div>
+  </div>
+  <h2 class="fel_btn_a"><a href="#">Comparte</a></h2>
+  <h2 class="fel_btn_b"><a href="#">Invita</a></h2>
+</div>
