@@ -62,7 +62,7 @@ class FbAppPacoRabanneController < ApplicationController
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
       end
     else
-      redirect_to fb_app_brilliance_chile_concurso_path, :flash => { :error => "Faltan campos por llenar." }
+      redirect_to fb_app_paco_rabanne_concurso_path, :flash => { :error => "Faltan campos por llenar." }
     end
   end
 end

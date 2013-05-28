@@ -19,6 +19,11 @@ Wolly::Application.routes.draw do
   get "fb_app_claro_ganate_la_parabolica/share", :as => :fb_app_claro_ganate_la_parabolica_share
 
   post "fb_app_paco_rabanne"             => "fb_app_paco_rabanne#index"
+  get "fb_app_paco_rabanne/video"             => "fb_app_paco_rabanne#video"
+  get "fb_app_paco_rabanne/especificaciones"  => "fb_app_paco_rabanne#especificaciones"
+  get "fb_app_paco_rabanne/concurso"
+  post "fb_app_paco_rabanne/share"
+  get "fb_app_paco_rabanne/new_participant"   => "fb_app_paco_rabanne#new_participant"
 
   post "fb_app_example" => "fb_app_example#index"
   post "fb_app_example/canvas"
