@@ -26,9 +26,10 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   def registro
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
-      @email    = @me_from_database.facebook_email
       @rut      = @me_from_database.rut
+      @email    = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
+      @region   = @me_from_database.province
     else
       @nombre   = @me_from_graph[:name]
       @email    = @me_from_graph[:email]
