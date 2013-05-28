@@ -26,8 +26,7 @@ Wolly::Application.routes.draw do
 
   get "fb_app_paco_rabanne"             => "fb_app_paco_rabanne#index"
   get "fb_app_paco_rabanne/concurso"
-  get "fb_app_paco_rabanne/share"
-  get "fb_app_paco_rabanne/new_participant"   => "fb_app_paco_rabanne#new_participant"
+  post "fb_app_paco_rabanne/share"
   
   post "fb_app_mahindra_xuv"                  => "fb_app_mahindra_xuv#index"
   post "fb_app_mahindra_xuv/canvas"
