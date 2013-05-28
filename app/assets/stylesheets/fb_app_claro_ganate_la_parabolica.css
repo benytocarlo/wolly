@@ -1,49 +1,40 @@
+.btn_input {
+	border-radius: 5px;
+	font-family: DIN-Medium;
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_a.png) 0 0 no-repeat;
+	padding: 8px 0px 12px 10px!important;
+	width: 146px!important;
+	height: 46px;
+	color: #fff;
+	text-align: left;
+	position: absolute;
+	top: 235px;
+	left: 250px;
+}
+.btn_input:active {
+	border-radius: 5px;
+	font-family: DIN-Medium;
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_b.png) 0 0 no-repeat;
+	padding: 8px 0px 12px 10px!important;
+	width: 146px!important;
+	height: 46px;
+	color: #fff;
+	text-align: left;
+	position: absolute;
+	top: 235px;
+	left: 250px;
+}
+
 @charset "utf-8";
 /* CSS Document */
-
-@font-face {
-	font-family: 'DINCond-Black';
-	src: url('../fonts/dincondblack.eot');
-	src: url('../fonts/dincondblack.eot?#iefix') format('embedded-opentype'),
-	url('dincondblack.woff') format('woff'),
-	url('dincondblack.ttf') format('truetype'),
-	url('dincondblack.svg#dincondblack') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'DIN-RegularAlternate';
-	src: url('../fonts/dinra.eot');
-	src: url('../fonts/dinra.eot?#iefix') format('embedded-opentype'),
-	url('dinra.woff') format('woff'),
-	url('dinra.ttf') format('truetype'),
-	url('dinra.svg#dinra') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'DIN-Regular';
-	src: url('../fonts/dinr.eot');
-	src: url('../fonts/dinr.eot?#iefix') format('embedded-opentype'),
-	url('dinr.woff') format('woff'),
-	url('dinr.ttf') format('truetype'),
-	url('dinr.svg#dinr') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'DIN-Medium';
-	src: url('assets/dinm.eot');
-	src: url('assets/dinm.eot?#iefix') format('embedded-opentype'),
-	url('dinm.woff') format('woff'),
-	url('dinm.ttf') format('truetype'),
-	url('dinm.svg#dinm') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 
 html, body, nav, div, a, p, img, ul, li, footer, header, section, h1, span, time, hgroup, a img, aside, form, input, article, h2, h3, h4, label, textarea, small {
 	margin:0;
@@ -88,46 +79,6 @@ h2 a:hover {
 h2 a:visited {
 	color: #FFF;
 }
-
-.btn_input {
-	border-radius: 5px;
-	font-family: DIN-Medium;
-	text-transform: uppercase;
-	font-size: 17px;
-	letter-spacing: -1px;
-	text-decoration: none;
-	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_a.png) 0 0 no-repeat;
-	padding: 8px 0px 12px 10px!important;
-	width: 146px!important;
-	height: 46px;
-	color: #fff;
-	text-align: left;
-	position: absolute;
-	top: 235px;
-	left: 250px;
-}
-.btn_input:active {
-	border-radius: 5px;
-	font-family: DIN-Medium;
-	text-transform: uppercase;
-	font-size: 17px;
-	letter-spacing: -1px;
-	text-decoration: none;
-	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_b.png) 0 0 no-repeat;
-	padding: 8px 0px 12px 10px!important;
-	width: 146px!important;
-	height: 46px;
-	color: #fff;
-	text-align: left;
-	position: absolute;
-	top: 235px;
-	left: 250px;
-}
-
-
-
-
-
 h3 {
 	font-family: DIN-Medium;
 	text-transform: uppercase;
@@ -171,7 +122,7 @@ h3 a:visited {
 #felicitaciones {background: url(fb_app_claro_ganate_la_parabolica/bg_felicitaciones.jpg) no-repeat; width:810px; height:650px;}
 #rank {background: url(fb_app_claro_ganate_la_parabolica/bg_rank.jpg) no-repeat; width:810px; height:650px;}
 #premios {background: url(fb_app_claro_ganate_la_parabolica/bg_premios.jpg) no-repeat; width:810px; height:650px;}
-#laparabolica {background: url(fb_app_claro_ganate_la_parabolica/bg_laparabolica.jpg) no-repeat; width:810px; height:650px;}
+#laparabolica {background: url(fb_app_claro_ganate_la_parabolica/bg_laparabolica.jpg) no-repeat; width:810px; height:650px; position: absolute;}
 
 
 
@@ -222,12 +173,7 @@ h3 a:visited {
 }
 
 /*NO FAN*/
-.nofan_video {
-	padding-top: 246px;
-	padding-right: 156px;
-	padding-bottom: 111px;
-	padding-left: 134px;
-}
+.nofan_video {padding: 246px 134px;}
 
 
 /*HOME*/
@@ -245,68 +191,67 @@ h3 a:visited {
 
 /*RANKING*/
 .rank_table {
-font-family: DIN-RegularAlternate;
-position: absolute;
-top: 253px;
-left: 20px;
-width: 270px;
-background-color: #FFF;
-line-height: 14px;
-font-size: 0.9em;
--webkit-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
--moz-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
+	font-family: DIN-RegularAlternate;
+	position: absolute;
+	top: 253px;
+	left: 20px;
+	width: 270px;
+	background-color: #FFF;
+	line-height: 14px;
+	font-size: 0.9em;
+	-webkit-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
+	-moz-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
+	box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
 }
 .rank_table tr {
-cursor:pointer;
-color: #333;
+	cursor:pointer;
+	color: #333;
 }
 .rank_table tr:hover {
-background-color: #DE0209;
-color: #FFF!important;
+	background-color: #DE0209;
+	color: #FFF!important;
 }
 .rank_table td {
-padding: 5px;
-border-top: 1px solid #DDD;
+	padding: 5px;
+	border-top: 1px solid #DDD;
 }
 .rank_table td>strong {
-padding-left: 8px;
+	padding-left: 8px;
 }
 .rank_active {
-background-color: #DE0209;
-color: #FFF!important;
+	background-color: #DE0209;
+	color: #FFF!important;
 }
 .rank_btn_a {
-position: absolute;
-top: 584px;
-left: 374px;
+	position: absolute;
+	top: 584px;
+	left: 374px;
 }
 .rank_btn_b {
-position: absolute;
-top: 584px;
-left: 549px;
+	position: absolute;
+	top: 584px;
+	left: 549px;
 }
 .rank_hd {
-position: absolute;
-top: 289px;
-left: 326px;
-max-width: 421px;
-width: 25%;
-height: 237px;
-z-index: 100;
-display: block;
-overflow: hidden;
-border-right: 3px solid #030303;
+	position: absolute;
+	top: 289px;
+	left: 326px;
+	max-width: 421px;
+	width: 25%;
+	height: 237px;
+	z-index: 100;
+	display: block;
+	overflow: hidden;
+	border-right: 3px solid #030303;
 }
 .rank_px {
-position: absolute;
-top: 289px;
-left: 326px;
-width: 421px;
-height: 237px;
-z-index: 0;
+	position: absolute;
+	top: 289px;
+	left: 326px;
+	width: 421px;
+	height: 237px;
+	z-index: 0;
 }
-
 
 
 /*REGISTRO*/
@@ -379,55 +324,55 @@ z-index: 0;
 
 /*VOTA*/
 .vota_bg {
-position: absolute;
-top: 230px;
-left: 249px;
-background: #FFF;
-width: 300px;
--webkit-box-shadow: 0px 0px 6px 0px rgba(46, 46, 46, 0.51);
--moz-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
-box-shadow: 0px 0px 6px 0px rgba(46, 46, 46, 0.51);
+	position: absolute;
+	top: 230px;
+	left: 249px;
+	background: #FFF;
+	width: 300px;
+	-webkit-box-shadow: 0px 0px 6px 0px rgba(46, 46, 46, 0.51);
+	-moz-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
+	box-shadow: 0px 0px 6px 0px rgba(46, 46, 46, 0.51);
 }
 .vota_bg ul {
-font-family: DIN-RegularAlternate;
-font-size: 0.9em;
-color: #333;
-line-height: 1em;
-list-style: none;
+	font-family: DIN-RegularAlternate;
+	font-size: 0.9em;
+	color: #333;
+	line-height: 1em;
+	list-style: none;
 }
 .vota_bg ul li {
-padding: 0.4em 1em 0.4em 1.5em;
-border-top: 1px solid rgba(58, 58, 58, 0.17);
-cursor:pointer;
+	padding: 0.4em 1em 0.4em 1.5em;
+	border-top: 1px solid rgba(58, 58, 58, 0.17);
+	cursor:pointer;
 }
 .vota_bg ul li:hover{
-background-color: #333;
-color: #FFF;
+	background-color: #333;
+	color: #FFF;
 
 }
 .vota_bg ul li a {
-color:#333;
+	color:#333;
 }
 .vota_bg ul a:hover{
-color: #FFF;
+	color: #FFF;
 }
 .vota_bg ul li span {
-font-weight: bold;
+	font-weight: bold;
 }
 .vota_btn {
-position: absolute;
-top: 500px;
-left: 601px;
+	position: absolute;
+	top: 500px;
+	left: 601px;
 }
 
 /*FELICITACIONES*/
 .fel_hd {
 	position: absolute;
-	top: 286px;
-	left: 320px;
-	max-width: 434px;
-	width: 15%;
-	height: auto;
+	top: 265px;
+	left: 327px;
+	max-width: 421px;
+	width: 10%;
+	height: 237px;
 	z-index: 100;
 	display: block;
 	overflow: hidden;
@@ -435,36 +380,11 @@ left: 601px;
 }
 .fel_px {
 	position: absolute;
-	top: 286px;
-	left: 320px;
-	width: 434px;
-	height: 247px;
+	top: 265px;
+	left: 327px;
+	width: 421px;
+	height: 237px;
 	z-index: 0;
-}
-.fel_table {
-	font-family: DIN-RegularAlternate;
-	position: absolute;
-	top: 253px;
-	left: 20px;
-	width: 270px;
-	background-color: #FFF;
-	line-height: 14px;
-	font-size: 0.9em;
-	color: #333;
-	-webkit-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
-	-moz-box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
-	box-shadow: 0px 0px 6px 0px rgba(46,46,46,0.51);
-}
-.fel_table td {
-	padding: 5px;
-	border-top: 1px solid #DDD;
-}
-.fel_table td>strong {
-	padding-left: 8px;
-}
-.fel_first {
-	background-color: #DE0209;
-	color: #FFF;
 }
 .fel_btn_a {
 	position: absolute;
@@ -475,11 +395,6 @@ left: 601px;
 	position: absolute;
 	top: 572px;
 	left: 560px;
-}
-.fel_video {
-	position: absolute;
-	top: 287px;
-	left: 321px;
 }
 
 /*LA PARABOLICA*/
@@ -502,4 +417,54 @@ left: 601px;
 	position: absolute;
 	top: 336px;
 	left: 216px;	
+}
+
+
+
+
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	font-family: 'DINCond-Black';
+	src: url('dincondblack.eot');
+	src: url('dincondblack.eot?#iefix') format('embedded-opentype'),
+	url('dincondblack.woff') format('woff'),
+	url('dincondblack.ttf') format('truetype'),
+	url('dincondblack.svg#dincondblack') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DIN-RegularAlternate';
+	src: url('dinra.eot');
+	src: url('dinra.eot?#iefix') format('embedded-opentype'),
+	url('dinra.woff') format('woff'),
+	url('dinra.ttf') format('truetype'),
+	url('dinra.svg#dinra') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DIN-Regular';
+	src: url('dinr.eot');
+	src: url('dinr.eot?#iefix') format('embedded-opentype'),
+	url('dinr.woff') format('woff'),
+	url('dinr.ttf') format('truetype'),
+	url('dinr.svg#dinr') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DIN-Medium';
+	src: url('dinm.eot');
+	src: url('dinm.eot?#iefix') format('embedded-opentype'),
+	url('dinm.woff') format('woff'),
+	url('dinm.ttf') format('truetype'),
+	url('dinm.svg#dinm') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
