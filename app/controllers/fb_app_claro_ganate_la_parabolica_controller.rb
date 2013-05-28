@@ -3,7 +3,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   layout "fb_app_claro_ganate_la_parabolica"
   before_filter :parse_facebook_signed_request
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
-  before_filter :load_fanpage, :except => [:index]
+  before_filter :load_fanpage, :except => [:index, :canvas]
   helper :fb_app_claro_ganate_la_parabolica
   
   def parse_facebook_signed_request
