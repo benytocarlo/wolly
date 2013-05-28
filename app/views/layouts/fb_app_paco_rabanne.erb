@@ -1,0 +1,17 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title></title>	
+  <%= stylesheet_link_tag    "fb_app_paco_rabanne/style", :media => "screen" %>
+  <%= javascript_include_tag "fb_app_paco_rabanne" %>
+  <%= javascript_include_tag "jquery.fancybox" %>
+  <%= csrf_meta_tags %>
+</head>
+<body screen_capture_injected='true'>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
+  <div id='header'>
+  </div>
+  <%= yield %>
+  <div id='footer'></div>
+  </div>
+</html>

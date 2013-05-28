@@ -2,8 +2,9 @@
 class FbAppClaroGanateLaParabolicaController < ApplicationController
   layout "fb_app_claro_ganate_la_parabolica"
   before_filter :parse_facebook_signed_request
-  before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios]
-  before_filter :load_fanpage, :except => [:index]
+  before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
+  before_filter :load_fanpage, :except => [:index, :canvas]
+  helper :fb_app_claro_ganate_la_parabolica
   
   def parse_facebook_signed_request
     @app_id = '576458172388003' if Rails.env.development?
@@ -27,15 +28,30 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
       @rut      = @me_from_database.rut
-      @email    = @me_from_database.facebook_email
+      @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
       @region   = @me_from_database.province
     else
       @nombre   = @me_from_graph[:name]
-      @email    = @me_from_graph[:email]
+      @correo    = @me_from_graph[:email]
       @rut      = ""
       @telefono = ""
     end    
+  end
+
+  def procesar_registro
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:region].present?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :province => params[:region])
+        # Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+      else
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => params[:nombre], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :province => params[:region])
+        # Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+      end
+      redirect_to fb_app_claro_ganate_la_parabolica_pregunta_path
+    else
+      redirect_to fb_app_claro_ganate_la_parabolica_registro_path, :flash => { :error => "Faltan campos por llenar." }
+    end
   end
 
   def canvas
@@ -72,9 +88,24 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   def bases
   end
 
+  def pregunta
+  end
+
+  def vota
+  end
+  
+  def procesar_voto
+    redirect_to fb_app_claro_ganate_la_parabolica_share_path
+  end
+
   def share
+    @nivel_hd = porcentaje_a_px(90)
   end
   
   def laparabolica
+  end
+  
+  def porcentaje_a_px(porcentaje)
+    porcentaje = porcentaje * 434 / 100
   end
 end
