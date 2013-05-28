@@ -3,11 +3,11 @@
     $("#fb_app_login").click(function(){
       FB.login(function(response){
         if (response.authResponse){
-          location.href = '<%= fb_app_brilliance_chile_concurso_path %>';
+          location.href = '<%= fb_app_paco_rabanne_concurso_path %>';
         }
       },{scope:'<%= @scope %>'});
     });
   });
 </script>
 <h1>Brilliance Chile | Index</h1>
-<%= link_to "PARTICIPAR", fb_app_brilliance_chile_concurso_path, :id => :fb_app_login, :href => '#' %>
+<%= link_to "PARTICIPAR", fb_app_paco_rabanne_concurso_path, :id => :fb_app_login, :href => '#' %>
