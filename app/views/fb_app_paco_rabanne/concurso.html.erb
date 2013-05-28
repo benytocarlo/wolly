@@ -1,15 +1,172 @@
+<%= javascript_include_tag "jquery.validate" %>
+<script type="text/javascript">
+/////////// validador Rut ////////////////
+	$.validator.addMethod(
+		"valrut",
+		function(rutvalue) {
+			return validarut(rutvalue);
+		},
+		"Rut incorrecto"
+	);
+
+	function validarut(rut){
+		if (rut.length<9)
+		return(false)
+
+		i1=rut.indexOf("-");
+		dv=rut.substr(i1+1);
+		dv=dv.toUpperCase();
+		nu=rut.substr(0,i1);
+
+		cnt=0;
+		suma=0;
+		for (i=nu.length-1; i>=0; i--)
+		{
+		dig=nu.substr(i,1);
+		fc=cnt+2;
+		suma += parseInt(dig)*fc;
+		cnt=(cnt+1) % 6;
+		}
+		dvok=11-(suma%11);
+		if (dvok==11) dvokstr="0";
+		if (dvok==10) dvokstr="K";
+		if ((dvok!=11) && (dvok!=10)) dvokstr=""+dvok;
+
+		if (dvokstr==dv)
+		return(true);
+		else
+		return(false);
+	}
+
+	function formato_rut(texto, activo) { 
+	var invertido = ""; 
+	var dtexto = ""; 
+	var cnt = 0; 
+	var i=0; 
+	var j=0; 
+	var largo = "";     
+		if (activo) { 
+			  texto = formato_rut(texto, false) 
+			  largo = texto.length; 
+			  for ( i=(largo-1),j=0; i>=0; i--,j++ ) 
+				invertido = invertido + texto.charAt(i);           
+			  dtexto = dtexto + invertido.charAt(0); 
+			  dtexto = dtexto + '-';           
+			  for ( i=1,j=2; i<largo; i++,j++ ) { 
+				if ( cnt == 3 ) { 
+				  dtexto = dtexto + ''; 
+				  j++; 
+				  dtexto = dtexto + invertido.charAt(i); 
+				  cnt = 1; 
+				} else {  
+				  dtexto = dtexto + invertido.charAt(i); 
+				  cnt++; 
+				} 
+			  } 
+			  invertido = ""; 
+			  for ( i=(dtexto.length-1),j=0; i>=0; i--,j++ ) 
+				invertido = invertido + dtexto.charAt(i); 
+			  if (invertido == '-') invertido = "" 
+			  texto = invertido; 
+		} else { 
+			var tmpstr = ""; 
+			for ( i=0; i < texto.length ; i++ ) 
+			if ( texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-' ) 
+				tmpstr = tmpstr + texto.charAt(i); 
+			texto = tmpstr; 
+		} 
+		return texto;
+	}
+ 	//////////////////////////////
+	function validanum(e) {
+	    tecla = (document.all) ? e.keyCode : e.which;
+	    if (tecla==8) return true;
+	    patron =/\d/;
+	    te = String.fromCharCode(tecla);
+	    return patron.test(te);
+	}
+
+    function validatxt(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       especiales = [8,37,39,46];
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+
+	$(document).ready(function(){
+		$("#btn_enviar").click(function(){
+			$("#registro").submit();
+		});
+
+		$("#registro").validate({
+			rules: {
+				codigo_boleta: {
+					required: true
+				},
+				nombre: {
+					required: true
+				},
+				apellido: {
+					required: true
+				},
+				region: {
+					required: true
+				},
+				comuna: {
+					required: true
+				},
+				day: {
+					required: true
+				},
+				month: {
+					required: true
+				},
+				year: {
+					required: true
+				},
+				direccion: {
+					required: true
+				},
+				rut: {
+					required: true,
+					valrut: $('#rut').val()
+				},
+				celular: {
+					required: true,
+				},
+				email: {
+					required: true,
+					email: true
+				}	
+			}
+		});
+	});
+</script>
 <div class="wrapper registro">
 	<div class='content'>
 		<center>
-			<form class="form" id="registro" method="post" action="#" accept-charset="UTF-8">
-				<input value="put" name="_method" type="hidden" />
+			<%= form_tag(fb_app_paco_rabanne_share_path,:id=>:registro, :class=>:form,:method => "post") do  %>
+				<!--input value="put" name="_method" type="hidden" /-->
 
 				<input value="" id="participant_facebook_id" name="participant[facebook_id]" type="hidden" />
 
-				<input value="" id="codigo_boleta" class="name" name="name" type="text">
-				<input value="" id="nombre" class="name" name="name" type="text">
-				<input value="" id="apellido" class="name" name="name" type="text">
-				<select id="region" class="alert">
+				<input value="" id="codigo_boleta" class="name" name="codigo_boleta" type="text" onkeypress="return validanum(event)">
+				<input value="" id="nombre" class="name" name="nombre" type="text" onkeypress="return validatxt(event)">
+				<input value="" id="apellido" class="name" name="apellido" type="text" onkeypress="return validatxt(event)">
+				<select id="region" name ="region" class="alert">
+					<option value="">seleccione region</option>
 					<option>Region 1</option>
 					<option>Region 2</option>
 					<option>Region 3</option>
@@ -18,7 +175,8 @@
 					<option>Region 6</option>
 					<option>Region 7</option>
 				</select>
-				<select id="comuna">
+				<select id="comuna" name="comuna">
+					<option value="">seleccione comuna</option>
 					<option>Comuna 1</option>
 					<option>Comuna 2</option>
 					<option>Comuna 3</option>
@@ -27,8 +185,9 @@
 					<option>Comuna 6</option>
 					<option>Comuna 7</option>
 				</select>
-				<input value="" id="direccion" class="name" name="name" type="text">
-				<select id="day">
+				<input value="" id="direccion" class="name" name="direccion" type="text">
+				<select id="day" name="day">
+					<option value="">seleccione dia</option>
 					<option>Dia 1</option>
 					<option>Dia 2</option>
 					<option>Dia 3</option>
@@ -37,7 +196,8 @@
 					<option>Dia 6</option>
 					<option>Dia 7</option>
 				</select>
-				<select id="month">
+				<select id="month" name="month">
+					<option value="">seleccione mes</option>
 					<option>Mes 1</option>
 					<option>Mes 2</option>
 					<option>Mes 3</option>
@@ -46,7 +206,8 @@
 					<option>Mes 6</option>
 					<option>Mes 7</option>
 				</select>
-				<select id="year">
+				<select id="year" name="year">
+					<option value="">seleccione año</option>
 					<option>Año 1</option>
 					<option>Año 2</option>
 					<option>Año 3</option>
@@ -55,14 +216,14 @@
 					<option>Año 6</option>
 					<option>Año 7</option>
 				</select>
-				<input value="" id="email" class="name alert" name="name" type="text">
-				<input value="" id="rut" class="name" name="name" type="text">
-				<input value="" id="celular" class="name" name="name" type="text">
+				<input value="" id="email" class="name alert" name="email" type="text">
+				<input value="" id="rut" class="name" name="rut" type="text" onkeyup="this.value = formato_rut(this.value, true)" maxlength="10">
+				<input value="" id="celular" class="name" name="celular" type="text" onkeypress="return validanum(event)">
 
-				<input value="" id="male" class="name" name="name" type="radio">
-				<input value="" id="female" class="name" name="name" type="radio">
-			</form>
-			<a class="button_go button_position_2" href="exito.html">Enviar</a> 	      
+				<input value="male" id="male" class="name" name="sexo" type="radio" checked>
+				<input value="female" id="female" class="name" name="sexo" type="radio">
+			<% end %>
+			<a id="btn_enviar" class="button_go button_position_2" href="javascript:void(0);">Enviar</a> 	      
 		</center>
 	</div>
 </div>
