@@ -1,5 +1,15 @@
 <script type="text/javascript" charset="utf-8">
   $(window).load(function(){
+	$(".various").fancybox({
+		fitToView	: false,
+		width		: 727,
+		height		: 447,
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+	
     $("#fb_app_login").click(function(){
       FB.login(function(response){
         if (response.authResponse){
@@ -9,5 +19,12 @@
     });
   });
 </script>
-<h1>Brilliance Chile | Index</h1>
-<%= link_to "PARTICIPAR", fb_app_paco_rabanne_concurso_path, :id => :fb_app_login, :href => '#' %>
+<div class="wrapper inicio">
+  <div class='content'>
+    <center>
+  	  <a href="#" class="click_video various"></a>
+  	  <%= link_to "Participar", fb_app_paco_rabanne_concurso_path, :id => :fb_app_login, :class => "button_go button_position",:href => 'javascript:void(0);' %>
+ 	    <!--a class="button_go button_position" href="registro.html">Participar</a-->
+    </center>
+  </div>
+</div>

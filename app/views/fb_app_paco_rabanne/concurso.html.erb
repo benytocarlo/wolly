@@ -1,11 +1,76 @@
-<h1 id="concurso">Brilliance - Concurso</h1>
+<div class="wrapper registro">
+	<div class='content'>
+		<center>
+			<form class="form" id="registro" method="post" action="#" accept-charset="UTF-8">
+				<input value="put" name="_method" type="hidden" />
 
-<p id="error"><%= flash[:error] %></p>
-<p id="notice"><%= flash[:notice] %></p>
-<%= form_tag(fb_app_paco_rabanne_share_path, :method => "post") do  %>
-  <%= text_field_tag(:nombre, @nombre) %>
-  <%= text_field_tag(:rut, @rut) %>
-  <%= text_field_tag(:correo, @email) %>
-  <%= text_field_tag(:telefono, @telefono) %>
-  <%= submit_tag("Participa") %>
-<% end %>
+				<input value="" id="participant_facebook_id" name="participant[facebook_id]" type="hidden" />
+
+				<input value="" id="codigo_boleta" class="name" name="name" type="text">
+				<input value="" id="nombre" class="name" name="name" type="text">
+				<input value="" id="apellido" class="name" name="name" type="text">
+				<select id="region" class="alert">
+					<option>Region 1</option>
+					<option>Region 2</option>
+					<option>Region 3</option>
+					<option>Region 4</option>
+					<option>Region 5</option>
+					<option>Region 6</option>
+					<option>Region 7</option>
+				</select>
+				<select id="comuna">
+					<option>Comuna 1</option>
+					<option>Comuna 2</option>
+					<option>Comuna 3</option>
+					<option>Comuna 4</option>
+					<option>Comuna 5</option>
+					<option>Comuna 6</option>
+					<option>Comuna 7</option>
+				</select>
+				<input value="" id="direccion" class="name" name="name" type="text">
+				<select id="day">
+					<option>Dia 1</option>
+					<option>Dia 2</option>
+					<option>Dia 3</option>
+					<option>Dia 4</option>
+					<option>Dia 5</option>
+					<option>Dia 6</option>
+					<option>Dia 7</option>
+				</select>
+				<select id="month">
+					<option>Mes 1</option>
+					<option>Mes 2</option>
+					<option>Mes 3</option>
+					<option>Mes 4</option>
+					<option>Mes 5</option>
+					<option>Mes 6</option>
+					<option>Mes 7</option>
+				</select>
+				<select id="year">
+					<option>Año 1</option>
+					<option>Año 2</option>
+					<option>Año 3</option>
+					<option>Año 4</option>
+					<option>Año 5</option>
+					<option>Año 6</option>
+					<option>Año 7</option>
+				</select>
+				<input value="" id="email" class="name alert" name="name" type="text">
+				<input value="" id="rut" class="name" name="name" type="text">
+				<input value="" id="celular" class="name" name="name" type="text">
+
+				<input value="" id="male" class="name" name="name" type="radio">
+				<input value="" id="female" class="name" name="name" type="radio">
+			</form>
+			<a class="button_go button_position_2" href="exito.html">Enviar</a> 	      
+		</center>
+	</div>
+</div>
+<script>
+	$(document).ready(function(){
+		$(".select_a").click(function() {
+			$(".select_a").removeClass("ON");
+			$(this).addClass("ON"); 
+		});
+	});
+</script>
