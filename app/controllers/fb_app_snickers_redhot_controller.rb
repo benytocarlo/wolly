@@ -4,7 +4,7 @@ class FbAppSnickersRedhotController < ApplicationController
   before_filter :parse_facebook_signed_request, :except => [:new_participant]
 
   def parse_facebook_signed_request
-    @app_id = '452970131461794' if Rails.env.development?
+    @app_id = '157469834435836' if Rails.env.development?
     @app_id = '460929383989443' if Rails.env.production?
     @app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret
