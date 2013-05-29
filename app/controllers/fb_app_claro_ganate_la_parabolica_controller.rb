@@ -4,8 +4,9 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request
   before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
+  before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
-  before_filter :load_fanpage, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
+  before_filter :load_fanpage
 
   def index
     if session[:signed_request][:page][:liked]
@@ -139,13 +140,15 @@ private
   #
   def parse_facebook_cookies
     @facebook_cookies ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
-    load_graph_api
   end
 
   # Crea un objeto de tipo Graph con el que se puede conversar con Facebook.
   #
   def load_graph_api
-    @access_token = @facebook_cookies[:access_token]
-    @graph = Koala::Facebook::API.new(@access_token)
+    if @access_token = @facebook_cookies[:access_token]
+      @graph = Koala::Facebook::API.new(@access_token)
+    else
+      @graph = Koala::Facebook::API.new
+    end
   end
 end
