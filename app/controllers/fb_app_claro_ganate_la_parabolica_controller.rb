@@ -145,7 +145,7 @@ private
   # Crea un objeto de tipo Graph con el que se puede conversar con Facebook.
   #
   def load_graph_api
-    unless @facebook_cookies.nil? 
+    unless session[:facebook_cookies].nil? 
       @access_token = session[:facebook_cookies][:access_token]
       @graph = Koala::Facebook::API.new(@access_token)
     else
