@@ -153,6 +153,14 @@
 			}
 		});
 	});
+
+	function check(event) {
+      $.ajax({url: 'comunas',type: 'get',data: "type="+event,
+        success: function( resp ) {
+          $("#comuna").html(resp);
+        }
+      });
+    }
 </script>
 <div class="wrapper registro">
 	<div class='content'>
@@ -162,25 +170,8 @@
 				<input value="" id="codigo_boleta" class="name" name="codigo_boleta" type="text" >
 				<input value="" id="nombre" class="name" name="nombre" type="text" onkeypress="return validatxt(event)">
 				<input value="" id="apellido" class="name" name="apellido" type="text" onkeypress="return validatxt(event)">
-				<select id="region" name ="region" class="alert">
-					<option value="">seleccione region</option>
-					<option>Region 1</option>
-					<option>Region 2</option>
-					<option>Region 3</option>
-					<option>Region 4</option>
-					<option>Region 5</option>
-					<option>Region 6</option>
-					<option>Region 7</option>
-				</select>
+				<%= select_tag :region,options_for_select(@regiones),:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%>
 				<select id="comuna" name="comuna">
-					<option value="">seleccione comuna</option>
-					<option>Comuna 1</option>
-					<option>Comuna 2</option>
-					<option>Comuna 3</option>
-					<option>Comuna 4</option>
-					<option>Comuna 5</option>
-					<option>Comuna 6</option>
-					<option>Comuna 7</option>
 				</select>
 				<input value="" id="direccion" class="name" name="direccion" type="text">
 				<select id="day" name="day">
