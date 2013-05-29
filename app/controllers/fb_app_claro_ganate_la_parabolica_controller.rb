@@ -5,7 +5,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   before_filter :parse_facebook_signed_request
   before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
-  before_filter :load_fanpage, :except => [:index, :canvas]
+  before_filter :load_fanpage, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
 
   def index
     if session[:signed_request][:page][:liked]
