@@ -139,14 +139,14 @@ private
   # no encontrará las Cookies y dará error.
   #
   def parse_facebook_cookies
-    @facebook_cookies ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
+    session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
   end
 
   # Crea un objeto de tipo Graph con el que se puede conversar con Facebook.
   #
   def load_graph_api
     unless @facebook_cookies.nil? 
-      @access_token = @facebook_cookies[:access_token]
+      @access_token = session[:facebook_cookies][:access_token]
       @graph = Koala::Facebook::API.new(@access_token)
     else
       @graph = Koala::Facebook::API.new
