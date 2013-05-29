@@ -1,20 +1,12 @@
 #coding: utf-8
 class FbAppClaroGanateLaParabolicaController < ApplicationController
   layout "fb_app_claro_ganate_la_parabolica"
+  before_filter :load_application_data
   before_filter :parse_facebook_signed_request
+  before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
+  before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
-  before_filter :load_fanpage, :except => [:index, :canvas]
-  helper :fb_app_claro_ganate_la_parabolica
-  
-  def parse_facebook_signed_request
-    @app_id = '576458172388003' if Rails.env.development?
-    @app_id = '249879041820433' if Rails.env.production?
-    @app = Application.find_by_fb_app_idnumber @app_id
-    @app_secret = @app.fb_app_secret
-    @scope = 'email,read_stream,publish_stream,user_photos'
-    session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
-    @graph = Koala::Facebook::API.new(session[:signed_request][:oauth_token])
-  end
+  before_filter :load_fanpage
 
   def index
     if session[:signed_request][:page][:liked]
@@ -121,5 +113,43 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   
   def porcentaje_a_px(porcentaje)
     porcentaje = porcentaje * 434 / 100
+  end
+  
+private
+
+  # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
+  #
+  def load_application_data
+    @app_id = '576458172388003' if Rails.env.development?
+    @app_id = '249879041820433' if Rails.env.production?
+    @app = Application.find_by_fb_app_idnumber @app_id
+    @app_secret = @app.fb_app_secret    
+    @scope = 'email,read_stream,publish_stream,user_photos'
+  end
+
+  # Guarda el Signed Request en una variable de sesión de tipo Hash.
+  #
+  def parse_facebook_signed_request
+    session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
+  end
+
+  # Guarda las Cookies del usuario en @facebook_coookies.
+  # Este método se debe llamar sólo cuando la aplicación
+  # haya sido aceptada por el usuario, de lo contrario
+  # no encontrará las Cookies y dará error.
+  #
+  def parse_facebook_cookies
+    session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
+  end
+
+  # Crea un objeto de tipo Graph con el que se puede conversar con Facebook.
+  #
+  def load_graph_api
+    unless session[:facebook_cookies].nil? 
+      @access_token = session[:facebook_cookies][:access_token]
+      @graph = Koala::Facebook::API.new(@access_token)
+    else
+      @graph = Koala::Facebook::API.new
+    end
   end
 end

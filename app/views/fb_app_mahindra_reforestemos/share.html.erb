@@ -1,0 +1,31 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(".sharefb").click(function(){
+      FB.ui({
+          method: 'feed',
+          name: '<%= @app.name %>',
+          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
+          picture: 'http://wolly.herokuapp.com/images/<%= controller_path %>/75x75.jpeg',
+          caption: '<%= @app.share_caption %>',
+          description: '<%= @app.share_description %>'
+        },
+        function(response) {
+        
+        });
+      return false;
+    });
+    $(".invitar").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '<%= @app.invite_message %>',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '50'
+      });
+    });
+  });
+</script>
+
+
+<h1>Brilliance Chile | Gracias</h1>
+<%= link_to "", "#", :class => 'compartir sharefb' %>
+<%= link_to "", "#", :class => 'invitar' %>
