@@ -33,7 +33,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
       @region   = @me_from_database.province
     else
       @nombre   = @me_from_graph[:name]
-      @correo    = @me_from_graph[:email]
+      @correo   = @me_from_graph[:email]
       @rut      = ""
       @telefono = ""
     end    
@@ -96,7 +96,19 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   end
   
   def procesar_voto
-    redirect_to fb_app_claro_ganate_la_parabolica_share_path
+    if params[:votacion].present?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        if @participation = Participation.find_by_participant_id(@me_from_database.id)
+          redirect_to fb_app_claro_ganate_la_parabolica_path
+        else
+          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "#{params[:voto]}")  
+        end
+      else
+        redirect_to fb_app_claro_ganate_la_parabolica_path 
+      end
+    else
+      redirect_to fb_app_claro_ganate_la_parabolica_registro_path, :flash => { :error => "Faltan campos por llenar." }
+    end
   end
 
   def share
