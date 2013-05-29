@@ -2,6 +2,7 @@
 class FbAppClaroGanateLaParabolicaController < ApplicationController
   layout "fb_app_claro_ganate_la_parabolica"
   before_filter :parse_facebook_signed_request
+  before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_fanpage, :except => [:index, :canvas]
   helper :fb_app_claro_ganate_la_parabolica
@@ -13,11 +14,13 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     @app_secret = @app.fb_app_secret
     @scope = 'email,read_stream,publish_stream,user_photos'
     session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
+  end
+  
+  def parse_facebook_cookies
     @facebook_cookies ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
     @access_token = @facebook_cookies[:access_token]
-    @graph = Koala::Facebook::API.new(@access_token)
-    
     logger.debug "DEV DICE: #{@access_token}"
+    @graph = Koala::Facebook::API.new(@access_token)
   end
 
   def index
