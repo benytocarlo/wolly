@@ -273,6 +273,21 @@ h3 a:visited {
 	width: 270px;
 	padding: 10px;
 }
+
+.reg_form select {
+    border: 1px solid #E4E4E4;
+    border-radius: 5px;
+    width: 293px;
+    padding: 10px;
+    color: #333;
+    font-family: DIN-RegularAlternate;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    height: 40px;
+}
+
 .reg_form span {
 	display:none;
 	position: absolute;
@@ -466,3 +481,4 @@ left: 601px;
 	font-weight: normal;
 	font-style: normal;
 }
+
