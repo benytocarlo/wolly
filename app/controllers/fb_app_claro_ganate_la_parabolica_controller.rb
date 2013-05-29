@@ -15,7 +15,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
     @graph = Koala::Facebook::API.new(session[:signed_request][:oauth_token])
     
-    logger.debug "DEV DICE: #{session[:signed_request][:oauth_token]}"
+    logger.debug "DEV DICE: #{session[:signed_request]}"
   end
 
   def index
