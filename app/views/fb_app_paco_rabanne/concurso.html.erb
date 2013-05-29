@@ -158,11 +158,8 @@
 	<div class='content'>
 		<center>
 			<%= form_tag(fb_app_paco_rabanne_share_path,:id=>:registro, :class=>:form,:method => "post") do  %>
-				<!--input value="put" name="_method" type="hidden" /-->
 
-				<input value="" id="participant_facebook_id" name="participant[facebook_id]" type="hidden" />
-
-				<input value="" id="codigo_boleta" class="name" name="codigo_boleta" type="text" onkeypress="return validanum(event)">
+				<input value="" id="codigo_boleta" class="name" name="codigo_boleta" type="text" >
 				<input value="" id="nombre" class="name" name="nombre" type="text" onkeypress="return validatxt(event)">
 				<input value="" id="apellido" class="name" name="apellido" type="text" onkeypress="return validatxt(event)">
 				<select id="region" name ="region" class="alert">
