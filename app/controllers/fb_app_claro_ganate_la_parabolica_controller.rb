@@ -13,9 +13,11 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     @app_secret = @app.fb_app_secret
     @scope = 'email,read_stream,publish_stream,user_photos'
     session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
-    @graph = Koala::Facebook::API.new(session[:signed_request][:oauth_token])
+    @facebook_cookies ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
+    @access_token = @facebook_cookies[:access_token]
+    @graph = Koala::Facebook::API.new(@access_token)
     
-    logger.debug "DEV DICE: #{session[:signed_request]}"
+    logger.debug "DEV DICE: #{@access_token}"
   end
 
   def index
