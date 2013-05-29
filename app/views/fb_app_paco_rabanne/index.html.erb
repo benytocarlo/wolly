@@ -1,29 +1,21 @@
 <script type="text/javascript" charset="utf-8">
-  $(window).load(function(){
-	$(".various").fancybox({
-		fitToView	: false,
-		width		: 727,
-		height		: 447,
-		autoSize	: false,
-		closeClick	: false,
-		openEffect	: 'none',
-		closeEffect	: 'none'
-	});
-	
-    $("#fb_app_login").click(function(){
-      FB.login(function(response){
-        if (response.authResponse){
-          location.href = '<%= fb_app_paco_rabanne_concurso_path %>';
-        }
-      },{scope:'<%= @scope %>'});
-    });
+$(document).ready(function() {
+  $(".various").fancybox({
+    fitToView : false,
+    width   : 577,
+    height    : 334,
+    autoSize  : false,
+    closeClick  : false,
+    openEffect  : 'none',
+    closeEffect : 'none'
   });
+});
 </script>
 <div class="wrapper inicio">
   <div class='content'>
     <center>
-  	  <a href="#" class="click_video various"></a>
-  	  <%= link_to "Participar", fb_app_paco_rabanne_concurso_path, :id => :fb_app_login, :class => "button_go button_position",:href => 'javascript:void(0);' %>
+  	  <a href="/documents/video_paco_rabanne.html" class="click_video various" data-fancybox-type="iframe"></a>
+  	  <%= link_to "Participar", fb_app_paco_rabanne_concurso_path, :id => :fb_app_login, :class => "button_go button_position",:href => 'concurso' %>
  	    <!--a class="button_go button_position" href="registro.html">Participar</a-->
     </center>
   </div>

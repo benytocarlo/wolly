@@ -98,10 +98,11 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   def procesar_voto
     if params[:votacion].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        if @participation = Participation.find_by_participant_id(@me_from_database.id)
+        if @participation = Participation.find(:first, :conditions => ["application_id = #{@app.id} AND participant_id = #{@me_from_database.id}"])
           redirect_to fb_app_claro_ganate_la_parabolica_path
         else
-          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "#{params[:voto]}")  
+          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "#{params[:votacion]}")
+          redirect_to fb_app_claro_ganate_la_parabolica_share_path
         end
       else
         redirect_to fb_app_claro_ganate_la_parabolica_path 
