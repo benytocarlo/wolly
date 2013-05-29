@@ -176,33 +176,30 @@
 				<input value="" id="direccion" class="name" name="direccion" type="text">
 				<select id="day" name="day">
 					<option value="">seleccione dia</option>
-					<option>Dia 1</option>
-					<option>Dia 2</option>
-					<option>Dia 3</option>
-					<option>Dia 4</option>
-					<option>Dia 5</option>
-					<option>Dia 6</option>
-					<option>Dia 7</option>
+					<% (1..31).each do |num| %>
+						<option value="<%= num %>"><%= num %></option>
+					<% end %>
 				</select>
 				<select id="month" name="month">
 					<option value="">seleccione mes</option>
-					<option>Mes 1</option>
-					<option>Mes 2</option>
-					<option>Mes 3</option>
-					<option>Mes 4</option>
-					<option>Mes 5</option>
-					<option>Mes 6</option>
-					<option>Mes 7</option>
+					<option value"01">Enero</option>
+					<option value"02">Febrero</option>
+					<option value"03">Marzo</option>
+					<option value"04">Abril</option>
+					<option value"05">Mayo</option>
+					<option value"06">Junio</option>
+					<option value"07">Julio</option>
+					<option value"08">Agosto</option>
+					<option value"09">Septiembre</option>
+					<option value"10">Ocutubre</option>
+					<option value"11">Noviembre</option>
+					<option value"12">Diciembre</option>
 				</select>
 				<select id="year" name="year">
 					<option value="">seleccione año</option>
-					<option>Año 1</option>
-					<option>Año 2</option>
-					<option>Año 3</option>
-					<option>Año 4</option>
-					<option>Año 5</option>
-					<option>Año 6</option>
-					<option>Año 7</option>
+					<% (1950..2013).each do |num| %>
+						<option value="<%= num %>"><%= num %></option>
+					<% end %>
 				</select>
 				<input value="" id="email" class="name alert" name="email" type="text">
 				<input value="" id="rut" class="name" name="rut" type="text" onkeyup="this.value = formato_rut(this.value, true)" maxlength="10">

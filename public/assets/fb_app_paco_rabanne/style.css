@@ -179,3 +179,8 @@ margin-top: 11px;
 .form strong{
 	display: none!important;
 }
+
+#header {width: 1024px; margin: auto; position: relative;}
+#header .fb-like { position: absolute; top: 14px; right: 0px}
+
+.social_share { position: absolute; top:558px; right: 122px }
