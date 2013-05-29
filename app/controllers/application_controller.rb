@@ -76,6 +76,4 @@ class ApplicationController < ActionController::Base
       return ['Santiago','Independencia','Conchalí','Huechuraba','Recoleta','Providencia','Vitacura','Lo Barnechea','Las Condes','Ñuñoa','La Reina','Macul','Peñalolén','La Florida','San Joaquín','La Granja','La Pintana','San Ramón','San Miguel','La Cisterna','El Bosque','Pedro Aguirre Cerda','Lo Espejo','Estación Central','Cerrillos','Maipú','Quinta Normal','Lo Prado','Pudahuel','Cerro Navia','Renca','Quilicura','Colina','Lampa','Tiltil','Puente Alto','San José de Maipo','Pirque','San Bernardo','Buin','Paine','Calera de Tango','Melipilla','María Pinto','Curacaví','Alhué','San Pedro','Talagante','Peñaflor','Isla de Maipo','El Monte','Padre Hurtado']
     end
   end
-  
-    
 end
