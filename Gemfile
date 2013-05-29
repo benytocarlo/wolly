@@ -6,6 +6,7 @@ gem 'country-select'
 gem 'newrelic_rpm'
 
 group :development do
+  gem 'annotate', '~> 2.5.0'
   gem 'sqlite3'
 end
 
