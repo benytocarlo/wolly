@@ -114,7 +114,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     porcentaje = porcentaje * 434 / 100
   end
   
-
+private
 
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
   #
