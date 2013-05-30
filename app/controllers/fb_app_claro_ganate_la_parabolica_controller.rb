@@ -6,10 +6,10 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
-  before_filter :load_fanpage
+  before_filter :load_fanpage, :except => [:canvas]
 
   def index
-    if session[:signed_request][:page][:liked]
+    if session[:signed_request][:page][:liked]      
       render :index
     else
       render :nofans
@@ -35,21 +35,13 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:region].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
         @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :province => params[:region])
-        # Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
       else
         @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => params[:nombre], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :province => params[:region])
-        # Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
       end
       redirect_to fb_app_claro_ganate_la_parabolica_pregunta_path
     else
       redirect_to fb_app_claro_ganate_la_parabolica_registro_path, :flash => { :error => "Faltan campos por llenar." }
     end
-  end
-
-  def canvas
-    @page_url = "https://www.facebook.com/hmgdev/app_#{@app_id}" if Rails.env.development?
-    @page_url = "https://www.facebook.com/clarochile/app_#{@app_id}" if Rails.env.production?
-    render :redirect
   end
 
   def premios

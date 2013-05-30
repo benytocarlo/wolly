@@ -85,7 +85,7 @@ input, select{
 -moz-border-radius: 4px;
 border-radius: 4px;
 }
-input[type='text']{width:170px; height:28px;}
+input[type='text']{width:170px; height:35px;}
 select { width:173px; height:35px; padding:2px; border:none;}
 
 #codigo_boleta {position: absolute; top: 34px; left: 16px; }
