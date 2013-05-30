@@ -7,6 +7,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_fanpage, :except => [:canvas]
+  include ApplicationHelper
 
   def index
     if session[:signed_request][:page][:liked]      
