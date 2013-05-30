@@ -17,6 +17,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   end
   
   def registro
+    regions_of_chile # Carga en @regions todas las regiones de Chile.
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
       @rut      = @me_from_database.rut
