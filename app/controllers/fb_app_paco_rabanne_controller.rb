@@ -52,7 +52,7 @@ private
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
   #
   def load_application_data
-    @app_id = '139754886215020'
+    @app_id = 'app01'
     @app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
     @scope = 'email,read_stream,publish_stream,user_photos'

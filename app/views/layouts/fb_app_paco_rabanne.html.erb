@@ -6,12 +6,12 @@
   <%= javascript_include_tag "fb_app_paco_rabanne" %>
   <%= csrf_meta_tags %>
 </head>
-<body screen_capture_injected='true'>
+<body>
   <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
+  <%= render "layouts/ga" %>
   <div id='header'>
     <div class="fb-like" data-href="https://www.facebook.com/Million?fref=ts" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-    </div>
-    <%= yield %>
-    <div id='footer'></div>
   </div>
+  <%= yield %>
+  <div id='footer'></div>
 </html>
