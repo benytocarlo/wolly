@@ -1,6 +1,14 @@
 #coding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  # Este método debe ser llamado cuando alguien trate de cargar la aplicación en un canvas.
+  #  
+  def canvas
+    @page_url = "#{@app.fanpage_link}/app_#{@app_id}"
+    render :redirect
+  end
+
 private
   # Carga el fanpage en @fanpage con tipo Hash.
   #
@@ -18,6 +26,7 @@ private
   #
   def parse_facebook_signed_request
     session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
+    logger.debug "[DEBUG] Se ha creado la variable de sesión Signed Request."
   end
 
   # Guarda las Cookies del usuario en @facebook_coookies. Este método se debe llamar sólo cuando la aplicación
@@ -25,6 +34,7 @@ private
   #
   def parse_facebook_cookies
     session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
+    logger.debug "[DEBUG] Se ha creado la variable de sesión Facebook Cookies."
   end
 
   # Instancia un objeto de clase Koala con el que se puede conversar con Facebook: @graph.
