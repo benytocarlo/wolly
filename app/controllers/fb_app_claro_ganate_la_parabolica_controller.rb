@@ -7,6 +7,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_fanpage, :except => [:canvas]
+  include ApplicationHelper
 
   def index
     if session[:signed_request][:page][:liked]      
@@ -17,6 +18,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   end
   
   def registro
+    regions_of_chile # Carga en @regions todas las regiones de Chile.
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
       @rut      = @me_from_database.rut

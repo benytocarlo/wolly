@@ -33,7 +33,7 @@
       <tr>
         <td>Región</td>
         <td>
-        <input type=text name="region" value="<%= @region %>">
+          <%= select_tag :region, options_for_select(@regiones),:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%>
         <span>x</span>
         </td>
       </tr>  
@@ -45,3 +45,12 @@
     </table>
   <% end %>
 </div>
+<script type="text/javascript" charset="utf-8">
+  function check(event) {
+    $.ajax({url: 'comunas',type: 'get',data: "type="+event,
+      success: function( resp ) {
+        $("#comuna").html(resp);
+      }
+    });
+  }
+</script>
