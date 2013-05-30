@@ -1,38 +1,3 @@
-.btn_input {
-	border-radius: 5px;
-	font-family: DIN-Medium;
-	text-transform: uppercase;
-	font-size: 17px;
-	letter-spacing: -1px;
-	text-decoration: none;
-	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_a.png) 0 0 no-repeat;
-	padding: 8px 0px 12px 10px!important;
-	width: 146px!important;
-	height: 46px;
-	color: #fff;
-	text-align: left;
-	position: absolute;
-	top: 235px;
-	left: 250px;
-}
-.btn_input:active {
-	border-radius: 5px;
-	font-family: DIN-Medium;
-	text-transform: uppercase;
-	font-size: 17px;
-	letter-spacing: -1px;
-	text-decoration: none;
-	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_b.png) 0 0 no-repeat;
-	padding: 8px 0px 12px 10px!important;
-	width: 146px!important;
-	height: 46px;
-	color: #fff;
-	text-align: left;
-	position: absolute;
-	top: 235px;
-	left: 250px;
-}
-
 @charset "utf-8";
 /* CSS Document */
 
@@ -480,3 +445,37 @@ left: 601px;
 	font-style: normal;
 }
 
+.btn_input {
+	border-radius: 5px;
+	font-family: DIN-Medium;
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_a.png) 0 0 no-repeat;
+	padding: 8px 0px 12px 10px!important;
+	width: 146px!important;
+	height: 46px;
+	color: #fff;
+	text-align: left;
+	position: absolute;
+	top: 235px;
+	left: 250px;
+}
+.btn_input:active {
+	border-radius: 5px;
+	font-family: DIN-Medium;
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: -1px;
+	text-decoration: none;
+	background: url(http://wolly.herokuapp.com/assets/fb_app_claro_ganate_la_parabolica/bg_btn_b.png) 0 0 no-repeat;
+	padding: 8px 0px 12px 10px!important;
+	width: 146px!important;
+	height: 46px;
+	color: #fff;
+	text-align: left;
+	position: absolute;
+	top: 235px;
+	left: 250px;
+}
