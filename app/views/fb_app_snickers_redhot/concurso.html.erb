@@ -1,11 +1,16 @@
-<h1 id="concurso">Sernatur - Concurso</h1>
-
-<p id="error"><%= flash[:error] %></p>
-<p id="notice"><%= flash[:notice] %></p>
-<%= form_tag(fb_app_sernatur_capture_share_path, :method => "post") do  %>
-  <%= text_field_tag(:nombre, @nombre) %>
-  <%= text_field_tag(:rut, @rut) %>
-  <%= text_field_tag(:correo, @email) %>
-  <%= text_field_tag(:telefono, @telefono) %>
-  <%= submit_tag("Participa") %>
-<% end %>
+- content_for(:body_classes, "registro")
+<div class="content">
+    <center>
+      <p id="error"><%= flash[:error] %></p>
+      <p id="notice"><%= flash[:notice] %></p>
+      <%= form_tag(fb_app_sernatur_capture_share_path, :method => "post") do  %>
+        <div class="group"><%= text_field_tag(:nombre, @nombre) %></div>
+        <div class="group"><%= text_field_tag(:rut, @rut) %></div>
+        <div class="group"><%= text_field_tag(:correo, @email) %></div>
+        <div class="group"><%= text_field_tag(:telefono, @telefono) %></div>
+        <%= submit_tag("Participa") %>
+        <% end %>
+    		<a class="button_position_2" href="#"><img src="img/selecciona_amigos.png" alt="Selecciona Amigos"></a>
+        <a class="button_position_3" href="#"><img src="img/enviar.png" alt="Enviar"></a>
+    </center>
+</div>
