@@ -3,10 +3,10 @@
   <%= render :partial => "fb_app_claro_ganate_la_parabolica/menu" %>
   <table class="rank_table" border="0" cellspacing="0" cellpadding="0">
     <% @regions.each_with_index do |region,index| %>
-      <tr class=<%= "rank_first" if index == 1 %>>
+      <tr class='<%= "rank_first" if index == 1 %>' rel=<%= region[:points] %> >
         <td><strong><%= index + 1 %></strong></td>
         <td><%= region[:number] %></td>
-        <td><%= region[:name] %></li>
+        <td><%= region[:name] %></td>
       </tr>
     <% end %>
   </table>
@@ -17,3 +17,11 @@
   <h2 class="rank_btn_a"><%= link_to "Compartir", "#", :class => 'compartir sharefb' %></h2>
   <h2 class="rank_btn_b"><%= link_to "Invitar", "#", :class => 'invitar' %></h2>
 </div>
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+     $(".rank_table tr").click(function(){
+       var rel = $(this).attr("rel");
+       $('.rank_hd').css("width", rel + "px");
+    });
+  });
+</script>

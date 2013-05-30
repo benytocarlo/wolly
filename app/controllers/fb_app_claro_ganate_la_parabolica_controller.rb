@@ -53,23 +53,23 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id}"])
     
     @regions = Array.new
-    @regions << { :number => 'I'   , :name => 'Tarapacá',           :points => @participations.count{ |participation| participation.answer == '1' } }
-    @regions << { :number => 'II'  , :name => 'Antofagasta',        :points => @participations.count{ |participation| participation.answer == '2' } }
-    @regions << { :number => 'III' , :name => 'Atacama',            :points => @participations.count{ |participation| participation.answer == '3' } }
-    @regions << { :number => 'IV'  , :name => 'Coquimbo',           :points => @participations.count{ |participation| participation.answer == '4' } }
-    @regions << { :number => 'V'   , :name => 'Valparaíso',         :points => @participations.count{ |participation| participation.answer == '5' } }
-    @regions << { :number => 'VI'  , :name => "O'Higgins",          :points => @participations.count{ |participation| participation.answer == '6' } }
-    @regions << { :number => 'VII' , :name => 'Maule',              :points => @participations.count{ |participation| participation.answer == '7' } }
-    @regions << { :number => 'VIII', :name => 'Biobío',             :points => @participations.count{ |participation| participation.answer == '8' } }
-    @regions << { :number => 'IX'  , :name => 'La Araucanía',       :points => @participations.count{ |participation| participation.answer == '9' } }
-    @regions << { :number => 'X'   , :name => 'Los Lagos',          :points => @participations.count{ |participation| participation.answer == '10' } }
-    @regions << { :number => 'XI'  , :name => 'Aysén',              :points => @participations.count{ |participation| participation.answer == '11' } }
-    @regions << { :number => 'XII' , :name => 'Magallanes',         :points => @participations.count{ |participation| participation.answer == '12' } }
-    @regions << { :number => 'XIII', :name => 'Metropolitana',      :points => @participations.count{ |participation| participation.answer == '13' } }
-    @regions << { :number => 'XV'  , :name => 'Arica y Parinacota', :points => @participations.count{ |participation| participation.answer == '14' } }
-    @regions << { :number => 'XIV' , :name => 'Los Ríos',           :points => @participations.count{ |participation| participation.answer == '15' } }
+    @regions << { :number => 'I'   , :name => 'Tarapacá',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '1' },20))}
+    @regions << { :number => 'II'  , :name => 'Antofagasta',        :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '2' },20))}
+    @regions << { :number => 'III' , :name => 'Atacama',            :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '3' },20))}
+    @regions << { :number => 'IV'  , :name => 'Coquimbo',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '4' },20))}
+    @regions << { :number => 'V'   , :name => 'Valparaíso',         :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '5' },20))}
+    @regions << { :number => 'VI'  , :name => "O'Higgins",          :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '6' },20))}
+    @regions << { :number => 'VII' , :name => 'Maule',              :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '7' },20))}
+    @regions << { :number => 'VIII', :name => 'Biobío',             :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '8' },20))}
+    @regions << { :number => 'IX'  , :name => 'La Araucanía',       :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '9' },20))}
+    @regions << { :number => 'X'   , :name => 'Los Lagos',          :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '10' },20))}
+    @regions << { :number => 'XI'  , :name => 'Aysén',              :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '11' },20))}
+    @regions << { :number => 'XII' , :name => 'Magallanes',         :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '12' },20))}
+    @regions << { :number => 'XIII', :name => 'Metropolitana',      :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '13' },20))}
+    @regions << { :number => 'XV'  , :name => 'Arica y Parinacota', :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '14' },20))}
+    @regions << { :number => 'XIV' , :name => 'Los Ríos',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '15' },20))}
     @regions = @regions.sort_by { |region| region[:points].to_i }
-    @regions = @regions.reverse!    
+    @regions = @regions.reverse!  
   end
   
   def bases
@@ -105,8 +105,12 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   def laparabolica
   end
   
+  def participantes_a_porcentaje(numero_de_participantes,maximo_de_participantes)
+    porcentaje = numero_de_participantes * 100 / maximo_de_participantes
+  end
+  
   def porcentaje_a_px(porcentaje)
-    porcentaje = porcentaje * 434 / 100
+    px = porcentaje * 434 / 100
   end
   
 private
