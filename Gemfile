@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'koala'
 gem 'country-select'
 gem 'newrelic_rpm'
+gem 'rack-iframe'
 
 group :development do
   gem 'annotate', '~> 2.5.0'
