@@ -134,7 +134,8 @@ h3 a:visited {
 }
 
 /*NO FAN*/
-.nofan_video {padding: 246px 134px;}
+.nofan_video {position: absolute;top: 249px;left: 135px;}
+
 
 /*HOME*/
 .home_video {
