@@ -1,10 +1,9 @@
 <!DOCTYPE>
 <html>
 <head>
-  <title></title>	
-  <%= stylesheet_link_tag    "fb_app_paco_rabanne/style", :media => "screen" %>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_paco_rabanne", :media => "all" %>
   <%= javascript_include_tag "fb_app_paco_rabanne" %>
-  <%= javascript_include_tag "jquery.fancybox" %>
   <%= csrf_meta_tags %>
 </head>
 <body screen_capture_injected='true'>

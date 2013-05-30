@@ -1,11 +1,11 @@
 @import url("lightbox.css");
 @import url("jquery.fancybox.css");
 
-body {background: #fff; font-family: sans-serif; font-size: 0.875em; margin: 0; padding: 0; width: 100%; height: 100%; position: relative; background-image:url(background.jpg); background-size:cover; background-position:top center}
+body {background: #fff; font-family: sans-serif; font-size: 0.875em; margin: 0; padding: 0; width: 100%; height: 100%; position: relative; background-image:url(fb_app_paco_rabanne/background.jpg); background-size:cover; background-position:top center}
 .wrapper { width:1024px; height:650px; margin:auto; position:relative; bottom: -17px;}
-body .inicio { background-image:url(inicio.png); background-position:top center; background-repeat:no-repeat;}
-body .registro { background-image:url(form.png); background-position:top center; background-repeat:no-repeat;}
-body .exito { background-image:url(exito.png); background-position:top center; background-repeat:no-repeat;}
+body .inicio { background-image:url(fb_app_paco_rabanne/inicio.png); background-position:top center; background-repeat:no-repeat;}
+body .registro { background-image:url(fb_app_paco_rabanne/form.png); background-position:top center; background-repeat:no-repeat;}
+body .exito { background-image:url(fb_app_paco_rabanne/exito.png); background-position:top center; background-repeat:no-repeat;}
 
 #header ul.menu {
 	position: absolute;
@@ -142,7 +142,7 @@ body .exito { background-image:url(exito.png); background-position:top center; b
 
 /* Preview */
 
-#preview {width:727px; height:431px; background: url(back_preview.jpg) no-repeat 0 0; font-family: 'Roboto Condensed', sans-serif; color:#333333; overflow:hidden; position:relative}
+#preview {width:727px; height:431px; background: url(fb_app_paco_rabanne/back_preview.jpg) no-repeat 0 0; font-family: 'Roboto Condensed', sans-serif; color:#333333; overflow:hidden; position:relative}
 #preview h1{
 	width: 316px;
 	margin: 0px;
@@ -171,7 +171,7 @@ body .exito { background-image:url(exito.png); background-position:top center; b
 }
 
 .error {
-	background: url(alert.jpg) no-repeat 147px 8px;
+	background: url(fb_app_paco_rabanne/alert.jpg) no-repeat 147px 8px;
 	background-color:#FFF; 
 	border:1px solid #ff6666;
 	color: #ED0304;
@@ -291,7 +291,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 *----------------------------------------------- */
 /* line 33, ../sass/screen.sass */
 body {
-	background: #222222 url(bg-checker.png);
+	background: #222222 url(fb_app_paco_rabanne/bg-checker.png);
 }
 
 /* line 36, ../sass/screen.sass */
@@ -636,7 +636,7 @@ a:hover {
 .changelog li {
 	list-style: none;
 	padding: 0 0 0 14px;
-	background: url(../images/bullet.gif) no-repeat 0 11px;
+	background: url(fb_app_paco_rabanne/bullet.gif) no-repeat 0 11px;
 	color: #999999;
 }
 /* line 242, ../sass/screen.sass */
