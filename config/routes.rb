@@ -49,6 +49,7 @@ Wolly::Application.routes.draw do
   get    "fb_app_example/share", :as => :fb_app_example_share
 
   post   "fb_app_snickers_redhot"             => "fb_app_snickers_redhot#index"
+  post   "fb_app_snickers_redhot/canvas"
   get    "fb_app_snickers_redhot/concurso"
   post   "fb_app_snickers_redhot/share"
   get    "fb_app_snickers_redhot/comunas"
