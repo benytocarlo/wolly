@@ -38,10 +38,12 @@ class FbAppSnickersRedhotController < ApplicationController
   end
 
   def share
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:uid_amigo].present?
+      @uid   = @me_from_graph[:id]
+      @uid_amigo   = params[:uid_amigo]
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
         @me_from_database.update_attributes(:facebook_name => @me_from_graph[:username],:facebook_first_name => params[:nombre],:facebook_last_name => params[:apellido], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
       else
         @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:username],:facebook_first_name => params[:nombre],:facebook_last_name => params[:apellido], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
