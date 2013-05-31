@@ -104,7 +104,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
       @participation = Participation.find(:first, :conditions => ["application_id = #{@app.id} AND participant_id = #{@me_from_database.id}"])
       @nivel_hd = porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == @participation.answer },2000))
     rescue
-      @nivel_hd = porcentaje_a_px(90)
+      @nivel_hd = porcentaje_a_px(30)
     end    
   end
   
