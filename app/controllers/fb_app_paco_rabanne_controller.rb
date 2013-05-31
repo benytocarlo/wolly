@@ -47,7 +47,7 @@ private
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
   #
   def load_application_data
-    @app_id = 'app01'
+    @app_id = '139754886215020'
     @app = Application.find_by_fb_app_idnumber @app_id
   end    
 end
