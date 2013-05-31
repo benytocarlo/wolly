@@ -99,7 +99,13 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   end
 
   def share
-    @nivel_hd = porcentaje_a_px(90)
+    begin
+      @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      @participation = Participation.find(:first, :conditions => ["application_id = #{@app.id} AND participant_id = #{@me_from_database.id}"])
+      @nivel_hd = porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == @participation.answer },2000))
+    rescue
+      @nivel_hd = porcentaje_a_px(90)
+    end    
   end
   
   def laparabolica
