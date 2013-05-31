@@ -2,25 +2,22 @@
 <html>
 <head>
   <title><%= @app.name %></title>	
-  <%= stylesheet_link_tag    "fb_app_sernatur_capture", :media => "all" %>
+  <%= stylesheet_link_tag    "fb_app_snickers_redhot", :media => "all" %>
   <%= javascript_include_tag "fb_app_sernatur_capture" %>
   <%= csrf_meta_tags %>
 </head>
-<body class='<%= yield_content(:body_classes) %>' screen_capture_injected='true'>
+<body class='<%= yield :body_classes %>' screen_capture_injected='true'>
   <div id='fb-root'></div>
   <div id='header'>
   </div>
-  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '825', :height => '810' } %>
   <%= render "layouts/ga" %>
-  <!--<ul id="menu">
-    <li><%= link_to "INICIO",           fb_app_sernatur_capture_path %></li>
-    <li><%= link_to "VIDEO",            fb_app_sernatur_capture_video_path %></li>
-    <li><%= link_to "ESPECIFICACIONES", fb_app_sernatur_capture_especificaciones_path %></li>
-    <li><%= link_to "CONCURSO",         fb_app_sernatur_capture_concurso_path %></li>
-    <li><%= link_to "BASES",            "/documents/fb_app_sernatur_capture_500-_bases.pdf", :format => 'pdf', :target => '_blank' %></li>
-  </ul>-->  
 <%= yield %>
-<div id='footer'><a class="bases_legales" href="/documents/Bases_Legales_Snickers.pdf"><img src="img/bases_legales.png" alt="Bases Legales" /></a></div>
+<div id='footer'>
+  <a class="bases_legales" href="/documents/Bases_Legales_Snickers.pdf">
+    <%=image_tag("fb_app_snickers_redhot/bases_legales.png", alt: "Example Image")%>
+  </a>
+</div>
 
 </body>
 </html>

@@ -1,80 +1,59 @@
 #coding: utf-8
 class FbAppSnickersRedhotController < ApplicationController
   layout "fb_app_snickers_redhot"
-  before_filter :parse_facebook_signed_request, :except => [:new_participant]
+  before_filter :load_application_data
+  before_filter :parse_facebook_signed_request
+  before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
+  before_filter :load_graph_api
+  before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
+  before_filter :load_fanpage, :except => [:canvas]
+  include ApplicationHelper
 
-  def parse_facebook_signed_request
-    @app_id = '157469834435836' if Rails.env.development?
-    @app_id = '460929383989443' if Rails.env.production?
-    @app = Application.find_by_fb_app_idnumber @app_id
-    @app_secret = @app.fb_app_secret
-    @scope = 'email,read_stream,publish_stream,user_photos'
-    session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
-    @graph = Koala::Facebook::API.new(session[:signed_request][:oauth_token])
-    load_facebook_user
-    load_fanpage
-  end   
-  
-  def load_fanpage
-    @fanpage = @graph.get_object(session[:signed_request][:page][:id]).deep_symbolize_keys
-  end
-  
-  def load_facebook_user
-    begin
-      @me_from_graph = @graph.get_object("me").deep_symbolize_keys
-    rescue
-      @me_from_graph = ""
+  def index
+    if session[:signed_request][:page][:liked]      
+      render :index
+    else
+      render :nofans
     end
   end
   
-  def index
-    if params[:signed_request].blank? # nil? o empty?
-      redirect_to "https://www.facebook.com/hmgdev/app_#{@app_id}" if Rails.env.development?
-      redirect_to "https://www.facebook.com/HyundaiChile/app_#{@app_id}" if Rails.env.production?
+  def concurso
+    regions_of_chile # Carga en @regions todas las regiones de Chile.
+    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      @nombre   = @me_from_database.facebook_name
+      @rut      = @me_from_database.rut
+      @correo   = @me_from_database.facebook_email
+      @telefono = @me_from_database.phone
+      @region   = @me_from_database.province
     else
-      if session[:signed_request][:page][:liked]
-        render :index
-      else
-        render :nofans, :layout => false
-      end
+      @nombre   = @me_from_graph[:name]
+      @correo   = @me_from_graph[:email]
+      @rut      = ""
+      @telefono = ""
     end    
   end
   
-  def inicio
-    render :index
-  end
-  
-  def video 
-  end
-  
-  def especificaciones
+  def bases
   end
 
-  def concurso    
-    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_database.facebook_name
-      @email    = @me_from_database.facebook_email
-      @rut      = @me_from_database.rut
-      @telefono = @me_from_database.phone
-    else
-      @nombre   = @me_from_graph[:name]
-      @email    = @me_from_graph[:email]
-      @rut      = ""
-      @telefono = ""
-    end
+  def pregunta
+  end
+
+  def vota
   end
 
   def share
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
-      else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => params[:nombre], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
-      end
-    else
-      redirect_to fb_app_snickers_redhot_concurso_path, :flash => { :error => "Faltan campos por llenar." }
-    end
+  end
+
+private
+
+  # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
+  #
+  def load_application_data
+    @app_id = '157469834435836' if Rails.env.development?
+    @app_id = '460929383989443' if Rails.env.production?
+    @app = Application.find_by_fb_app_idnumber @app_id
+    @app_secret = @app.fb_app_secret    
+    @scope = 'email,read_stream,publish_stream,user_photos'
   end
 end

@@ -1,0 +1,40 @@
+ 	body {background: #fff; font-family: sans-serif; font-size: 0.875em; margin: 0; padding: 0; width: 810px; height: 810px; position: relative; background:url(fb_app_snickers_redhot/back.jpg) no-repeat 0 0;}
+	.content { width:100%; height:100%;}
+  	body.inicio .content{background: url(fb_app_snickers_redhot/back_inicio.png) no-repeat 0 0;}
+	body.nofan .content{background: url(fb_app_snickers_redhot/back_nofan.png) no-repeat 0 0;}
+	body.registro .content{background: url(fb_app_snickers_redhot/back_form.png) no-repeat 0 0;}
+	body.exito .content{background: url(fb_app_snickers_redhot/back_exito.png) no-repeat 0 0;}
+	
+
+
+.button_position {	position: absolute; top: 564px;	left: 287px;}
+.button_position_2 {position: absolute; top: 602px;	left: 131px;}
+.button_position_3 {position: absolute; top: 602px;	left: 414px;}
+.button_position_5 {position: absolute; top: 623px;	left: 35px;}
+.button_position_6 {position: absolute; top: 623px;	left: 288px;}
+.button_position_7 {position: absolute; top: 623px;	left: 539px;}
+
+#registro { position: absolute; top: 71px; right: 191px; width: 144px; height: 165px;}
+
+.group input{ width:140px; height:16px; background:transparent; border:0px;}
+
+#nombre {position: absolute; top: 0px; left: 0px; }
+#apellido {position: absolute; top: 35px; left: 0px; }
+#rut {position: absolute; top: 71px; left: 0px; }
+#correo {position: absolute; top: 106px; left: 0px; }
+#telefono {position: absolute; top: 141px; left: 0px; }
+
+
+input.alert {background: url(fb_app_snickers_redhot/alert.jpg) no-repeat 124px 2px;border:0px;}
+
+/* Exito */
+
+.photo { position:absolute; width:152px; height:153px; top:319px}
+.photo .frame {position:absolute; width:152px; height:153px; top:0px; left:0px; background-image:url(fb_app_snickers_redhot/frame_photo.png)}
+.photo_me { left:199px}
+.photo_friend { left:475px;}
+
+/* Footer */
+
+#footer { width:100%; height:70px; position:absolute; bottom:0px; left:0px;}
+#footer .bases_legales { position:absolute; right:10px; top:15px;}
