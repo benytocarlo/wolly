@@ -1,7 +1,10 @@
 #coding: utf-8
 class FbAppPacoRabanneController < ApplicationController
   layout "fb_app_paco_rabanne"
+  before_filter :load_application_data
+  
   include ApplicationHelper
+  
   def index
     @app_id = "426276337470229"
     @scope = 'email,read_stream,publish_stream,user_photos'
@@ -43,4 +46,15 @@ class FbAppPacoRabanneController < ApplicationController
       redirect_to fb_app_paco_rabanne_concurso_path, :flash => { :error => "Faltan campos por llenar." }
     end
   end
+  
+private
+
+  # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
+  #
+  def load_application_data
+    @app_id = 'app01'
+    @app = Application.find_by_fb_app_idnumber @app_id
+    @app_secret = @app.fb_app_secret    
+    @scope = 'email,read_stream,publish_stream,user_photos'
+  end    
 end

@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "layouts/facebook_javascript_sdk" %>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
   <%= render "layouts/ga" %>
   <ul id="menu">
     <li><%= link_to "INICIO",           fb_app_mahindra_xuv_path %></li>

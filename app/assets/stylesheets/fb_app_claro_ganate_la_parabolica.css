@@ -1,5 +1,45 @@
 @charset "utf-8";
 /* CSS Document */
+@font-face {
+	font-family: 'DINCond-Black';
+	src: url('dincondblack.eot');
+	src: url('dincondblack.eot?#iefix') format('embedded-opentype'),
+	url('dincondblack.woff') format('woff'),
+	url('dincondblack.ttf') format('truetype'),
+	url('dincondblack.svg#dincondblack') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DIN-RegularAlternate';
+	src: url('dinra.eot');
+	src: url('dinra.eot?#iefix') format('embedded-opentype'),
+	url('dinra.woff') format('woff'),
+	url('dinra.ttf') format('truetype'),
+	url('dinra.svg#dinra') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DIN-Regular';
+	src: url('dinr.eot');
+	src: url('dinr.eot?#iefix') format('embedded-opentype'),
+	url('dinr.woff') format('woff'),
+	url('dinr.ttf') format('truetype'),
+	url('dinr.svg#dinr') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DIN-Medium';
+	src: url('dinm.eot');
+	src: url('dinm.eot?#iefix') format('embedded-opentype'),
+	url('dinm.woff') format('woff'),
+	url('dinm.ttf') format('truetype'),
+	url('dinm.svg#dinm') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 html, body, nav, div, a, p, img, ul, li, footer, header, section, h1, span, time, hgroup, a img, aside, form, input, article, h2, h3, h4, label, textarea, small {
 	margin:0;
@@ -133,6 +173,19 @@ h3 a:visited {
 	box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.21);	
 }
 
+.active2 {
+  background: #de0209;
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.21);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.21);
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.21);	
+}
+
+#menu li.active2 a:hover{
+  background: #b1b1b1;
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.21);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.21);
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.21);	
+}
 /*NO FAN*/
 .nofan_video {position: absolute;top: 249px;left: 135px;}
 
@@ -374,17 +427,23 @@ h3 a:visited {
 .para_btn_b {
 	position: absolute;
 	bottom: 17px;
-	left: 239px;
+	left: 334px;
 }
 .para_btn_c {
 	position: absolute;
 	bottom: 17px;
-	left: 411px;
+	left: 500px;
+}
+
+.para_btn_d {
+  position: absolute;
+  bottom: 97px;
+  left: 77px;
 }
 .para_video {
 	position: absolute;
-	top: 336px;
-	left: 216px;	
+  top: 331px;
+  left: 306px;
 }
 .btn_input {
 	border-radius: 5px;
@@ -421,45 +480,11 @@ h3 a:visited {
 	left: 250px;
 }
 
-@charset "utf-8";
-/* CSS Document */
-@font-face {
-	font-family: 'DINCond-Black';
-	src: url('dincondblack.eot');
-	src: url('dincondblack.eot?#iefix') format('embedded-opentype'),
-	url('dincondblack.woff') format('woff'),
-	url('dincondblack.ttf') format('truetype'),
-	url('dincondblack.svg#dincondblack') format('svg');
-	font-weight: normal;
-	font-style: normal;
+.reg_form strong{
+	display:none !important;
 }
-@font-face {
-	font-family: 'DIN-RegularAlternate';
-	src: url('dinra.eot');
-	src: url('dinra.eot?#iefix') format('embedded-opentype'),
-	url('dinra.woff') format('woff'),
-	url('dinra.ttf') format('truetype'),
-	url('dinra.svg#dinra') format('svg');
-	font-weight: normal;
-	font-style: normal;
+
+.reg_form .error{
+	border: 1px solid red;
 }
-@font-face {
-	font-family: 'DIN-Regular';
-	src: url('dinr.eot');
-	src: url('dinr.eot?#iefix') format('embedded-opentype'),
-	url('dinr.woff') format('woff'),
-	url('dinr.ttf') format('truetype'),
-	url('dinr.svg#dinr') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'DIN-Medium';
-	src: url('dinm.eot');
-	src: url('dinm.eot?#iefix') format('embedded-opentype'),
-	url('dinm.woff') format('woff'),
-	url('dinm.ttf') format('truetype'),
-	url('dinm.svg#dinm') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
+
