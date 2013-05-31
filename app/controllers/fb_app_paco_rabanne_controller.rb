@@ -29,15 +29,14 @@ class FbAppPacoRabanneController < ApplicationController
 
   def share
     if params[:nombre].present? and params[:email].present? and params[:rut].present? and params[:celular].present?
-      @identificador_user = "rabanne-"+params[:rut]
+      @facebook_idnumber = "rabanne-" + params[:rut]
       @fecha = params[:day]+"-"+params[:month]+"-"+params[:year]
 
-      if @me_from_database = Participant.find_by_facebook_idnumber(@identificador_user)
-        #@me_from_database.update_attributes(:facebook_name => params[:nombre]+" "+params[:apellido], :facebook_email => params[:email], :rut => params[:rut], :phone => params[:celular], :address => params[:direccion], :city => params[:region], :province => params[:comuna], :facebook_gender => params[:sexo])
-        Participation.create(:application_id => "426276337470229", :participant_id => @me_from_database.id, :answer => params[:codigo_boleta]+"/"+@fecha)
+      if @me_from_database = Participant.find_by_facebook_idnumber(@facebook_idnumber)
+        Participation.create(:application_id => @app_id, :participant_id => @me_from_database.id, :answer => "#{params[:codigo_boleta]+"/"+@fecha}")
       else
         @me_from_database = Participant.create(:facebook_idnumber => @identificador_user ,:facebook_name => params[:nombre]+" "+params[:apellido], :facebook_email => params[:email], :rut => params[:rut], :phone => params[:celular], :address => params[:direccion], :city => params[:region], :province => params[:comuna], :facebook_gender => params[:sexo])
-        Participation.create(:application_id => "426276337470229", :participant_id => @me_from_database.id, :answer => params[:codigo_boleta]+"/"+@fecha)
+        Participation.create(:application_id => @app_id, :participant_id => @me_from_database.id, :answer => "#{params[:codigo_boleta]+"/"+@fecha}")
       end
     else
       redirect_to fb_app_paco_rabanne_concurso_path, :flash => { :error => "Faltan campos por llenar." }
