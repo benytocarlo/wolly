@@ -149,7 +149,7 @@
 </script>
 <div class="content">
     <center>
-      <p id="error"><%= flash[:error] %></p>
+      <p id="error" style="color:red;font-size:15px;"><%= flash[:error] %></p>
       <p id="notice"><%= flash[:notice] %></p>
       <%= form_tag(fb_app_snickers_redhot_share_path,:id=>:registro, :method => "post") do  %>
         <%= hidden_field_tag 'uid_amigo' %>
