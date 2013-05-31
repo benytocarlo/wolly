@@ -119,9 +119,6 @@
         nombre: {
           required: true
         },
-        apellido: {
-          required: true
-        },
         rut: {
           required: true,
           valrut: $('#rut').val()
@@ -157,7 +154,6 @@
       <%= form_tag(fb_app_snickers_redhot_share_path,:id=>:registro, :method => "post") do  %>
         <%= hidden_field_tag 'uid_amigo' %>
         <div class="group"><%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %></div>
-        <div class="group"><%= text_field_tag(:apellido,@apellido, :class => 'campos', :onkeypress => "return validatxt(event)") %></div>
         <div class="group"><%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></div>
         <div class="group"><%= text_field_tag(:correo, @correo, :class => 'campos') %></div>
         <div class="group"><%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %></div>
