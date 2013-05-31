@@ -94,11 +94,11 @@
 #fancybox-loading div {
 	width: 44px;
 	height: 44px;
-	background: url('source/fancybox_loading.gif') center center no-repeat;
+	background: url('fancybox_loading.gif') center center no-repeat;
 }
 
 .fancybox-close {
-	background-image: url('source/cerrar.png');
+	background-image: url('cerrar.png');
 	position: absolute;
 	top: -18px;
 	right: 7px;
@@ -115,7 +115,7 @@
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
-	background: transparent url('source/blank.gif'); /* helps IE */
+	background: transparent url('blank.gif'); /* helps IE */
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	z-index: 8040;
 }
@@ -176,7 +176,7 @@
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url('source/fancybox_overlay.png');
+	background: url('fancybox_overlay.png');
 }
 
 .fancybox-overlay-fixed {
