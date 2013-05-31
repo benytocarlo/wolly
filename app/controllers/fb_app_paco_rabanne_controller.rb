@@ -50,7 +50,5 @@ private
   def load_application_data
     @app_id = 'app01'
     @app = Application.find_by_fb_app_idnumber @app_id
-    @app_secret = @app.fb_app_secret    
-    @scope = 'email,read_stream,publish_stream,user_photos'
   end    
 end
