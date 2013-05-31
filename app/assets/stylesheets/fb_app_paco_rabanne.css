@@ -912,8 +912,10 @@ body .exito { background-image:url(fb_app_paco_rabanne/exito.png); background-po
 		background-color:#ad9051;
 	}
 	.button_go:active {
-		position:relative;
-		top:1px;
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ad9051), color-stop(1, #e6c275) );
+		background:-moz-linear-gradient( center top, #ad9051 5%, #e6c275 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad9051', endColorstr='#e6c275');
+		background-color:#ad9051;
 	}
 
 
