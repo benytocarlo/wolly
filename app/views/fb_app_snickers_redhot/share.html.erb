@@ -1,14 +1,14 @@
 <% content_for :body_classes, 'exito' %>
-
+<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
 <div class='content'>
   <center>
     <div class="photo photo_me">
       <span class="frame"></span>
-        <img src="img/wook.png" alt="wookie" width="152" height="153" />
+        <img src="https://graph.facebook.com/<%= @uid %>/picture?width=150&height=150" alt="" width="152" height="153" />
     </div>
     <div class="photo photo_friend">
       <span class="frame"></span>
-        <img src="img/genius.png" alt="genio" width="152" height="153" />
+        <img src="https://graph.facebook.com/<%= @uid_amigo %>/picture?width=150&height=150" alt="genio" width="152" height="153" />
     </div>
     <a id="sharefb" class="button_go button_position_5" href="#">
       <%=image_tag("fb_app_snickers_redhot/comparte.png", alt: "Comparte")%>
