@@ -35,7 +35,7 @@ Wolly::Application.routes.draw do
   get    "fb_app_mahindra_xuv/concurso"          => "fb_app_mahindra_xuv#concurso"
   post   "fb_app_mahindra_xuv/share"            => "fb_app_mahindra_xuv#share"              , :as => :fb_app_mahindra_xuv_share
   get    "fb_app_mahindra_xuv/new_participant"   => "fb_app_mahindra_xuv#new_participant"
-  
+
   post   "fb_app_sernatur_capture"                  => "fb_app_sernatur_capture#index"
   post   "fb_app_sernatur_capture/canvas"
   get    "fb_app_sernatur_capture/video"             => "fb_app_sernatur_capture#video"
@@ -47,6 +47,11 @@ Wolly::Application.routes.draw do
   post   "fb_app_example" => "fb_app_example#index"
   post   "fb_app_example/canvas"
   get    "fb_app_example/share", :as => :fb_app_example_share
+
+  post    "fb_app_snickers_redhot"             => "fb_app_snickers_redhot#index"
+  get    "fb_app_snickers_redhot/concurso"
+  post   "fb_app_snickers_redhot/share"
+  get    "fb_app_snickers_redhot/comunas"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
