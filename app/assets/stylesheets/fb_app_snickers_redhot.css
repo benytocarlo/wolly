@@ -25,7 +25,8 @@
 #telefono {position: absolute; top: 141px; left: 0px; }
 
 
-input.alert {background: url(fb_app_snickers_redhot/alert.jpg) no-repeat 124px 2px;border:0px;}
+input.error {background: url(fb_app_snickers_redhot/alert.jpg) no-repeat 124px 2px;border:0px;}
+#registro strong{display:none!important;}
 
 /* Exito */
 
