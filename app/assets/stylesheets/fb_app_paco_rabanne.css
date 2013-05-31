@@ -222,15 +222,7 @@ pre code {
 }
 
 /* Links */
-/* line 122, ../sass/screen.sass */
-a {
-	color: #8ad459;
-	text-decoration: none;
-}
-/* line 125, ../sass/screen.sass */
-a:hover {
-	color: #589e29;
-}
+
 
 /* line 128, ../sass/screen.sass */
 ::-moz-selection,
