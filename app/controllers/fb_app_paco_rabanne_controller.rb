@@ -33,7 +33,7 @@ class FbAppPacoRabanneController < ApplicationController
       @fecha = params[:day]+"-"+params[:month]+"-"+params[:year]
 
       unless @participant = Participant.find_by_facebook_idnumber(@facebook_idnumber)
-        @participant = Participant.create(:facebook_idnumber => @identificador_user ,:facebook_name => params[:nombre]+" "+params[:apellido], :facebook_email => params[:email], :rut => params[:rut], :phone => params[:celular], :address => params[:direccion], :city => params[:region], :province => params[:comuna], :facebook_gender => params[:sexo])
+        @participant = Participant.create(:facebook_idnumber => @facebook_idnumber, :facebook_name => params[:nombre]+" "+params[:apellido], :facebook_email => params[:email], :rut => params[:rut], :phone => params[:celular], :address => params[:direccion], :city => params[:region], :province => params[:comuna], :facebook_gender => params[:sexo])
       end
       Participation.create(:application_id => @app.id, :participant_id => @participant.id, :answer => "#{params[:codigo_boleta]+"/"+@fecha}")
       
