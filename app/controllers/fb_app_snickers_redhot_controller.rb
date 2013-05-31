@@ -20,7 +20,8 @@ class FbAppSnickersRedhotController < ApplicationController
   def concurso
     regions_of_chile # Carga en @regions todas las regiones de Chile.
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_database.facebook_name
+      @nombre   = @me_from_database.facebook_first_name
+      @apellido   = @me_from_database.facebook_last_name
       @rut      = @me_from_database.rut
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
@@ -38,7 +39,7 @@ class FbAppSnickersRedhotController < ApplicationController
   end
 
   def share
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:uid_amigo].present?
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
       @uid   = @me_from_graph[:id]
       @uid_amigo   = params[:uid_amigo]
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
