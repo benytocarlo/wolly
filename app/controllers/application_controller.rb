@@ -13,7 +13,11 @@ private
   # Carga el fanpage en @fanpage con tipo Hash.
   #
   def load_fanpage
-    @fanpage = @graph.get_object(session[:signed_request][:page][:id]).deep_symbolize_keys
+    begin 
+      @fanpage = @graph.get_object(session[:signed_request][:page][:id]).deep_symbolize_keys
+    rescue
+      render :redirect
+    end
   end
   
   # Carga el usuario en @me_from_graph con tipo Hash.
