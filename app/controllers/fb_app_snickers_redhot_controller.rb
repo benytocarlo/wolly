@@ -21,14 +21,12 @@ class FbAppSnickersRedhotController < ApplicationController
     regions_of_chile # Carga en @regions todas las regiones de Chile.
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_first_name
-      @apellido   = @me_from_database.facebook_last_name
       @rut      = @me_from_database.rut
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
       @region   = @me_from_database.province
     else
-      @nombre   = @me_from_graph[:first_name]
-      @apellido = @me_from_graph[:last_name]
+      @nombre   = @me_from_graph[:name]
       @correo   = @me_from_graph[:email]
       @rut      = ""
       @telefono = ""
@@ -43,14 +41,14 @@ class FbAppSnickersRedhotController < ApplicationController
       @uid   = @me_from_graph[:id]
       @uid_amigo   = params[:uid_amigo]
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:username],:facebook_first_name => params[:nombre],:facebook_last_name => params[:apellido], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:username],:facebook_first_name => params[:nombre],:facebook_last_name => params[:apellido], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
       end
     else
-      redirect_to fb_app_brilliance_chile_concurso_path, :flash => { :error => "Faltan campos por llenar." }
+      redirect_to fb_app_snickers_redhot_concurso_path, :flash => { :error => "Faltan campos por llenar." }
     end
   end
 
