@@ -26,7 +26,8 @@ class FbAppSnickersRedhotController < ApplicationController
       @telefono = @me_from_database.phone
       @region   = @me_from_database.province
     else
-      @nombre   = @me_from_graph[:name]
+      @nombre   = @me_from_graph[:first_name]
+      @apellido = @me_from_graph[:last_name]
       @correo   = @me_from_graph[:email]
       @rut      = ""
       @telefono = ""
@@ -36,13 +37,18 @@ class FbAppSnickersRedhotController < ApplicationController
   def bases
   end
 
-  def pregunta
-  end
-
-  def vota
-  end
-
   def share
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:username],:facebook_first_name => params[:nombre],:facebook_last_name => params[:apellido], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+      else
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:username],:facebook_first_name => params[:nombre],:facebook_last_name => params[:apellido], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+      end
+    else
+      redirect_to fb_app_brilliance_chile_concurso_path, :flash => { :error => "Faltan campos por llenar." }
+    end
   end
 
 private

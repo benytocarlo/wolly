@@ -1,31 +1,24 @@
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function() {
-    $(".sharefb").click(function(){
-      FB.ui({
-          method: 'feed',
-          name: '<%= @app.name %>',
-          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
-          picture: 'http://wolly.herokuapp.com/images/<%= controller_path %>/75x75.jpeg',
-          caption: '<%= @app.share_caption %>',
-          description: '<%= @app.share_description %>'
-        },
-        function(response) {
-        
-        });
-      return false;
-    });
-    $(".invitar").click(function(){
-      FB.ui({ method: 'apprequests',
-            message: '<%= @app.invite_message %>',
-            filters: ['app_non_users'],
-            title: 'Invitación',
-      max_recipients: '50'
-      });
-    });
-  });
-</script>
+<% content_for :body_classes, 'exito' %>
 
+<div class='content'>
+  <center>
+    <div class="photo photo_me">
+      <span class="frame"></span>
+        <img src="img/wook.png" alt="wookie" width="152" height="153" />
+    </div>
+    <div class="photo photo_friend">
+      <span class="frame"></span>
+        <img src="img/genius.png" alt="genio" width="152" height="153" />
+    </div>
+    <a id="sharefb" class="button_go button_position_5" href="#">
+      <%=image_tag("fb_app_snickers_redhot/comparte.png", alt: "Comparte")%>
+    </a>
+    <a id="invitar" class="button_go button_position_6" href="#">
+      <%=image_tag("fb_app_snickers_redhot/invitar.png", alt: "Invitar amigos")%>
+    </a>
 
-<h1>Sernatur Chile | Gracias</h1>
-<%= link_to "", "#", :class => 'compartir sharefb' %>
-<%= link_to "", "#", :class => 'invitar' %>
+    <a class="button_go button_position_7" href="#">
+      <%=image_tag("fb_app_snickers_redhot/participa_again.png", alt: "Participar denuevo")%>
+    </a>
+  </center>
+</div>
