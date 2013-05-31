@@ -18,13 +18,11 @@ class FbAppSnickersRedhotController < ApplicationController
   end
   
   def concurso
-    regions_of_chile # Carga en @regions todas las regiones de Chile.
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_database.facebook_first_name
+      @nombre   = @me_from_database.facebook_name
       @rut      = @me_from_database.rut
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
-      @region   = @me_from_database.province
     else
       @nombre   = @me_from_graph[:name]
       @correo   = @me_from_graph[:email]

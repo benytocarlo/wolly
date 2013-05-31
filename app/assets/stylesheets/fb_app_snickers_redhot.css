@@ -19,10 +19,10 @@
 .group input{ width:140px; height:16px; background:transparent; border:0px;}
 
 #nombre {position: absolute; top: 0px; left: 0px; }
-#apellido {position: absolute; top: 35px; left: 0px; }
-#rut {position: absolute; top: 71px; left: 0px; }
-#correo {position: absolute; top: 106px; left: 0px; }
-#telefono {position: absolute; top: 141px; left: 0px; }
+#rut {position: absolute; top: 35px; left: 0px; }
+#correo {position: absolute; top: 71px; left: 0px; }
+#telefono {position: absolute; top: 106px; left: 0px; }
+
 
 
 input.error {background: url(fb_app_snickers_redhot/alert.jpg) no-repeat 124px 2px;border:0px;}
