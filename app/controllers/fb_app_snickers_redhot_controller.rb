@@ -56,7 +56,7 @@ class FbAppSnickersRedhotController < ApplicationController
         :caption => "Snickers Chile",
         :description => "Snickers me lleva de viaje a Buenos Aires a ver a los Red Hot. ¡Participa también invitando a tu amigo!",
         :picture => "http://wolly.herokuapp.com/assets/fb_app_snickers_redhot/75x75.jpg" 
-    }, @uid)
+    }, @me_from_graph[:id])
     
   end
 
