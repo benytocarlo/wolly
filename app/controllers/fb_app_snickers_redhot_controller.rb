@@ -49,8 +49,7 @@ class FbAppSnickersRedhotController < ApplicationController
       redirect_to fb_app_snickers_redhot_concurso_path, :flash => { :error => "Faltan campos por llenar." }
     end
     
-    api = Koala::Facebook::API.new(session[:facebook_cookies][:access_token])
-    api.put_wall_post("", {
+    @graph.put_wall_post("", {
         :name => "Snickers te lleva a ver a los Red Hot",
         :link => "http://www.facebook.com/snickerschile/app_570638559624540",
         :caption => "Snickers Chile",
