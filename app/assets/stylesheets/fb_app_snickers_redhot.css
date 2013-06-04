@@ -39,3 +39,5 @@ input.error {background: url(fb_app_snickers_redhot/alert.jpg) no-repeat 124px 2
 
 #footer { width:100%; height:70px; position:absolute; bottom:0px; left:0px;}
 #footer .bases_legales { position:absolute; right:10px; top:15px;}
+
+a img { border:0px;}
