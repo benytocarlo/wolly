@@ -1,0 +1,55 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $("#colores a").click(function(){
+        $("#polera").css("background",$(this).attr("id") );
+        $("#color").val( $(this).attr("id") );
+    });
+
+    $("#objetos a").click(function(){
+        $("#obj").html($(this).attr("id") );
+        $("#objeto").val( $(this).attr("id") );
+    });
+
+    $("#frase").keyup(function(){
+        $("#txt").html( $(this).val() );
+        $("#frase_polera").val( $(this).val() );
+    });
+
+    $("#btn_enviar").click(function(){
+      if ($("#color").val() != "" && $("#objeto").val() != "" && $("#frase_polera").val() != "" ) {
+        $("#registro").submit();
+      }else{
+        alert( "faltan campos" );
+      }
+    });
+  });
+
+</script>
+
+
+<h1>Brother Día del papá | Proceso</h1>
+<div id="polera" style="background:red;width: 70px;height: 30px;"></div>
+<div id="colores">
+  <%= link_to "azul", "#", :id => 'blue'  %>
+  <%= link_to "negro", "#", :id => 'black'  %>
+  <%= link_to "amarillo", "#", :id => 'yellow'  %>
+</div>
+
+<div id="obj" style="width: 70px;height: 30px;"></div>
+<div id="objetos">
+  <%= link_to "corazon", "#", :id => 'corazon'  %>
+  <%= link_to "estrella", "#", :id => 'estrella'  %>
+  <%= link_to "pelota", "#", :id => 'pelota'  %>
+</div>
+
+<div id="txt" style="width: 70px;height: 30px;"></div>
+<div id="texto">
+      <%= text_area_tag 'frase', nil, :maxlength => 50 %>
+</div>
+
+  <%= form_tag(fb_app_brother_diapapa_ch_share_path,:id=>:registro, :method => "post") do  %>
+      <%= hidden_field_tag 'color' %>
+      <%= hidden_field_tag 'objeto' %>
+      <%= hidden_field_tag 'frase_polera' %>
+  <% end %>
+<%= link_to "Continuar", "#", :id => 'btn_enviar'  %>

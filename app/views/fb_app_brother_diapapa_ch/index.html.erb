@@ -3,11 +3,11 @@
     $("#fb_app_login").click(function(){
       FB.login(function(response){
         if (response.authResponse){
-          location.href = '<%= fb_app_mahindra_xuv_concurso_path %>';
+          location.href = '<%= fb_app_brother_diapapa_ch_concurso_path %>';
         }
       },{scope:'<%= @scope %>'});
     });
   });
 </script>
-<h1>Mahindra | Index</h1>
-<%= link_to "PARTICIPAR", fb_app_mahindra_xuv_concurso_path, :id => :fb_app_login, :href => '#' %>
+<h1>Brother Día del papá | Index</h1>
+<%= link_to "PARTICIPAR", fb_app_brother_diapapa_ch_concurso_path, :id => :fb_app_login, :href => '#' %>

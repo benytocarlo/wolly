@@ -126,37 +126,21 @@
         correo: {
           required: true,
           email: true
-        }, 
-        region: {
-          required: true,
-        }, 
-        comuna: {
-          required: true,
-        },
+        }
       }
     });
 
   });
-	function check(event) {
-      $.ajax({url: 'comunas',type: 'get',data: "type="+event,
-        success: function( resp ) {
-          $("#comuna").html(resp);
-        }
-      });
-    }
 </script>
 <div class="content">
     <center>
       <p id="error" style="color:red;font-size:15px;"><%= flash[:error] %></p>
       <p id="notice"><%= flash[:notice] %></p>
-      <%= form_tag(fb_app_mahindra_xuv_invitar_path,:id=>:registro, :method => "post") do  %>
+      <%= form_tag(fb_app_brother_diapapa_ch_proceso_path,:id=>:registro, :method => "post") do  %>
         <div class="group"><%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %></div>
         <div class="group"><%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></div>
         <div class="group"><%= text_field_tag(:correo, @correo, :class => 'campos') %></div>
         <div class="group"><%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %></div>
-        <div class="group"><%= select_tag :region,options_for_select(@regiones),:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%></div>
-        <div class="group"><%= select_tag :comuna %></div>
-        <div class="group"><%= check_box_tag 'recibir_info', 'si' %>Acepto los Términos</div>
       <% end %>
       <a href="#" id="btn_enviar">Continuar</a>
     </center>
