@@ -1,0 +1,18 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_mahindra_xuv", :media => "all" %>
+  <%= javascript_include_tag "fb_app_mahindra_xuv" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
+  <%= render "layouts/ga" %>
+  <div id='headerr'></div>
+  <%= yield %>
+  <div id='footer'>
+    <a class="bases_legales" href="/documents/Bases__Promocion_RHCHP.pdf" target="_blank">Bases</a>
+  </div>
+</body>
+</html>
