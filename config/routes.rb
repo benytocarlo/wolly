@@ -35,6 +35,14 @@ Wolly::Application.routes.draw do
   post    "fb_app_mahindra_xuv/invitar"
   post   "fb_app_mahindra_xuv/share"
 
+  post   "fb_app_brother_diapapa_ch"                  => "fb_app_brother_diapapa_ch#index"
+  get   "fb_app_brother_diapapa_ch"                  => "fb_app_brother_diapapa_ch#index"
+  post   "fb_app_brother_diapapa_ch/canvas"
+  get    "fb_app_brother_diapapa_ch/comunas"
+  get    "fb_app_brother_diapapa_ch/concurso"
+  post   "fb_app_brother_diapapa_ch/proceso"
+  post   "fb_app_brother_diapapa_ch/share"
+
   post   "fb_app_sernatur_capture"                  => "fb_app_sernatur_capture#index"
   post   "fb_app_sernatur_capture/canvas"
   get    "fb_app_sernatur_capture/video"             => "fb_app_sernatur_capture#video"
