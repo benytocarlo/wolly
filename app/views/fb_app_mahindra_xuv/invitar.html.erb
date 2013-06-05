@@ -1,0 +1,69 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(".invitar1").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '<%= @app.invite_message %>',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '1'
+      });
+    });
+
+    $(".invitar2").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '<%= @app.invite_message %>',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '1'
+      });
+    });
+
+    $(".invitar3").click(function(){
+      FB.ui({ method: 'apprequests',
+        message: '<%= @app.invite_message %>',
+        filters: ['app_non_users'],
+        title: 'Invitación',
+        max_recipients: '1'
+      },requestCallback);
+    });
+
+    $("#btn_enviar").click(function(){
+      if ($("#uid_amigo1").attr("value") != "" && $("#uid_amigo2").attr("value") != "" && $("#uid_amigo3").attr("value") != "" ) {
+        alert("vacio");
+      }
+    });
+  });
+
+  function requestCallback(response) {
+      $("#uid_amigo1").val(response.to);
+      $("#amigo_1").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=150&height=150" alt="genio" width="152" height="153" />');
+  }
+  function requestCallback2(response) {
+      $("#uid_amigo2").val(response.to);
+      $("#amigo_2").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=150&height=150" alt="genio" width="152" height="153" />');
+  }
+
+  function requestCallback3(response) {
+      $("#uid_amigo3").val(response.to);
+      $("#amigo_3").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=150&height=150" alt="genio" width="152" height="153" />');
+  }
+</script>
+
+
+<h1>Mahindra | Invitar</h1>
+<%= link_to "amigo 1", "#", :class => 'invitar1'  %>
+<%= link_to "amigo 2", "#", :class => 'invitar2'  %>
+<%= link_to "amigo 3", "#", :class => 'invitar3'  %>
+  <%= form_tag(fb_app_mahindra_xuv_share_path,:id=>:registro, :method => "post") do  %>
+    <div id="amigo_1">
+      <%= hidden_field_tag 'uid_amigo1' %>
+    </div>
+    <div id="amigo_2">
+      <%= hidden_field_tag 'uid_amigo2' %>
+    </div>
+    <div id="amigo_3">
+      <%= hidden_field_tag 'uid_amigo3' %>
+    </div>
+    <%= hidden_field_tag 'recibir_info',@recibir_info %>
+  <% end %>
+<%= link_to "Continuar", "#", :id => 'btn_enviar'  %>

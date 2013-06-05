@@ -18,6 +18,8 @@ class FbAppMahindraXuvController < ApplicationController
   end
   
   def concurso
+    regions_of_chile
+
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
       @rut      = @me_from_database.rut
@@ -31,32 +33,39 @@ class FbAppMahindraXuvController < ApplicationController
     end    
   end
   
+  def comunas
+    @region = params[:type]
+    @communes = communes_of @region
+    @communes_of_region = "<option selected='selected' disabled='disabled' value=''>Elige tu comuna...</option>"
+    @communes.each do |commune|
+      @communes_of_region = "#{@communes_of_region} <option value='#{commune}'>#{commune}</option>"
+    end
+    render :text => @communes_of_region
+  end
+
   def bases
   end
 
-  def share
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:uid_amigo].present?
-      @uid   = @me_from_graph[:id]
-      @uid_amigo   = params[:uid_amigo]
+  def invitar
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
+      @recibir_info = params[:recibir_info]
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono],:city => params[:region], :province => params[:comuna])
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :city => params[:region], :province => params[:comuna])
       end
     else
       redirect_to fb_app_mahindra_xuv_concurso_path, :flash => { :error => "Faltan campos por llenar." }
     end
-    
-    @graph.put_wall_post("", {
-        :name => "Snickers te lleva a ver a los Red Hot",
-        :link => "http://www.facebook.com/snickerschile/app_570638559624540",
-        :caption => "Snickers Chile",
-        :description => "Snickers me lleva de viaje a Buenos Aires a ver a los Red Hot. ¡Participa también invitando a tu amigo!",
-        :picture => "http://wolly.herokuapp.com/assets/fb_app_snickers_redhot/75x75.jpg" 
-    }, @me_from_graph[:id])
-    
+  end
+
+  def share
+    if params[:uid_amigo1].present? and params[:uid_amigo2].present? and params[:uid_amigo3].present?
+        @fecha = params[:uid_amigo1]+"/"+params[:uid_amigo2]+"/"+params[:uid_amigo3]+"/"+params[:recibir_info]
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+    else
+      redirect_to fb_app_mahindra_xuv_concurso_path, :flash => { :error => "Faltan campos por llenar." }
+    end
   end
 
 private

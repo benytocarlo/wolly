@@ -30,11 +30,10 @@ Wolly::Application.routes.draw do
   
   post   "fb_app_mahindra_xuv"                  => "fb_app_mahindra_xuv#index"
   post   "fb_app_mahindra_xuv/canvas"
-  get    "fb_app_mahindra_xuv/video"             => "fb_app_mahindra_xuv#video"
-  get    "fb_app_mahindra_xuv/especificaciones"  => "fb_app_mahindra_xuv#especificaciones"
-  get    "fb_app_mahindra_xuv/concurso"          => "fb_app_mahindra_xuv#concurso"
-  post   "fb_app_mahindra_xuv/share"            => "fb_app_mahindra_xuv#share"              , :as => :fb_app_mahindra_xuv_share
-  get    "fb_app_mahindra_xuv/new_participant"   => "fb_app_mahindra_xuv#new_participant"
+  get    "fb_app_mahindra_xuv/comunas"
+  get    "fb_app_mahindra_xuv/concurso"
+  post    "fb_app_mahindra_xuv/invitar"
+  post   "fb_app_mahindra_xuv/share"
 
   post   "fb_app_sernatur_capture"                  => "fb_app_sernatur_capture#index"
   post   "fb_app_sernatur_capture/canvas"
