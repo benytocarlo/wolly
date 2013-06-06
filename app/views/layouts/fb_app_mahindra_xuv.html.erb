@@ -9,9 +9,11 @@
 <body>
   <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
   <%= render "layouts/ga" %>
-  <%= yield %>
-  <div id='footer'>
-    <a href="/documents/Bases__Promocion_RHCHP.pdf" target="_blank">Bases del Concurso</a>
+  <div id="contenedor">
+    <%= yield %>
+    <div id='footer'>
+      <a href="/documents/Bases__Promocion_RHCHP.pdf" target="_blank">Bases del Concurso</a>
+    </div>
   </div>
 </body>
 </html>
