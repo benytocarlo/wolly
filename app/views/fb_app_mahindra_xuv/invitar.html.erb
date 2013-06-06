@@ -6,7 +6,7 @@
             filters: ['app_non_users'],
             title: 'Invitación',
       max_recipients: '1'
-      });
+      },requestCallback);
     });
 
     $(".invitar2").click(function(){
@@ -15,7 +15,7 @@
             filters: ['app_non_users'],
             title: 'Invitación',
       max_recipients: '1'
-      });
+      },requestCallback2);
     });
 
     $(".invitar3").click(function(){
@@ -24,12 +24,14 @@
         filters: ['app_non_users'],
         title: 'Invitación',
         max_recipients: '1'
-      },requestCallback);
+      },requestCallback3);
     });
 
     $("#btn_enviar").click(function(){
-      if ($("#uid_amigo1").attr("value") != "" && $("#uid_amigo2").attr("value") != "" && $("#uid_amigo3").attr("value") != "" ) {
-        alert("vacio");
+      if ($("#uid_amigo1").val() != "" && $("#uid_amigo2").val() != "" && $("#uid_amigo3").val() != "" ) {
+        $("#registro").submit();
+      }else{
+        alert( "faltan campos" );
       }
     });
   });
