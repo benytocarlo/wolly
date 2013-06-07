@@ -1,0 +1,73 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>   
+
+<script>
+$(function(){
+    $(".salmon, .camaron, .trucha, .centolla").draggable({ revert: true });
+    $(".choice").droppable({ 
+        accept: ".camaron, .trucha, .salmon, .centolla",
+        drop: function(event, ui ) {
+         $(".choice").removeClass("arrastra");
+         $(".choice").removeClass("camaron");
+         $(".choice").removeClass("trucha");
+         $(".choice").removeClass("salmon");
+         $(".choice").removeClass("centolla");
+         $(this).addClass( ui.draggable.attr('class') );
+         $("#respuesta").val( ui.draggable.attr('rel') );
+        }
+    });
+
+    $("#btn_enviar").click(function(){
+        if( $("#respuesta").val() != "" ){
+            $("#registro").submit();
+        }else{
+            alert("faltan campos");
+        }
+    });    
+})
+</script>
+<div class="content">
+    <div id="header">
+        <div class="main_nav">
+            <span class="main_logo"></span>
+            <ul>
+                <li><a href="#" class="img_quiz">Quiz Imposible</a></li>
+                <li><a href="#" class="img_premios">Premios</a></li>
+                <li><a href="#" class="img_bases">Bases</a></li>
+            </ul>
+        </div>
+        <div class="game_nav">
+            <div class="pager">3/7</div>
+            <%=image_tag("fb_app_lan_cargo/queston_3.png", :alt => "Question")%>
+            <div class="tiempo">Tiempo<span class="tiempo_numero">12</span></div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="q3 pregunta">
+
+          <div class="answers">
+            <%=image_tag("fb_app_lan_cargo/q3-camaron.png", :class => "camaron answer",:rel => "3:i", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q3-trucha.png", :class => "trucha answer",:rel => "3:c", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q3-salmon.png", :class => "salmon answer",:rel => "3:i", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q3-centolla.png", :class => "centolla answer",:rel => "3:i", :alt => "Question")%>
+          </div> <!-- / .questions -->
+
+          <div class="choices">
+            <div id="choice-1" class="choice arrastra"></div> <!-- / .choice -->
+            <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
+                <%= hidden_field_tag 'respuesta' %>
+                <%= hidden_field_tag 'n_preg', 3 %>
+            <% end %>
+            </div>
+            <%= link_to "", "#", :id => 'btn_enviar' , :class => 'next_question' %> 
+        </div>
+
+    </div>
+    
+    <div id="footer">
+    <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>
+    <a href="#" target="_blank" class="tw_cargas">#CargasImposibles</a>
+    <a href="#" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
+    <span class="logo_cargo"></span>
+    </div>
+</div>

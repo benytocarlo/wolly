@@ -7,7 +7,7 @@ $(function(){
          drop: function(event, ui ) {
              $(".choice").removeClass("choice_ON");
              $(this).addClass("choice_ON");
-             $("#respuesta").val( $(this).attr("ref") );
+             $("#respuesta").val( $(this).attr("rel") );
         }
     });
     $("#btn_enviar").click(function(){
@@ -45,10 +45,10 @@ $(function(){
           </div> <!-- / .questions -->
           
           <div class="choices">
-            <div id="choice-1" class="choice mexico" ref="mexico"></div> <!-- / .choice -->
-            <div id="choice-2" class="choice panama" ref="panama"></div> <!-- / .choice -->
-            <div id="choice-3" class="choice colombia" ref="colombia"></div> <!-- / .choice -->
-            <div id="choice-4" class="choice peru" ref="peru"></div> <!-- / .choice -->
+            <div id="choice-1" class="choice mexico" rel="1:i"></div> <!-- / .choice -->
+            <div id="choice-2" class="choice panama" rel="1:c"></div> <!-- / .choice -->
+            <div id="choice-3" class="choice colombia" rel="1:i"></div> <!-- / .choice -->
+            <div id="choice-4" class="choice peru" rel="1:i"></div> <!-- / .choice -->
             <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
                 <%= hidden_field_tag 'respuesta' %>
                 <%= hidden_field_tag 'n_preg', 1 %>

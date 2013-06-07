@@ -1,0 +1,72 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+$(function(){
+    $(".bajo, .acordeon, .piano, .guitarra").draggable({ revert: true });
+    $(".choice").droppable({ 
+             accept: ".bajo, .acordeon, .piano, .guitarra",
+             drop: function(event, ui ) {
+                 $(".choice").removeClass("bajo");
+                 $(".choice").removeClass("acordeon");
+                 $(".choice").removeClass("piano");
+                 $(".choice").removeClass("guitarra");
+                 $(this).addClass( ui.draggable.attr('class') );
+                 $("#respuesta").val( ui.draggable.attr('rel') );
+                 }
+    });
+
+    $("#btn_enviar").click(function(){
+        if( $("#respuesta").val() != "" ){
+            $("#registro").submit();
+        }else{
+            alert("faltan campos");
+        }
+    });    
+
+})
+</script>
+<div class="content">
+    <div id="header">
+        <div class="main_nav">
+            <span class="main_logo"></span>
+            <ul>
+                <li><a href="#" class="img_quiz">Quiz Imposible</a></li>
+                <li><a href="#" class="img_premios">Premios</a></li>
+                <li><a href="#" class="img_bases">Bases</a></li>
+            </ul>
+        </div>
+        <div class="game_nav">
+            <div class="pager">4/7</div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_4.png")%></div>
+            <div class="tiempo">Tiempo<span class="tiempo_numero">12</span></div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="q4 pregunta">
+        
+          <div class="answers">
+            <%=image_tag("fb_app_lan_cargo/bajo.png",:class => "bajo", :alt => "Question", :rel => "4:i")%>
+            <%=image_tag("fb_app_lan_cargo/acordeon.png",:class => "acordeon", :alt => "Question", :rel => "4:i")%>
+            <%=image_tag("fb_app_lan_cargo/piano.png",:class => "piano", :alt => "Question", :rel => "4:c")%>
+            <%=image_tag("fb_app_lan_cargo/guitarra.png",:class => "guitarra", :alt => "Question", :rel => "4:i")%>
+          </div> <!-- / .questions -->
+          
+          <div class="choices">
+            <div id="choice-1" class="choice"></div> <!-- / .choice -->
+            <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
+               <%= hidden_field_tag 'respuesta' %>
+               <%= hidden_field_tag 'n_preg', 4 %>
+            <% end %>
+          </div>
+        <%= link_to "", "#", :id => 'btn_enviar' , :class => 'next_question' %>         
+        </div>
+
+    </div>
+    
+    <div id="footer">
+    <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>
+    <a href="#" target="_blank" class="tw_cargas">#CargasImposibles</a>
+    <a href="#" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
+    <span class="logo_cargo"></span>
+    </div>
+</div>

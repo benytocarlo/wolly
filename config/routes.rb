@@ -63,7 +63,7 @@ Wolly::Application.routes.draw do
   get    "fb_app_lan_cargo/q5"
   get    "fb_app_lan_cargo/q6"
   get    "fb_app_lan_cargo/q7"
-  post   "fb_app_lan_cargo/share"
+  get   "fb_app_lan_cargo/share"
 
   post   "fb_app_example" => "fb_app_example#index"
   post   "fb_app_example/canvas"

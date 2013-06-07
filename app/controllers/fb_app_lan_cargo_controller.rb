@@ -45,30 +45,47 @@ class FbAppLanCargoController < ApplicationController
   def respuestas
     case params[:n_preg].to_i
     when 1
-      session[:answer] = params[:respuesta]
+      if params[:respuesta] == "1:c"
+        @clase_exito = "exito"
+        session[:puntaje] = 1
+      else
+        @clase_exito = "error"
+        session[:puntaje] = 0
+      end
+
       session[:siguiente] = 2
-      @siguiente = session[:siguiente]
-    when 2..7
+      session[:answer] = params[:respuesta]
+      @link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+
+    when 2..6
+      @respuesta = session[:siguiente].to_s+":c"
+      if params[:respuesta] == @respuesta
+        @clase_exito = "exito"
+        session[:puntaje] = session[:puntaje] + 1
+      else
+        @clase_exito = "error"
+      end
+
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
       session[:siguiente] = session[:siguiente].to_i + 1
-      @siguiente = session[:siguiente]
+      @link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+    else
+      @respuesta = session[:siguiente].to_s+":c"
+      if params[:respuesta] == @respuesta
+        @clase_exito = "exito"
+        session[:puntaje] = session[:puntaje] + 1
+      else
+        @clase_exito = "error"
+      end
+      session[:answer] = session[:answer] +"/"+ params[:respuesta] +"/p:"+ session[:puntaje].to_s
+      @link = "fb_app_lan_cargo_share_path"
     end
   end
 
   def share
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:uid_amigo].present?
-      @uid   = @me_from_graph[:id]
-      @uid_amigo   = params[:uid_amigo]
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
-      else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer])
       end
-    else
-      redirect_to fb_app_snickers_redhot_concurso_path, :flash => { :error => "Faltan campos por llenar." }
-    end
   end
 
   def bases
