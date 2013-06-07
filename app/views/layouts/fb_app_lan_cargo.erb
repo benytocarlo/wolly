@@ -1,0 +1,14 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title><%= @app.name %></title> 
+  <%= stylesheet_link_tag    "fb_app_lan_cargo", :media => "all" %>
+  <%= javascript_include_tag "fb_app_lan_cargo" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '825', :height => '680' } %>
+  <%= render "layouts/ga" %>
+  <%= yield %>
+</body>
+</html>

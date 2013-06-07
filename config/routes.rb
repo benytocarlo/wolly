@@ -51,6 +51,20 @@ Wolly::Application.routes.draw do
   post   "fb_app_sernatur_capture/share"            => "fb_app_sernatur_capture#share"              , :as => :fb_app_sernatur_capture_share
   get    "fb_app_sernatur_capture/new_participant"   => "fb_app_sernatur_capture#new_participant"
 
+  post   "fb_app_lan_cargo"                  => "fb_app_lan_cargo#index"
+  post   "fb_app_lan_cargo/canvas"
+  get    "fb_app_lan_cargo/concurso"
+  post   "fb_app_lan_cargo/comenzar"
+  post   "fb_app_lan_cargo/respuestas"
+  get    "fb_app_lan_cargo/q1"
+  get    "fb_app_lan_cargo/q2"
+  get    "fb_app_lan_cargo/q3"
+  get    "fb_app_lan_cargo/q4"
+  get    "fb_app_lan_cargo/q5"
+  get    "fb_app_lan_cargo/q6"
+  get    "fb_app_lan_cargo/q7"
+  post   "fb_app_lan_cargo/share"
+
   post   "fb_app_example" => "fb_app_example#index"
   post   "fb_app_example/canvas"
   get    "fb_app_example/share", :as => :fb_app_example_share
