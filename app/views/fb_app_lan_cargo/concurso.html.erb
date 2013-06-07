@@ -1,4 +1,3 @@
-<% content_for :body_classes, 'registro' %>
 <%= javascript_include_tag "jquery.validate" %>
 <script>
 /////////// validador Rut ////////////////
@@ -126,47 +125,32 @@
         correo: {
           required: true,
           email: true
-        }, 
-        region: {
-          required: true,
-        }, 
-        comuna: {
-          required: true,
-        },
+        }
       }
     });
 
   });
-	function check(event) {
-      $.ajax({url: 'comunas',type: 'get',data: "type="+event,
-        success: function( resp ) {
-          $("#comuna").html(resp);
-        }
-      });
-    }
 </script>
-<div id="nav"></div>
-<div class="registro">
-  <img src="/assets/fb_app_mahindra_xuv/registro.jpg" alt="resgistro"/>
-  <div class="mahindra_datos">
+<div class="content">
+    <div id="header">
+        <div class="main_nav">
+            <span class="main_logo"></span>
+        </div>
+    </div>
     <p id="error" style="color:red;font-size:15px;"><%= flash[:error] %></p>
-    <p id="notice"><%= flash[:notice] %></p>
-    <%= form_tag(fb_app_mahindra_xuv_invitar_path,:id=>:registro, :method => "post") do  %>
-      <ul class="lista_datos">
-    	  <li><label>nombre</label><%= text_field_tag(:nombre, @nombre, :class => 'input_form', :onkeypress => "return validatxt(event)") %></li>
-    		<li><label>rut</label><%= text_field_tag(:rut, @rut, :class => 'input_form', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></li>
-    		<li><label>email</label><%= text_field_tag(:correo, @correo, :class => 'input_form') %></li>
-    	</ul>
-      <ul>
-    		<li><label>tel&eacute;fono</label><%= text_field_tag(:telefono, @telefono, :class => 'input_form', :onkeypress => "return validanum(event)") %></li>
-    		<li><label>regi&oacute;n</label><%= select_tag :region,options_for_select(@regiones),:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%></li>
-    		<li><label>comuna</label><%= select_tag :comuna %></li>
-    	</ul>
-    	<div class="acepto">
-    		<ul class="checks">
-    			<li><%= check_box_tag 'recibir_info', 'si',:class => 'css-checkbox' %><label for="demo_box_2" name="demo_lbl_2" class="css-label">Acepto las bases del concurso</label></li>
-    		</ul>
-  		  <a id="btn_enviar" class="participar" href="#" title="Enlace a participar"></a>
-    <% end %>
-  </div>
+    <div class="content form">
+      <%= form_tag(fb_app_lan_cargo_comenzar_path,:id=>:registro, :method => "post") do  %>
+        <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
+        <%= text_field_tag(:rut, @rut, :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
+        <%= text_field_tag(:correo, @correo) %>
+        <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
+      <% end %>
+      <a href="#" id="btn_enviar" class="btn_despega">Despega</a>
+    </div>
+    <div id="footer">
+      <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>
+      <a href="#" target="_blank" class="tw_cargas">#CargasImposibles</a>
+      <a href="#" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
+      <span class="logo_cargo"></span>
+    </div>
 </div>

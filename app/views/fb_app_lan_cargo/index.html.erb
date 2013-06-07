@@ -1,0 +1,35 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("#fb_app_login").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_lan_cargo_concurso_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+  });
+</script>
+<div class="content">
+    <div id="header">
+        <div class="main_nav">
+            <span class="main_logo"></span>
+            <ul>
+                <li><a href="#" class="img_quiz">Quiz Imposible</a></li>
+                <li><a href="#" class="img_premios">Premios</a></li>
+                <li><a href="#" class="img_bases">Bases</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="content home">
+    	<%= link_to "Embárcate", fb_app_lan_cargo_concurso_path, :id => :fb_app_login, :href => '#',:class => 'btn_embarcate' %>
+    </div>
+    
+    <div id="footer">
+	    <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>
+	    <a href="#" target="_blank" class="tw_cargas">#CargasImposibles</a>
+	    <a href="#" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
+	    <span class="logo_cargo"></span>
+    </div>
+</div>
+<%= link_to "PARTICIPAR", fb_app_lan_cargo_concurso_path, :id => :fb_app_login, :href => '#' %>

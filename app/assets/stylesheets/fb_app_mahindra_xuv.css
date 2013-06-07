@@ -1,0 +1,144 @@
+/* RESET.CSS */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, header, footer, hgroup, menu, nav, section, time, mark, audio, video {
+    border: 0 none;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+}
+article, aside, nav, section, dialog, figure, header, footer, hgroup {
+    display: block;
+}
+legend {
+    display: none;
+}
+:focus {
+    outline: 0 none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption, th, td {
+    font-weight: normal;
+    text-align: left;
+}
+a img, iframe {
+    border: medium none;
+}
+ul {
+    list-style: none outside none;
+}
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: 100%;
+}
+input, select {
+    vertical-align: middle;
+}
+select {
+    margin: inherit;
+}
+button {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    cursor: pointer;
+    padding: 0;
+}
+ol {
+    margin-left: 2em;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+
+/* STYLE.CSS */
+body { background: #000; font-family: 'Ubuntu', sans-serif;}
+p {font-size: 12px; font-family: arial, helvetica, verdana;}
+a {text-decoration: none;}
+#contenedor { overflow: hidden; width: 810px;}
+
+/*Nav*/
+
+#nav { background: url("fb_app_mahindra_xuv/logo_mahindra.jpg") no-repeat 0 0; height: 70px; float: left; overflow: hidden; padding-top: 0; width: 810px;}
+.flecha { float: right; margin-right: 45px;}
+/*Contenido*/
+
+/*Home*/
+.home {background: url("fb_app_mahindra_xuv/home.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
+.participa {background: url("fb_app_mahindra_xuv/btn_participa1.png") no-repeat 0 0; display: block; height: 75px; position: absolute; right: 11px; bottom: 10px; width: 215px;}
+.participa:hover {background: url("fb_app_mahindra_xuv/btn_participa2.png") no-repeat 0 0;}
+/*no Fans*/
+.nofans {background: url("fb_app_mahindra_xuv/nofan.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
+
+/*Invitacion*/
+.invitacion {background: url("fb_app_mahindra_xuv/invitacion.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
+.invitacion ul { height: 220px; overflow: hidden; position: absolute; right: 129px; top: 225px; width: 365px;}
+.invitacion li { float: left; margin:0 100px 75px 0; height: 50px; width: 50px;}
+.invitacion li a {background: url("fb_app_mahindra_xuv/recuadro.png") no-repeat left top; border:2px solid #fff; display: block; height: 65px; width:65px;}
+.invitacion li a:hover {opacity: 0.7;}
+
+.continuar { background: url("fb_app_mahindra_xuv/01_re_continuar.png") left top; display: block; float: left; height:44px; width: 143px; bottom: 20px; position: absolute; right: 320px;}
+.continuar:hover {background-position: left bottom;}
+
+
+
+/*Registrate*/
+.registro { height: 590px; float: left; overflow: hidden;}
+.mahindra_datos {background: url("fb_app_mahindra_xuv/bg_datos.jpg") no-repeat 0 0; height: 305px; float: left; overflow: hidden; /*padding: 85px 0 0 19px;*/ width: 810px;}
+.mahindra_datos ul {margin-top: 90px; width:382px; overflow: hidden; float: left;}
+/*.mahindra_datos ul:first-child {margin-right: 18px; margin-left: 18px;}*/
+.lista_datos {margin-right: 18px; margin-left: 18px;}
+.mahindra_datos ul li {margin-bottom:15px; overflow: hidden;}
+li label {color: #fff; float: left!important; font-size: 12px; padding-top: 6px; width: 65px; text-transform: uppercase;}
+
+li input.input_form { background: none repeat scroll 0 0 #fff; border: 2px solid #C41E39; border-radius: 3px 3px 3px 3px; clear: none; color: #000; float: left; height: 33px; line-height: 29px; margin-left: 20px; overflow: hidden; padding-left: 5px; padding-top: 2px; width: 294px;}
+input:focus {color: #C41E39!important;}
+
+.checks li label {padding-top: 0px; width: 215px;}
+.checks {margin-left: 85px; margin-top: 18px !important; width: 568px!important;}
+
+input[type=checkbox].css-checkbox + label.css-label {padding-left:20px; background-repeat:no-repeat; background-position: 0 0; cursor:pointer; }
+input[type=checkbox].css-checkbox:checked + label.css-label {  background-position: 0 -15px; }
+                        
+/*.css-label{ background-image:url("../medios/btn_check.png");}
+#demo_box_2 {display: none;}*/
+.participar { background: url("fb_app_mahindra_xuv/01_re_participar.png") left top; display: block; float: left; height: 44px; width: 143px;}
+.participar:hover {background-position: left bottom;}
+.acepto {height: 60px; overflow: hidden; float: left;}
+/*Final*/
+.final {background: url("fb_app_mahindra_xuv/final.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
+.final ul {bottom: 25px; position: absolute; right: 200px;}
+.final li { float: left; margin-right: 16px;}
+/*.final li a { background: #c41e39; border-radius: 3px 3px 3px 3px; color: #fff; display: block; font-weight: bold; height: 34px; padding-top: 15px; text-align: center; text-transform: uppercase; width: 183px;}
+.final li a:hover {background: #515151;}*/
+
+.invitar { background: url("fb_app_mahindra_xuv/01_re_invitar.png") left top; display: block; float: left; height: 44px; width: 143px;}
+.invitar:hover {background-position: left bottom;}
+
+.compartir { background: url("fb_app_mahindra_xuv/01_re_compartir.png") left top; display: block; float: left; height: 44px; width: 143px;}
+.compartir:hover {background-position: left bottom;}
+
+/*Footer*/
+#footer {background: url("fb_app_mahindra_xuv/bg_footer.jpg") no-repeat 0 0; height: 41px; overflow: hidden; text-transform: uppercase; width: 810px;}
+#footer a { color: #fff; float: right; font-size: 12px; padding: 10px 15px 0 0;}
+#footer a:hover {color: #c41e39}
+
+
+
