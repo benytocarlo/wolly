@@ -1,5 +1,5 @@
-<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
 <div class="content">
+<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
     <div id="header">
         <div class="main_nav">
             <span class="main_logo"></span>
@@ -11,8 +11,9 @@
         </div>
     </div>
     
-    <div class="content final">
-      <div class="nota">7</div>
+    <div class="content volver_jugar">
+      <div class="nota"><%= session[:puntaje] %></div>
+        <%= link_to "Volver a Jugar", fb_app_lan_cargo_comenzar_path ,:id => :fb_app_login, :class => "btn_volver_jugar" %>
         <div class="lower_nav">
           <%= link_to "", "#", :class => 'btn_compartir sharefb' %>
           <%= link_to "", "#", :class => 'btn_invitar_amigos invitar' %>

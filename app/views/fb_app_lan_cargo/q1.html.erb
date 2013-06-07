@@ -12,12 +12,23 @@ $(function(){
     });
     $("#btn_enviar").click(function(){
         if( $("#respuesta").val() != "" ){
+            clearInterval(countdown);
             $("#registro").submit();
         }else{
             alert("faltan campos");
         }
     });
-    
+
+     var countdown = setInterval(function() {
+        var timeCounter = $("span[class=tiempo_numero]").html();
+        var updateTime = eval(timeCounter)- eval(1);
+        $("span[class=tiempo_numero]").html(updateTime);
+
+        if(updateTime == 0){
+           $("span[class=tiempo_numero]").html("--");
+           location.href = '<%= fb_app_lan_cargo_q2_path %>';
+        }
+    }, 1000);
 })
 </script>
 <div class="content">

@@ -222,3 +222,22 @@ a img { border:0px;}
 .q7 .choices .seismil { background-image:url(fb_app_lan_cargo/q7_6000.png);}
 .q7 .choices .nuevemil { background-image:url(fb_app_lan_cargo/q7_9000.png);}
 .q7 .choices .docemil { background-image:url(fb_app_lan_cargo/q7_12000.png);}
+
+
+/* Volver Jugar */
+.volver_jugar { background-image: url(fb_app_lan_cargo/back_volver_jugar.png); background-repeat:no-repeat;}
+.volver_jugar .nota, .final .nota {font-family: 'Ropa Sans'; width: 71px; height: 50px; font-weight: bold; position: absolute; top: 170px; left: 368px; text-align: center; z-index: 100; font-size: 99px;}
+.volver_jugar .btn_volver_jugar { width:334px; height:115px; position:absolute; top:289px; left:250px; background-image:url(fb_app_lan_cargo/btn_volver_jugar.png); text-indent:-9999px;}
+.volver_jugar .btn_volver_jugar:hover { background-image:url(fb_app_lan_cargo/btn_volver_jugar_ON.png)}
+
+/* Volver final */
+.final { background-image: url(fb_app_lan_cargo/back_final.png); background-repeat:no-repeat;}
+
+
+.lower_nav { position:absolute; top:518px; left:150px;}
+.lower_nav a { display:block; float:left; text-indent:-9999px; margin-right:40px;}
+.lower_nav a.btn_compartir { background-image:url(fb_app_lan_cargo/btn_compartir.png); width:232px; height:61px;}
+.lower_nav a.btn_invitar_amigos { background-image:url(fb_app_lan_cargo/btn_invitar.png); width:232px; height:61px;}
+
+.lower_nav a.btn_compartir:hover { background-image:url(fb_app_lan_cargo/btn_compartir_ON.png); width:232px; height:61px;}
+.lower_nav a.btn_invitar_amigos:hover { background-image:url(fb_app_lan_cargo/btn_invitar_ON.png); width:232px; height:61px;}

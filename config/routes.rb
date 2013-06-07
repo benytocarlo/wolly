@@ -55,6 +55,7 @@ Wolly::Application.routes.draw do
   post   "fb_app_lan_cargo/canvas"
   get    "fb_app_lan_cargo/concurso"
   post   "fb_app_lan_cargo/comenzar"
+  get   "fb_app_lan_cargo/comenzar"
   post   "fb_app_lan_cargo/respuestas"
   get    "fb_app_lan_cargo/q1"
   get    "fb_app_lan_cargo/q2"
@@ -63,7 +64,8 @@ Wolly::Application.routes.draw do
   get    "fb_app_lan_cargo/q5"
   get    "fb_app_lan_cargo/q6"
   get    "fb_app_lan_cargo/q7"
-  get   "fb_app_lan_cargo/share"
+  get    "fb_app_lan_cargo/volver_jugar"
+  get    "fb_app_lan_cargo/share"
 
   post   "fb_app_example" => "fb_app_example#index"
   post   "fb_app_example/canvas"

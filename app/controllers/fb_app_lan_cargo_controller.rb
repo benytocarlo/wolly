@@ -31,18 +31,26 @@ class FbAppLanCargoController < ApplicationController
   end
 
   def comenzar
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+    if request.post?
+      if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
+        if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+          @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+        else
+          @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        end
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        redirect_to fb_app_lan_cargo_comenzar_path, :flash => { :error => "Faltan campos por llenar." }
       end
-    else
-      redirect_to fb_app_lan_cargo_comenzar_path, :flash => { :error => "Faltan campos por llenar." }
+    elsif request.get?
     end
   end
 
   def respuestas
+    if !session[:answer]
+      session[:answer] = ""
+      session[:puntaje] = 0
+    end
+
     case params[:n_preg].to_i
     when 1
       if params[:respuesta] == "1:c"
@@ -53,12 +61,24 @@ class FbAppLanCargoController < ApplicationController
         session[:puntaje] = 0
       end
 
-      session[:siguiente] = 2
+      @siguiente = 2
       session[:answer] = params[:respuesta]
-      @link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+      @link = "fb_app_lan_cargo_q"+@siguiente.to_s+"_path"
 
     when 2..6
-      @respuesta = session[:siguiente].to_s+":c"
+      if params[:respuesta] == params[:n_preg].to_s+":c"
+        @clase_exito = "exito"
+        session[:puntaje] = session[:puntaje] + 1
+      else
+        @clase_exito = "error"
+      end
+      @siguiente = params[:n_preg].to_i + 1
+
+      session[:answer] = session[:answer] +"/"+ params[:respuesta]
+      @link = "fb_app_lan_cargo_q"+@siguiente.to_s+"_path"
+    else
+      @respuesta = @siguiente.to_s+":c"
+
       if params[:respuesta] == @respuesta
         @clase_exito = "exito"
         session[:puntaje] = session[:puntaje] + 1
@@ -66,26 +86,39 @@ class FbAppLanCargoController < ApplicationController
         @clase_exito = "error"
       end
 
-      session[:answer] = session[:answer] +"/"+ params[:respuesta]
-      session[:siguiente] = session[:siguiente].to_i + 1
-      @link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
-    else
-      @respuesta = session[:siguiente].to_s+":c"
-      if params[:respuesta] == @respuesta
-        @clase_exito = "exito"
-        session[:puntaje] = session[:puntaje] + 1
-      else
-        @clase_exito = "error"
-      end
       session[:answer] = session[:answer] +"/"+ params[:respuesta] +"/p:"+ session[:puntaje].to_s
-      @link = "fb_app_lan_cargo_share_path"
+
+      if session[:puntaje] == 7
+        redirect_to fb_app_lan_cargo_share_path
+      else
+        redirect_to fb_app_lan_cargo_volver_jugar_path
+      end
     end
   end
 
   def share
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database2 = Participation.find_by_id(@me_from_graph[:id])
+        @me_from_database.update_attributes(:answer => session[:answer])
+      else
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer])
       end
+    end
+  end
+
+  def volver_jugar
+    if !session[:answer]
+      session[:answer] = ""
+      session[:puntaje] = 0
+    end
+
+    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database2 = Participation.find_by_id(@me_from_graph[:id])
+        @me_from_database.update_attributes(:answer => session[:answer])
+      else
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer])
+      end
+    end
   end
 
   def bases
