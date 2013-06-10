@@ -12,13 +12,22 @@
             </ul>
         </div>
     </div>
-    <div class="content">
-        <div style="margin-top: 150px;">
-            <%= text_field_tag(:siguiente, @siguiente) %>
-            <%= text_field_tag(:answer, session[:answer]) %>
-
-            <%= link_to "Comenzar", eval("fb_app_lan_cargo_q#{@siguiente}_path") %>
+<div class="content">
+    <div id="header">
+        <div class="main_nav">
+            <span class="main_logo"></span>
+            <ul>
+                <li><a href="#" class="img_quiz">Quiz Imposible</a></li>
+                <li><a href="#" class="img_premios">Premios</a></li>
+                <li><a href="/documents/fb_app_lan_cargo.pdf" target="_blank" class="img_bases">Bases</a></li>
+            </ul>
         </div>
+    </div>
+    
+    <div class="content yesorno">
+        <div class="caja_sino <%= @clase_exito %>"></div>
+        <div class="nota"><%= session[:puntaje] %></div>
+        <%= link_to "Siguiente", eval("#{@link}"), :class => "continuar" %>
     </div>
     <div id="footer">
         <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>

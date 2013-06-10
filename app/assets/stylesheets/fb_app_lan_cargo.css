@@ -50,7 +50,6 @@ a {-webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-tran
 
 a img { border:0px;}
 
-
 /* Header */
 
 #header { width:100%; max-height:194px; position:relative; z-index:10}
@@ -84,6 +83,18 @@ a img { border:0px;}
 /*** Custom Content ***/
 
 .content { position:absolute; top:0px; left:0px; width:100%; height:667px;}
+
+.yesorno { background-image:url(fb_app_lan_cargo/yesorno.png); height:610px;}
+.yesorno .caja_sino{ position:absolute; top:180px; left:174px; width:460px; height:169px;}
+.yesorno .exito{ background-image:url(fb_app_lan_cargo/correcto.png)}
+.yesorno .error{ background-image:url(fb_app_lan_cargo/incorrecto.png)}
+.yesorno .nota {font-family: 'Ropa Sans'; width: 71px; height: 50px; font-weight: bold; position: absolute; top: 410px; left: 255px; text-align: center; z-index: 100; font-size: 75px;	
+}
+.yesorno .continuar { position:absolute; top:351px; left:404px; background-image:url(fb_app_lan_cargo/continuar.png); width:230px; height:161px; text-indent:-9999px;}
+.yesorno .continuar:hover{ background-image:url(fb_app_lan_cargo/continuar_ON.png)}
+
+
+
 
 /* NoFan */
 .nofan { background-image:url(fb_app_lan_cargo/back_nofan.jpg); height:618px;}
@@ -145,3 +156,88 @@ a img { border:0px;}
 .q2 .answers .opt3{background-position:-268px -1px;}
 .q2 .answers .opt4{background-position:-401px -1px;}
 
+/* Question 3*/
+.q3 { background-image:url(fb_app_lan_cargo/back_q3.png); background-repeat:no-repeat;}
+.q3 .arrastra { background-image:url(fb_app_lan_cargo/arrastra.png); background-repeat:no-repeat; background-position:center center;}
+.q3 .answers img{ position:absolute; right:350px; z-index:12}
+.q3 .answers .camaron { top:15px;}
+.q3 .answers .salmon { top:215px;}
+.q3 .answers .trucha { top:115px;}
+.q3 .answers .centolla { top:315px;}
+
+.q3 .choices {width: 190px; height: 190px; position: absolute; top: 24px; left: 111px;}
+.q3 .choices .choice { width:100%; height:100%; background-repeat:no-repeat; background-position:center center;}
+.q3 .choices .camaron { background-image:url(fb_app_lan_cargo/q3-camaron.png);}
+.q3 .choices .salmon { background-image:url(fb_app_lan_cargo/q3-salmon.png);}
+.q3 .choices .trucha { background-image:url(fb_app_lan_cargo/q3-trucha.png);}
+.q3 .choices .centolla { background-image:url(fb_app_lan_cargo/q3-centolla.png);}
+
+/* Question 4*/
+.q4 { background-image:url(fb_app_lan_cargo/back_q4.png); background-repeat:no-repeat;}
+.q4 .answers { position:absolute; top:233px; left:226px; z-index:10;}
+.q4 .answers img{ cursor:pointer; margin-left:5px;}
+.q4 .choices{ position:absolute; top:0px; left:211px; width:211px; height:218px; z-index:10;}
+.q4 .choices .choice { width:100%; height:100%; background-position:center center; background-repeat:no-repeat;}
+.q4 .choices .bajo { background-image:url(fb_app_lan_cargo/bajo.png); background-position: 84px 8px;}
+.q4 .choices .piano {background-image:url(fb_app_lan_cargo/piano.png);background-position: 36px 5px;}
+.q4 .choices .acordeon {background-image:url(fb_app_lan_cargo/acordeon.png); background-position: 53px -11px;}
+.q4 .choices .guitarra {background-image:url(fb_app_lan_cargo/guitarra.png); background-position: 70px 8px;}
+
+/* Question 5*/
+.q5 { background-image:url(fb_app_lan_cargo/back_q5.png); background-repeat:no-repeat;}
+
+.q5 .answers { position:absolute; width:568px; height:159px; top:97px; left:73px;}
+.q5 .answers span{float:left; width:133px; height:218px; display:block; background-image:url(fb_app_lan_cargo/q5_answers.png); background-repeat:no-repeat; -webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease; cursor:pointer}
+.q5 .answers span:hover, .q5 .answers span.ON { background-image:url(fb_app_lan_cargo/q5_answers_ON.png)}
+
+.q5 .answers .opt1{ background-position:-2px -1px;}
+.q5 .answers .opt2{background-position:-145px -1px;}
+.q5 .answers .opt3{background-position:-294px -1px;}
+.q5 .answers .opt4{background-position:-439px -1px;}
+
+/* Question 6*/
+.q6 {background-repeat:no-repeat;}
+.q6 .answers { position:absolute; width:588px; height:159px; top:97px; left:73px;}
+.q6 .answers span{float:left; width:133px; height:218px; display:block; background-image:url(fb_app_lan_cargo/q6_answers.png); background-repeat:no-repeat; -webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease; cursor:pointer; margin-left:10px;}
+.q6 .answers span:hover, .q6 .answers span.ON { background-image:url(fb_app_lan_cargo/q6_answers_ON.png)}
+
+.q6 .answers .opt1{ background-position:-2px -1px;}
+.q6 .answers .opt2{background-position:-145px -1px;}
+.q6 .answers .opt3{background-position:-294px -1px;}
+.q6 .answers .opt4{background-position:-439px -1px;}
+
+/* Question 7*/
+.q7 { background-image:url(fb_app_lan_cargo/back_q7.png); background-repeat:no-repeat;}
+.q7 .answers { position:absolute; top:300px; left:51px;}
+.q7 .answers img { margin-right:18px; display:block; float:left;}
+
+.q7 .answers .tresmil { padding-top:0px;}
+.q7 .answers .seismil { padding-top:0px;}
+.q7 .answers .nuevemil { padding-top:0px;}
+.q7 .answers .docemil { padding-top:0px;}
+
+.q7 .choices {width: 166px; height: 85px; position: absolute; top: 86px; left: 256px;}
+.q7 .choices .choice { width:100%; height:100%; background-repeat:no-repeat; background-position:center center;}
+.q7 .choices .tresmil { background-image:url(fb_app_lan_cargo/q7_3000.png);}
+.q7 .choices .seismil { background-image:url(fb_app_lan_cargo/q7_6000.png);}
+.q7 .choices .nuevemil { background-image:url(fb_app_lan_cargo/q7_9000.png);}
+.q7 .choices .docemil { background-image:url(fb_app_lan_cargo/q7_12000.png);}
+
+
+/* Volver Jugar */
+.volver_jugar { background-image: url(fb_app_lan_cargo/back_volver_jugar.png); background-repeat:no-repeat;}
+.volver_jugar .nota, .final .nota {font-family: 'Ropa Sans'; width: 71px; height: 50px; font-weight: bold; position: absolute; top: 170px; left: 368px; text-align: center; z-index: 100; font-size: 99px;}
+.volver_jugar .btn_volver_jugar { width:334px; height:115px; position:absolute; top:289px; left:250px; background-image:url(fb_app_lan_cargo/btn_volver_jugar.png); text-indent:-9999px;}
+.volver_jugar .btn_volver_jugar:hover { background-image:url(fb_app_lan_cargo/btn_volver_jugar_ON.png)}
+
+/* Volver final */
+.final { background-image: url(fb_app_lan_cargo/back_final.png); background-repeat:no-repeat;}
+
+
+.lower_nav { position:absolute; top:518px; left:150px;}
+.lower_nav a { display:block; float:left; text-indent:-9999px; margin-right:40px;}
+.lower_nav a.btn_compartir { background-image:url(fb_app_lan_cargo/btn_compartir.png); width:232px; height:61px;}
+.lower_nav a.btn_invitar_amigos { background-image:url(fb_app_lan_cargo/btn_invitar.png); width:232px; height:61px;}
+
+.lower_nav a.btn_compartir:hover { background-image:url(fb_app_lan_cargo/btn_compartir_ON.png); width:232px; height:61px;}
+.lower_nav a.btn_invitar_amigos:hover { background-image:url(fb_app_lan_cargo/btn_invitar_ON.png); width:232px; height:61px;}

@@ -1,15 +1,19 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
 $(function(){
-    $(".q1-granja").draggable({ revert: true });
-    $(".choice").droppable({
-         accept: ".q1-granja",
+    $(".tresmil, .seismil, .nuevemil, .docemil").draggable({ revert: true });
+    $(".choice").droppable({ 
+         accept: ".tresmil, .seismil, .nuevemil, .docemil",
          drop: function(event, ui ) {
-             $(".choice").removeClass("choice_ON");
-             $(this).addClass("choice_ON");
-             $("#respuesta").val( $(this).attr("rel") );
-        }
+             $(".choice").removeClass("tresmil");
+             $(".choice").removeClass("seismil");
+             $(".choice").removeClass("nuevemil");
+             $(".choice").removeClass("docemil");
+             $(this).addClass( ui.draggable.attr('class') );
+             $("#respuesta").val( ui.draggable.attr('rel') );
+             }
     });
+
     $("#btn_enviar").click(function(){
         if( $("#respuesta").val() != "" ){
             clearInterval(countdown);
@@ -26,7 +30,7 @@ $(function(){
 
         if(updateTime == 0){
            $("span[class=tiempo_numero]").html("--");
-           location.href = '<%= fb_app_lan_cargo_q2_path %>';
+           location.href = '<%= fb_app_lan_cargo_volver_jugar_path %>';
         }
     }, 1000);
 })
@@ -42,36 +46,38 @@ $(function(){
             </ul>
         </div>
         <div class="game_nav">
-            <div class="pager">1/7</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/queston_1.png")%></div>
+            <div class="pager">7/7</div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_7.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">12</span></div>
         </div>
     </div>
     
     <div class="content">
-        <div class="q1 pregunta">
+        <div class="q7 pregunta">
         
           <div class="answers">
-            <%=image_tag("fb_app_lan_cargo/q1_icon.png", :class => "q1-granja", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q7_3000.png", :class => "tresmil answer",:rel => "7:i", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q7_6000.png", :class => "seismil answer",:rel => "7:i", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q7_9000.png", :class => "nuevemil answer",:rel => "7:c", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q7_12000.png", :class => "docemil answer",:rel => "7:i", :alt => "Question")%>
           </div> <!-- / .questions -->
           
           <div class="choices">
-            <div id="choice-1" class="choice mexico" rel="1:i"></div> <!-- / .choice -->
-            <div id="choice-2" class="choice panama" rel="1:c"></div> <!-- / .choice -->
-            <div id="choice-3" class="choice colombia" rel="1:i"></div> <!-- / .choice -->
-            <div id="choice-4" class="choice peru" rel="1:i"></div> <!-- / .choice -->
+            <div id="choice-1" class="choice"></div> <!-- / .choice -->
             <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
                 <%= hidden_field_tag 'respuesta' %>
-                <%= hidden_field_tag 'n_preg', 1 %>
+                <%= hidden_field_tag 'n_preg', 7 %>
             <% end %>
           </div>
-            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
+          <%= link_to "", "#", :id => 'btn_enviar' , :class => 'next_question' %>           
         </div>
+
     </div>
+    
     <div id="footer">
-        <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>
-        <a href="#" target="_blank" class="tw_cargas">#CargasImposibles</a>
-        <a href="#" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
-        <span class="logo_cargo"></span>
+    <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>
+    <a href="#" target="_blank" class="tw_cargas">#CargasImposibles</a>
+    <a href="#" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
+    <span class="logo_cargo"></span>
     </div>
 </div>

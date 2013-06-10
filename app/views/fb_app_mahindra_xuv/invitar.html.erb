@@ -31,32 +31,32 @@
       if ($("#uid_amigo1").val() != "" && $("#uid_amigo2").val() != "" && $("#uid_amigo3").val() != "" ) {
         $("#registro").submit();
       }else{
-        alert( "faltan campos" );
+        alert( "!Debes invitar a 3 amigos antes de continuar¡" );
       }
     });
   });
 
   function requestCallback(response) {
       $("#uid_amigo1").val(response.to);
-      $("#amigo_1").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=150&height=150" width="152" height="153" />');
+      $("#amigo_1").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
   }
   function requestCallback2(response) {
       $("#uid_amigo2").val(response.to);
-      $("#amigo_2").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=150&height=150" width="152" height="153" />');
+      $("#amigo_2").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
   }
 
   function requestCallback3(response) {
       $("#uid_amigo3").val(response.to);
-      $("#amigo_3").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=150&height=150" width="152" height="153" />');
+      $("#amigo_3").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
   }
 </script>
 <div id="nav"></div>
 <div class="invitacion">
 <ul>
-    <li><a href="javascript:void(0);"><img src="https://graph.facebook.com/'+response.to+'/picture?width=150&height=150" width="152" height="153"/></a></li>
-    <li><%= link_to "amigo 2", "#", :class => 'invitar1'  %></li>
-    <li><%= link_to "amigo 3", "#", :class => 'invitar2'  %></li>
-    <li><%= link_to "amigo 3", "#", :class => 'invitar3'  %></li>
+    <li><a href="javascript:void(0);"><img src="https://graph.facebook.com/<%= @me_from_graph[:id] %>/picture?width=65&height=65" width="65" height="65"/></a></li>
+    <li><%= link_to "", "#", :class => 'invitar1'  %></li>
+    <li><%= link_to "", "#", :class => 'invitar2'  %></li>
+    <li><%= link_to "", "#", :class => 'invitar3'  %></li>
 </ul>
 <%= link_to "", "#", :id => 'btn_enviar', :class => 'continuar'  %>
 </div>

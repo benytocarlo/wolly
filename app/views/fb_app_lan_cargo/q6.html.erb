@@ -2,10 +2,9 @@
 $(function (){
     $(".answers span").click( function(){
         $(".answers span").removeClass("ON");
-            $(this).addClass("ON");
-            $("#respuesta").val( $(this).attr("ref") );
-        }
-    );
+        $(this).addClass("ON");
+        $("#respuesta").val( $(this).attr("rel") );
+    });
 
     $("#btn_enviar").click(function(){
         if( $("#respuesta").val() != "" ){
@@ -23,7 +22,7 @@ $(function (){
 
         if(updateTime == 0){
            $("span[class=tiempo_numero]").html("--");
-           location.href = '<%= fb_app_lan_cargo_q3_path %>';
+           location.href = '<%= fb_app_lan_cargo_q7_path %>';
         }
     }, 1000);
 });
@@ -39,25 +38,27 @@ $(function (){
             </ul>
         </div>
         <div class="game_nav">
-            <div class="pager">2/7</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/queston_2.png", :class => "q1-granja", :alt => "Question")%></div>
+            <div class="pager">6/7</div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_6.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">12</span></div>
         </div>
     </div>
     
     <div class="content">
-        <div class="q2 pregunta">
-            <div class="answers">
-                <span class="opt1" ref="2:i"></span>
-                <span class="opt2" ref="2:c"></span>
-                <span class="opt3" ref="2:i"></span>
-                <span class="opt4" ref="2:i"></span>
-                <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
-                    <%= hidden_field_tag 'respuesta' %>
-                    <%= hidden_field_tag 'n_preg', 2 %>
-                <% end %>
-            </div>
-            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>     
+        <div class="q6 pregunta">
+        
+        <div class="answers">
+            <span class="opt1" rel="6:c"></span>
+            <span class="opt2" rel="6:i"></span>
+            <span class="opt3" rel="6:i"></span>
+            <span class="opt4" rel="6:i"></span>
+            <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
+                <%= hidden_field_tag 'respuesta' %>
+                <%= hidden_field_tag 'n_preg', 6 %>
+            <% end %>
+        </div>
+
+        <%= link_to "", "#", :id => 'btn_enviar' , :class => 'next_question' %>
         </div>
 
     </div>
