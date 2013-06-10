@@ -138,7 +138,7 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 /*Question 1*/
 .q1 { background-image:url(fb_app_lan_cargo/back_q1.png); background-repeat:no-repeat;}
 
-.q1 .q1-granja {position:absolute; bottom:94px; left:82px; z-index:10;}
+.q1 .q1-granja {position:absolute; bottom:94px; left:82px; z-index:10; cursor:pointer;}
 
 .q1 .choices {}
 .q1 .choices .choice{width:97px; height:96px;  position:absolute;}
@@ -164,10 +164,10 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 .q3 { background-image:url(fb_app_lan_cargo/back_q3.png); background-repeat:no-repeat;}
 .q3 .arrastra { background-image:url(fb_app_lan_cargo/arrastra.png); background-repeat:no-repeat; background-position:center center;}
 .q3 .answers img{ position:absolute; right:350px; z-index:12}
-.q3 .answers .camaron { top:15px;}
-.q3 .answers .salmon { top:215px;}
-.q3 .answers .trucha { top:115px;}
-.q3 .answers .centolla { top:315px;}
+.q3 .answers .camaron { top:15px;cursor: pointer;}
+.q3 .answers .salmon { top:215px;cursor: pointer;}
+.q3 .answers .trucha { top:115px;cursor: pointer;}
+.q3 .answers .centolla { top:315px;cursor: pointer;}
 
 .q3 .choices {width: 190px; height: 190px; position: absolute; top: 24px; left: 111px;}
 .q3 .choices .choice { width:100%; height:100%; background-repeat:no-repeat; background-position:center center;}
@@ -215,10 +215,10 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 .q7 .answers { position:absolute; top:300px; left:51px;}
 .q7 .answers img { margin-right:18px; display:block; float:left;}
 
-.q7 .answers .tresmil { padding-top:0px;}
-.q7 .answers .seismil { padding-top:0px;}
-.q7 .answers .nuevemil { padding-top:0px;}
-.q7 .answers .docemil { padding-top:0px;}
+.q7 .answers .tresmil { padding-top:0px;cursor: pointer;}
+.q7 .answers .seismil { padding-top:0px;cursor: pointer;}
+.q7 .answers .nuevemil { padding-top:0px;cursor: pointer;}
+.q7 .answers .docemil { padding-top:0px;cursor: pointer;}
 
 .q7 .choices {width: 166px; height: 85px; position: absolute; top: 86px; left: 256px;}
 .q7 .choices .choice { width:100%; height:100%; background-repeat:no-repeat; background-position:center center;}
