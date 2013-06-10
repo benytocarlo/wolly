@@ -21,8 +21,7 @@ ActiveAdmin.register Participation do
     end
     default_actions
   end
-  csv do                       
-    selectable_column
+  csv do
     column :answer
     column :name do |participation|
       participation.participant.facebook_name
@@ -39,6 +38,5 @@ ActiveAdmin.register Participation do
     column :province do |participation|
       participation.participant.province
     end
-    default_actions
   end
 end
