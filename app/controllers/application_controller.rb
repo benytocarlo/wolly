@@ -28,7 +28,7 @@ private
     session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
     logger.debug "[DEBUG] Se ha creado la variable de sesión Signed Request."
   end
-
+  
   # Guarda las Cookies del usuario en @facebook_coookies. Este método se debe llamar sólo cuando la aplicación
   # haya sido aceptada por el usuario, de lo contrario no encontrará las Cookies y dará error.
   #

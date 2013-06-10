@@ -60,6 +60,7 @@ class FbAppMahindraXuvController < ApplicationController
   end
 
   def share
+    @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
     if params[:uid_amigo1].present? and params[:uid_amigo2].present? and params[:uid_amigo3].present?
         @fecha = params[:uid_amigo1]+"/"+params[:uid_amigo2]+"/"+params[:uid_amigo3]+"/"+params[:recibir_info]
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
