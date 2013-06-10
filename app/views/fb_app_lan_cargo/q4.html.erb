@@ -1,4 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
 $(function(){
     $(".bajo, .acordeon, .piano, .guitarra").draggable({ revert: true });
@@ -40,15 +40,15 @@ $(function(){
         <div class="main_nav">
             <span class="main_logo"></span>
             <ul>
-                <li><a href="#" class="img_quiz">Quiz Imposible</a></li>
-                <li><a href="#" class="img_premios">Premios</a></li>
+                <li><a href="<%= fb_app_lan_cargo_path %>" class="img_quiz">Quiz Imposible</a></li>
+                <li><a href="<%= fb_app_lan_cargo_premios_path %>" class="img_premios">Premios</a></li>
                 <li><a href="/documents/fb_app_lan_cargo.pdf" target="_blank" class="img_bases">Bases</a></li>
             </ul>
         </div>
         <div class="game_nav">
             <div class="pager">4/7</div>
             <div class="question"><%=image_tag("fb_app_lan_cargo/question_4.png")%></div>
-            <div class="tiempo">Tiempo<span class="tiempo_numero">12</span></div>
+            <div class="tiempo">Tiempo<span class="tiempo_numero">10</span></div>
         </div>
     </div>
     
@@ -75,9 +75,9 @@ $(function(){
     </div>
     
     <div id="footer">
-    <a href="#" target="_blank" class="link_natgeo">NatGeoCh</a>
-    <a href="#" target="_blank" class="tw_cargas">#CargasImposibles</a>
-    <a href="#" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
-    <span class="logo_cargo"></span>
+        <a href="javascript:void(0);" target="_blank" class="link_natgeo">NatGeoCh</a>
+        <a href="javascript:void(0);" target="_blank" class="tw_cargas">#CargasImposibles</a>
+        <a href="javascript:void(0);" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
+        <a href="http://www.lancargo.com/es/" target="_blank"><span class="logo_cargo"></span></a>
     </div>
 </div>
