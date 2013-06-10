@@ -247,3 +247,6 @@ font-family: 'Ropa Sans'; width: 191px; height: 94px; font-weight: bold; positio
 
 .lower_nav a.btn_compartir:hover { background-image:url(fb_app_lan_cargo/btn_compartir_ON.png); width:232px; height:61px;}
 .lower_nav a.btn_invitar_amigos:hover { background-image:url(fb_app_lan_cargo/btn_invitar_ON.png); width:232px; height:61px;}
+
+input.error {background: url(fb_app_lan_cargo/alert.jpg) no-repeat 291px 12px;border:0px;}
+#registro strong{display:none!important;}
