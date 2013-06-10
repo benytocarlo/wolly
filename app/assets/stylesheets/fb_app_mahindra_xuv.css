@@ -39,9 +39,7 @@ input, textarea, select, button {
 input, select {
     vertical-align: middle;
 }
-select {
-    margin: inherit;
-}
+
 button {
     background: none repeat scroll 0 0 transparent;
     border: 0 none;
@@ -108,7 +106,7 @@ a {text-decoration: none;}
 .mahindra_datos ul li {margin-bottom:15px; overflow: hidden;}
 li label {color: #fff; float: left!important; font-size: 12px; padding-top: 6px; width: 65px; text-transform: uppercase;}
 
-li input.input_form { background: none repeat scroll 0 0 #fff; border: 2px solid #C41E39; border-radius: 3px 3px 3px 3px; clear: none; color: #000; float: left; height: 33px; line-height: 29px; margin-left: 20px; overflow: hidden; padding-left: 5px; padding-top: 2px; width: 294px;}
+li input.input_form,li select { background: none repeat scroll 0 0 #fff; border: 2px solid #C41E39; border-radius: 3px 3px 3px 3px; clear: none; color: #000; float: left; height: 33px; line-height: 29px; margin-left: 20px; overflow: hidden; padding-left: 5px; padding-top: 2px; width: 294px;}
 input:focus {color: #C41E39!important;}
 
 .checks li label {padding-top: 0px; width: 215px;}
