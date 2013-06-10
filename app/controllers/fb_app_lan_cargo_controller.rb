@@ -77,7 +77,7 @@ class FbAppLanCargoController < ApplicationController
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
       @link = "fb_app_lan_cargo_q"+@siguiente.to_s+"_path"
     else
-      @respuesta = @siguiente.to_s+":c"
+      @respuesta = "7:c"
 
       if params[:respuesta] == @respuesta
         @clase_exito = "exito"
