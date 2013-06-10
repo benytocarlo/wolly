@@ -96,6 +96,11 @@ class FbAppLanCargoController < ApplicationController
     end
   end
 
+  def nulas
+    @link = "fb_app_lan_cargo_"+params["sgte_preg"].to_s+"_path"
+    @clase_exito = "rsp_nula"
+  end
+
   def share
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])

@@ -58,6 +58,7 @@ Wolly::Application.routes.draw do
   post   "fb_app_lan_cargo/comenzar"
   get   "fb_app_lan_cargo/comenzar"
   post   "fb_app_lan_cargo/respuestas"
+  get   "fb_app_lan_cargo/nulas"
   get    "fb_app_lan_cargo/q1"
   get    "fb_app_lan_cargo/q2"
   get    "fb_app_lan_cargo/q3"

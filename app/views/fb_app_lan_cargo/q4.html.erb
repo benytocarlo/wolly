@@ -11,6 +11,8 @@ $(function(){
                  $(".choice").removeClass("guitarra");
                  $(this).addClass( ui.draggable.attr('class') );
                  $("#respuesta").val( ui.draggable.attr('rel') );
+                    $("#btn_enviar").fadeIn();
+                    $(".confirmar").fadeIn();
                  }
     });
 
@@ -19,7 +21,9 @@ $(function(){
             clearInterval(countdown);
             $("#registro").submit();
         }else{
-            alert("faltan campos");
+            $(".alerta_vacio").fadeIn(function(){
+                $(this).delay(3000).fadeOut();
+            }); 
         }
     });    
 
@@ -30,7 +34,7 @@ $(function(){
 
         if(updateTime == 0){
            $("span[class=tiempo_numero]").html("--");
-           location.href = '<%= fb_app_lan_cargo_q5_path %>';
+           location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q5';
         }
     }, 1000);
 })
@@ -69,7 +73,9 @@ $(function(){
                <%= hidden_field_tag 'n_preg', 4 %>
             <% end %>
           </div>
-        <%= link_to "", "#", :id => 'btn_enviar' , :class => 'next_question' %>         
+            <%=image_tag("fb_app_lan_cargo/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
+            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
+            <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>     
         </div>
 
     </div>
