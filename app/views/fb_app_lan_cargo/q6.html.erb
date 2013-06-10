@@ -4,6 +4,8 @@ $(function (){
         $(".answers span").removeClass("ON");
         $(this).addClass("ON");
         $("#respuesta").val( $(this).attr("rel") );
+        $("#btn_enviar").fadeIn();
+        $(".confirmar").fadeIn();        
     });
 
     $("#btn_enviar").click(function(){
@@ -11,7 +13,9 @@ $(function (){
             clearInterval(countdown);
             $("#registro").submit();
         }else{
-            alert("faltan campos");
+            $(".alerta_vacio").fadeIn(function(){
+                $(this).delay(3000).fadeOut();
+            }); 
         }
     });
 
@@ -22,7 +26,7 @@ $(function (){
 
         if(updateTime == 0){
            $("span[class=tiempo_numero]").html("--");
-           location.href = '<%= fb_app_lan_cargo_q7_path %>';
+           location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q7';
         }
     }, 1000);
 });
@@ -57,8 +61,9 @@ $(function (){
                 <%= hidden_field_tag 'n_preg', 6 %>
             <% end %>
         </div>
-
-        <%= link_to "", "#", :id => 'btn_enviar' , :class => 'next_question' %>
+            <%=image_tag("fb_app_lan_cargo/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
+            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
+            <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>
         </div>
 
     </div>

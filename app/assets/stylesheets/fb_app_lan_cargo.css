@@ -91,14 +91,13 @@ a img { border:0px;}
 .yesorno .caja_sino{ position:absolute; top:180px; left:174px; width:460px; height:169px;}
 .yesorno .exito{ background-image:url(fb_app_lan_cargo/correcto.png)}
 .yesorno .error{ background-image:url(fb_app_lan_cargo/incorrecto.png)}
+.yesorno .rsp_nula{ background-image:url(fb_app_lan_cargo/tiempo.png)}
 .yesorno .nota {font-family: 'Ropa Sans'; width: 71px; height: 50px; font-weight: bold; position: absolute; top: 410px; left: 255px; text-align: center; z-index: 100; font-size: 75px;	
 }
 .yesorno .continuar { 
 position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_cargo/continuar.png); width: 460px; height: 161px; text-indent: -9999px;
 }
 .yesorno .continuar:hover{ background-image:url(fb_app_lan_cargo/continuar_ON.png)}
-
-
 
 
 /* NoFan */
@@ -134,7 +133,7 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 
 .pregunta { width:100%; height:423px; margin-top:195px; position:relative;}
 
-.next_question { position:absolute; top:150px; right:15px; width:108px; height:107px; background-image:url(fb_app_lan_cargo/next_arrow.png); text-indent:-9999px;}
+.next_question { position:absolute; top:150px; right:15px; width:108px; height:107px; background-image:url(fb_app_lan_cargo/next_arrow.png); text-indent:-9999px;display: none;}
 
 /*Question 1*/
 .q1 { background-image:url(fb_app_lan_cargo/back_q1.png); background-repeat:no-repeat;}
@@ -250,3 +249,6 @@ font-family: 'Ropa Sans'; width: 191px; height: 94px; font-weight: bold; positio
 
 input.error {background: url(fb_app_lan_cargo/alert.jpg) no-repeat 291px 12px;border:0px;}
 #registro strong{display:none!important;}
+
+.alerta_vacio{position: absolute;left: 670px;top: 4px;display: none;}
+.confirmar{position: absolute;left: 673px;top: 261px;display: none;}
