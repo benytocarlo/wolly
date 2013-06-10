@@ -98,8 +98,8 @@ class FbAppLanCargoController < ApplicationController
 
   def share
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      if @me_from_database2 = Participation.find_by_id(@me_from_graph[:id])
-        @me_from_database.update_attributes(:answer => session[:answer])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        @me_from_database_participation.update_attributes(:answer => session[:answer])
       else
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer])
       end
@@ -113,8 +113,8 @@ class FbAppLanCargoController < ApplicationController
     end
 
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      if @me_from_database2 = Participation.find_by_id(@me_from_graph[:id])
-        @me_from_database.update_attributes(:answer => session[:answer])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        @me_from_database_participation.update_attributes(:answer => session[:answer])
       else
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer])
       end
@@ -122,6 +122,9 @@ class FbAppLanCargoController < ApplicationController
   end
 
   def bases
+  end
+
+  def premios
   end
 
 private

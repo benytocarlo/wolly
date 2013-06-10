@@ -52,6 +52,7 @@ Wolly::Application.routes.draw do
   get    "fb_app_sernatur_capture/new_participant"   => "fb_app_sernatur_capture#new_participant"
 
   post   "fb_app_lan_cargo"                  => "fb_app_lan_cargo#index"
+  get   "fb_app_lan_cargo"                  => "fb_app_lan_cargo#index"
   post   "fb_app_lan_cargo/canvas"
   get    "fb_app_lan_cargo/concurso"
   post   "fb_app_lan_cargo/comenzar"
@@ -66,6 +67,7 @@ Wolly::Application.routes.draw do
   get    "fb_app_lan_cargo/q7"
   get    "fb_app_lan_cargo/volver_jugar"
   get    "fb_app_lan_cargo/share"
+  get    "fb_app_lan_cargo/premios"
 
   post   "fb_app_example" => "fb_app_example#index"
   post   "fb_app_example/canvas"
