@@ -1,83 +1,5 @@
 <%= javascript_include_tag "jquery.validate" %>
 <script>
-/////////// validador Rut ////////////////
-  $.validator.addMethod(
-    "valrut",
-    function(rutvalue) {
-      return validarut(rutvalue);
-    },
-    "Rut incorrecto"
-  );
-
-  function validarut(rut){
-    if (rut.length<9)
-    return(false)
-
-    i1=rut.indexOf("-");
-    dv=rut.substr(i1+1);
-    dv=dv.toUpperCase();
-    nu=rut.substr(0,i1);
-
-    cnt=0;
-    suma=0;
-    for (i=nu.length-1; i>=0; i--)
-    {
-    dig=nu.substr(i,1);
-    fc=cnt+2;
-    suma += parseInt(dig)*fc;
-    cnt=(cnt+1) % 6;
-    }
-    dvok=11-(suma%11);
-    if (dvok==11) dvokstr="0";
-    if (dvok==10) dvokstr="K";
-    if ((dvok!=11) && (dvok!=10)) dvokstr=""+dvok;
-
-    if (dvokstr==dv)
-    return(true);
-    else
-    return(false);
-  }
-
-  function formato_rut(texto, activo) { 
-  var invertido = ""; 
-  var dtexto = ""; 
-  var cnt = 0; 
-  var i=0; 
-  var j=0; 
-  var largo = "";     
-    if (activo) { 
-        texto = formato_rut(texto, false) 
-        largo = texto.length; 
-        for ( i=(largo-1),j=0; i>=0; i--,j++ ) 
-        invertido = invertido + texto.charAt(i);           
-        dtexto = dtexto + invertido.charAt(0); 
-        dtexto = dtexto + '-';           
-        for ( i=1,j=2; i<largo; i++,j++ ) { 
-        if ( cnt == 3 ) { 
-          dtexto = dtexto + ''; 
-          j++; 
-          dtexto = dtexto + invertido.charAt(i); 
-          cnt = 1; 
-        } else {  
-          dtexto = dtexto + invertido.charAt(i); 
-          cnt++; 
-        } 
-        } 
-        invertido = ""; 
-        for ( i=(dtexto.length-1),j=0; i>=0; i--,j++ ) 
-        invertido = invertido + dtexto.charAt(i); 
-        if (invertido == '-') invertido = "" 
-        texto = invertido; 
-    } else { 
-      var tmpstr = ""; 
-      for ( i=0; i < texto.length ; i++ ) 
-      if ( texto.charAt(i) != ' ' && texto.charAt(i) != '.' && texto.charAt(i) != '-' ) 
-        tmpstr = tmpstr + texto.charAt(i); 
-      texto = tmpstr; 
-    } 
-    return texto;
-  }
-  //////////////////////////////
   function validanum(e) {
       tecla = (document.all) ? e.keyCode : e.which;
       if (tecla==8) return true;
@@ -116,8 +38,7 @@
           required: true
         },
         rut: {
-          required: true,
-          valrut: $('#rut').val()
+          required: true
         },
         telefono: {
           required: true,
@@ -141,7 +62,7 @@
     <div class="content form">
       <%= form_tag(fb_app_lan_cargo_comenzar_path,:id=>:registro, :method => "post") do  %>
         <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
-        <%= text_field_tag(:rut, @rut, :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
+        <%= text_field_tag(:rut, @rut) %>
         <%= text_field_tag(:correo, @correo) %>
         <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
       <% end %>
