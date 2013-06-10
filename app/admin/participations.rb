@@ -21,4 +21,24 @@ ActiveAdmin.register Participation do
     end
     default_actions
   end
+  csv do                       
+    selectable_column
+    column :answer
+    column :name do |participation|
+      participation.participant.facebook_name
+    end
+    column :rut do |participation|
+      participation.participant.rut
+    end
+    column :phone do |participation|
+      participation.participant.phone
+    end
+    column :email do |participation|
+      participation.participant.facebook_email
+    end
+    column :province do |participation|
+      participation.participant.province
+    end
+    default_actions
+  end
 end
