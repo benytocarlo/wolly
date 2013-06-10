@@ -75,10 +75,10 @@ a img { border:0px;}
 #footer { position:absolute; height:48px; bottom:0px; left:0px; width:100%;}
 #footer a, #footer span { background-image:url(fb_app_lan_cargo/footer_sprite.png); background-repeat:no-repeat; text-indent:-9999px; float:left}
 #footer a:hover { background-image:url(fb_app_lan_cargo/footer_sprite_ON.png)}
-#footer .link_natgeo { width:100px; height:50px; background-position:-14px -11px; margin-top:7px; margin-left:10px;}
-#footer .tw_cargas { width:180px; height:29px; background-position:-229px -19px; margin-left:113px; margin-top:14px;}
-#footer .tw_lovi { width:148px; height:29px; background-position:-457px -19px; margin-left:15px; margin-top:13px;}
-#footer .logo_cargo {width:80px; height:39px; background-position:-723px -10px; float:right; margin-top:8px; margin-right:6px;}
+#footer .link_natgeo { width:100px; height:50px; background-position:-14px -11px; margin-top:7px; margin-left:10px;cursor: default;}
+#footer .tw_cargas { width:180px; height:29px; background-position:-229px -19px; margin-left:113px; margin-top:14px;cursor: default;}
+#footer .tw_lovi { width:148px; height:29px; background-position:-457px -19px; margin-left:15px; margin-top:13px;cursor: default;}
+#footer .logo_cargo {position: absolute;left: 723px;width:80px; height:39px; background-position:-723px -10px; float:right; margin-top:8px; margin-right:6px;}
 
 /*** Custom Content ***/
 
