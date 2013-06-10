@@ -38,16 +38,16 @@
 
   function requestCallback(response) {
       $("#uid_amigo1").val(response.to);
-      $("#amigo_1").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
+      $("#invitar1").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
   }
   function requestCallback2(response) {
       $("#uid_amigo2").val(response.to);
-      $("#amigo_2").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
+      $("#invitar2").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
   }
 
   function requestCallback3(response) {
       $("#uid_amigo3").val(response.to);
-      $("#amigo_3").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
+      $("#invitar3").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
   }
 </script>
 <div id="nav"></div>
@@ -61,14 +61,8 @@
 <%= link_to "", "#", :id => 'btn_enviar', :class => 'continuar'  %>
 </div>
   <%= form_tag(fb_app_mahindra_xuv_share_path,:id=>:registro, :method => "post") do  %>
-    <div id="amigo_1">
-      <%= hidden_field_tag 'uid_amigo1' %>
-    </div>
-    <div id="amigo_2">
-      <%= hidden_field_tag 'uid_amigo2' %>
-    </div>
-    <div id="amigo_3">
-      <%= hidden_field_tag 'uid_amigo3' %>
-    </div>
+    <%= hidden_field_tag 'uid_amigo1' %>
+    <%= hidden_field_tag 'uid_amigo2' %>
+    <%= hidden_field_tag 'uid_amigo3' %>
     <%= hidden_field_tag 'recibir_info',@recibir_info %>
   <% end %>
