@@ -35,7 +35,7 @@ end
 
 ActiveAdmin::Dashboards.build do  
   section "Ultimas Aplicaciones" do  
-    table_for Application.order("id desc").limit(5) do  
+    table_for Application.order("id desc").limit(10) do  
       column :name  
       column :app_cost
       column :participant do |application|
