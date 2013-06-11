@@ -65,7 +65,7 @@ class FbAppLanCargoController < ApplicationController
       session[:answer] = params[:respuesta]
       @link = "fb_app_lan_cargo_q"+@siguiente.to_s+"_path"
 
-    when 2..6
+    when 2..4
       if params[:respuesta] == params[:n_preg].to_s+":c"
         @clase_exito = "exito"
         session[:puntaje] = session[:puntaje] + 1
@@ -77,7 +77,7 @@ class FbAppLanCargoController < ApplicationController
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
       @link = "fb_app_lan_cargo_q"+@siguiente.to_s+"_path"
     else
-      @respuesta = "7:c"
+      @respuesta = "5:c"
 
       if params[:respuesta] == @respuesta
         @clase_exito = "exito"
@@ -88,7 +88,7 @@ class FbAppLanCargoController < ApplicationController
 
       session[:answer] = session[:answer] +"/"+ params[:respuesta] +"/p:"+ session[:puntaje].to_s
 
-      if session[:puntaje] == 7
+      if session[:puntaje] == 5
         redirect_to fb_app_lan_cargo_share_path
       else
         redirect_to fb_app_lan_cargo_volver_jugar_path
