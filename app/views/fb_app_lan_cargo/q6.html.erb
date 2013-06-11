@@ -25,8 +25,13 @@ $(function (){
         $("span[class=tiempo_numero]").html(updateTime);
 
         if(updateTime == 0){
-           $("span[class=tiempo_numero]").html("--");
-           location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q7';
+           if($("#respuesta").val() != ""){
+             $("span[class=tiempo_numero]").html("--");
+             $("#registro").submit();
+           }else{
+            $("span[class=tiempo_numero]").html("--");
+            location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q7';
+           }
         }
     }, 1000);
 });
@@ -44,7 +49,7 @@ $(function (){
         <div class="game_nav">
             <div class="pager">6/7</div>
             <div class="question"><%=image_tag("fb_app_lan_cargo/question_6.png")%></div>
-            <div class="tiempo">Tiempo<span class="tiempo_numero">10</span></div>
+            <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
     

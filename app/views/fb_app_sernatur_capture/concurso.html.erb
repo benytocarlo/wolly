@@ -1,11 +1,71 @@
-<h1 id="concurso">Sernatur - Concurso</h1>
+<% content_for :body_classes, 'registro' %>
+<%= render :partial => "layouts/validator2" %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#enviar").click(function(){
+      $("#registro").submit();
+    });
 
-<p id="error"><%= flash[:error] %></p>
-<p id="notice"><%= flash[:notice] %></p>
-<%= form_tag(fb_app_sernatur_capture_share_path, :method => "post") do  %>
-  <%= text_field_tag(:nombre, @nombre) %>
-  <%= text_field_tag(:rut, @rut) %>
-  <%= text_field_tag(:correo, @email) %>
-  <%= text_field_tag(:telefono, @telefono) %>
-  <%= submit_tag("Participa") %>
-<% end %>
+    $("#registro").validate({
+      rules: {
+        nombre: {
+          required: true
+        },
+        apellido: {
+          required: true
+        },
+        rut: {
+          required: true
+        },
+        direccion: {
+          required: true,
+        },
+        region: {
+          required: true,
+        },
+        zipcode: {
+          required: true,
+        },
+        correo: {
+          required: true,
+          email: true
+        } 
+      }
+    });
+});
+</script>
+<div id="header">
+    <ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Instructions</a></li>
+     <li><a href="#">Prize</a></li>
+    <li><a href="#">Terms</a></li>
+    </ul>
+</div>
+<center>
+	<%= form_tag(fb_app_sernatur_capture_share_path,:id=>:registro, :method => "post") do  %>
+		<div id="paste">
+			<label class="boardhere">PASTE THE URL OF YOUR OWN "CAPTURE CHILE" BOARD HERE</label>
+			<input type="text" class="camposbig">
+		</div>
+		<div id="uno">
+			<label>FIRST NAME</label>
+			<%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+			<label>LAST NAME</label>
+			<%= text_field_tag(:apellido, @apellido, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+			<label>I.D</label>
+			<%= text_field_tag(:rut, @rut, :class => 'campos') %>
+			<label>ADRESS</label>
+			<%= text_field_tag(:direccion, @direccion, :class => 'campos') %>
+		</div>
+		<div id="dos">
+			<label>STATE</label>
+			<%= text_field_tag(:region, @region, :class => 'campos') %>
+			<label>ZIP CODE</label>
+			<%= text_field_tag(:zipcode, '', :class => 'campos') %>
+			<label>E-MAIL</label>
+			<%= text_field_tag(:correo, @correo, :class => 'campos') %>
+		</div>
+		<a href="#" id="enviar">
+	<% end %>
+</center>
