@@ -1,13 +1,20 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
-$(function (){
-    $(".answers span").click( function(){
-        $(".answers span").removeClass("ON");
-            $(this).addClass("ON");
-            $("#respuesta").val( $(this).attr("ref") );
-            $("#btn_enviar").fadeIn();
-            $(".confirmar").fadeIn();
-        }
-    );
+$(function(){
+    $(".bajo, .acordeon, .piano, .guitarra").draggable({ revert: true });
+    $(".choice").droppable({ 
+             accept: ".bajo, .acordeon, .piano, .guitarra",
+             drop: function(event, ui ) {
+                 $(".choice").removeClass("bajo");
+                 $(".choice").removeClass("acordeon");
+                 $(".choice").removeClass("piano");
+                 $(".choice").removeClass("guitarra");
+                 $(this).addClass( ui.draggable.attr('class') );
+                 $("#respuesta").val( ui.draggable.attr('rel') );
+                    $("#btn_enviar").fadeIn();
+                    $(".confirmar").fadeIn();
+                 }
+    });
 
     $("#btn_enviar").click(function(){
         if( $("#respuesta").val() != "" ){
@@ -18,7 +25,7 @@ $(function (){
                 $(this).delay(3000).fadeOut();
             }); 
         }
-    });
+    });    
 
      var countdown = setInterval(function() {
         var timeCounter = $("span[class=tiempo_numero]").html();
@@ -30,12 +37,12 @@ $(function (){
              $("span[class=tiempo_numero]").html("--");
              $("#registro").submit();
            }else{
-             $("span[class=tiempo_numero]").html("--");
-             location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q3';
-           }
+            $("span[class=tiempo_numero]").html("--");
+            location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q3';
+          }
         }
     }, 1000);
-});
+})
 </script>
 <div class="content">
     <div id="header">
@@ -48,27 +55,32 @@ $(function (){
             </ul>
         </div>
         <div class="game_nav">
-            <div class="pager">2/7</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/queston_2.png", :class => "q1-granja", :alt => "Question")%></div>
+            <div class="pager">2/5</div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_4.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
     
     <div class="content">
-        <div class="q2 pregunta">
-            <div class="answers">
-                <span class="opt1" ref="2:i"></span>
-                <span class="opt2" ref="2:c"></span>
-                <span class="opt3" ref="2:i"></span>
-                <span class="opt4" ref="2:i"></span>
-                <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
-                    <%= hidden_field_tag 'respuesta' %>
-                    <%= hidden_field_tag 'n_preg', 2 %>
-                <% end %>
-            </div>
+        <div class="q4 pregunta">
+        
+          <div class="answers">
+            <%=image_tag("fb_app_lan_cargo/bajo.png",:class => "bajo", :alt => "Question", :rel => "4:i")%>
+            <%=image_tag("fb_app_lan_cargo/acordeon.png",:class => "acordeon", :alt => "Question", :rel => "4:i")%>
+            <%=image_tag("fb_app_lan_cargo/piano.png",:class => "piano", :alt => "Question", :rel => "4:c")%>
+            <%=image_tag("fb_app_lan_cargo/guitarra.png",:class => "guitarra", :alt => "Question", :rel => "4:i")%>
+          </div> <!-- / .questions -->
+          
+          <div class="choices">
+            <div id="choice-1" class="choice"></div> <!-- / .choice -->
+            <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
+               <%= hidden_field_tag 'respuesta' %>
+               <%= hidden_field_tag 'n_preg', 2 %>
+            <% end %>
+          </div>
             <%=image_tag("fb_app_lan_cargo/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
             <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
-            <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>    
+            <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>     
         </div>
 
     </div>

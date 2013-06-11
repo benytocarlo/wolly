@@ -1,19 +1,11 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
-$(function(){
-    $(".bajo, .acordeon, .piano, .guitarra").draggable({ revert: true });
-    $(".choice").droppable({ 
-             accept: ".bajo, .acordeon, .piano, .guitarra",
-             drop: function(event, ui ) {
-                 $(".choice").removeClass("bajo");
-                 $(".choice").removeClass("acordeon");
-                 $(".choice").removeClass("piano");
-                 $(".choice").removeClass("guitarra");
-                 $(this).addClass( ui.draggable.attr('class') );
-                 $("#respuesta").val( ui.draggable.attr('rel') );
-                    $("#btn_enviar").fadeIn();
-                    $(".confirmar").fadeIn();
-                 }
+$(function (){
+    $(".answers span").click( function(){
+        $(".answers span").removeClass("ON");
+        $(this).addClass("ON");
+        $("#respuesta").val( $(this).attr("rel") );
+        $("#btn_enviar").fadeIn();
+        $(".confirmar").fadeIn();        
     });
 
     $("#btn_enviar").click(function(){
@@ -25,7 +17,7 @@ $(function(){
                 $(this).delay(3000).fadeOut();
             }); 
         }
-    });    
+    });
 
      var countdown = setInterval(function() {
         var timeCounter = $("span[class=tiempo_numero]").html();
@@ -39,10 +31,10 @@ $(function(){
            }else{
             $("span[class=tiempo_numero]").html("--");
             location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q5';
-          }
+           }
         }
     }, 1000);
-})
+});
 </script>
 <div class="content">
     <div id="header">
@@ -55,32 +47,28 @@ $(function(){
             </ul>
         </div>
         <div class="game_nav">
-            <div class="pager">4/7</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/question_4.png")%></div>
+            <div class="pager">4/5</div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_6.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
     
     <div class="content">
-        <div class="q4 pregunta">
+        <div class="q6 pregunta">
         
-          <div class="answers">
-            <%=image_tag("fb_app_lan_cargo/bajo.png",:class => "bajo", :alt => "Question", :rel => "4:i")%>
-            <%=image_tag("fb_app_lan_cargo/acordeon.png",:class => "acordeon", :alt => "Question", :rel => "4:i")%>
-            <%=image_tag("fb_app_lan_cargo/piano.png",:class => "piano", :alt => "Question", :rel => "4:c")%>
-            <%=image_tag("fb_app_lan_cargo/guitarra.png",:class => "guitarra", :alt => "Question", :rel => "4:i")%>
-          </div> <!-- / .questions -->
-          
-          <div class="choices">
-            <div id="choice-1" class="choice"></div> <!-- / .choice -->
+        <div class="answers">
+            <span class="opt1" rel="6:c"></span>
+            <span class="opt2" rel="6:i"></span>
+            <span class="opt3" rel="6:i"></span>
+            <span class="opt4" rel="6:i"></span>
             <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
-               <%= hidden_field_tag 'respuesta' %>
-               <%= hidden_field_tag 'n_preg', 4 %>
+                <%= hidden_field_tag 'respuesta' %>
+                <%= hidden_field_tag 'n_preg', 4 %>
             <% end %>
-          </div>
+        </div>
             <%=image_tag("fb_app_lan_cargo/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
             <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
-            <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>     
+            <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>
         </div>
 
     </div>

@@ -1,13 +1,20 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
-$(function (){
-    $(".answers span").click( function(){
-            $(".answers span").removeClass("ON");
-            $(this).addClass("ON");
-            $("#respuesta").val( $(this).attr("rel") );
-            $("#btn_enviar").fadeIn();
-            $(".confirmar").fadeIn();
-        }
-    );
+$(function(){
+    $(".tresmil, .seismil, .nuevemil, .docemil").draggable({ revert: true });
+    $(".choice").droppable({ 
+         accept: ".tresmil, .seismil, .nuevemil, .docemil",
+         drop: function(event, ui ) {
+             $(".choice").removeClass("tresmil");
+             $(".choice").removeClass("seismil");
+             $(".choice").removeClass("nuevemil");
+             $(".choice").removeClass("docemil");
+             $(this).addClass( ui.draggable.attr('class') );
+             $("#respuesta").val( ui.draggable.attr('rel') );
+              $("#btn_enviar").fadeIn();
+              $(".confirmar").fadeIn();       
+             }
+    });
 
     $("#btn_enviar").click(function(){
         if( $("#respuesta").val() != "" ){
@@ -31,11 +38,11 @@ $(function (){
              $("#registro").submit();
            }else{
             $("span[class=tiempo_numero]").html("--");
-            location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q6';
-           }
+            location.href = '<%= fb_app_lan_cargo_volver_jugar_path %>';
+          }
         }
     }, 1000);
-});
+})
 </script>
 <div class="content">
     <div id="header">
@@ -48,25 +55,29 @@ $(function (){
             </ul>
         </div>
         <div class="game_nav">
-            <div class="pager">5/7</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/question_5.png")%></div>
+            <div class="pager">5/5</div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_7.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
     
     <div class="content">
-        <div class="q5 pregunta">
+        <div class="q7 pregunta">
         
-        <div class="answers">
-            <span class="opt1" rel="5:i"></span>
-            <span class="opt2" rel="5:i"></span>
-            <span class="opt3" rel="5:i"></span>
-            <span class="opt4" rel="5:c"></span>
+          <div class="answers">
+            <%=image_tag("fb_app_lan_cargo/q7_3000.png", :class => "tresmil answer",:rel => "7:i", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q7_6000.png", :class => "seismil answer",:rel => "7:i", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q7_9000.png", :class => "nuevemil answer",:rel => "7:c", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/q7_12000.png", :class => "docemil answer",:rel => "7:i", :alt => "Question")%>
+          </div> <!-- / .questions -->
+          
+          <div class="choices">
+            <div id="choice-1" class="choice"></div> <!-- / .choice -->
             <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
                 <%= hidden_field_tag 'respuesta' %>
                 <%= hidden_field_tag 'n_preg', 5 %>
             <% end %>
-        </div>
+          </div>
             <%=image_tag("fb_app_lan_cargo/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
             <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
             <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>         
