@@ -1,6 +1,7 @@
+<% content_for :body_classes, 'home' %>
 <script type="text/javascript" charset="utf-8">
   $(window).load(function(){
-    $("#fb_app_login").click(function(){
+    $("#next").click(function(){
       FB.login(function(response){
         if (response.authResponse){
           location.href = '<%= fb_app_sernatur_capture_concurso_path %>';
@@ -9,5 +10,17 @@
     });
   });
 </script>
-<h1>Sernatur | Index</h1>
-<%= link_to "PARTICIPAR", fb_app_sernatur_capture_concurso_path, :id => :fb_app_login, :href => '#' %>
+<div id="header">
+    <ul class="menu">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="instructions.html">Instructions</a></li>
+     <li><a href="prize.html">Prize</a></li>
+    <li><a href="TERMSandConditionsPinterestChile.travel.pdf">Terms</a></li>
+    </ul>
+</div>
+
+<div id="areyousa">
+	<input id="demo_box_1" class="css-checkbox" type="checkbox" />
+	<label for="demo_box_1" name="demo_lbl_1" class="css-label">ARE YOU AN U.S RESIDENT?</label>               
+	<a href="#" id="next"></a>
+</div>
