@@ -46,6 +46,12 @@
         correo: {
           required: true,
           email: true
+        },
+        red: {
+          required: true
+        },
+        mail_ok: {
+          required: true
         }
       }
     });
@@ -65,6 +71,8 @@
         <%= text_field_tag(:rut, @rut) %>
         <%= text_field_tag(:correo, @correo) %>
         <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
+        <%= check_box_tag(:read)  %>
+        <%= check_box_tag(:mail_ok)  %>
       <% end %>
       <a href="#" id="btn_enviar" class="btn_despega">Despega</a>
     </div>

@@ -122,6 +122,8 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 .form .btn_despega { position:absolute; right:40px; top:530px; width:173px; height:61px; background-image:url(fb_app_lan_cargo/btn_despega.jpg); text-indent:-9999px;}
 .form .btn_despega:hover { background-image:url(fb_app_lan_cargo/btn_despega_ON.jpg);}
 
+.form #read{ position:absolute; top:166px; left:0px}
+.form #mail_ok{position:absolute; top:196px; left:0px}
 /* Intro */
 
 .intro { background-image:url(fb_app_lan_cargo/back_intro.png); background-repeat:no-repeat;}
@@ -142,7 +144,7 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 
 .q1 .choices {}
 .q1 .choices .choice{width:97px; height:96px;  position:absolute;}
-.q1 .choices .choice_ON { background-image: url(fb_app_lan_cargo/q1_icon.png);}
+.q1 .choices .choice_ON { background-image: url(fb_app_lan_cargo/granja_drop.png);}
 .q1 .choices .mexico {top:11px; left:212px;}
 .q1 .choices .panama {top:128px; left:338px;}
 .q1 .choices .colombia {top:220px; left:406px;}
