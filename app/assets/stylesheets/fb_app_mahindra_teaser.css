@@ -80,7 +80,7 @@ position: relative;
 #main{
 	background:url(fb_app_mahindra_teaser/gracias_bg.jpg) no-repeat 0 0;
 	width:810px;
-	height:610px;
+	height:590px;
 	display:block;
 	position:relative;
 }
@@ -253,5 +253,15 @@ height: 20px;
 }
 
 #registro .error {
-	background: url(alert.jpg) no-repeat 250px 12px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+	background: url(alert.jpg) no-repeat 210px 6px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
 #registro strong{display:none!important;}
+
+.check1{
+  position: relative;
+  left: -70px;
+}
+
+.check2{
+  position: relative;
+  left: -10px;
+}
