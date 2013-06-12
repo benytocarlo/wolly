@@ -82,6 +82,7 @@ Wolly::Application.routes.draw do
   get    "fb_app_snickers_redhot/comunas"
 
   post   "fb_app_mahindra_teaser"                  => "fb_app_mahindra_teaser#index"
+  get    "fb_app_mahindra_teaser"                  => "fb_app_mahindra_teaser#index"
   post   "fb_app_mahindra_teaser/canvas"
   get    "fb_app_mahindra_teaser/concurso"
   post   "fb_app_mahindra_teaser/share"
