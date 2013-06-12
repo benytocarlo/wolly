@@ -132,6 +132,7 @@ color: #ff3d84;
 	padding-left: 20px !important;
 	border:none;
 	background-repeat: no-repeat;
+  background-color: inherit;
 }
 .registro .camposbig{
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
