@@ -1,6 +1,6 @@
 #coding: utf-8
-class FbAppMahindraXuvController < ApplicationController
-  layout "fb_app_mahindra_xuv"
+class FbAppMahindraTeaserController < ApplicationController
+  layout "fb_app_mahindra_teaser"
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request
   before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
@@ -74,7 +74,7 @@ private
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
   #
   def load_application_data
-    @app_id = '452970131461794' if Rails.env.development?
+    @app_id = '612928952058879' if Rails.env.development?
     @app_id = '612928952058879' if Rails.env.production?
     @app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
