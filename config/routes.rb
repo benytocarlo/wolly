@@ -83,9 +83,7 @@ Wolly::Application.routes.draw do
 
   post   "fb_app_mahindra_teaser"                  => "fb_app_mahindra_teaser#index"
   post   "fb_app_mahindra_teaser/canvas"
-  get    "fb_app_mahindra_teaser/comunas"
   get    "fb_app_mahindra_teaser/concurso"
-  post    "fb_app_mahindra_teaser/invitar"
   post   "fb_app_mahindra_teaser/share"
   
   devise_for :admin_users, ActiveAdmin::Devise.config
