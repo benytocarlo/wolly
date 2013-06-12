@@ -6,14 +6,9 @@
   <%= javascript_include_tag "fb_app_mahindra_teaser" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '700' } %>
+<body class='<%= yield :body_classes %>' screen_capture_injected='true'>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
   <%= render "layouts/ga" %>
-  <div id="contenedor">
-    <%= yield %>
-    <div id='footer'>
-      <a href="/documents/Bases__Promocion_RHCHP.pdf" target="_blank">Bases del Concurso</a>
-    </div>
-  </div>
+  <%= yield %>
 </body>
 </html>
