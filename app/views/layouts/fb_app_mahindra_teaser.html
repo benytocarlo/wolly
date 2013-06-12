@@ -1,0 +1,14 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_mahindra_teaser", :media => "all" %>
+  <%= javascript_include_tag "fb_app_mahindra_teaser" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= yield :body_classes %>' screen_capture_injected='true'>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
+  <%= render "layouts/ga" %>
+  <%= yield %>
+</body>
+</html>

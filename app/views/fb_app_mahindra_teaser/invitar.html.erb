@@ -1,0 +1,70 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(".invitar1").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '<%= @app.invite_message %>',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '1'
+      },requestCallback);
+    });
+
+    $(".invitar2").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '<%= @app.invite_message %>',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '1'
+      },requestCallback2);
+    });
+
+    $(".invitar3").click(function(){
+      FB.ui({ method: 'apprequests',
+        message: '<%= @app.invite_message %>',
+        filters: ['app_non_users'],
+        title: 'Invitación',
+        max_recipients: '1'
+      },requestCallback3);
+    });
+
+    $("#btn_enviar").click(function(){
+      if ($("#uid_amigo1").val() != "" && $("#uid_amigo2").val() != "" && $("#uid_amigo3").val() != "" ) {
+        $("#registro").submit();
+      }else{
+        alert( "!Debes invitar a 3 amigos antes de continuar¡" );
+      }
+    });
+  });
+
+  function requestCallback(response) {
+      $("#uid_amigo1").val(response.to);
+      $("#invitar1").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
+  }
+  
+  function requestCallback2(response) {
+      $("#uid_amigo2").val(response.to);
+      $("#invitar2").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
+  }
+
+  function requestCallback3(response) {
+      $("#uid_amigo3").val(response.to);
+      $("#invitar3").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');
+  }
+  
+</script>
+<div id="nav"></div>
+<div class="invitacion">
+<ul>
+    <li><a href="javascript:void(0);"><img src="https://graph.facebook.com/<%= @me_from_graph[:id] %>/picture?width=65&height=65" width="65" height="65"/></a></li>
+    <li><%= link_to "", "#", :class => 'invitar1', :id => 'invitar1'  %></li>
+    <li><%= link_to "", "#", :class => 'invitar2', :id => 'invitar2'  %></li>
+    <li><%= link_to "", "#", :class => 'invitar3', :id => 'invitar3'  %></li>
+</ul>
+<%= link_to "", "#", :id => 'btn_enviar', :class => 'continuar'  %>
+</div>
+  <%= form_tag(fb_app_mahindra_xuv_share_path,:id=>:registro, :method => "post") do  %>
+    <%= hidden_field_tag 'uid_amigo1' %>
+    <%= hidden_field_tag 'uid_amigo2' %>
+    <%= hidden_field_tag 'uid_amigo3' %>
+    <%= hidden_field_tag 'recibir_info',@recibir_info %>
+  <% end %>s

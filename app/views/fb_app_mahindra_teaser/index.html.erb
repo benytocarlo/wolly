@@ -1,0 +1,27 @@
+<% content_for :body_classes, 'mahindra' %>
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function(){
+    $("#btn_mahindra").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_mahindra_teaser_concurso_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+  });
+</script>
+<div id="mahindra">
+    <div id="head">
+    <div id="logo"></div>
+    <div id="menu">
+      <ul>
+      <li><a href="/" class="inicio">Inicio</a></li>
+      <li><a href="#"  class="bases">Bases</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <a id="btn_mahindra" href="#"></a>
+  <a id="btn_mahindra_play"></a>
+  <a></a>
+</div>

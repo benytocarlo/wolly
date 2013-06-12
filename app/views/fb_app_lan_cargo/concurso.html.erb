@@ -47,10 +47,7 @@
           required: true,
           email: true
         },
-        red: {
-          required: true
-        },
-        mail_ok: {
+        read: {
           required: true
         }
       }
@@ -71,8 +68,8 @@
         <%= text_field_tag(:rut, @rut) %>
         <%= text_field_tag(:correo, @correo) %>
         <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
-        <%= check_box_tag(:read)  %>
-        <%= check_box_tag(:mail_ok)  %>
+        <input type="checkbox" id="read" name="read" value="1" checked>
+        <input type="checkbox" id="mail_ok" name="mail_ok" value="1" checked>
       <% end %>
       <a href="#" id="btn_enviar" class="btn_despega">Despega</a>
     </div>
