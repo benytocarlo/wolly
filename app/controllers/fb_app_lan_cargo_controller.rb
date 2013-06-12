@@ -18,12 +18,14 @@ class FbAppLanCargoController < ApplicationController
   
   def concurso
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_database.facebook_name
+      @nombre   = @me_from_graph[:first_name]
+      @apellido = @me_from_graph[:last_name]
       @rut      = @me_from_database.rut
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
     else
-      @nombre   = @me_from_graph[:name]
+      @nombre   = @me_from_graph[:first_name]
+      @apellido   = @me_from_graph[:last_name]
       @correo   = @me_from_graph[:email]
       @rut      = ""
       @telefono = ""
@@ -33,8 +35,11 @@ class FbAppLanCargoController < ApplicationController
   def comenzar
     if request.post?
       if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
+        @nombre_completo = params[:nombre]+" "+params[:apellido]
+        session[:mail_ok] = params[:mail_ok]
+
         if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-          @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+          @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
         else
           @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
         end
@@ -119,9 +124,9 @@ class FbAppLanCargoController < ApplicationController
 
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
-        @me_from_database_participation.update_attributes(:answer => session[:answer])
+        @me_from_database_participation.update_attributes(:answer => session[:answer]+"/mail:"+session[:mail_ok])
       else
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer]+"/mail:"+session[:mail_ok])
       end
     end
   end

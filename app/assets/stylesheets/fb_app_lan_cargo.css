@@ -112,18 +112,19 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 /* Form */
 .form { background-image:url(fb_app_lan_cargo/back_form.png); height:618px; background-repeat:no-repeat;}
 
-.form form{ position:absolute; top:385px; left:36px;}
-.form form input[type="text"] {padding: 10px; width: 292px; position:absolute; border:0px; background-color:transparent; height:20px;}
+.form form{ position:absolute; top:292px; left:36px;}
+.form form input[type="text"] {padding: 10px; width: 311px; position:absolute; border:0px; background-color:transparent; height:20px;}
 #nombre{ top:2px; left:2px;}
-#rut{top:2px; left:421px}
-#telefono{ top:82px; left:2px;}
-#correo{ top:82px; left:421px}
+#apellido{top:2px; left:402px}
+#rut{ top:82px; left:2px;}
+#telefono{ top:82px; left:402px}
+#correo{ top:161px; left:2px;}
 
-.form .btn_despega { position:absolute; right:40px; top:530px; width:173px; height:61px; background-image:url(fb_app_lan_cargo/btn_despega.jpg); text-indent:-9999px;}
+.form .btn_despega { position:absolute; right:40px; top:540px; width:173px; height:61px; background-image:url(fb_app_lan_cargo/btn_despega.jpg); text-indent:-9999px;}
 .form .btn_despega:hover { background-image:url(fb_app_lan_cargo/btn_despega_ON.jpg);}
 
-.form #read{ position:absolute; top:166px; left:0px}
-.form #mail_ok{position:absolute; top:196px; left:0px}
+.form #read{ position:absolute; top:249px; left:0px}
+.form #mail_ok{position:absolute; top:279px; left:0px}
 /* Intro */
 
 .intro { background-image:url(fb_app_lan_cargo/back_intro.png); background-repeat:no-repeat;}
@@ -249,7 +250,7 @@ font-family: 'Arial'; width: 191px; height: 94px; font-weight: bold; position: a
 .lower_nav a.btn_compartir:hover { background-image:url(fb_app_lan_cargo/btn_compartir_ON.png); width:232px; height:61px;}
 .lower_nav a.btn_invitar_amigos:hover { background-image:url(fb_app_lan_cargo/btn_invitar_ON.png); width:232px; height:61px;}
 
-input.error {background: url(fb_app_lan_cargo/alert.jpg) no-repeat 291px 12px;border:0px;}
+input.error {background: url(fb_app_lan_cargo/alert.jpg) no-repeat 310px 12px;border:0px;}
 #registro strong{display:none!important;}
 
 .alerta_vacio{position: absolute;left: 670px;top: 4px;display: none;}
