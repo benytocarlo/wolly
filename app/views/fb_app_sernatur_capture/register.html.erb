@@ -8,6 +8,9 @@
 
     $("#registro").validate({
       rules: {
+        url_capture: {
+          required: true
+        },
         nombre: {
           required: true
         },
@@ -36,21 +39,21 @@
 </script>
 <div id="header">
     <ul class="menu">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Instructions</a></li>
-     <li><a href="#">Prize</a></li>
-    <li><a href="#">Terms</a></li>
+    <li><a href="<%= fb_app_sernatur_capture_path %>">Home</a></li>
+    <li><a href="<%= fb_app_sernatur_capture_instructions_path %>">Instructions</a></li>
+     <li><a href="<%= fb_app_sernatur_capture_prize_path %>">Prize</a></li>
+    <li><a href="/documents/fb_app_sernatur_capture.pdf">Terms</a></li>
     </ul>
 </div>
 <center>
 	<%= form_tag(fb_app_sernatur_capture_share_path,:id=>:registro, :method => "post") do  %>
 		<div id="paste">
 			<label class="boardhere">PASTE THE URL OF YOUR OWN "CAPTURE CHILE" BOARD HERE</label>
-			<input type="text" class="camposbig">
-		</div>
-		<div id="uno">
-			<label>FIRST NAME</label>
-			<%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+			<%= text_field_tag(:url_capture, '', :class => 'camposbig') %>
+    </div>
+    <div id="uno">
+      <label>FIRST NAME</label>
+      <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
 			<label>LAST NAME</label>
 			<%= text_field_tag(:apellido, @apellido, :class => 'campos', :onkeypress => "return validatxt(event)") %>
 			<label>I.D</label>

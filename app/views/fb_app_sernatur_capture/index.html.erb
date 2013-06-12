@@ -4,7 +4,7 @@
     $("#next").click(function(){
       FB.login(function(response){
         if (response.authResponse){
-          location.href = '<%= fb_app_sernatur_capture_concurso_path %>';
+          location.href = '<%= fb_app_sernatur_capture_register_path %>';
         }
       },{scope:'<%= @scope %>'});
     });
@@ -12,10 +12,10 @@
 </script>
 <div id="header">
     <ul class="menu">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="instructions.html">Instructions</a></li>
-     <li><a href="prize.html">Prize</a></li>
-    <li><a href="TERMSandConditionsPinterestChile.travel.pdf">Terms</a></li>
+    <li><a href="<%= fb_app_sernatur_capture_path %>">Home</a></li>
+    <li><a href="<%= fb_app_sernatur_capture_instructions_path %>">Instructions</a></li>
+     <li><a href="<%= fb_app_sernatur_capture_prize_path %>">Prize</a></li>
+    <li><a href="/documents/fb_app_sernatur_capture.pdf">Terms</a></li>
     </ul>
 </div>
 
