@@ -20,7 +20,7 @@ class FbAppSernaturCaptureController < ApplicationController
     end
   end
   
-  def concurso
+  def register
     @width = '810'
     @height = '800'
 
@@ -38,25 +38,34 @@ class FbAppSernaturCaptureController < ApplicationController
       @telefono = ""
     end    
   end
-  
-  def bases
-  end
 
   def share
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:uid_amigo].present?
-      @uid   = @me_from_graph[:id]
-      @uid_amigo   = params[:uid_amigo]
+    @width = '810'
+    @height = '650'
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+        @nombre_completo = params[:nombre]+" "+params[:apellido]
+        @answer = params[:zipcode]+"/"+params[:url_capture]
+        @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :province => params[:region], :address => params[:direccion])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @nombre_completo, :facebook_email => params[:correo], :facebook_gender => @me_from_graph[:gender], :province => params[:region], :address => params[:direccion])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
       end
     else
       redirect_to fb_app_sernatur_capture_concurso_path, :flash => { :error => "Faltan campos por llenar." }
     end
     
+  end
+
+  def instructions
+    @width = '810'
+    @height = '1750'
+  end
+
+  def prize
+    @width = '810'
+    @height = '1000'
   end
 
 private

@@ -1,5 +1,4 @@
-<% content_for :body_classes, 'thanks' %>
-<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
+<% content_for :body_classes, 'prize' %>
 <div id="header">
     <ul class="menu">
     <li><a href="<%= fb_app_sernatur_capture_path %>">Home</a></li>
@@ -8,5 +7,3 @@
     <li><a href="/documents/fb_app_sernatur_capture.pdf" target="_blank">Terms</a></li>
     </ul>
 </div>
-<%= link_to "", "#", :id => 'btn_share',:class => 'sharefb' %>
-<%= link_to "", "#", :id => 'btn_invite',:class => 'invitar' %>

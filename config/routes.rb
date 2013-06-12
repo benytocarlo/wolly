@@ -44,12 +44,13 @@ Wolly::Application.routes.draw do
   post   "fb_app_brother_diapapa_ch/share"
 
   post   "fb_app_sernatur_capture"                  => "fb_app_sernatur_capture#index"
+  get    "fb_app_sernatur_capture"                  => "fb_app_sernatur_capture#index"
   post   "fb_app_sernatur_capture/canvas"
-  get    "fb_app_sernatur_capture/video"             => "fb_app_sernatur_capture#video"
-  get    "fb_app_sernatur_capture/especificaciones"  => "fb_app_sernatur_capture#especificaciones"
-  get    "fb_app_sernatur_capture/concurso"          => "fb_app_sernatur_capture#concurso"
+  get    "fb_app_sernatur_capture/register"
+  get    "fb_app_sernatur_capture/instructions"
+  get    "fb_app_sernatur_capture/prize"
   post   "fb_app_sernatur_capture/share"            => "fb_app_sernatur_capture#share"              , :as => :fb_app_sernatur_capture_share
-  get    "fb_app_sernatur_capture/new_participant"   => "fb_app_sernatur_capture#new_participant"
+
 
   post   "fb_app_lan_cargo"                  => "fb_app_lan_cargo#index"
   get   "fb_app_lan_cargo"                  => "fb_app_lan_cargo#index"

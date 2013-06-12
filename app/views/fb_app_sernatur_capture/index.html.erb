@@ -2,25 +2,31 @@
 <script type="text/javascript" charset="utf-8">
   $(window).load(function(){
     $("#next").click(function(){
-      FB.login(function(response){
-        if (response.authResponse){
-          location.href = '<%= fb_app_sernatur_capture_concurso_path %>';
-        }
-      },{scope:'<%= @scope %>'});
+      if( $("#demo_box_1").is(':checked') ) {
+        $(".nochecked").fadeOut();
+        FB.login(function(response){
+          if (response.authResponse){
+            location.href = '<%= fb_app_sernatur_capture_register_path %>';
+          }
+        },{scope:'<%= @scope %>'});
+      }else{
+        $(".nochecked").fadeIn();
+      }
     });
   });
 </script>
 <div id="header">
     <ul class="menu">
-    <li><a href="home.html">Home</a></li>
-    <li><a href="instructions.html">Instructions</a></li>
-     <li><a href="prize.html">Prize</a></li>
-    <li><a href="TERMSandConditionsPinterestChile.travel.pdf">Terms</a></li>
+    <li><a href="<%= fb_app_sernatur_capture_path %>">Home</a></li>
+    <li><a href="<%= fb_app_sernatur_capture_instructions_path %>">Instructions</a></li>
+     <li><a href="<%= fb_app_sernatur_capture_prize_path %>">Prize</a></li>
+    <li><a href="/documents/fb_app_sernatur_capture.pdf" target="_blank">Terms</a></li>
     </ul>
 </div>
 
 <div id="areyousa">
-	<input id="demo_box_1" class="css-checkbox" type="checkbox" />
-	<label for="demo_box_1" name="demo_lbl_1" class="css-label">ARE YOU AN U.S RESIDENT?</label>               
-	<a href="#" id="next"></a>
+  <input id="demo_box_1" class="css-checkbox" type="checkbox" />
+  <label for="demo_box_1" name="demo_lbl_1" class="css-label">ARE YOU AN U.S RESIDENT?</label>               
+  <a href="#" id="next"></a>
+  <div class="nochecked">We're sorry, but you are not eligible. Soon we will have a contest for you too. </div>
 </div>
