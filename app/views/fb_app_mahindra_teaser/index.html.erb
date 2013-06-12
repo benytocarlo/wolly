@@ -1,0 +1,15 @@
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function(){
+    $("#fb_app_login").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_mahindra_xuv_concurso_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+  });
+</script>
+<div id="nav"></div>
+<div class="home">
+  <%= link_to "", fb_app_mahindra_xuv_concurso_path, :id => :fb_app_login, :href => '#', :class => "participa" %>
+</div>

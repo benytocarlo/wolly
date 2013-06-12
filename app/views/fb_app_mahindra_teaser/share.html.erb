@@ -1,0 +1,33 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(".sharefb").click(function(){
+      FB.ui({
+          method: 'feed',
+          name: '<%= @app.name %>',
+          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
+          picture: 'http://wolly.herokuapp.com/images/<%= controller_path %>/75x75.jpeg',
+          caption: '<%= @app.share_caption %>',
+          description: '<%= @app.share_description %>'
+        },
+        function(response) {
+        
+        });
+      return false;
+    });
+    $(".invitar").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '<%= @app.invite_message %>',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '50'
+      });
+    });
+  });
+</script>
+<div id="nav"></div>
+<div class="final">
+    <ul>
+        <li><%= link_to "", "#", :class => 'invitar' %></li>
+        <li><%= link_to "", "#", :class => 'compartir sharefb' %></li>
+    </ul>
+</div>
