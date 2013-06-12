@@ -277,5 +277,7 @@ input[type=checkbox].css-checkbox {
 #registro .error {
 	background: url(alert.jpg) no-repeat 250px 12px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
 #registro strong{display:none!important;}
-
+#registro .camposbig.error{
+  background-position: 570px 15px !important; background-color:#FFF; border:1px solid #ff6666; color: #ED0304;
+}
 /*-----------------fin--------------*/
