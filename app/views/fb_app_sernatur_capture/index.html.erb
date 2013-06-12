@@ -2,11 +2,17 @@
 <script type="text/javascript" charset="utf-8">
   $(window).load(function(){
     $("#next").click(function(){
-      FB.login(function(response){
-        if (response.authResponse){
-          location.href = '<%= fb_app_sernatur_capture_register_path %>';
-        }
-      },{scope:'<%= @scope %>'});
+      if( $("#demo_box_1").is(':checked') ) {
+        FB.login(function(response){
+          if (response.authResponse){
+            location.href = '<%= fb_app_sernatur_capture_register_path %>';
+          }
+        },{scope:'<%= @scope %>'});
+      }else{
+        $(".nochecked").fadeIn(function(){
+          $(this).delay(3000).fadeOut();
+        }); 
+      }
     });
   });
 </script>
@@ -20,6 +26,7 @@
 </div>
 
 <div id="areyousa">
+  <div class="nochecked">mensaje de error</div>
 	<input id="demo_box_1" class="css-checkbox" type="checkbox" />
 	<label for="demo_box_1" name="demo_lbl_1" class="css-label">ARE YOU AN U.S RESIDENT?</label>               
 	<a href="#" id="next"></a>
