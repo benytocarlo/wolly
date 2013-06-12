@@ -32,16 +32,7 @@ class FbAppMahindraTeaserController < ApplicationController
       @telefono = ""
     end    
   end
-  
-  def comunas
-    @region = params[:type]
-    @communes = communes_of @region
-    @communes_of_region = "<option selected='selected' disabled='disabled' value=''>Elige tu comuna...</option>"
-    @communes.each do |commune|
-      @communes_of_region = "#{@communes_of_region} <option value='#{commune}'>#{commune}</option>"
-    end
-    render :text => @communes_of_region
-  end
+
 
   def bases
   end
@@ -75,10 +66,10 @@ private
   #
   def load_application_data
     @app_id = '612928952058879' if Rails.env.development?
-    @app_id = '612928952058879' if Rails.env.production?
+    @app_id = '322583301208964' if Rails.env.production?
     @app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
-    @scope = 'email,read_stream,publish_stream,user_photos'
+    @scope = 'email,read_stream,publish_stream'
   end
 end
   

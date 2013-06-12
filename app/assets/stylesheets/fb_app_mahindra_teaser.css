@@ -108,7 +108,7 @@ position: relative;
 }
 
 #menu{
-width: 536px;
+width: 400px;
 height: 60px;
 margin: 0;
 padding: 0;
@@ -164,7 +164,7 @@ top: 0;
 	height: 151px;
 	width: 335px;
 	margin-left: 285px;
-	margin-top: 444px;
+	margin-top: 385px;
 	position: absolute;
 }
 #btn_mahindra_play{
@@ -172,7 +172,7 @@ top: 0;
 	height: 92px;
 	width: 111px;
 	margin-left: 643px;
-	margin-top: 475px;
+	margin-top: 425px;
 	position: absolute;
 }
 #btn_invita{
@@ -251,3 +251,7 @@ left: 266px;
 width: 300px;
 height: 20px;
 }
+
+#registro .error {
+	background: url(alert.jpg) no-repeat 250px 12px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#registro strong{display:none!important;}
