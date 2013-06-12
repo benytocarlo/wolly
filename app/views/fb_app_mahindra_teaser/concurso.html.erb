@@ -145,28 +145,34 @@
       });
     }
 </script>
-<div id="nav"></div>
-<div class="registro">
-  <img src="/assets/fb_app_mahindra_xuv/registro.jpg" alt="resgistro"/>
-  <div class="mahindra_datos">
-    <p id="error" style="color:red;font-size:15px;"><%= flash[:error] %></p>
-    <p id="notice"><%= flash[:notice] %></p>
+<div id="head">
+		<div id="logo"><img src="img/logo.jpg" /></div>
+	<div id="menu">
+  	<ul>
+    	<li><a href="mahindra.html" class="inicio">Inicio</a></li>
+    	<li><a href="formulario2.html" class="registro">Registro</a></li>
+    	<li><a href="#"  class="bases">Bases</a></li>
+  	</ul>
+	</div>
+</div>
+<center>
+  <div id="form">
     <%= form_tag(fb_app_mahindra_xuv_invitar_path,:id=>:registro, :method => "post") do  %>
-      <ul class="lista_datos">
-    	  <li><label>nombre</label><%= text_field_tag(:nombre, @nombre, :class => 'input_form', :onkeypress => "return validatxt(event)") %></li>
-    		<li><label>rut</label><%= text_field_tag(:rut, @rut, :class => 'input_form', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></li>
-    		<li><label>email</label><%= text_field_tag(:correo, @correo, :class => 'input_form') %></li>
-    	</ul>
-      <ul>
-    		<li><label>tel&eacute;fono</label><%= text_field_tag(:telefono, @telefono, :class => 'input_form', :onkeypress => "return validanum(event)") %></li>
-    		<li><label>regi&oacute;n</label><%= select_tag :region,options_for_select(@regiones),:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%></li>
-    		<li><label>comuna</label><%= select_tag :comuna %></li>
-    	</ul>
-    	<div class="acepto">
-    		<ul class="checks">
-    			<li><%= check_box_tag 'recibir_info', 'si',:class => 'css-checkbox' %><label for="demo_box_2" name="demo_lbl_2" class="css-label">Acepto las bases del concurso</label></li>
-    		</ul>
-  		  <a id="btn_enviar" class="participar" href="#" title="Enlace a participar"></a>
-    <% end %>
+      <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+      <%= text_field_tag(:correo, @correo, :class => 'campos') %>
+      <%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
+      <%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %>
+      <div class="chiquitito">
+        <input id="demo_box_1" class="css-checkbox" type="checkbox"/>
+        <label for="demo_box_1" name="demo_lbl_1" class="css-label" style="position: absolute;
+  left: 61px;" ></label>
+        <input id="demo_box_1" class="css-checkbox" type="checkbox" />
+        <label for="demo_box_1" name="demo_lbl_1" class="css-label"></label>
+      </div>
+      <input type="submit" id="enviar" style="display:none">
+      <a id="btn_enviar" class="participar" href="#" title="Enlace a participar"></a>
+  <% end %>
   </div>
+</center>
+<a></a>
 </div>
