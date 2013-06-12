@@ -7,7 +7,6 @@ class FbAppMahindraTeaserController < ApplicationController
   before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_fanpage, :except => [:canvas]
-  include ApplicationHelper
 
   def index
     if session[:signed_request][:page][:liked]      
@@ -18,8 +17,6 @@ class FbAppMahindraTeaserController < ApplicationController
   end
   
   def concurso
-    regions_of_chile
-
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
       @rut      = @me_from_database.rut
@@ -35,19 +32,6 @@ class FbAppMahindraTeaserController < ApplicationController
 
 
   def bases
-  end
-
-  def invitar
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
-      @recibir_info = params[:recibir_info]
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono],:city => params[:region], :province => params[:comuna])
-      else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :city => params[:region], :province => params[:comuna])
-      end
-    else
-      redirect_to fb_app_mahindra_xuv_concurso_path, :flash => { :error => "Faltan campos por llenar." }
-    end
   end
 
   def share
