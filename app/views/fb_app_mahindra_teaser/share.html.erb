@@ -1,6 +1,6 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
-    $(".sharefb").click(function(){
+    $("#compartir").click(function(){
       FB.ui({
           method: 'feed',
           name: '<%= @app.name %>',
@@ -14,7 +14,7 @@
         });
       return false;
     });
-    $(".invitar").click(function(){
+    $("#invitar").click(function(){
       FB.ui({ method: 'apprequests',
             message: '<%= @app.invite_message %>',
             filters: ['app_non_users'],
@@ -25,16 +25,15 @@
   });
 </script>
 <div id="head">
-<div id="logo"><img src="img/logo.jpg" /></div>
-<div id="menu">
-<ul>
-<li><a href="/" class="inicio">Inicio</a></li>
-<li><a href="#"  class="bases">Bases</a></li>
-</ul>
-</div>
+  <div id="logo"></div>
+  <div id="menu">
+    <ul>
+      <li><a href="<%= fb_app_mahindra_teaser_path %>" class="inicio">Inicio</a></li>
+      <li><a href="#"  class="bases">Bases</a></li>
+    </ul>
+  </div>
 </div>
 <div id="main">
-<%= link_to "btn_invita", "#", :class => 'invitar' %>
-<%= link_to "btn_comparte", "#", :class => 'compartir sharefb' %>
-<a></a>
+  <%= link_to "", "#", :id => 'btn_invita' %>
+  <%= link_to "", "#", :id => 'btn_comparte' %>
 </div>

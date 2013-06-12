@@ -29,18 +29,17 @@
   });
 </script>
 <div id="head">
-		<div id="logo"><img src="img/logo.jpg" /></div>
+		<div id="logo"></div>
 	<div id="menu">
   	<ul>
-    	<li><a href="mahindra.html" class="inicio">Inicio</a></li>
-    	<li><a href="formulario2.html" class="registro">Registro</a></li>
-    	<li><a href="#"  class="bases">Bases</a></li>
+    	<li><a href="<%= fb_app_mahindra_teaser_path %>" class="inicio">Inicio</a></li>
+    	<li><a href="#" class="bases">Bases</a></li>
   	</ul>
 	</div>
 </div>
 <center>
   <div id="form">
-    <%= form_tag(fb_app_mahindra_xuv_invitar_path,:id=>:registro, :method => "post") do  %>
+    <%= form_tag(fb_app_mahindra_teaser_share_path,:id=>:registro, :method => "post") do  %>
       <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
       <%= text_field_tag(:correo, @correo, :class => 'campos') %>
       <%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
@@ -48,10 +47,10 @@
       <div class="chiquitito">
 
 
-        <input id="demo_box_1" name="demo_lbl_1" class="css-checkbox" type="radio"/>
+        <input id="demo_box_1" name="demo_lbl_1" class="css-checkbox check1" type="radio"/>
         <label for="demo_box_1" name="demo_lbl_1" class="css-label" style="position: absolute;
   left: 61px;" ></label>
-        <input id="demo_box_2" name="demo_lbl_1" class="css-checkbox" type="radio" />
+        <input id="demo_box_2" name="demo_lbl_1" class="css-checkbox check2" type="radio" />
         <label for="demo_box_1" name="demo_lbl_1" class="css-label"></label>
       </div>
       <input type="submit" id="enviar">
