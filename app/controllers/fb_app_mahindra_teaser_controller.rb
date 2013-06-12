@@ -35,13 +35,17 @@ class FbAppMahindraTeaserController < ApplicationController
   end
 
   def share
-    @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-    if params[:uid_amigo1].present? and params[:uid_amigo2].present? and params[:uid_amigo3].present?
-        @fecha = params[:uid_amigo1]+"/"+params[:uid_amigo2]+"/"+params[:uid_amigo3]+"/"+params[:recibir_info]
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:demo_lbl_1])
+      else
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:demo_lbl_1])
+      end
     else
-      #redirect_to fb_app_mahindra_xuv_concurso_path, :flash => { :error => "Faltan campos por llenar." }
-    end
+      redirect_to fb_app_mahindra_teaser_concurso_path, :flash => { :error => "Faltan campos por llenar." }
+    end    
   end
 
 private
