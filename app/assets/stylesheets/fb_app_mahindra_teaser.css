@@ -85,9 +85,9 @@ position: relative;
 	position:relative;
 }
 #mahindra{
-	background:url(fb_app_mahindra_teaser/Mahindra.jpg) no-repeat 0 0;
+	background:url(fb_app_mahindra_teaser/mahindra.jpg) no-repeat 0 0;
 	width:810px;
-	height:610px;
+	height:590px;
 	display:block;
 	position:relative;
 }
@@ -160,20 +160,20 @@ top: 0;
 }
 
 #btn_mahindra{
-	background-image: url(fb_app_mahindra_teaser/btn_mahindra.png);
-	height: 151px;
-	width: 335px;
-	margin-left: 285px;
-	margin-top: 385px;
-	position: absolute;
+background-image: url(fb_app_mahindra_teaser/btn_mahindra.png);
+height: 57px;
+width: 182px;
+margin-left: 568px;
+margin-top: 480px;
+position: absolute;
 }
 #btn_mahindra_play{
-	background-image: url(fb_app_mahindra_teaser/btn_mahindra_play.png);
-	height: 92px;
-	width: 111px;
-	margin-left: 643px;
-	margin-top: 425px;
-	position: absolute;
+background-image: url(fb_app_mahindra_teaser/btn_mahindra_play.png);
+height: 57px;
+width: 185px;
+margin-left: 349px;
+margin-top: 480px;
+position: absolute;
 }
 #btn_invita{
 	background-image: url(fb_app_mahindra_teaser/btn_invita.png);
