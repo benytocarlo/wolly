@@ -255,3 +255,11 @@ input.error {background: url(fb_app_lan_cargo/alert.jpg) no-repeat 310px 12px;bo
 
 .alerta_vacio{position: absolute;left: 670px;top: 4px;display: none;}
 .confirmar{position: absolute;left: 673px;top: 261px;display: none;}
+
+
+/* FIXES MEGA FINALES WEY */
+
+.alertcheck { position:absolute; top:0px; left:0px; width:100%; height:100%; display:none;}
+.alertcheck .black_shadow { background-image:url(fb_app_lan_cargo/black_alpha.png); background-repeat:repeat; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:10;}
+.alertcheck img {position:absolute; top:148px; left:250px; z-index:11;}
+.alertcheck .btn_cerrar {width:54px; height:54px; cursor:pointer; position:absolute; top:146px; left:551px; z-index:15;}
