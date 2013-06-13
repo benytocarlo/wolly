@@ -262,4 +262,4 @@ input.error {background: url(fb_app_lan_cargo/alert.jpg) no-repeat 310px 12px;bo
 .alertcheck { position:absolute; top:0px; left:0px; width:100%; height:100%; display:none;}
 .alertcheck .black_shadow { background-image:url(fb_app_lan_cargo/black_alpha.png); background-repeat:repeat; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:10;}
 .alertcheck img {position:absolute; top:148px; left:250px; z-index:11;}
-.alertcheck .btn_cerrar {width:54px; height:54px; cursor:pointer; position:absolute; top:146px; left:551px; z-index:15;}
+.alertcheck .btn_cerrar {width:54px; height:54px; cursor:pointer; position:absolute; top:146px; left:551px; z-index:100; display: block;}

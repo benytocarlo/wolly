@@ -91,11 +91,15 @@ class FbAppLanCargoController < ApplicationController
         @clase_exito = "error"
       end
 
+
       session[:answer] = session[:answer] +"/"+ params[:respuesta] +"/p:"+ session[:puntaje].to_s
 
       if session[:puntaje] == 5
         redirect_to fb_app_lan_cargo_share_path
       else
+        if session[:puntaje] > 5
+          session[:puntaje] = 5
+        end
         redirect_to fb_app_lan_cargo_volver_jugar_path
       end
     end
