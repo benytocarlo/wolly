@@ -282,5 +282,6 @@ input[type=checkbox].css-checkbox {
   background-position: 570px 15px !important; background-color:#FFF; border:1px solid #ff6666; color: #ED0304;
 }
 
+.pinterest{ bottom: 0px; position: absolute; }
 .nochecked{ margin-top: 165px;font-family: sans-serif;color: red;font-size: 16px;width: 235px;display:none;}
 /*-----------------fin--------------*/
