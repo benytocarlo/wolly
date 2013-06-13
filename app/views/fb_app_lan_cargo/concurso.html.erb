@@ -11,6 +11,9 @@
         nombre: {
           required: true
         },
+        apellido: {
+          required: true
+        },
         rut: {
           required: true,
           valrut: $('#rut').val()
@@ -42,7 +45,7 @@
         <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:apellido, @apellido, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:rut, @rut, :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
-        <%= text_field_tag(:correo, @correo) %>
+        <%= text_field_tag(:correo, @correo, :maxlength => "150") %>
         <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
         <input type="checkbox" id="read" name="read" value="1" checked>
         <input type="checkbox" id="mail_ok" name="mail_ok" value="1" checked>
