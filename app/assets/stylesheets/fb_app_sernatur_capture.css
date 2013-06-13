@@ -40,6 +40,7 @@ body.instructions{
 }
 body.registro{
 	background: url(fb_app_sernatur_capture/app_capture_chile_form.jpg) no-repeat 0 0;
+  height:800px;
 }
 body.home{
 	background: url(fb_app_sernatur_capture/home.jpg) no-repeat 0 0;
@@ -282,5 +283,6 @@ input[type=checkbox].css-checkbox {
   background-position: 570px 15px !important; background-color:#FFF; border:1px solid #ff6666; color: #ED0304;
 }
 
+.pinterest{ bottom: 0px; position: absolute; }
 .nochecked{ margin-top: 165px;font-family: sans-serif;color: red;font-size: 16px;width: 235px;display:none;}
 /*-----------------fin--------------*/
