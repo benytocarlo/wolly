@@ -114,6 +114,15 @@ class FbAppLanCargoController < ApplicationController
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer])
       end
     end
+
+    @graph.put_wall_post("", {
+        :name => "Cargas Imposibles de Nat-Geo y LAN Cargo",
+        :link => "http://www.facebook.com/LANenChile/app_346195818816496",
+        :caption => "LAN Cargo",
+        :description => "¡Ya jugué en el Quiz Imposible y estoy concursando por 2 pasajes a Lima! ¡Participa tú también!",
+        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
+    }, @me_from_graph[:id])
+
   end
 
   def volver_jugar
@@ -129,6 +138,15 @@ class FbAppLanCargoController < ApplicationController
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer]+"/mail:"+session[:mail_ok])
       end
     end
+    
+    @graph.put_wall_post("", {
+        :name => "Cargas Imposibles de Nat-Geo y LAN Cargo",
+        :link => "http://www.facebook.com/LANenChile/app_346195818816496",
+        :caption => "LAN Cargo",
+        :description => "¡Ya jugué en el Quiz Imposible y estoy concursando por 2 pasajes a Lima! ¡Participa tú también!",
+        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
+    }, @me_from_graph[:id])
+
   end
 
   def bases
