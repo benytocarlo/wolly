@@ -91,6 +91,11 @@ class FbAppLanCargoController < ApplicationController
         @clase_exito = "error"
       end
 
+      if session[:puntaje] > 5
+        session[:puntaje] = 5
+      end
+
+
       session[:answer] = session[:answer] +"/"+ params[:respuesta] +"/p:"+ session[:puntaje].to_s
 
       if session[:puntaje] == 5
