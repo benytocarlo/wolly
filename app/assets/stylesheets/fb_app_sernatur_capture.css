@@ -40,6 +40,7 @@ body.instructions{
 }
 body.registro{
 	background: url(fb_app_sernatur_capture/app_capture_chile_form.jpg) no-repeat 0 0;
+  height:800px;
 }
 body.home{
 	background: url(fb_app_sernatur_capture/home.jpg) no-repeat 0 0;
