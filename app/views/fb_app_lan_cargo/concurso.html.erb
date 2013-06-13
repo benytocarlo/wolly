@@ -6,7 +6,7 @@
       if(!$('#read').is(":checked")){
         $('.alertcheck').show();
       }else{
-        $('.alertcheck').hide();
+        $('.cerrar_all').hide();
         $("#registro").submit();
       }
     });
@@ -71,7 +71,7 @@
       <span class="black_shadow"></span>
       <span class="img_select">
       <span class="btn_cerrar"></span>
-      <%=image_tag("fb_app_lan_cargo/pop_up_bases.png", :alt => "alert")%>
+      <%=image_tag("fb_app_lan_cargo/pop_up_bases.png", :alt => "alert", :class=> "cerrar_all")%>
       
       </span>
     </div>
