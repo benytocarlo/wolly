@@ -6,7 +6,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= yield :body_classes %>' screen_capture_injected='true'>
-  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => @height } %>
   <%= render "layouts/ga" %>
   <%= yield %>
 </body>

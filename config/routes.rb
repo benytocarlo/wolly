@@ -73,7 +73,6 @@ Wolly::Application.routes.draw do
 
   post   "fb_app_mm_dia_del_papa" => "fb_app_mm_dia_del_papa#index"
   post   "fb_app_mm_dia_del_papa/canvas"
-  post   "fb_app_mm_dia_del_papa/share"
 
   post   "fb_app_example" => "fb_app_example#index"
   post   "fb_app_example/canvas"
