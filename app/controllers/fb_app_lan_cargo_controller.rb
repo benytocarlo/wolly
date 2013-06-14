@@ -122,15 +122,17 @@ class FbAppLanCargoController < ApplicationController
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer]+"/mail:"+session[:mail_ok])
       end
     end
-
-    @graph.put_wall_post("", {
-        :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
-        :link => "http://www.facebook.com/LANenChile/app_346195818816496",
-        :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
-        :description => "¡Ya jugué en el Quiz Imposible y estoy concursando por 2 pasajes a Lima! ¡Participa tu también AQUÍ!",
-        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
-    }, @me_from_graph[:id])
-
+    begin 
+      @graph.put_wall_post("", {
+          :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
+          :link => "http://www.facebook.com/LANenChile/app_346195818816496",
+          :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
+          :description => "¡Ya jugué en el Quiz Imposible y estoy concursando por 2 pasajes a Lima! ¡Participa tu también AQUÍ!",
+          :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
+      }, @me_from_graph[:id])
+    rescue
+      @nopost = 1
+    end
   end
 
   def volver_jugar
@@ -148,15 +150,17 @@ class FbAppLanCargoController < ApplicationController
     end
     @app.share_caption = "http://www.facebook.com/LANenChile/app_346195818816496"
     @app.share_description = "¡Estoy jugando el Quiz Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursa tú también AQUÍ!"
-
-    @graph.put_wall_post("", {
-        :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
-        :link => "http://www.facebook.com/LANenChile/app_346195818816496",
-        :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
-        :description => "¡Estoy jugando el Quiz Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursa tú también AQUÍ!",
-        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
-    }, @me_from_graph[:id])
-
+    begin 
+      @graph.put_wall_post("", {
+          :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
+          :link => "http://www.facebook.com/LANenChile/app_346195818816496",
+          :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
+          :description => "¡Estoy jugando el Quiz Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursa tú también AQUÍ!",
+          :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
+      }, @me_from_graph[:id])
+    rescue
+      @nopost = 1
+    end
   end
 
   def bases
@@ -174,6 +178,6 @@ private
     @app_id = '346195818816496' if Rails.env.production?
     @app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
-    @scope = 'email,read_stream,publish_stream,user_photos'
+    @scope = 'email,read_stream,publish_stream'
   end
 end
