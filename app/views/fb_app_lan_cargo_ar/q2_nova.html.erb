@@ -1,0 +1,82 @@
+<script>
+$(function (){
+    $(".answers span").click( function(){
+        $(".answers span").removeClass("ON");
+            $(this).addClass("ON");
+            $("#respuesta").val( $(this).attr("ref") );
+            $("#btn_enviar").fadeIn();
+            $(".confirmar").fadeIn();
+        }
+    );
+
+    $("#btn_enviar").click(function(){
+        if( $("#respuesta").val() != "" ){
+            clearInterval(countdown);
+            $("#registro").submit();
+        }else{
+            $(".alerta_vacio").fadeIn(function(){
+                $(this).delay(3000).fadeOut();
+            }); 
+        }
+    });
+
+     var countdown = setInterval(function() {
+        var timeCounter = $("span[class=tiempo_numero]").html();
+        var updateTime = eval(timeCounter)- eval(1);
+        $("span[class=tiempo_numero]").html(updateTime);
+
+        if(updateTime == 0){
+           if($("#respuesta").val() != ""){
+             $("span[class=tiempo_numero]").html("--");
+             $("#registro").submit();
+           }else{
+             $("span[class=tiempo_numero]").html("--");
+             location.href = '<%= fb_app_lan_cargo_ar_nulas_path %>?sgte_preg=q3';
+           }
+        }
+    }, 1000);
+});
+</script>
+<div class="content">
+    <div id="header">
+        <div class="main_nav">
+            <span class="main_logo"></span>
+            <ul>
+                <li><a href="<%= fb_app_lan_cargo_ar_path %>" class="img_quiz">Quiz Imposible</a></li>
+                <li><a href="<%= fb_app_lan_cargo_ar_premios_path %>" target="_blank" class="img_premios">Premios</a></li>
+                <li><a href="/documents/fb_app_lan_cargo.pdf" target="_blank" class="img_bases">Bases</a></li>
+            </ul>
+        </div>
+        <div class="game_nav">
+            <div class="pager">2/7</div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo_ar/queston_2.png", :class => "q1-granja", :alt => "Question")%></div>
+            <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="q2 pregunta">
+            <div class="answers">
+                <span class="opt1" ref="2:i"></span>
+                <span class="opt2" ref="2:c"></span>
+                <span class="opt3" ref="2:i"></span>
+                <span class="opt4" ref="2:i"></span>
+                <%= form_tag(fb_app_lan_cargo_ar_respuestas_path,:id=>:registro, :method => "post") do  %>
+                    <%= hidden_field_tag 'respuesta' %>
+                    <%= hidden_field_tag 'n_preg', 2 %>
+                <% end %>
+            </div>
+            <%=image_tag("fb_app_lan_cargo_ar/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
+            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
+            <%=image_tag("fb_app_lan_cargo_ar/confirmar.png", :class => "confirmar", :alt => "Question")%>    
+        </div>
+
+    </div>
+    
+    <div id="footer">
+        <a href="javascript:void(0);" target="_blank" class="link_natgeo">NatGeoCh</a>
+        <a href="javascript:void(0);" target="_blank" class="tw_cargas">#CargasImposibles</a>
+        <a href="javascript:void(0);" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
+        <a href="http://www.lancargo.com/es/" target="_blank"><span class="logo_cargo"></span></a>
+    </div>
+</div>

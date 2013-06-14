@@ -1,0 +1,265 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/******** Main Styles
+*********************************/
+
+body {background-color:transparent; font-family: sans-serif; font-size: 0.875em; margin: 0; padding: 0; width: 810px; height: 667px; position: relative; background:url(fb_app_lan_cargo_ar/background.jpg) no-repeat 0 0; top:0px;}
+a {-webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease;}
+
+a img { border:0px;}
+
+/* Header */
+
+#header { width:100%; max-height:194px; position:relative; z-index:10}
+#header .main_nav{ position:relative;}
+#header .main_nav .main_logo{ width:515px; height:98px; background-image: url(fb_app_lan_cargo_ar/logo_app.png); display:block;}
+#header .main_nav ul { position:absolute; top:20px; right:24px;}
+#header .main_nav ul li { float:left}
+
+#header .main_nav ul a { background-image:url(fb_app_lan_cargo_ar/main_menu.png); background-repeat:no-repeat; height:16px; text-indent:-9999px; display:block; margin-right:5px;}
+#header .main_nav ul a:hover { background-image:url(fb_app_lan_cargo_ar/main_menu_ON.png)}
+#header .main_nav ul .img_quiz { width:109px; background-position:1px 1px;}
+#header .main_nav ul .img_premios { width:63px; background-position:-119px 1px;}
+#header .main_nav ul .img_bases { width:45px; background-position:-196px 1px;}
+
+#header .game_nav { position:relative; width:100%; height:90px; border-bottom:1px solid #ffd800; padding-top:5px;}
+#header .game_nav .pager{ background-color:#ffd800; font-family: 'Ropa Sans', sans-serif; padding:15px 25px; font-size:36px; font-weight:bold; width:52px; letter-spacing:-5px; float:left; margin-top:24px;}
+#header .game_nav .question { float:left; margin-top:24px}
+#header .game_nav .tiempo { float:right; background-color:#ffd800; font-family: 'Ropa Sans', sans-serif; text-transform:uppercase; font-weight:bold; font-size:24px; padding:6px; text-align:center;}
+#header .game_nav .tiempo span{ background-color:#000; color:#ffd800; display:block; padding:5px; font-size:43px; margin-top:2px;}
+
+/* Footer */
+
+#footer { position:absolute; height:48px; bottom:0px; left:0px; width:100%;}
+#footer a, #footer span { background-image:url(fb_app_lan_cargo_ar/footer_sprite.png); background-repeat:no-repeat; text-indent:-9999px; float:left}
+#footer a:hover { background-image:url(fb_app_lan_cargo_ar/footer_sprite_ON.png)}
+#footer .link_natgeo { width:100px; height:50px; background-position:-14px -11px; margin-top:7px; margin-left:10px;cursor: default;}
+#footer .tw_cargas { width:180px; height:29px; background-position:-229px -19px; margin-left:113px; margin-top:14px;cursor: default;}
+#footer .tw_lovi { width:148px; height:29px; background-position:-457px -19px; margin-left:15px; margin-top:13px;cursor: default;}
+#footer .logo_cargo {position: absolute;left: 723px;width:80px; height:39px; background-position:-723px -10px; float:right; margin-top:8px; margin-right:6px;}
+
+/*** Custom Content ***/
+
+
+.premio { background-image:url(fb_app_lan_cargo_ar/premio.png); height:610px;}
+
+.content { position:absolute; top:0px; left:0px; width:100%; height:667px;}
+
+.yesorno { background-image:url(fb_app_lan_cargo_ar/yesorno.png); height:610px;}
+.yesorno .caja_sino{ position:absolute; top:180px; left:174px; width:460px; height:169px;}
+.yesorno .exito{ background-image:url(fb_app_lan_cargo_ar/correcto.png)}
+.yesorno .error{ background-image:url(fb_app_lan_cargo_ar/incorrecto.png)}
+.yesorno .rsp_nula{ background-image:url(fb_app_lan_cargo_ar/tiempo.png)}
+.yesorno .nota {font-family: 'Ropa Sans'; width: 71px; height: 50px; font-weight: bold; position: absolute; top: 410px; left: 255px; text-align: center; z-index: 100; font-size: 75px;	
+}
+.yesorno .continuar { 
+position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_cargo_ar/continuar.png); width: 460px; height: 161px; text-indent: -9999px;
+}
+.yesorno .continuar:hover{ background-image:url(fb_app_lan_cargo_ar/continuar_ON.png)}
+
+
+/* NoFan */
+.nofan { background-image:url(fb_app_lan_cargo_ar/back_nofan.jpg); height:618px;}
+
+/* Home */
+.home { background-image:url(fb_app_lan_cargo_ar/back_home.jpg)}
+.home .btn_embarcate { width:232px; height:59px; background-image:url(fb_app_lan_cargo_ar/btn_embarcate.jpg); position:absolute; right:67px; top:532px; text-indent:-9999px;}
+.home .btn_embarcate:hover { background-image:url(fb_app_lan_cargo_ar/btn_embarcate_ON.jpg)}
+
+
+/* Form */
+.form { background-image:url(fb_app_lan_cargo_ar/back_form.png); height:618px; background-repeat:no-repeat;}
+
+.form form{ position:absolute; top:292px; left:36px;}
+.form form input[type="text"] {padding: 10px; width: 311px; position:absolute; border:0px; background-color:transparent; height:20px;}
+#nombre{ top:2px; left:2px;}
+#apellido{top:2px; left:402px}
+#rut{ top:82px; left:2px;}
+#telefono{ top:82px; left:402px}
+#correo{ top:161px; left:2px;}
+
+.form .btn_despega { position:absolute; right:40px; top:540px; width:173px; height:61px; background-image:url(fb_app_lan_cargo_ar/btn_despega.jpg); text-indent:-9999px;}
+.form .btn_despega:hover { background-image:url(fb_app_lan_cargo_ar/btn_despega_ON.jpg);}
+
+.form #read{ position:absolute; top:249px; left:0px}
+.form #mail_ok{position:absolute; top:279px; left:0px}
+/* Intro */
+
+.intro { background-image:url(fb_app_lan_cargo_ar/back_intro.png); background-repeat:no-repeat;}
+.intro .btn_intro { background-image:url(fb_app_lan_cargo_ar/btn_comenzar.png); width:232px; height:59px; position:absolute; text-indent:-9999px; top:455px; left:280px; }
+.intro .btn_intro:hover { background-image:url(fb_app_lan_cargo_ar/btn_comenzar_ON.png);}
+
+
+/* Preguntas */
+
+.pregunta { width:100%; height:423px; margin-top:195px; position:relative;}
+
+.next_question { position:absolute; top:150px; right:15px; width:108px; height:107px; background-image:url(fb_app_lan_cargo_ar/next_arrow.png); text-indent:-9999px;display: none;}
+.next_question:hover {background-image:url(fb_app_lan_cargo_ar/next_arrow_on.png);}
+/*Question 1*/
+.q1 { background-image:url(fb_app_lan_cargo_ar/back_q1.png); background-repeat:no-repeat;}
+
+.q1 .q1-granja {position:absolute; bottom:94px; left:82px; z-index:10; cursor:pointer;}
+
+.q1 .choices {}
+.q1 .choices .choice{width:97px; height:96px;  position:absolute;}
+.q1 .choices .choice_ON { background-image: url(fb_app_lan_cargo_ar/granja_drop.png);}
+.q1 .choices .mexico {top:11px; left:212px;}
+.q1 .choices .panama {top:128px; left:338px;}
+.q1 .choices .colombia {top:220px; left:406px;}
+.q1 .choices .peru {top:318px; left:350px;}
+
+/* Question 2*/
+.q2 {}
+
+.q2 .answers { position:absolute; width:643px; height:268px; top:69px; left:70px;}
+.q2 .answers span{float:left; width:130px; height:253px; display:block; background-image:url(fb_app_lan_cargo_ar/q2_anwers.png); background-repeat:no-repeat; -webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease; cursor:pointer; margin-right:18px;}
+.q2 .answers span:hover, .q2 .answers span.ON { background-image:url(fb_app_lan_cargo_ar/q2_anwers_ON.png)}
+
+.q2 .answers .opt1{ background-position:-20px -1px;}
+.q2 .answers .opt2{background-position:-160px -1px;}
+.q2 .answers .opt3{background-position:-299px -1px;}
+.q2 .answers .opt4{background-position:-437px -1px;}
+
+/* Question 3*/
+.q3 { background-image:url(fb_app_lan_cargo_ar/back_q3.png); background-repeat:no-repeat;}
+.q3 .arrastra { background-image:url(fb_app_lan_cargo_ar/arrastra.png); background-repeat:no-repeat; background-position:center center;}
+.q3 .answers img{ position:absolute; right:350px; z-index:12}
+.q3 .answers .camaron { top:15px;cursor: pointer;}
+.q3 .answers .salmon { top:215px;cursor: pointer;}
+.q3 .answers .trucha { top:115px;cursor: pointer;}
+.q3 .answers .centolla { top:315px;cursor: pointer;}
+
+.q3 .choices {width: 190px; height: 190px; position: absolute; top: 24px; left: 111px;}
+.q3 .choices .choice { width:100%; height:100%; background-repeat:no-repeat; background-position:center center;}
+.q3 .choices .camaron { background-image:url(fb_app_lan_cargo_ar/camaron_drop.png);}
+.q3 .choices .salmon { background-image:url(fb_app_lan_cargo_ar/salmon_drop.png);}
+.q3 .choices .trucha { background-image:url(fb_app_lan_cargo_ar/trucha_drop.png);}
+.q3 .choices .centolla { background-image:url(fb_app_lan_cargo_ar/centolla_drop.png);}
+
+/* Question 4*/
+.q4 { background-image:url(fb_app_lan_cargo_ar/back_q4.png); background-repeat:no-repeat;}
+.q4 .answers { position:absolute; top:233px; left:226px; z-index:10;}
+.q4 .answers img{ cursor:pointer; margin-left:5px;}
+.q4 .choices{ position:absolute; top:0px; left:211px; width:211px; height:218px; z-index:10;}
+.q4 .choices .choice { width:100%; height:100%; background-position:center center; background-repeat:no-repeat;}
+.q4 .choices .bajo { background-image:url(fb_app_lan_cargo_ar/bajo.png); background-position: 84px 8px;}
+.q4 .choices .piano {background-image:url(fb_app_lan_cargo_ar/piano.png);background-position: 36px 5px;}
+.q4 .choices .acordeon {background-image:url(fb_app_lan_cargo_ar/acordeon.png); background-position: 53px -11px;}
+.q4 .choices .guitarra {background-image:url(fb_app_lan_cargo_ar/guitarra.png); background-position: 70px 8px;}
+
+/* Question 5*/
+.q5 { background-image:url(fb_app_lan_cargo_ar/back_q5.png); background-repeat:no-repeat;}
+
+.q5 .answers { position:absolute; width:568px; height:159px; top:97px; left:73px;}
+.q5 .answers span{float:left; width:133px; height:218px; display:block; background-image:url(fb_app_lan_cargo_ar/q5_answers.png); background-repeat:no-repeat; -webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease; cursor:pointer}
+.q5 .answers span:hover, .q5 .answers span.ON { background-image:url(fb_app_lan_cargo_ar/q5_answers_ON.png)}
+
+.q5 .answers .opt1{ background-position:-2px -1px;}
+.q5 .answers .opt2{background-position:-145px -1px;}
+.q5 .answers .opt3{background-position:-294px -1px;}
+.q5 .answers .opt4{background-position:-439px -1px;}
+
+/* Question 6*/
+.q6 {background-repeat:no-repeat;}
+.q6 .answers { position:absolute; width:588px; height:159px; top:97px; left:73px;}
+.q6 .answers span{float:left; width:133px; height:218px; display:block; background-image:url(fb_app_lan_cargo_ar/q6_answers.png); background-repeat:no-repeat; -webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease; cursor:pointer; margin-left:10px;}
+.q6 .answers span:hover, .q6 .answers span.ON { background-image:url(fb_app_lan_cargo_ar/q6_answers_ON.png)}
+
+.q6 .answers .opt1{ background-position:-2px -1px;}
+.q6 .answers .opt2{background-position:-145px -1px;}
+.q6 .answers .opt3{background-position:-294px -1px;}
+.q6 .answers .opt4{background-position:-439px -1px;}
+
+/* Question 7*/
+.q7 { background-image:url(fb_app_lan_cargo_ar/back_q7.png); background-repeat:no-repeat;}
+.q7 .answers { position:absolute; top:300px; left:51px;}
+.q7 .answers img { margin-right:18px; display:block; float:left;}
+
+.q7 .answers .tresmil { padding-top:0px;cursor: pointer;}
+.q7 .answers .seismil { padding-top:0px;cursor: pointer;}
+.q7 .answers .nuevemil { padding-top:0px;cursor: pointer;}
+.q7 .answers .docemil { padding-top:0px;cursor: pointer;}
+
+.q7 .choices {width: 166px; height: 85px; position: absolute; top: 86px; left: 256px;}
+.q7 .choices .choice { width:100%; height:100%; background-repeat:no-repeat; background-position:center center;}
+.q7 .choices .tresmil { background-image:url(fb_app_lan_cargo_ar/q7_3000.png);}
+.q7 .choices .seismil { background-image:url(fb_app_lan_cargo_ar/q7_6000.png);}
+.q7 .choices .nuevemil { background-image:url(fb_app_lan_cargo_ar/q7_9000.png);}
+.q7 .choices .docemil { background-image:url(fb_app_lan_cargo_ar/q7_12000.png);}
+
+
+/* Volver Jugar */
+.volver_jugar { background-image: url(fb_app_lan_cargo_ar/back_volver_jugar.png); background-repeat:no-repeat;}
+.volver_jugar .nota, .final .nota {
+font-family: 'Arial'; width: 191px; height: 94px; font-weight: bold; position: absolute; top: 185px; left: 308px; text-align: center; z-index: 100; font-size: 71px;	}
+.volver_jugar .btn_volver_jugar { width:334px; height:115px; position:absolute; top:289px; left:250px; background-image:url(fb_app_lan_cargo_ar/btn_volver_jugar.png); text-indent:-9999px;}
+.volver_jugar .btn_volver_jugar:hover { background-image:url(fb_app_lan_cargo_ar/btn_volver_jugar_ON.png)}
+
+/* Volver final */
+.final { background-image: url(fb_app_lan_cargo_ar/back_final.png); background-repeat:no-repeat;}
+
+
+.lower_nav { position:absolute; top:518px; left:150px;}
+.lower_nav a { display:block; float:left; text-indent:-9999px; margin-right:40px;}
+.lower_nav a.btn_compartir { background-image:url(fb_app_lan_cargo_ar/btn_compartir.png); width:232px; height:61px;}
+.lower_nav a.btn_invitar_amigos { background-image:url(fb_app_lan_cargo_ar/btn_invitar.png); width:232px; height:61px;}
+
+.lower_nav a.btn_compartir:hover { background-image:url(fb_app_lan_cargo_ar/btn_compartir_ON.png); width:232px; height:61px;}
+.lower_nav a.btn_invitar_amigos:hover { background-image:url(fb_app_lan_cargo_ar/btn_invitar_ON.png); width:232px; height:61px;}
+
+input.error {background: url(alert.jpg) no-repeat 310px 12px;border:0px;}
+#registro strong{display:none!important;}
+
+.alerta_vacio{position: absolute;left: 670px;top: 4px;display: none;}
+.confirmar{position: absolute;left: 673px;top: 261px;display: none;}
+
+
+/* FIXES MEGA FINALES WEY */
+
+.alertcheck { position:absolute; top:0px; left:0px; width:100%; height:100%; display:none;}
+.alertcheck .black_shadow { background-image:url(fb_app_lan_cargo_ar/black_alpha.png); background-repeat:repeat; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:10;}
+.alertcheck img {position:absolute; top:148px; left:250px; z-index:11; cursor: pointer}
+.alertcheck .btn_cerrar { display: none}

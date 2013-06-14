@@ -1,6 +1,6 @@
 #coding: utf-8
-class FbAppLanCargoController < ApplicationController
-  layout "fb_app_lan_cargo"
+class FbAppLanCargoArController < ApplicationController
+  layout "fb_app_lan_cargo_ar"
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request, :except => [:premios]
   before_filter :parse_facebook_cookies, :except => [:index, :canvas, :premios]
@@ -72,7 +72,7 @@ class FbAppLanCargoController < ApplicationController
 
       @siguiente = 2
       session[:answer] = params[:respuesta]
-      @link = "fb_app_lan_cargo_q"+@siguiente.to_s+"_path"
+      @link = "fb_app_lan_cargo_ar_q"+@siguiente.to_s+"_path"
 
     when 2..4
       if params[:respuesta] == params[:n_preg].to_s+":c"
@@ -84,7 +84,7 @@ class FbAppLanCargoController < ApplicationController
       @siguiente = params[:n_preg].to_i + 1
 
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
-      @link = "fb_app_lan_cargo_q"+@siguiente.to_s+"_path"
+      @link = "fb_app_lan_cargo_ar_q"+@siguiente.to_s+"_path"
     else
       @respuesta = "5:c"
 
@@ -99,18 +99,18 @@ class FbAppLanCargoController < ApplicationController
       session[:answer] = session[:answer] +"/"+ params[:respuesta] +"/p:"+ session[:puntaje].to_s
 
       if session[:puntaje] == 5
-        redirect_to fb_app_lan_cargo_share_path
+        redirect_to fb_app_lan_cargo_ar_share_path
       else
         if session[:puntaje] > 5
           session[:puntaje] = 5
         end
-        redirect_to fb_app_lan_cargo_volver_jugar_path
+        redirect_to fb_app_lan_cargo_ar_volver_jugar_path
       end
     end
   end
 
   def nulas
-    @link = "fb_app_lan_cargo_"+params["sgte_preg"].to_s+"_path"
+    @link = "fb_app_lan_cargo_ar_"+params["sgte_preg"].to_s+"_path"
     @clase_exito = "rsp_nula"
   end
 
@@ -122,15 +122,15 @@ class FbAppLanCargoController < ApplicationController
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => session[:answer]+"/mail:"+session[:mail_ok])
       end
     end
-
+=begin
     @graph.put_wall_post("", {
         :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
         :link => "http://www.facebook.com/LANenChile/app_346195818816496",
         :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
         :description => "¡Ya jugué en el Quiz Imposible y estoy concursando por 2 pasajes a Lima! ¡Participa tu también AQUÍ!",
-        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
+        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo_ar/75x75.jpg"
     }, @me_from_graph[:id])
-
+=end
   end
 
   def volver_jugar
@@ -148,15 +148,15 @@ class FbAppLanCargoController < ApplicationController
     end
     @app.share_caption = "http://www.facebook.com/LANenChile/app_346195818816496"
     @app.share_description = "¡Estoy jugando el Quiz Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursa tú también AQUÍ!"
-
+=begin
     @graph.put_wall_post("", {
         :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
         :link => "http://www.facebook.com/LANenChile/app_346195818816496",
         :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
         :description => "¡Estoy jugando el Quiz Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursa tú también AQUÍ!",
-        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo/75x75.jpg"
+        :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo_ar/75x75.jpg"
     }, @me_from_graph[:id])
-
+=end
   end
 
   def bases
@@ -170,8 +170,8 @@ private
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
   #
   def load_application_data
-    @app_id = '134653233404737' if Rails.env.development?
-    @app_id = '346195818816496' if Rails.env.production?
+    @app_id = '641467995881277' if Rails.env.development?
+    @app_id = '182105771955231' if Rails.env.production?
     @app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
     @scope = 'email,read_stream,publish_stream,user_photos'
