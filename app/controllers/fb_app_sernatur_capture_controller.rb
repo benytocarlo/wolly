@@ -2,11 +2,11 @@
 class FbAppSernaturCaptureController < ApplicationController
   layout "fb_app_sernatur_capture"
   before_filter :load_application_data
-  before_filter :parse_facebook_signed_request
-  before_filter :parse_facebook_cookies, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
-  before_filter :load_graph_api
-  before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
-  before_filter :load_fanpage, :except => [:canvas]
+  before_filter :parse_facebook_signed_request, :except => [:instructions,:prize]
+  before_filter :parse_facebook_cookies, :except => [:index, :canvas,:instructions, :prize]
+  before_filter :load_graph_api, :except => [:instructions,:prize]
+  before_filter :load_facebook_user, :except => [:index, :canvas,:instructions, :prize]
+  before_filter :load_fanpage, :except => [:canvas,:instructions, :prize]
   include ApplicationHelper
 
   def index
