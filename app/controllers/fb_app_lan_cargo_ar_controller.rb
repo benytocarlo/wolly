@@ -24,9 +24,15 @@ class FbAppLanCargoArController < ApplicationController
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
     else
-      @nombre   = @me_from_graph[:first_name]
-      @apellido   = @me_from_graph[:last_name]
-      @correo   = @me_from_graph[:email]
+      begin
+        @nombre   = @me_from_graph[:first_name]
+        @apellido   = @me_from_graph[:last_name]
+        @correo   = @me_from_graph[:email]
+      rescue
+        @nombre   = ""
+        @apellido = ""
+        @correo   = ""
+      end
       @rut      = ""
       @telefono = ""
     end    
