@@ -1,0 +1,13 @@
+<% content_for :body_classes, 'fans' %>
+  <div class="main-container">
+    <%=image_tag("fb_app_mm_dia_del_papa/dia_del_padre.png", :width => "810", :height => "600" )%>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=512445975456060";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-comments" data-href="http://www.facebook.com/hmgdev/app_170246789812135?ref=ts" data-width="810" data-num-posts="30"></div>
+  </div> <!-- #main-container -->   

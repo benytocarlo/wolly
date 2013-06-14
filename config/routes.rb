@@ -71,13 +71,13 @@ Wolly::Application.routes.draw do
   get    "fb_app_lan_cargo/share"
   get    "fb_app_lan_cargo/premios"
 
-  post   "fb_app_mm_diadelpapa" => "fb_app_mm_diadelpapa#index"
-  post   "fb_app_mm_diadelpapa/canvas"
+  post   "fb_app_mm_dia_del_papa" => "fb_app_mm_dia_del_papa#index"
+  post   "fb_app_mm_dia_del_papa/canvas"
+  post   "fb_app_mm_dia_del_papa/share"
 
   post   "fb_app_example" => "fb_app_example#index"
   post   "fb_app_example/canvas"
   get    "fb_app_example/share", :as => :fb_app_example_share
-  post   "fb_app_mm_diadelpapa/share"
 
   post   "fb_app_snickers_redhot"             => "fb_app_snickers_redhot#index"
   post   "fb_app_snickers_redhot/canvas"
