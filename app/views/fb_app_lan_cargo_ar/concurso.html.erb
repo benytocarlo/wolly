@@ -20,8 +20,7 @@
           required: true
         },
         rut: {
-          required: true,
-          valrut: $('#rut').val()
+          required: true
         },
         telefono: {
           required: true,
@@ -53,7 +52,7 @@
       <%= form_tag(fb_app_lan_cargo_ar_comenzar_path,:id=>:registro, :method => "post") do  %>
         <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:apellido, @apellido, :onkeypress => "return validatxt(event)") %>
-        <%= text_field_tag(:rut, @rut ) %>
+        <%= text_field_tag(:rut, @rut) %>
         <%= text_field_tag(:correo, @correo, :maxlength => "150") %>
         <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
         <input type="checkbox" id="read" name="read" value="1">
