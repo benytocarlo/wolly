@@ -53,21 +53,21 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
     @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id}"])
     
     @regions = Array.new
-    @regions << { :number => 'I'   , :name => 'Tarapacá',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '1' },500/20))}
-    @regions << { :number => 'II'  , :name => 'Antofagasta',        :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '2' },750/20))}
-    @regions << { :number => 'III' , :name => 'Atacama',            :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '3' },500/20))}
-    @regions << { :number => 'IV'  , :name => 'Coquimbo',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '4' },500/20))}
-    @regions << { :number => 'V'   , :name => 'Valparaíso',         :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '5' },3000/20))}
-    @regions << { :number => 'VI'  , :name => "O'Higgins",          :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '6' },500/20))}
-    @regions << { :number => 'VII' , :name => 'Maule',              :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '7' },1000/20))}
-    @regions << { :number => 'VIII', :name => 'Biobío',             :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '8' },2500/20))}
-    @regions << { :number => 'IX'  , :name => 'La Araucanía',       :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '9' },1250/20))}
-    @regions << { :number => 'X'   , :name => 'Los Lagos',          :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '10' },500/20))}
-    @regions << { :number => 'XI'  , :name => 'Aysén',              :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '11' },500/20))}
-    @regions << { :number => 'XII' , :name => 'Magallanes',         :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '12' },500/20))}
-    @regions << { :number => 'XIII', :name => 'Metropolitana',      :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '13' },2000/20))} #700000
-    @regions << { :number => 'XV'  , :name => 'Arica y Parinacota', :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '14' },500/20))}
-    @regions << { :number => 'XIV' , :name => 'Los Ríos',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '15' },500/20))}
+    @regions << { :number => 'I'   , :name => 'Tarapacá',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '1' },2000/20))}
+    @regions << { :number => 'II'  , :name => 'Antofagasta',        :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '2' },3000/20))}
+    @regions << { :number => 'III' , :name => 'Atacama',            :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '3' },2000/20))}
+    @regions << { :number => 'IV'  , :name => 'Coquimbo',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '4' },2000/20))}
+    @regions << { :number => 'V'   , :name => 'Valparaíso',         :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '5' },10000/20))}
+    @regions << { :number => 'VI'  , :name => "O'Higgins",          :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '6' },2000/20))}
+    @regions << { :number => 'VII' , :name => 'Maule',              :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '7' },4000/20))}
+    @regions << { :number => 'VIII', :name => 'Biobío',             :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '8' },10000/20))}
+    @regions << { :number => 'IX'  , :name => 'La Araucanía',       :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '9' },5000/20))}
+    @regions << { :number => 'X'   , :name => 'Los Lagos',          :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '10' },2000/20))}
+    @regions << { :number => 'XI'  , :name => 'Aysén',              :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '11' },2000/20))}
+    @regions << { :number => 'XII' , :name => 'Magallanes',         :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '12' },2000/20))}
+    @regions << { :number => 'XIII', :name => 'Metropolitana',      :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '13' },50000/20))} #700000
+    @regions << { :number => 'XV'  , :name => 'Arica y Parinacota', :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '14' },2000/20))}
+    @regions << { :number => 'XIV' , :name => 'Los Ríos',           :points => porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == '15' },2000/20))}
     @regions = @regions.sort_by { |region| region[:points].to_i }
     @regions = @regions.reverse!  
   end
@@ -79,6 +79,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   end
 
   def vota
+    session[:resp_pregunta] = params["selector"]
   end
   
   def procesar_voto
@@ -105,7 +106,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
       @nivel_hd = porcentaje_a_px( participantes_a_porcentaje(@participations.count{ |participation| participation.answer == @participation.answer },2000))
     rescue
       @nivel_hd = porcentaje_a_px(30)
-    end
+    end    
   end
   
   def laparabolica
