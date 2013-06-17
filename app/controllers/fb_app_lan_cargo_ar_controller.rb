@@ -133,7 +133,7 @@ class FbAppLanCargoArController < ApplicationController
           :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
           :link => "http://www.facebook.com/LANenArgentina/app_182105771955231",
           :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
-          :description => "¡Ya jugué en la Trivia Cargas Imposible y estoy concursando por 2 pasajes a Lima! ¡Participa tu también AQUÍ!",
+          :description => "¡Ya jugué en la Trivia Cargas Imposible y estoy concursando por 2 pasajes a Lima! ¡Participá tú también AQUÍ!",
           :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo_ar/75x75.jpg"
       }, @me_from_graph[:id])
     rescue
@@ -155,13 +155,13 @@ class FbAppLanCargoArController < ApplicationController
       end
     end
     @app.share_caption = "http://www.facebook.com/LANenArgentina/app_182105771955231"
-    @app.share_description = "¡Estoy jugando en la Trivia Cargas Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursa tú también AQUÍ!"
+    @app.share_description = "¡Estoy jugando en la Trivia Cargas Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursá tú también AQUÍ!"
     begin
       @graph.put_wall_post("", {
           :name => "Cargas Imposibles de Nat Geo y LAN CARGO",
           :link => "http://www.facebook.com/LANenArgentina/app_182105771955231",
           :caption => "Cargas Imposibles de Nat Geo y LAN CARGO",
-          :description => "¡Estoy jugando en la Trivia Cargas Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursa tú también AQUÍ!",
+          :description => "¡Estoy jugando en la Trivia Cargas Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursá tú también AQUÍ!",
           :picture => "http://wolly.herokuapp.com/assets/fb_app_lan_cargo_ar/75x75.jpg"
       }, @me_from_graph[:id])
     rescue
