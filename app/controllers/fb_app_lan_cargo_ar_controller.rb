@@ -76,9 +76,9 @@ class FbAppLanCargoArController < ApplicationController
         session[:puntaje] = 0
       end
 
-      @siguiente = 2
+      session[:siguiente] = 2
       session[:answer] = params[:respuesta]
-      @link = "fb_app_lan_cargo_ar_q"+@siguiente.to_s+"_path"
+      @link = "fb_app_lan_cargo_ar_q"+session[:siguiente].to_s+"_path"
 
     when 2..4
       if params[:respuesta] == params[:n_preg].to_s+":c"
@@ -87,10 +87,10 @@ class FbAppLanCargoArController < ApplicationController
       else
         @clase_exito = "error"
       end
-      @siguiente = params[:n_preg].to_i + 1
+      session[:siguiente] = params[:n_preg].to_i + 1
 
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
-      @link = "fb_app_lan_cargo_ar_q"+@siguiente.to_s+"_path"
+      @link = "fb_app_lan_cargo_ar_q"+session[:siguiente].to_s+"_path"
     else
       @respuesta = "5:c"
 
@@ -116,8 +116,12 @@ class FbAppLanCargoArController < ApplicationController
   end
 
   def nulas
-    @link = "fb_app_lan_cargo_ar_"+params["sgte_preg"].to_s+"_path"
-    @clase_exito = "rsp_nula"
+    if !session[:siguiente]
+      session[:siguiente] = 2
+    else
+      session[:siguiente] = session[:siguiente]+1
+    end
+    @link = "fb_app_lan_cargo_ar_q"+session[:siguiente].to_s+"_path"
   end
 
   def share
