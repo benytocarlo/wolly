@@ -1,13 +1,21 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#siguiente").click(function(){
+      $("#guarda_preg").submit();
+    });
+  });
+</script>
 <div id="pregunta">
   <%= render :partial => "fb_app_claro_ganate_la_parabolica/menu" %>
   <iframe class="preg_video" width="433" height="244" src="http://www.youtube.com/embed/2O5N9YVGCFc?autoplay=1" frameborder="0" allowfullscreen></iframe>
-  <select class="preg_select" name="selector">
-  <option value="UNO">UNO</option>
-  <option value="DOS">DOS</option>
-  <option value="TRES">TRES</option>
-  <option value="CUATRO">CUATRO</option>
-  </select>
-  <h2 class="preg_btn">
-    <%= link_to :siguiente, fb_app_claro_ganate_la_parabolica_vota_path %>
-  </h2>
+  <%= form_tag(fb_app_claro_ganate_la_parabolica_vota_path,:id=>:guarda_preg, :method => "post") do  %>
+    <select class="preg_select" name="selector">
+      <option value="Los Navarrete Monsalves">Los Navarrete Monsalves</option>
+      <option value="Los Kuhn Ovalle">Los Kuhn Ovalle</option>
+      <option value="Los León Geerdts">Los León Geerdts</option>
+    </select>
+    <h2 class="preg_btn">
+      <%= link_to :siguiente, "#",:id => "siguiente" %>
+    </h2>
+  <% end %>
 </div>

@@ -79,6 +79,7 @@ class FbAppClaroGanateLaParabolicaController < ApplicationController
   end
 
   def vota
+    session[:resp_pregunta] = params["selector"]
   end
   
   def procesar_voto
