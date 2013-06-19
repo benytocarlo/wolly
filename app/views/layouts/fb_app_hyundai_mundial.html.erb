@@ -2,18 +2,18 @@
 <html>
 <head>
   <title><%= @app.name %></title>	
-  <%= stylesheet_link_tag    "fb_app_mahindra_xuv", :media => "all" %>
-  <%= javascript_include_tag "fb_app_mahindra_xuv" %>
+  <%= stylesheet_link_tag    "fb_app_hyundai_mundial", :media => "all" %>
+  <%= javascript_include_tag "fb_app_hyundai_mundial" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '700' } %>
-  <%= render "layouts/ga" %>
-  <div id="contenedor">
+  <body>
+    <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '655' } %>
+    <%= render "layouts/ga" %>
+    <ul id="main_nav">
+      <li><%= link_to "Inicio",  fb_app_hyundai_mundial_path %></li>
+      <li><p>|</p></li>
+      <li><a href="/documents/fb_app_hyundai_mundial.pdf">Bases</a></li>
+    </ul>
     <%= yield %>
-    <div id='footer'>
-      <a href="/documents/fb_app_mahindra_xuv.pdf" target="_blank">Bases del Concurso</a>
-    </div>
-  </div>
-</body>
+  </body>
 </html>

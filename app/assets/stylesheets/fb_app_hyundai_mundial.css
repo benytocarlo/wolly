@@ -1,142 +1,113 @@
-/* RESET.CSS */
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, header, footer, hgroup, menu, nav, section, time, mark, audio, video {
-    border: 0 none;
-    font-size: 100%;
-    font-style: inherit;
-    font-weight: inherit;
-    margin: 0;
-    outline: 0 none;
-    padding: 0;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-article, aside, nav, section, dialog, figure, header, footer, hgroup {
-    display: block;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
-legend {
-    display: none;
+body {
+	line-height: 1;
 }
-:focus {
-    outline: 0 none;
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-caption, th, td {
-    font-weight: normal;
-    text-align: left;
-}
-a img, iframe {
-    border: medium none;
-}
-ul {
-    list-style: none outside none;
-}
-input, textarea, select, button {
-    font-family: inherit;
-    font-size: 100%;
-}
-input, select {
-    vertical-align: middle;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-button {
-    background: none repeat scroll 0 0 transparent;
-    border: 0 none;
-    cursor: pointer;
-    padding: 0;
-}
-ol {
-    margin-left: 2em;
-}
-.clearfix:after {
-    clear: both;
-    content: ".";
-    display: block;
-    height: 0;
-    visibility: hidden;
-}
-.clearfix {
-    display: inline-block;
-}
-* html .clearfix {
-    height: 1%;
-}
-.clearfix {
-    display: block;
-}
+/******** Main Styles
+*********************************/
 
-/* STYLE.CSS */
-body { background: #000; font-family: 'Ubuntu', sans-serif;}
-p {font-size: 12px; font-family: arial, helvetica, verdana;}
-a {text-decoration: none;}
-#contenedor { overflow: hidden; width: 810px;}
+body {font-size: 1.0em; margin: 0; padding: 0; width: 810px; height: 650px; position: relative; top:0px; left:0px; background-image:url(fb_app_hyundai_mundial/bg_main.jpg); background-repeat:no-repeat; font-family: 'Ubuntu Condensed', sans-serif;}
+a, input[type="submit"]{-webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease;}
+a img { border:0px;}
 
-/*Nav*/
+#main_nav { position:absolute; top:8px; right:53px; z-index:5}
+#main_nav li { float:left;}
+#main_nav p { color:#FFF; padding-top:5px; float:left; text-decoration:none;}
+#main_nav a{ color:#FFF; padding:5px 12px; float:left; text-decoration:none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+#main_nav a:hover { background-color:#dbdbdb; color:#104677; }
 
-#nav { background: url("fb_app_mahindra_xuv/logo_mahindra.jpg") no-repeat 0 0; height: 70px; float: left; overflow: hidden; padding-top: 0; width: 810px;}
-.flecha { float: right; margin-right: 45px;}
-/*Contenido*/
+.background { position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:1}
 
-/*Home*/
-.home {background: url("fb_app_mahindra_xuv/home.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
-.participa {background: url("fb_app_mahindra_xuv/btn_participa1.png") no-repeat 0 0; display: block; height: 75px; position: absolute; right: 11px; bottom: 10px; width: 215px;}
-.participa:hover {background: url("fb_app_mahindra_xuv/btn_participa2.png") no-repeat 0 0;}
-/*no Fans*/
-.nofans {background: url("fb_app_mahindra_xuv/nofan.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
+/* Participa */
 
-/*Invitacion*/
-.invitacion {background: url("fb_app_mahindra_xuv/invitacion.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
-.invitacion ul { height: 220px; overflow: hidden; position: absolute; right: 129px; top: 225px; width: 365px;}
-.invitacion li { float: left; margin:0 100px 75px 0; height: 50px; width: 50px;}
-.invitacion li a {background: url("fb_app_mahindra_xuv/recuadro.png") no-repeat left top; border:2px solid #fff; display: block; height: 65px; width:65px;}
-.invitacion li a:hover {opacity: 0.7;}
+.home { background-image:url(fb_app_hyundai_mundial/back_home.png); width:100%; height:100%; z-index:2; position:relative}
+.home .participar { width:252px; height:76px; display:block; position:absolute; top:405px; left:252px; background-image:url(fb_app_hyundai_mundial/participa.png); text-indent:-9999px;}
+.home .participar:hover { background-image:url(fb_app_hyundai_mundial/participa_ON.png)}
 
-.continuar { background: url("fb_app_mahindra_xuv/01_re_continuar.png") left top; display: block; float: left; height:44px; width: 143px; bottom: 20px; position: absolute; right: 320px;}
-.continuar:hover {background-position: left bottom;}
+/* Forms Registro */
+
+.form { background-image: url(fb_app_hyundai_mundial/back_registro.png); width:100%; height:100%; z-index:2; position:relative}
+.form input[type="text"]{ position:absolute; left: 233px; width: 342px; height: 27px; border:0px; background-color:transparent}
+.form #nombre{ top:189px; }
+.form #rut{ top:228px;}
+.form #correo{top:268px;}
+.form #direccion{top:306px;}
+.form #telefono{top:345px;}
+
+.form #checkbox { position:absolute; top: 396px; left: 163px;}
+.form #enviar { position:absolute; top:396px; left:444px; background-color:transparent; border:0px; background-image:url(fb_app_hyundai_mundial/enviar.png); width:143px; height:61px; text-indent:-9999px; cursor:pointer; }
+.form #enviar:hover { background-image:url(fb_app_hyundai_mundial/enviar_ON.png)}
 
 
+/* Estrategia */
 
-/*Registrate*/
-.registro { height: 590px; float: left; overflow: hidden;}
-.mahindra_datos {background: url("fb_app_mahindra_xuv/bg_datos.jpg") no-repeat 0 0; height: 305px; float: left; overflow: hidden; /*padding: 85px 0 0 19px;*/ width: 810px;}
-.mahindra_datos ul {margin-top: 90px; width:382px; overflow: hidden; float: left;}
-/*.mahindra_datos ul:first-child {margin-right: 18px; margin-left: 18px;}*/
-.lista_datos {margin-right: 18px; margin-left: 18px;}
-.mahindra_datos ul li {margin-bottom:15px; overflow: hidden;}
-li label {color: #fff; float: left!important; font-size: 12px; padding-top: 6px; width: 65px; text-transform: uppercase;}
+.estrategia { background-image:url(fb_app_hyundai_mundial/back_estrategia.png); width:100%; height:100%; z-index:2; position:relative}
+.estrategia .defensa{ position:absolute; top:187px; left:157px; width:234px; height:351px; }
+.estrategia .ataque{ position:absolute; top:187px; left:422px; width:234px; height:351px;}
 
-li input.input_form,li select { background: none repeat scroll 0 0 #fff; border: 2px solid #C41E39; border-radius: 3px 3px 3px 3px; clear: none; color: #000; float: left; height: 33px; line-height: 29px; margin-left: 20px; overflow: hidden; padding-left: 5px; padding-top: 2px; width: 294px;}
-input:focus {color: #C41E39!important;}
+.estrategia .defensa div, .estrategia .ataque div { display:block; width:100%; height:86px; position:absolute; cursor:pointer;}
 
-.checks li label {padding-top: 0px; width: 215px;}
-.checks {margin-left: 85px; margin-top: 18px !important; width: 568px!important;}
+.estrategia .defensa div:hover, .estrategia .ataque div:hover, .boton_ON{ background-image:url(fb_app_hyundai_mundial/estrategia_seleccion.png); background-repeat:no-repeat; background-position: 8px 0px;}
 
-input[type=checkbox].css-checkbox + label.css-label {padding-left:20px; background-repeat:no-repeat; background-position: 0 0; cursor:pointer; }
-input[type=checkbox].css-checkbox:checked + label.css-label {  background-position: 0 -15px; }
-                        
-/*.css-label{ background-image:url("../medios/btn_check.png");}
-#demo_box_2 {display: none;}*/
-.participar { background: url("fb_app_mahindra_xuv/01_re_participar.png") left top; display: block; float: left; height: 44px; width: 143px;}
-.participar:hover {background-position: left bottom;}
-.acepto {height: 60px; overflow: hidden; float: left;}
-/*Final*/
-.final {background: url("fb_app_mahindra_xuv/final.jpg") no-repeat 0 0; height: 589px; overflow: hidden; position: relative; width: 810px;}
-.final ul {bottom: 25px; position: absolute; right: 200px;}
-.final li { float: left; margin-right: 16px;}
-/*.final li a { background: #c41e39; border-radius: 3px 3px 3px 3px; color: #fff; display: block; font-weight: bold; height: 34px; padding-top: 15px; text-align: center; text-transform: uppercase; width: 183px;}
-.final li a:hover {background: #515151;}*/
+.estrategia .defensa div.d_451 { top:58px;}
+.estrategia .defensa div.d_352 { top:150px;}
+.estrategia .defensa div.d_343 { top:246px;}
+.estrategia .ataque div.a_433 { top:60px}
+.estrategia .ataque div.a_235 { top:152px;}
+.estrategia .ataque div.a_325 { top:246px;}
 
-.invitar { background: url("fb_app_mahindra_xuv/01_re_invitar.png") left top; display: block; float: left; height: 44px; width: 143px;}
-.invitar:hover {background-position: left bottom;}
+.estrategia .enviar_estraegia { position:absolute; width:263px; height:61px; display:block; top:548px; left:282px; background-image:url(fb_app_hyundai_mundial/send_strat.png); text-indent:-9999px;}
+.estrategia .enviar_estraegia:hover { background-image:url(fb_app_hyundai_mundial/send_strat_ON.png)}
+.estrategia .instructions{ position:absolute; bottom:0px; left:0px; width:134px; height:24px; text-indent:-9999px; background-image:url(fb_app_hyundai_mundial/instrucciones_btn.png)}
+.estrategia .instructions:hover { background-image:url(fb_app_hyundai_mundial/instrucciones_btn_ON.png);}
 
-.compartir { background: url("fb_app_mahindra_xuv/01_re_compartir.png") left top; display: block; float: left; height: 44px; width: 143px;}
-.compartir:hover {background-position: left bottom;}
+.instrucciones { position:absolute; top:0px; left:0px; width:100%; height:100%; background-image:url(fb_app_hyundai_mundial/bg_alpha.png); z-index:12}
+.instrucciones .img { position:absolute; top:103px; left:131px; z-index:13; width:564px; height:425px;}
+.instrucciones .img img{ position:absolute; top:0px; left:0px; z-index:5}
+.instrucciones .cerrar { position:absolute; width:50px; height:50px; top:106px; left:641px; cursor:pointer; text-indent:-9999px; z-index:20} 
 
-/*Footer*/
-#footer {background: url("fb_app_mahindra_xuv/bg_footer.jpg") no-repeat 0 0; height: 41px; overflow: hidden; text-transform: uppercase; width: 810px;}
-#footer a { color: #fff; float: right; font-size: 12px; padding: 10px 15px 0 0;}
-#footer a:hover {color: #c41e39}
+/* Selección Autos */
+
+.seleccion_autos {background-image:url(fb_app_hyundai_mundial/back_seleccion_433.png); width:100%; height:100%; z-index:2; position:relative}
 
 
 

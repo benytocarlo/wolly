@@ -108,6 +108,16 @@ Wolly::Application.routes.draw do
   post   "fb_app_mahindra_teaser/canvas"
   get    "fb_app_mahindra_teaser/concurso"
   post   "fb_app_mahindra_teaser/share"
+
+  post   "fb_app_hyundai_mundial"                  => "fb_app_hyundai_mundial#index"
+  get    "fb_app_hyundai_mundial"                  => "fb_app_hyundai_mundial#index"
+  post   "fb_app_hyundai_mundial/canvas"
+  get    "fb_app_hyundai_mundial/concurso"
+  post    "fb_app_hyundai_mundial/estrategia"
+  post    "fb_app_hyundai_mundial/redirect_estrategias"
+  get    "fb_app_hyundai_mundial/defensa1"
+  get    "fb_app_hyundai_mundial/ataque1"
+  post   "fb_app_hyundai_mundial/share"
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

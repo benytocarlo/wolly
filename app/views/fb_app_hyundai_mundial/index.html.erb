@@ -3,13 +3,12 @@
     $("#fb_app_login").click(function(){
       FB.login(function(response){
         if (response.authResponse){
-          location.href = '<%= fb_app_mahindra_xuv_concurso_path %>';
+          location.href = '<%= fb_app_hyundai_mundial_concurso_path %>';
         }
       },{scope:'<%= @scope %>'});
     });
   });
 </script>
-<div id="nav"></div>
-<div class="home">
-  <%= link_to "", fb_app_mahindra_xuv_concurso_path, :id => :fb_app_login, :href => '#', :class => "participa" %>
-</div>
+  <div class="background home">
+    <%= link_to "participa", fb_app_hyundai_mundial_concurso_path, :id => :fb_app_login, :href => '#', :class => "participar" %>
+  </div>

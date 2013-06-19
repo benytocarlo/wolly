@@ -1,0 +1,15 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#btn_enviar").click(function(){
+
+    });
+  });
+</script>
+<div class="">
+	<h1>Defensa</h1>
+	<%= link_to "enviar", "#", :id => 'btn_enviar', :class => 'continuar'  %>
+</div>
+<%= form_tag(fb_app_hyundai_mundial_redirect_estrategias_path,:id=>:registro, :method => "post") do  %>
+	<%= hidden_field_tag 'estrategia' %>
+	<%= hidden_field_tag 'tipo_estrategia' %>
+<% end %>
