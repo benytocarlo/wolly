@@ -7,11 +7,14 @@ class FbAppHyundaiMundialController < ApplicationController
   before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :ranking, :laparabolica, :premios, :canvas]
   before_filter :load_fanpage, :except => [:canvas]
+  before_filter :header, :except => [:nofans]
+
 
   def index
-    if session[:signed_request][:page][:liked]      
+    if session[:signed_request][:page][:liked]
       render :index
     else
+      @header = false
       render :nofans
     end
   end
@@ -128,6 +131,10 @@ private
     @app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
     @scope = 'email,read_stream,publish_stream,user_photos'
+  end
+
+  def header
+    @header  = true
   end
 end
   
