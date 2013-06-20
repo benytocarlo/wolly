@@ -1,4 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>   
 <script>
 $(document).ready( function (){
 	$("#btn_enviar").click(function(){
@@ -21,7 +21,7 @@ $(document).ready( function (){
 		$(this).toggleClass('boton_ON');
 		});
 
-	$(".top_1, .top_2, .top_3, .top_4, .top_5, car_i30").hover(
+	$(".top_1, .top_2, .top_3, .top_4, .top_5").hover(
 	  function () {
 		$(this).children('.car_desc').fadeIn("fast");
 	  },
@@ -37,6 +37,7 @@ $(document).ready( function (){
 		$('.auto1, .auto2, .auto3, .auto4').removeClass('car_i30');
 		$('.auto1, .auto2, .auto3, .auto4').removeClass('car_elantrac');
 		$('.car_accent, .car_elantra, .car_veloster, .car_i30 , .car_elantrac').show();
+		$('.car_accent, .car_elantra, .car_veloster, .car_i30 , .car_elantrac').next('img').addClass('car_desc');
 		$('.facebook_friend').hide();
 		$('#rsp_auto1').val("");
 		$('#rsp_auto2').val("");
@@ -69,6 +70,7 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto1").val(ui.draggable.attr('rel'));
 				 }
@@ -78,6 +80,7 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto2").val(ui.draggable.attr('rel'));
 				 }
@@ -87,6 +90,7 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto3").val(ui.draggable.attr('rel'));
 				 }
@@ -96,6 +100,7 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto4").val(ui.draggable.attr('rel'));
 				 }

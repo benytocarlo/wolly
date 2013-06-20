@@ -1,4 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>   
 <script>
 $(document).ready( function (){
   $("#btn_enviar").click(function(){
@@ -37,6 +37,7 @@ $(document).ready( function (){
     $('.auto1, .auto2, .auto3, .auto4').removeClass('car_santafe');
     $('.auto1, .auto2, .auto3, .auto4').removeClass('car_tucson');
     $('.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson').show();
+    $('.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson').next('img').addClass('car_desc');
     $('.facebook_friend').hide();
     $('#rsp_auto1').val("");
     $('#rsp_auto2').val("");
@@ -68,6 +69,7 @@ $(function(){
          drop: function(event, ui ) {
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
+         $(ui.draggable).next('img').removeClass('car_desc');
          $(ui.draggable).hide();
          $("#rsp_auto1").val(ui.draggable.attr('rel'));
          }
@@ -77,6 +79,7 @@ $(function(){
          drop: function(event, ui ) {
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
+         $(ui.draggable).next('img').removeClass('car_desc');
          $(ui.draggable).hide();
          $("#rsp_auto2").val(ui.draggable.attr('rel'));
          }
@@ -86,6 +89,7 @@ $(function(){
          drop: function(event, ui ) {
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
+         $(ui.draggable).next('img').removeClass('car_desc');
          $(ui.draggable).hide();
          $("#rsp_auto3").val(ui.draggable.attr('rel'));
          }
@@ -95,6 +99,7 @@ $(function(){
          drop: function(event, ui ) {
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
+         $(ui.draggable).next('img').removeClass('car_desc');
          $(ui.draggable).hide();
          $("#rsp_auto4").val(ui.draggable.attr('rel'));
          }
