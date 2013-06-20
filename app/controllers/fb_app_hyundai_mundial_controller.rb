@@ -56,6 +56,67 @@ class FbAppHyundaiMundialController < ApplicationController
     @clase = flash[:tipo_estrategia]
   end
 
+  def share
+    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      @puntaje = 0
+
+      case params[:estrategia]
+      when "defensa"
+        if params[:tipo_estrategia] = "mod_d_451"
+          @puntaje = 60
+        else
+          @puntaje = 30
+        end
+
+        if params[:rsp_auto1] = "Tucson"
+          @puntaje = @puntaje + 10
+        end
+
+        if params[:rsp_auto2] = "Genesis"
+          @puntaje = @puntaje + 10
+        end
+
+        if params[:rsp_auto3] = "Genesis Coupe"
+          @puntaje = @puntaje + 10
+        end
+
+        if params[:rsp_auto4] = "Santa Fe"
+          @puntaje = @puntaje + 10
+        end
+
+      when "ataque"
+        if params[:tipo_estrategia] = "mod_d_451"
+          @puntaje = 60
+        else
+          @puntaje = 30
+        end
+
+        if params[:rsp_auto1] = "Veloster"
+          @puntaje = @puntaje + 10
+        end
+
+        if params[:rsp_auto2] = "i30"
+          @puntaje = @puntaje + 10
+        end
+
+        if params[:rsp_auto3] = "Elantra"
+          @puntaje = @puntaje + 10
+        end
+
+        if params[:rsp_auto4] = "Accent"
+          @puntaje = @puntaje + 10
+        end
+      end
+
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        @me_from_database_participation.update_attributes(:answer => @puntaje)
+      else
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @puntaje)
+      end
+
+    end
+  end
+
 private
 
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.

@@ -1,6 +1,14 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>   
 <script>
 $(document).ready( function (){
+  $("#btn_enviar").click(function(){
+    if ( $('#rsp_auto1').val() == "" || $('#rsp_auto2').val() == "" ||  $('#rsp_auto3').val() == "" ||  $('#rsp_auto4').val() == "" || $('#invitacion').val() == "") {
+      alert("faltan campos");
+    }else{
+      $("#registro").submit();
+    }
+  });
+
   $('.instructions').click( function (){
     $('.instrucciones').fadeIn('fast');
     });
@@ -30,9 +38,27 @@ $(document).ready( function (){
     $('.auto1, .auto2, .auto3, .auto4').removeClass('car_tucson');
     $('.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson').show();
     $('.facebook_friend').hide();
+    $('#rsp_auto1').val("");
+    $('#rsp_auto2').val("");
+    $('#rsp_auto3').val("");
+    $('#rsp_auto4').val("");
     });
-    
+
+    $(".facebook_friend").click(function(){
+      $("#box_invitado").val($(this).attr("rel"));
+
+      FB.ui({ method: 'apprequests',
+            message: 'Invitar',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '1'
+      },requestCallback);
+    });
 });
+  function requestCallback(response) {
+      $("#invitacion").val(response.to);
+      $("."+$("#box_invitado").val()+" .facebook_friend").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=39&height=39" width="39" height="39" />');
+  }
 </script>
 <script>
 $(function(){
@@ -43,6 +69,7 @@ $(function(){
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
          $(ui.draggable).hide();
+         $("#rsp_auto1").val(ui.draggable.attr('rel'));
          }
   });
   $(".auto2").droppable({ 
@@ -51,6 +78,7 @@ $(function(){
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
          $(ui.draggable).hide();
+         $("#rsp_auto2").val(ui.draggable.attr('rel'));
          }
   });
   $(".auto3").droppable({ 
@@ -59,6 +87,7 @@ $(function(){
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
          $(ui.draggable).hide();
+         $("#rsp_auto3").val(ui.draggable.attr('rel'));
          }
   }); 
   $(".auto4").droppable({ 
@@ -67,6 +96,7 @@ $(function(){
          $(this).addClass( ui.draggable.attr('class') );
          $(this).children('div').show();
          $(ui.draggable).hide();
+         $("#rsp_auto4").val(ui.draggable.attr('rel'));
          }
   });
   
@@ -75,26 +105,36 @@ $(function(){
 </script>
 <div class="background seleccion_autos <%= @clase %>">
   <div class="autos_top">
-    <div class="top_1 top_azera"><img src="../assets/fb_app_hyundai_mundial/d_azera.png" alt="Azera" class="car_azera" /><img src="../assets/fb_app_hyundai_mundial/azera.png" alt="Descripción" class="car_desc" /></div>
-    <div class="top_2 top_genesis"><img src="../assets/fb_app_hyundai_mundial/d_genesis.png" alt="Genesis" class="car_genesis" /><img src="../assets/fb_app_hyundai_mundial/genesis.png" alt="Descripción" class="car_desc" /></div>
-    <div class="top_3 top_genesis_c"><img src="../assets/fb_app_hyundai_mundial/d_genesis_c.png" alt="Genesis Coupe" class="car_genesis_c" /><img src="../assets/fb_app_hyundai_mundial/genesis_coupe.png" alt="Descripción" class="car_desc" /></div>
-    <div class="top_4 top_santafe"><img src="../assets/fb_app_hyundai_mundial/d_santafe.png" alt="Santa Fe" class="car_santafe" /><img src="../assets/fb_app_hyundai_mundial/santa_fe.png" alt="Descripción" class="car_desc" /></div>
-    <div class="top_5 top_tucson" style="margin-right:0px;"><img src="../assets/fb_app_hyundai_mundial/d_tucson.png" alt="Tucson" class="car_tucson" /><img src="../assets/fb_app_hyundai_mundial/tucson.png" alt="Descripción" class="car_desc" /></div>
+    <div class="top_1 top_azera"><img src="../assets/fb_app_hyundai_mundial/d_azera.png" rel="Azera" alt="Azera" class="car_azera" /><img src="../assets/fb_app_hyundai_mundial/azera.png" alt="Descripción" class="car_desc" /></div>
+    <div class="top_2 top_genesis"><img src="../assets/fb_app_hyundai_mundial/d_genesis.png" rel="Genesis" alt="Genesis" class="car_genesis" /><img src="../assets/fb_app_hyundai_mundial/genesis.png" alt="Descripción" class="car_desc" /></div>
+    <div class="top_3 top_genesis_c"><img src="../assets/fb_app_hyundai_mundial/d_genesis_c.png" rel="Genesis Coupe" alt="Genesis Coupe" class="car_genesis_c" /><img src="../assets/fb_app_hyundai_mundial/genesis_coupe.png" alt="Descripción" class="car_desc" /></div>
+    <div class="top_4 top_santafe"><img src="../assets/fb_app_hyundai_mundial/d_santafe.png" rel="Santa Fe" alt="Santa Fe" class="car_santafe" /><img src="../assets/fb_app_hyundai_mundial/santa_fe.png" alt="Descripción" class="car_desc" /></div>
+    <div class="top_5 top_tucson" style="margin-right:0px;"><img src="../assets/fb_app_hyundai_mundial/d_tucson.png" rel="Tucson" alt="Tucson" class="car_tucson" /><img src="../assets/fb_app_hyundai_mundial/tucson.png" alt="Descripción" class="car_desc" /></div>
   </div>
         
         
   <div class="posiciones">
-    <div class="box auto1"><div class="facebook_friend"><img src="../assets/fb_app_hyundai_mundial/fb_im.jpg" alt="fb_example" /></div></div>
-    <div class="box auto2"><div class="facebook_friend"><img src="../assets/fb_app_hyundai_mundial/fb_im.jpg" alt="fb_example" /></div></div>
-    <div class="box auto3"><div class="facebook_friend"><img src="../assets/fb_app_hyundai_mundial/fb_im.jpg" alt="fb_example" /></div></div>
-    <div class="box auto4"><div class="facebook_friend"><img src="../assets/fb_app_hyundai_mundial/fb_im.jpg" alt="fb_example" /></div></div>            
+    <div class="box auto1"><div class="facebook_friend"></div></div>
+    <div class="box auto2"><div class="facebook_friend"></div></div>
+    <div class="box auto3"><div class="facebook_friend"></div></div>
+    <div class="box auto4"><div class="facebook_friend"></div></div>
   </div>
-        
-  <a href="#" class="continuar">Continuar</a>
+
+  <a href="#" id="btn_enviar" class="continuar">Continuar</a>
   <a href="#" class="limpiar">limpiar formación</a>
   <a href="#" class="instructions">Instrucciones</a>
 </div>
-  <div class="instrucciones">
-    <span class="img" style="background-image:url(../assets/fb_app_hyundai_mundial/instrucciones_2.png); background-repeat:no-repeat;"></span>
-    <span class="cerrar">X</span>
-  </div>
+<div class="instrucciones">
+  <span class="img" style="background-image:url(../assets/fb_app_hyundai_mundial/instrucciones_2.png); background-repeat:no-repeat;"></span>
+  <span class="cerrar">X</span>
+</div>
+<%= hidden_field_tag 'box_invitado' %>
+<%= hidden_field_tag 'invitacion' %>
+<%= form_tag(fb_app_hyundai_mundial_share_path,:id=>:registro, :method => "post") do  %>
+  <%= hidden_field_tag 'tipo_estrategia', @clase %>
+  <%= hidden_field_tag 'estrategia',"defensa" %>
+  <%= hidden_field_tag 'rsp_auto1' %>
+  <%= hidden_field_tag 'rsp_auto2' %>
+  <%= hidden_field_tag 'rsp_auto3' %>
+  <%= hidden_field_tag 'rsp_auto4' %>
+<% end %>
