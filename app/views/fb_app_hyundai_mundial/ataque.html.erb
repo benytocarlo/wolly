@@ -3,7 +3,7 @@
 $(document).ready( function (){
 	$("#btn_enviar").click(function(){
 		if ( $('#rsp_auto1').val() == "" || $('#rsp_auto2').val() == "" ||  $('#rsp_auto3').val() == "" ||  $('#rsp_auto4').val() == "" ||  $('#invitacion').val() == "" ) {
-			alert("faltan campos");
+			alert("Debes invitar al menos un amigo");
 		}else{
 			$("#registro").submit();
 		}

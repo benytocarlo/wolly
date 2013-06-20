@@ -3,7 +3,7 @@
 $(document).ready( function (){
   $("#btn_enviar").click(function(){
     if ( $('#rsp_auto1').val() == "" || $('#rsp_auto2').val() == "" ||  $('#rsp_auto3').val() == "" ||  $('#rsp_auto4').val() == "" ||  $('#invitacion').val() == "") {
-      alert("faltan campos");
+      alert("Debes invitar al menos un amigo");
     }else{
       $("#registro").submit();
     }
@@ -112,10 +112,10 @@ $(function(){
         
         
   <div class="posiciones">
-    <div class="box auto1"><div class="facebook_friend"></div></div>
-    <div class="box auto2"><div class="facebook_friend"></div></div>
-    <div class="box auto3"><div class="facebook_friend"></div></div>
-    <div class="box auto4"><div class="facebook_friend"></div></div>
+    <div class="box auto1"><div class="facebook_friend" rel="auto1"></div></div>
+    <div class="box auto2"><div class="facebook_friend" rel="auto2"></div></div>
+    <div class="box auto3"><div class="facebook_friend" rel="auto3"></div></div>
+    <div class="box auto4"><div class="facebook_friend" rel="auto4"></div></div>
   </div>
 
   <a href="#" id="btn_enviar" class="continuar">Continuar</a>
