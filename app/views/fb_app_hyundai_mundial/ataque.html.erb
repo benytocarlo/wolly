@@ -51,14 +51,13 @@ $(document).ready( function (){
             filters: ['app_non_users'],
             title: 'Invitación',
       max_recipients: '1'
-      },requestCallback(box));
+      },requestCallback3(response,box));
     });
 });
 
   function requestCallback(response,box) {
-  	alert(box);
-      /*$("#uid_amigo1").val(response.to);
-      $("#invitar1").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=65&height=65" width="65" height="65" />');*/
+      $("#invitacion").val(response.to);
+      $("."+box+" .facebook_friend").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=33&height=33" width="33" height="33" />');
   }
 </script>
 <script>
