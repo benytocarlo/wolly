@@ -2,7 +2,7 @@
 class FbAppLanCargoArController < ApplicationController
   layout "fb_app_lan_cargo_ar"
   before_filter :load_application_data
-  before_filter :parse_facebook_signed_request, :except => [:premios]
+  before_filter :parse_facebook_signed_request, :except => [:premios, :respuestas]
   before_filter :parse_facebook_cookies, :except => [:index, :canvas, :premios]
   before_filter :load_graph_api, :except => [:premios]
   before_filter :load_facebook_user, :except => [:index, :canvas, :premios]
