@@ -45,19 +45,20 @@ $(document).ready( function (){
 		});
 
     $(".facebook_friend").click(function(){
-      var box = $(this).attr("rel");
+      $("#box_invitado").val($(this).attr("rel"));
+
       FB.ui({ method: 'apprequests',
             message: 'Invitar',
             filters: ['app_non_users'],
             title: 'Invitación',
       max_recipients: '1'
-      },requestCallback3(response,box));
+      },requestCallback);
     });
 });
 
-  function requestCallback(response,box) {
+  function requestCallback(response) {
       $("#invitacion").val(response.to);
-      $("."+box+" .facebook_friend").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=33&height=33" width="33" height="33" />');
+      $("."+$("#box_invitado").val()+" .facebook_friend").html('<img src="https://graph.facebook.com/'+response.to+'/picture?width=33&height=33" width="33" height="33" />');
   }
 </script>
 <script>
@@ -130,4 +131,5 @@ $(function(){
   <%= hidden_field_tag 'rsp_auto3' %>
   <%= hidden_field_tag 'rsp_auto4' %>
   <%= hidden_field_tag 'invitacion' %>
+  <%= hidden_field_tag 'box_invitado' %>
 <% end %>
