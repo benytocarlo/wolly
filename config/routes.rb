@@ -115,8 +115,8 @@ Wolly::Application.routes.draw do
   get    "fb_app_hyundai_mundial/concurso"
   post    "fb_app_hyundai_mundial/estrategia"
   post    "fb_app_hyundai_mundial/redirect_estrategias"
-  get    "fb_app_hyundai_mundial/defensa1"
-  get    "fb_app_hyundai_mundial/ataque1"
+  get    "fb_app_hyundai_mundial/defensa"
+  get    "fb_app_hyundai_mundial/ataque"
   post   "fb_app_hyundai_mundial/share"
   
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -7,12 +7,12 @@
     $('.cerrar').click( function (){
       $('.instrucciones').fadeOut('fast');
     });
-    
+
     $('.boton_est').click( function(){
       $('.boton_est').removeClass('boton_ON');
       $(this).toggleClass('boton_ON');
-      var checked = $(this).attr("rel");
-      $("#estrategia").val(checked);
+      $("#estrategia").val($(this).attr("rel"));
+      $("#tipo_estrategia").val("mod_"+$(this).attr('class').split(' ')[0]);
     });
 
     $("#btn_enviar").click(function(){
@@ -26,14 +26,14 @@
 </script>
     <div class="background estrategia">
       <div class="left defensa">
-        <div class="d_451 boton_est" rel="defensa1"></div>
-        <div class="d_352 boton_est" rel="defensa2"></div>
-        <div class="d_343 boton_est" rel="defensa3"></div>
+        <div class="d_451 boton_est" rel="defensa"></div>
+        <div class="d_352 boton_est" rel="defensa"></div>
+        <div class="d_343 boton_est" rel="defensa"></div>
       </div>
       <div class="right ataque">
-        <div class="a_433 boton_est" rel="ataque1"></div>
-        <div class="a_235 boton_est" rel="ataque2"></div>
-        <div class="a_325 boton_est" rel="ataque3"></div>
+        <div class="a_433 boton_est" rel="ataque"></div>
+        <div class="a_235 boton_est" rel="ataque"></div>
+        <div class="a_325 boton_est" rel="ataque"></div>
       </div>
       <%= link_to "Enviar estrategia", "#", :id => 'btn_enviar', :class => 'enviar_estraegia'  %>
       <a href="#" class="instructions">Instrucciones</a>
@@ -44,4 +44,5 @@
     </div>
     <%= form_tag(fb_app_hyundai_mundial_redirect_estrategias_path,:id=>:registro, :method => "post") do  %>
       <%= hidden_field_tag 'estrategia' %>
+      <%= hidden_field_tag 'tipo_estrategia' %>
     <% end %>

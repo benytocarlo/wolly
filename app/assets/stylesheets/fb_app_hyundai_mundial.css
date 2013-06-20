@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	overflow:hidden;
 }
 ol, ul {
 	list-style: none;
@@ -97,8 +98,6 @@ a img { border:0px;}
 
 .estrategia .enviar_estraegia { position:absolute; width:263px; height:61px; display:block; top:548px; left:282px; background-image:url(fb_app_hyundai_mundial/send_strat.png); text-indent:-9999px;}
 .estrategia .enviar_estraegia:hover { background-image:url(fb_app_hyundai_mundial/send_strat_ON.png)}
-.estrategia .instructions{ position:absolute; bottom:0px; left:0px; width:134px; height:24px; text-indent:-9999px; background-image:url(fb_app_hyundai_mundial/instrucciones_btn.png)}
-.estrategia .instructions:hover { background-image:url(fb_app_hyundai_mundial/instrucciones_btn_ON.png);}
 
 .instrucciones { position:absolute; top:0px; left:0px; width:100%; height:100%; background-image:url(fb_app_hyundai_mundial/bg_alpha.png); z-index:12}
 .instrucciones .img { position:absolute; top:103px; left:131px; z-index:13; width:564px; height:425px;}
@@ -107,7 +106,91 @@ a img { border:0px;}
 
 /* Selección Autos */
 
-.seleccion_autos {background-image:url(fb_app_hyundai_mundial/back_seleccion_433.png); width:100%; height:100%; z-index:2; position:relative}
+.seleccion_autos {background-image:url(fb_app_hyundai_mundial/back_seleccion.png); width:100%; height:100%; z-index:2; position:relative}
+
+.seleccion_autos .autos_top { position:absolute; top:204px; left:45px; width:727px; height:81px;}
+.autos_top .top_1, .autos_top .top_2, .autos_top .top_3, .autos_top .top_4, .autos_top .top_5 { float:left; margin-right:12px; position:relative; width:134px; height:78px;}
+
+.car_desc { display:none;}
+.autos_top .car_desc { position:absolute; top:-145px; left:-48px; z-index:5}
+.autos_top .top_1 .car_desc{ left:-38px}
+.autos_top .top_5 .car_desc{ left:-52px}
+
+.seleccion_autos .posiciones { position:absolute; top:304px; left:0px; width:810px; height:346px;}
 
 
+.continuar { background-image:url(fb_app_hyundai_mundial/continuar.png); width:204px; height:51px; position:absolute; top:115px; right:0px; text-indent:-9999px; z-index:2}
+.continuar:hover { background-image:url(fb_app_hyundai_mundial/continuar_ON.png)}
+
+.instructions{ position:absolute; bottom:0px; left:0px; width:134px; height:24px; text-indent:-9999px; background-image:url(fb_app_hyundai_mundial/instrucciones_btn.png)}
+.instructions:hover { background-image:url(fb_app_hyundai_mundial/instrucciones_btn_ON.png);}
+
+.limpiar {position: absolute; right: 3px; top: 307px; background-image:url(fb_app_hyundai_mundial/nueva_formacion.png); width:151px; height:23px; text-indent:-9999px;}
+.limpiar:hover { background-image:url(fb_app_hyundai_mundial/nueva_formacion_ON.png)}
+
+.facebook_friend { width:39px; height:39px; position:absolute; top:0px; right:-58px; background-image:url(fb_app_hyundai_mundial/invitar.png); padding:4px 7px; background-repeat:no-repeat; display:none}
+
+
+.car_accent, .car_elantra, .car_veloster, .car_i30 , .car_elantrac, .car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson { cursor:pointer}
+
+/* Ataque */
+
+.posiciones .car_accent { background-image:url(fb_app_hyundai_mundial/front_accent.png);background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_elantra { background-image:url(fb_app_hyundai_mundial/front_elantra.png); background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_veloster { background-image:url(fb_app_hyundai_mundial/front_veloster.png); background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_i30 { background-image:url(fb_app_hyundai_mundial/front_i30.png);  background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_elantrac { background-image:url(fb_app_hyundai_mundial/front_elantra_c.png); background-position:center center; background-repeat:no-repeat;}
+.posiciones .box { width:65px; height:58px; position:absolute; }
+
+.mod_a_325 .posiciones{ background-image:url(fb_app_hyundai_mundial/back_325.png); background-repeat:no-repeat;}
+.mod_a_325 .posiciones .auto1{ top:257px; left:87px;}
+.mod_a_325 .posiciones .auto2{ top:208px; left:221px;}
+.mod_a_325 .posiciones .auto3{ top:208px; left:531px;}
+.mod_a_325 .posiciones .auto4{ top:257px; left:654px;}
+
+.mod_a_235 .posiciones{ background-image:url(fb_app_hyundai_mundial/back_235.png); background-repeat:no-repeat;}
+.mod_a_235 .posiciones .auto1{ top:263px; left:87px;}
+.mod_a_235 .posiciones .auto2{ top:202px; left:221px;}
+.mod_a_235 .posiciones .auto3{ top:202px; left:541px;}
+.mod_a_235 .posiciones .auto4{ top:263px; left:654px;}
+
+.mod_a_433 .posiciones{ background-image:url(fb_app_hyundai_mundial/back_433.png); background-repeat:no-repeat;}
+.mod_a_433 .posiciones .auto1{ top:142px; left:381px;}
+.mod_a_433 .posiciones .auto2{ top:255px; left:230px;}
+.mod_a_433 .posiciones .auto3{ top:255px; left:381px;}
+.mod_a_433 .posiciones .auto4{ top:257px; left:534px;}
+
+
+
+
+/* Defensa */
+
+.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson
+
+.posiciones .car_azera{background-image:url(fb_app_hyundai_mundial/front_azera.png);background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_genesis{background-image:url(fb_app_hyundai_mundial/front_genesis.png);background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_genesis_c{background-image:url(fb_app_hyundai_mundial/front_genesis_coupe.png);background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_santafe{background-image:url(fb_app_hyundai_mundial/front_santafe.png);background-position:center center; background-repeat:no-repeat;}
+.posiciones .car_tucson{background-image:url(fb_app_hyundai_mundial/front_tucson.png);background-position:center center; background-repeat:no-repeat;}
+
+.mod_d_343 .posiciones{ background-image:url(fb_app_hyundai_mundial/back_343.png); background-repeat:no-repeat;}
+.mod_d_343 .posiciones .auto1{ top:57px; left:266px;}
+.mod_d_343 .posiciones .auto2{ top:31px; left:378px;}
+.mod_d_343 .posiciones .auto3{ top:93px; left:378px;}
+.mod_d_343 .posiciones .auto4{ top:55px; left:497px;}
+
+.mod_d_352 .posiciones{ background-image:url(fb_app_hyundai_mundial/back_352.png); background-repeat:no-repeat;}
+.mod_d_352 .posiciones .auto1{ top:51px; left:276px;}
+.mod_d_352 .posiciones .auto2{ top:29px; left:381px;}
+.mod_d_352 .posiciones .auto3{ top:110px; left:382px;}
+.mod_d_352 .posiciones .auto4{ top:51px; left:484px;}
+
+.mod_d_451 .posiciones{ background-image:url(fb_app_hyundai_mundial/back_451.png); background-repeat:no-repeat;}
+.mod_d_451 .posiciones .auto1{ top:58px; left:188px;}
+.mod_d_451 .posiciones .auto2{ top:19px; left:319px;}
+.mod_d_451 .posiciones .auto3{ top:19px; left:442px;}
+.mod_d_451 .posiciones .auto4{ top:46px; left:561px;}
+
+
+/* Plantila de Exito */
 

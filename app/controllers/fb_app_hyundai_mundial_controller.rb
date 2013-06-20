@@ -39,12 +39,21 @@ class FbAppHyundaiMundialController < ApplicationController
         @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :address => params[:direccion])
       end
     else
-      redirect_to fb_app_mahindra_teaser_concurso_path
+      redirect_to fb_app_hyundai_mundial_concurso_path
     end
   end
 
   def redirect_estrategias
+    flash[:tipo_estrategia] = params[:tipo_estrategia]
     redirect_to eval("fb_app_hyundai_mundial_#{params[:estrategia].to_s}_path")
+  end
+
+  def ataque 
+    @clase = flash[:tipo_estrategia]
+  end
+
+  def defensa 
+    @clase = flash[:tipo_estrategia]
   end
 
 private
