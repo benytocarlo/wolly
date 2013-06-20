@@ -60,56 +60,57 @@ class FbAppHyundaiMundialController < ApplicationController
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @puntaje = 0
 
-      case params[:estrategia]
+      case params[:estrategia_usada]
       when "defensa"
-        if params[:tipo_estrategia] = "mod_d_451"
+        if params[:formación] == "mod_d_451"
           @puntaje = 60
         else
           @puntaje = 30
         end
 
-        if params[:rsp_auto1] = "Tucson"
+        if params[:rsp_auto1] == "Tucson"
           @puntaje = @puntaje + 10
         end
 
-        if params[:rsp_auto2] = "Genesis"
+        if params[:rsp_auto2] == "Genesis"
           @puntaje = @puntaje + 10
         end
 
-        if params[:rsp_auto3] = "Genesis Coupe"
+        if params[:rsp_auto3] == "Genesis Coupe"
           @puntaje = @puntaje + 10
         end
 
-        if params[:rsp_auto4] = "Santa Fe"
+        if params[:rsp_auto4] == "Santa Fe"
           @puntaje = @puntaje + 10
         end
 
       when "ataque"
-        if params[:tipo_estrategia] = "mod_d_451"
+        if params[:formación] == "mod_a_325"
           @puntaje = 60
         else
           @puntaje = 30
         end
 
-        if params[:rsp_auto1] = "Veloster"
+        if params[:rsp_auto1] == "Veloster"
           @puntaje = @puntaje + 10
         end
 
-        if params[:rsp_auto2] = "i30"
+        if params[:rsp_auto2] == "i30"
           @puntaje = @puntaje + 10
         end
 
-        if params[:rsp_auto3] = "Elantra"
+        if params[:rsp_auto3] == "Elantra"
           @puntaje = @puntaje + 10
         end
 
-        if params[:rsp_auto4] = "Accent"
+        if params[:rsp_auto4] == "Accent"
           @puntaje = @puntaje + 10
         end
       end
-
       if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
-        @me_from_database_participation.update_attributes(:answer => @puntaje)
+        if @me_from_database_participation.answer != "100"
+          @me_from_database_participation.update_attributes(:answer => @puntaje)
+        end
       else
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @puntaje)
       end

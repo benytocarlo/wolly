@@ -194,3 +194,16 @@ a img { border:0px;}
 
 /* Plantila de Exito */
 
+.final { background-image:url(fb_app_hyundai_mundial/back_final.png); width:100%; height:100%; z-index:2; position:relative}
+.final a { display:block; position:absolute; width:206px; height:33px; top:568px; text-indent:-9999px;}
+.final .volver_jugar { background-image:url(fb_app_hyundai_mundial/volver_jugar_btn.png); left:50px;}
+.final .volver_jugar:hover { background-image:url(fb_app_hyundai_mundial/volver_jugar_btnON.png);}
+.final .invitar_amigos { background-image:url(fb_app_hyundai_mundial/invitar_btn.png); left:306px;}
+.final .invitar_amigos:hover { background-image:url(fb_app_hyundai_mundial/invitar_btnON.png)}
+.final .compartir { background-image:url(fb_app_hyundai_mundial/compartir_btn.png); left:530px;}
+.final .compartir:hover { background-image:url(fb_app_hyundai_mundial/compartir_btnON.png)}
+
+.final .resultado { 
+position: absolute; left: 308px; width: 200px; top: 495px; font-family: 'Open Sans', sans-serif; font-size: 48px; font-style: italic; text-align: center; color:#FFF; text-shadow: 3px 1px 12px rgba(0, 0, 0, 1);}
+
+.nofan { background-image:url(fb_app_hyundai_mundial/nofan.jpg); width:100%; height:100%; z-index:2; position:relative}

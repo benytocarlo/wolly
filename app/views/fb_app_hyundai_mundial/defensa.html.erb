@@ -2,7 +2,7 @@
 <script>
 $(document).ready( function (){
   $("#btn_enviar").click(function(){
-    if ( $('#rsp_auto1').val() == "" || $('#rsp_auto2').val() == "" ||  $('#rsp_auto3').val() == "" ||  $('#rsp_auto4').val() == "" || $('#invitacion').val() == "") {
+    if ( $('#rsp_auto1').val() == "" || $('#rsp_auto2').val() == "" ||  $('#rsp_auto3').val() == "" ||  $('#rsp_auto4').val() == "" ||  $('#invitacion').val() == "") {
       alert("faltan campos");
     }else{
       $("#registro").submit();
@@ -99,8 +99,6 @@ $(function(){
          $("#rsp_auto4").val(ui.draggable.attr('rel'));
          }
   });
-  
-  
   })
 </script>
 <div class="background seleccion_autos <%= @clase %>">
@@ -131,8 +129,8 @@ $(function(){
 <%= hidden_field_tag 'box_invitado' %>
 <%= hidden_field_tag 'invitacion' %>
 <%= form_tag(fb_app_hyundai_mundial_share_path,:id=>:registro, :method => "post") do  %>
-  <%= hidden_field_tag 'tipo_estrategia', @clase %>
-  <%= hidden_field_tag 'estrategia',"defensa" %>
+  <%= hidden_field_tag 'formación', @clase %>
+  <%= hidden_field_tag 'estrategia_usada',"defensa" %>
   <%= hidden_field_tag 'rsp_auto1' %>
   <%= hidden_field_tag 'rsp_auto2' %>
   <%= hidden_field_tag 'rsp_auto3' %>
