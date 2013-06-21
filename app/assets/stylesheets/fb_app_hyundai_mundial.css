@@ -166,7 +166,7 @@ a img { border:0px;}
 
 /* Defensa */
 
-.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson
+/*.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson*/
 
 .posiciones .car_azera{background-image:url(fb_app_hyundai_mundial/front_azera.png);background-position:center center; background-repeat:no-repeat;}
 .posiciones .car_genesis{background-image:url(fb_app_hyundai_mundial/front_genesis.png);background-position:center center; background-repeat:no-repeat;}

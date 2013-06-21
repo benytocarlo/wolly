@@ -11,7 +11,8 @@ $(document).ready( function (){
 
   $('.instructions').click( function (){
     $('.instrucciones').fadeIn('fast');
-    });
+  });
+
   $('.cerrar').click( function (){
     $('.instrucciones').fadeOut('fast');
     });
@@ -21,7 +22,7 @@ $(document).ready( function (){
     $(this).toggleClass('boton_ON');
     });
 
-  $(".top_1, .top_2, .top_3, .top_4, .top_5, car_i30").hover(
+  $(".top_1, .top_2, .top_3, .top_4, .top_5").hover(
     function () {
     $(this).children('.car_desc').fadeIn("fast");
     },
@@ -127,7 +128,7 @@ $(function(){
   <a href="#" class="limpiar">limpiar formación</a>
   <a href="#" class="instructions">Instrucciones</a>
 </div>
-<div class="instrucciones">
+<div class="instrucciones" style="display:none!important;">
   <span class="img" style="background-image:url(../assets/fb_app_hyundai_mundial/instrucciones_2.png); background-repeat:no-repeat;"></span>
   <span class="cerrar">X</span>
 </div>

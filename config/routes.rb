@@ -114,6 +114,7 @@ Wolly::Application.routes.draw do
   post   "fb_app_hyundai_mundial/canvas"
   get    "fb_app_hyundai_mundial/concurso"
   post    "fb_app_hyundai_mundial/estrategia"
+  get    "fb_app_hyundai_mundial/estrategia"
   post    "fb_app_hyundai_mundial/redirect_estrategias"
   get    "fb_app_hyundai_mundial/defensa"
   get    "fb_app_hyundai_mundial/ataque"
