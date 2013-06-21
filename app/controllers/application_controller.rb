@@ -29,21 +29,21 @@ private
   # Guarda el Signed Request en una variable de sesión de tipo Hash.
   #
   def parse_facebook_signed_request
-    #if session[:signed_request].blank? then
-    #  # Si el signed_request no existe...
-    #  if params[:signed_request].blank? then
-    #    # Si el signed_request no existe y tampoco nos han enviado uno por POST...
-    #    render :redirect # Enviamos a la persona a la página inicial de la App para que le envíen un signed_request por POST.
-    #  else
-    #    # Si el signed_request no existe y sí enviaron uno por POST... 
-    #    session[:signed_request] = Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
-    #  end
-    #else
-    #  # No hay nada que hacer, todo está Ok.
-    #  session[:signed_request] = session[:signed_request]      
-    #end
+    if session[:signed_request].blank? then
+      # Si el signed_request no existe...
+      if params[:signed_request].blank? then
+        # Si el signed_request no existe y tampoco nos han enviado uno por POST...
+        render :redirect # Enviamos a la persona a la página inicial de la App para que le envíen un signed_request por POST.
+      else
+        # Si el signed_request no existe y sí enviaron uno por POST... 
+        session[:signed_request] = Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
+      end
+    else
+      # No hay nada que hacer, todo está Ok.
+      session[:signed_request] = session[:signed_request]      
+    end
 
-    session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
+    #session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
     logger.debug "[DEBUG] Se ha creado la variable de sesión Signed Request."
   end
   
