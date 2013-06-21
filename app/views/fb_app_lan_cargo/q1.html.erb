@@ -1,14 +1,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
 $(function(){
-    $(".q1-granja").draggable({ revert: true });
+    $(".elefante, .ballena, .rinoceronte, .tigre").draggable({ revert: true });
     $(".choice").droppable({
-         accept: ".q1-granja",
+         accept: ".elefante, .ballena, .rinoceronte, .tigre",
          drop: function(event, ui ) {
-             $(".choice").removeClass("choice_ON");
-             $(this).addClass("choice_ON");
-             $("#respuesta").val( $(this).attr("rel") );
-             var verifica = $(this).attr("rel");
+                 $(".choice").removeClass("elefante");
+                 $(".choice").removeClass("ballena");
+                 $(".choice").removeClass("rinoceronte");
+                 $(".choice").removeClass("tigre");
+                 $(this).addClass( ui.draggable.attr('class') );
+
+             var verifica = ui.draggable.attr('rel');
+             $("#respuesta").val( verifica );
              clearInterval(countdown);
              if(verifica=="1:c"){
                $(".box_alert").addClass("right");
@@ -76,39 +80,30 @@ $(function(){
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
-    
     <div class="content">
         <div class="q1 pregunta">
         
           <div class="answers">
-            <%=image_tag("fb_app_lan_cargo/q1_icon.png", :class => "q1-granja", :alt => "Question")%>
+            <%=image_tag("fb_app_lan_cargo/elefante.png", :class => "elefante", :alt => "Question", :rel => "1:i")%>
+            <%=image_tag("fb_app_lan_cargo/ballena.png", :class => "ballena", :alt => "Question", :rel => "1:i")%>
+            <%=image_tag("fb_app_lan_cargo/rinoceronte.png", :class => "rinoceronte", :alt => "Question", :rel => "1:c")%>
+            <%=image_tag("fb_app_lan_cargo/tigre.png", :class => "tigre", :alt => "Question", :rel => "1:i")%>
           </div> <!-- / .questions -->
-          
-          <div class="choices">
-            <div id="choice-1" class="choice mexico" rel="1:i"></div> <!-- / .choice -->
-            <div id="choice-2" class="choice panama" rel="1:c"></div> <!-- / .choice -->
-            <div id="choice-3" class="choice colombia" rel="1:i"></div> <!-- / .choice -->
-            <div id="choice-4" class="choice peru" rel="1:i"></div> <!-- / .choice -->
             <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
                 <%= hidden_field_tag 'respuesta' %>
                 <%= hidden_field_tag 'n_preg', 1 %>
             <% end %>
-          </div>
-            <%=image_tag("fb_app_lan_cargo/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
-            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
-            <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>
+          <div class="choices">
+            <div id="choice-1" class="choice"></div> <!-- / .choice -->
+          </div>        
         </div>
         <div id="shadowlight">
-        	<span class="shadow"></span>
+            <span class="shadow"></span>
             <div class="box_alert">
-            	<span class="close"></span>
+                <span class="close"></span>
             </div>
         </div>
     </div>
     <div id="footer">
-        <a href="javascript:void(0);" target="_blank" class="link_natgeo">NatGeoCh</a>
-        <a href="javascript:void(0);" target="_blank" class="tw_cargas">#CargasImposibles</a>
-        <a href="javascript:void(0);" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
-        <a href="http://www.lancargo.com/es/" target="_blank"><span class="logo_cargo"></span></a>
     </div>
 </div>
