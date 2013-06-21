@@ -50,7 +50,7 @@
     </div>
     <p id="error" style="color:red;font-size:15px;"><%= flash[:error] %></p>
     <div class="content form">
-      <%= form_tag(fb_app_lan_cargo_comenzar_path,:id=>:registro, :method => "post") do  %>
+      <%= form_tag(fb_app_lan_cargo_q1_path,:id=>:registro, :method => "post") do  %>
         <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:apellido, @apellido, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:rut, @rut, :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>

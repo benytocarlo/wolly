@@ -263,3 +263,13 @@ input.error {background: url(fb_app_lan_cargo/alert.jpg) no-repeat 310px 12px;bo
 .alertcheck .black_shadow { background-image:url(fb_app_lan_cargo/black_alpha.png); background-repeat:repeat; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:10;}
 .alertcheck img {position:absolute; top:148px; left:250px; z-index:11; cursor: pointer}
 .alertcheck .btn_cerrar { display: none}
+
+/* Nuevas adiciones al CSS by Chak Norris */
+
+#shadowlight { position:absolute; top:0px; left:0px; width:100%; display: none; height:100%; z-index:100}
+#shadowlight .shadow{ width:100%; height:100%; background-image:url(fb_app_lan_cargo/shadow.png); background-repeat:repeat; position:absolute; top:0px; left:0px;}
+#shadowlight .close{width: 51px; height: 51px; position: absolute; top: 0px; right: 0px; cursor: pointer;}
+#shadowlight .right, #shadowlight .wrong, #shadowlight .times_up { width:353px; height:233px; position:absolute; top:200px; left:229px;}
+#shadowlight .right{ background-image:url(fb_app_lan_cargo/correcto_pop.png);}
+#shadowlight .wrong{ background-image:url(fb_app_lan_cargo/incorrecto_pop.png)}
+#shadowlight .times_up{ background-image:url(fb_app_lan_cargo/times_up.png)}

@@ -13,8 +13,22 @@ $(function(){
              $(".choice").removeClass("centolla");
              $(this).addClass( ui.draggable.attr('class') );
              $("#respuesta").val( ui.draggable.attr('rel') );
-            $("#btn_enviar").fadeIn();
-            $(".confirmar").fadeIn();
+            //$("#btn_enviar").fadeIn();
+            //$(".confirmar").fadeIn();
+            var verifica = ui.draggable.attr('rel');
+            clearInterval(countdown);
+            if(verifica=="3:c"){
+              $(".box_alert").addClass("right");
+              $("#shadowlight").fadeIn(function(){
+               $("#registro").delay(3000).submit();
+              }); 
+
+            }else{
+              $(".box_alert").addClass("wrong");
+              $("#shadowlight").fadeIn(function(){
+               $("#registro").delay(3000).submit();
+              }); 
+            }
         }
     });
 
@@ -37,12 +51,17 @@ $(function(){
         if(updateTime == 0){
            if($("#respuesta").val() != ""){
              $("span[class=tiempo_numero]").html("--");
-             $("#registro").submit();
+             
            }else{
              $("span[class=tiempo_numero]").html("--");
-             location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q4';
            }
+           $(".box_alert").addClass("times_up");
+           $("#shadowlight").fadeIn(function(){
+            $("#registro").delay(3000).submit();
+           });
+           
         }
+        
     }, 1000);
 })
 </script>
@@ -84,7 +103,12 @@ $(function(){
             <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
             <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>
         </div>
-
+        <div id="shadowlight">
+        	<span class="shadow"></span>
+            <div class="box_alert">
+            	<span class="close"></span>
+            </div>
+        </div>
     </div>
     
     <div id="footer">

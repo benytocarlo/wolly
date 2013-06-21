@@ -4,8 +4,22 @@ $(function (){
         $(".answers span").removeClass("ON");
         $(this).addClass("ON");
         $("#respuesta").val( $(this).attr("rel") );
-        $("#btn_enviar").fadeIn();
-        $(".confirmar").fadeIn();        
+        //$("#btn_enviar").fadeIn();
+        //$(".confirmar").fadeIn();   
+        var verifica = $(this).attr("rel");
+        clearInterval(countdown);
+        if(verifica=="4:c"){
+          $(".box_alert").addClass("right");
+          $("#shadowlight").fadeIn(function(){
+           $("#registro").delay(3000).submit();
+          }); 
+
+        }else{
+          $(".box_alert").addClass("wrong");
+          $("#shadowlight").fadeIn(function(){
+           $("#registro").delay(3000).submit();
+          }); 
+        }     
     });
 
     $("#btn_enviar").click(function(){
@@ -27,12 +41,17 @@ $(function (){
         if(updateTime == 0){
            if($("#respuesta").val() != ""){
              $("span[class=tiempo_numero]").html("--");
-             $("#registro").submit();
+             
            }else{
-            $("span[class=tiempo_numero]").html("--");
-            location.href = '<%= fb_app_lan_cargo_nulas_path %>?sgte_preg=q5';
+             $("span[class=tiempo_numero]").html("--");
            }
+           $(".box_alert").addClass("times_up");
+           $("#shadowlight").fadeIn(function(){
+            $("#registro").delay(3000).submit();
+           });
+           
         }
+        
     }, 1000);
 });
 </script>
@@ -70,7 +89,12 @@ $(function (){
             <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
             <%=image_tag("fb_app_lan_cargo/confirmar.png", :class => "confirmar", :alt => "Question")%>
         </div>
-
+        <div id="shadowlight">
+        	<span class="shadow"></span>
+            <div class="box_alert">
+            	<span class="close"></span>
+            </div>
+        </div>
     </div>
     
     <div id="footer">
