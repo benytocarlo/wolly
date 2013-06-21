@@ -38,7 +38,7 @@ class FbAppLanCargoController < ApplicationController
     end    
   end
 
-  def comenzar
+  def q1
     if request.post?
       if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
         @nombre_completo = params[:nombre]+" "+params[:apellido]
@@ -78,8 +78,8 @@ class FbAppLanCargoController < ApplicationController
 
       session[:siguiente] = 2
       session[:answer] = params[:respuesta]
-      @link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
-
+      #@link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+      redirect_to fb_app_lan_cargo_q2_path
     when 2..4
       if params[:respuesta] == params[:n_preg].to_s+":c"
         @clase_exito = "exito"
@@ -90,7 +90,8 @@ class FbAppLanCargoController < ApplicationController
       session[:siguiente] = params[:n_preg].to_i + 1
 
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
-      @link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+      #@link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+      redirect_to eval("fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path")
     else
       @respuesta = "5:c"
 

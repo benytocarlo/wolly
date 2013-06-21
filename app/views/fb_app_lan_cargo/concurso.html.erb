@@ -50,7 +50,7 @@
     </div>
     <p id="error" style="color:red;font-size:15px;"><%= flash[:error] %></p>
     <div class="content form">
-      <%= form_tag(fb_app_lan_cargo_comenzar_path,:id=>:registro, :method => "post") do  %>
+      <%= form_tag(fb_app_lan_cargo_q1_path,:id=>:registro, :method => "post") do  %>
         <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:apellido, @apellido, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:rut, @rut, :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
@@ -62,10 +62,6 @@
       <a href="#" id="btn_enviar" class="btn_despega">Despega</a>
     </div>
     <div id="footer">
-      <a href="javascript:void(0);" target="_blank" class="link_natgeo">NatGeoCh</a>
-      <a href="javascript:void(0);" target="_blank" class="tw_cargas">#CargasImposibles</a>
-      <a href="javascript:void(0);" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
-      <a href="http://www.lancargo.com/es/" target="_blank"><span class="logo_cargo"></span></a>
     </div>
     <div class="alertcheck">
       <span class="black_shadow"></span>
