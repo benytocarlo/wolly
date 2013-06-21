@@ -142,7 +142,7 @@ class FbAppHyundaiMundialController < ApplicationController
 
       @graph.put_wall_post("", {
           :name => "Equipo Hyundai",
-          :link => "http://www.facebook.com/HyundaiChile/app_397601957007561",
+          :link => "http://www.facebook.com/HyundaiChile/app_165652186949414",
           :caption => "Hyinday Chile",
           :description => "Ya formé mi equipo y acerté el #{@puntaje.to_s}% y ya estoy participando para ganar un Hyundai EON.",
           :picture => "http://wolly.herokuapp.com/assets/fb_app_hyundai_mundial/75x75.jpg" 
