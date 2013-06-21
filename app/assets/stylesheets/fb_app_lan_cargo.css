@@ -178,10 +178,10 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 .q4 .answers { position:absolute; left:128px; top:286px;}
 .q4 .answers img{ margin-right:52px; position:absolute;}
 
-.q4 .answers .elefante { left:0px; top:5px}
-.q4 .answers .camello { left:156px; }
-.q4 .answers .puma { left:436px; top:31px;}
-.q4 .answers .suricate { left:325px; }
+.q4 .answers .elefante { left:0px; top:5px;cursor: pointer;}
+.q4 .answers .camello { left:156px;cursor: pointer;}
+.q4 .answers .puma { left:436px; top:31px;cursor: pointer;}
+.q4 .answers .suricate { left:325px; cursor: pointer;}
 
 
 .q4 .choices {width: 810px; height: 190px; position: absolute; top: 50px; left: 0px;}
