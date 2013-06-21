@@ -49,9 +49,12 @@ class FbAppHyundaiMundialController < ApplicationController
       else
         redirect_to fb_app_hyundai_mundial_concurso_path
       end
-      @esconder = ""
     elsif request.get?
-      @esconder = "style=display:none!important;"
+      if session[:registrado] == true
+        @esconder = "style=display:none!important;"
+      else
+        @esconder = ""
+      end
     end
   end
 
