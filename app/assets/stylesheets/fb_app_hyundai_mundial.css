@@ -120,7 +120,7 @@ a img { border:0px;}
 .seleccion_autos .posiciones { position:absolute; top:304px; left:0px; width:810px; height:346px;}
 
 
-.continuar { background-image:url(fb_app_hyundai_mundial/continuar.png); width:204px; height:51px; position:absolute; top:115px; right:0px; text-indent:-9999px; z-index:2}
+.continuar { background-image:url(fb_app_hyundai_mundial/continuar.png); width:156px; height:42px; position:absolute; top:334px; right:0px; text-indent:-9999px; z-index:2}
 .continuar:hover { background-image:url(fb_app_hyundai_mundial/continuar_ON.png)}
 
 .instructions{ position:absolute; bottom:0px; left:0px; width:134px; height:24px; text-indent:-9999px; background-image:url(fb_app_hyundai_mundial/instrucciones_btn.png)}
