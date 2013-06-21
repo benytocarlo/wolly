@@ -1,4 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>   
+<%= javascript_include_tag "jquery-ui.min" %>
 <script>
 $(document).ready( function (){
 	$("#btn_enviar").click(function(){
@@ -21,7 +21,7 @@ $(document).ready( function (){
 		$(this).toggleClass('boton_ON');
 		});
 
-	$(".top_1, .top_2, .top_3, .top_4, .top_5, car_i30").hover(
+	$(".top_1, .top_2, .top_3, .top_4, .top_5").hover(
 	  function () {
 		$(this).children('.car_desc').fadeIn("fast");
 	  },
@@ -37,7 +37,9 @@ $(document).ready( function (){
 		$('.auto1, .auto2, .auto3, .auto4').removeClass('car_i30');
 		$('.auto1, .auto2, .auto3, .auto4').removeClass('car_elantrac');
 		$('.car_accent, .car_elantra, .car_veloster, .car_i30 , .car_elantrac').show();
+		$('.car_accent, .car_elantra, .car_veloster, .car_i30 , .car_elantrac').next('img').addClass('car_desc');
 		$('.facebook_friend').hide();
+		$('.auto1, .auto2, .auto3, .auto4').droppable('enable');
 		$('#rsp_auto1').val("");
 		$('#rsp_auto2').val("");
 		$('#rsp_auto3').val("");
@@ -48,7 +50,7 @@ $(document).ready( function (){
       $("#box_invitado").val($(this).attr("rel"));
 
       FB.ui({ method: 'apprequests',
-            message: 'Invitar',
+            message: 'Invita a tus amigos a sacar el DT que llevan dentro, acertar a la alineación Hyundai y ganar un Hyundai Eon.',
             filters: ['app_non_users'],
             title: 'Invitación',
       max_recipients: '1'
@@ -69,6 +71,8 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(this).droppable('disable');
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto1").val(ui.draggable.attr('rel'));
 				 }
@@ -78,6 +82,8 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(this).droppable('disable');
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto2").val(ui.draggable.attr('rel'));
 				 }
@@ -87,6 +93,8 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(this).droppable('disable');
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto3").val(ui.draggable.attr('rel'));
 				 }
@@ -96,6 +104,8 @@ $(function(){
  		     drop: function(event, ui ) {
 				 $(this).addClass( ui.draggable.attr('class') );
 				 $(this).children('div').show();
+				 $(this).droppable('disable');
+				 $(ui.draggable).next('img').removeClass('car_desc');
 				 $(ui.draggable).hide();
 				 $("#rsp_auto4").val(ui.draggable.attr('rel'));
 				 }
@@ -121,7 +131,7 @@ $(function(){
   <a href="#" class="limpiar">limpiar formació=n</a>
   <a href="#" class="instructions">Instruccion=es</a>
 </div>
-<div class="instrucciones">
+<div class="instrucciones" <%= @esconder %>>
   <span class="img" style="background-image:url(../assets/fb_app_hyundai_mundial/instrucciones_2.png); background-repeat:no-repeat;"></span>
   <span class="cerrar">X</span>
 </div>

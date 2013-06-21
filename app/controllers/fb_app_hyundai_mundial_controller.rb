@@ -21,11 +21,15 @@ class FbAppHyundaiMundialController < ApplicationController
   
   def concurso
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_database.facebook_name
-      @rut      = @me_from_database.rut
-      @correo   = @me_from_database.facebook_email
-      @telefono = @me_from_database.phone
-      @direccion = @me_from_database.address
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        session[:registrado] = true
+      end
+      redirect_to fb_app_hyundai_mundial_estrategia_path
+      #@nombre   = @me_from_database.facebook_name
+      #@rut      = @me_from_database.rut
+      #@correo   = @me_from_database.facebook_email
+      #@telefono = @me_from_database.phone
+      #@direccion = @me_from_database.address
     else
       @nombre   = @me_from_graph[:name]
       @correo   = @me_from_graph[:email]
@@ -35,14 +39,22 @@ class FbAppHyundaiMundialController < ApplicationController
   end
 
   def estrategia
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :address => params[:direccion])
+    if request.post?
+      if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
+        if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+          @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :address => params[:direccion])
+        else
+          @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :address => params[:direccion])
+        end
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :address => params[:direccion])
+        redirect_to fb_app_hyundai_mundial_concurso_path
       end
-    else
-      redirect_to fb_app_hyundai_mundial_concurso_path
+    elsif request.get?
+      if session[:registrado] == true
+        @esconder = "style=display:none!important;"
+      else
+        @esconder = ""
+      end
     end
   end
 
@@ -53,10 +65,20 @@ class FbAppHyundaiMundialController < ApplicationController
 
   def ataque 
     @clase = flash[:tipo_estrategia]
+    if session[:registrado] == true
+      @esconder = "style=display:none!important;"
+    else
+      @esconder = ""
+    end
   end
 
   def defensa 
     @clase = flash[:tipo_estrategia]
+    if session[:registrado] == true
+      @esconder = "style=display:none!important;"
+    else
+      @esconder = ""
+    end
   end
 
   def share
@@ -117,6 +139,14 @@ class FbAppHyundaiMundialController < ApplicationController
       else
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @puntaje)
       end
+
+      @graph.put_wall_post("", {
+          :name => "Equipo Hyundai",
+          :link => "http://www.facebook.com/HyundaiChile/app_165652186949414",
+          :caption => "Hyinday Chile",
+          :description => "Ya formé mi equipo y acerté el #{@puntaje.to_s}% y ya estoy participando para ganar un Hyundai EON.",
+          :picture => "http://wolly.herokuapp.com/assets/fb_app_hyundai_mundial/75x75.jpg" 
+      }, @me_from_graph[:id])
 
     end
   end

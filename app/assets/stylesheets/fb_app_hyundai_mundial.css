@@ -120,7 +120,7 @@ a img { border:0px;}
 .seleccion_autos .posiciones { position:absolute; top:304px; left:0px; width:810px; height:346px;}
 
 
-.continuar { background-image:url(fb_app_hyundai_mundial/continuar.png); width:204px; height:51px; position:absolute; top:115px; right:0px; text-indent:-9999px; z-index:2}
+.continuar { background-image:url(fb_app_hyundai_mundial/continuar.png); width:156px; height:42px; position:absolute; top:334px; right:0px; text-indent:-9999px; z-index:2}
 .continuar:hover { background-image:url(fb_app_hyundai_mundial/continuar_ON.png)}
 
 .instructions{ position:absolute; bottom:0px; left:0px; width:134px; height:24px; text-indent:-9999px; background-image:url(fb_app_hyundai_mundial/instrucciones_btn.png)}
@@ -166,7 +166,7 @@ a img { border:0px;}
 
 /* Defensa */
 
-.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson
+/*.car_azera, .car_genesis, .car_genesis_c, .car_santafe, .car_tucson*/
 
 .posiciones .car_azera{background-image:url(fb_app_hyundai_mundial/front_azera.png);background-position:center center; background-repeat:no-repeat;}
 .posiciones .car_genesis{background-image:url(fb_app_hyundai_mundial/front_genesis.png);background-position:center center; background-repeat:no-repeat;}
@@ -210,3 +210,6 @@ position: absolute; left: 308px; width: 200px; top: 495px; font-family: 'Open Sa
 .nofan { background-image:url(fb_app_hyundai_mundial/nofan.jpg); width:100%; height:100%; z-index:2; position:relative}
 input.error {background: url(fb_app_hyundai_mundial/alert.png) no-repeat 310px 6px;border:0px;}
 #registro strong{display:none!important;}
+
+.wrapper { display:none;} 
+.shadow_grand { background-image:url(../assets/gif-load.gif); width:102px; height:102px; position:absolute; top:295px; left:369px}
