@@ -21,8 +21,10 @@ class FbAppHyundaiMundialController < ApplicationController
   
   def concurso
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        session[:registrado] = true
+      end
       redirect_to fb_app_hyundai_mundial_estrategia_path
-      session[:registrado] = true
       #@nombre   = @me_from_database.facebook_name
       #@rut      = @me_from_database.rut
       #@correo   = @me_from_database.facebook_email
@@ -47,7 +49,9 @@ class FbAppHyundaiMundialController < ApplicationController
       else
         redirect_to fb_app_hyundai_mundial_concurso_path
       end
+      @esconder = ""
     elsif request.get?
+      @esconder = "style=display:none!important;"
     end
   end
 
@@ -58,10 +62,20 @@ class FbAppHyundaiMundialController < ApplicationController
 
   def ataque 
     @clase = flash[:tipo_estrategia]
+    if session[:registrado] == true
+      @esconder = "style=display:none!important;"
+    else
+      @esconder = ""
+    end
   end
 
   def defensa 
     @clase = flash[:tipo_estrategia]
+    if session[:registrado] == true
+      @esconder = "style=display:none!important;"
+    else
+      @esconder = ""
+    end
   end
 
   def share
@@ -122,6 +136,14 @@ class FbAppHyundaiMundialController < ApplicationController
       else
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @puntaje)
       end
+
+      @graph.put_wall_post("", {
+          :name => "Equipo Hyundai",
+          :link => "http://www.facebook.com/HyundaiChile/app_397601957007561",
+          :caption => "Hyinday Chile",
+          :description => "Ya formé mi equipo y acerté el "+@puntaje +"% y ya estoy participando para ganar un Hyundai EON.",
+          :picture => "http://wolly.herokuapp.com/assets/fb_app_hyundai_mundial/75x75.jpg" 
+      }, @me_from_graph[:id])
 
     end
   end
