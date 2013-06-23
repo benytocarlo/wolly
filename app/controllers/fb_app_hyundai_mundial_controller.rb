@@ -168,4 +168,3 @@ private
     @header  = true
   end
 end
-  
