@@ -20,6 +20,7 @@ ActiveAdmin.register Participation do
       participation.participant.province
     end
     column :created_at
+    column :updated_at
     default_actions
   end
   csv do
@@ -40,5 +41,6 @@ ActiveAdmin.register Participation do
       participation.participant.province
     end
     column :created_at
+    column :updated_at
   end
 end
