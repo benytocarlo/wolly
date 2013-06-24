@@ -1,13 +1,48 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
-$(function (){
-    $(".answers span").click( function(){
-        $(".answers span").removeClass("ON");
-        $(this).addClass("ON");
-        $("#respuesta").val( $(this).attr("rel") );
-        $("#btn_enviar").fadeIn();
-        $(".confirmar").fadeIn();        
+$(function(){
+    $(".elefante, .camello, .puma, .suricate").draggable({ revert: true });
+    $(".choice-1").droppable({ 
+             accept: ".elefante, .camello, .puma, .suricate",
+             drop: function(event, ui ) {
+                 $(this).droppable('disable')
+                 $("#rsp_1").val( ui.draggable.attr('rel') );
+                 $(this).addClass( ui.draggable.attr('class') );
+                 $(ui.draggable).hide();
+                 comprueba_resp();
+                 }
     });
-
+    $(".choice-2").droppable({ 
+             accept: ".elefante, .camello, .puma, .suricate",
+             drop: function(event, ui ) {
+                 $(this).droppable('disable')
+                 $("#rsp_2").val( ui.draggable.attr('rel') );
+                 $(this).addClass( ui.draggable.attr('class') );
+                 $(ui.draggable).hide();
+                 comprueba_resp();
+                 }
+    });
+    $(".choice-3").droppable({ 
+             accept: ".elefante, .camello, .puma, .suricate",
+             drop: function(event, ui ) {
+                 $(this).droppable('disable')
+                 $("#rsp_3").val( ui.draggable.attr('rel') );
+                 $(this).addClass( ui.draggable.attr('class') );
+                 $(ui.draggable).hide();
+                 comprueba_resp();
+                 }
+    }); 
+    $(".choice-4").droppable({ 
+             accept: ".elefante, .camello, .puma, .suricate",
+             drop: function(event, ui ) {
+                 $(this).droppable('disable')
+                 $("#rsp_4").val( ui.draggable.attr('rel') );
+                 $(this).addClass( ui.draggable.attr('class') );
+                 $(ui.draggable).hide();
+                 comprueba_resp();
+                 }
+    }); 
+    
     $("#btn_enviar").click(function(){
         if( $("#respuesta").val() != "" ){
             clearInterval(countdown);
@@ -27,14 +62,37 @@ $(function (){
         if(updateTime == 0){
            if($("#respuesta").val() != ""){
              $("span[class=tiempo_numero]").html("--");
-             $("#registro").submit();
+             
            }else{
-            $("span[class=tiempo_numero]").html("--");
-            location.href = '<%= fb_app_lan_cargo_ar_nulas_path %>?sgte_preg=q5';
+             $("span[class=tiempo_numero]").html("--");
            }
+           $(".box_alert").addClass("times_up");
+           $("#shadowlight").fadeIn(function(){
+            $("#registro").delay(3000).submit();
+           });
+           
         }
+        
     }, 1000);
 });
+function comprueba_resp(){
+    if ( $("#rsp_1").val() != "" && $("#rsp_2").val() != "" && $("#rsp_3").val() != "" && $("#rsp_4").val() != ""){
+        if ( $("#rsp_1").val() == "suricate" && $("#rsp_2").val() == "puma" && $("#rsp_3").val() == "camello" && $("#rsp_4").val() == "elefante" ){
+              $("#respuesta").val("4:c");
+              $(".box_alert").addClass("right");
+              $("#shadowlight").fadeIn(function(){
+               $("#registro").delay(3000).submit();
+              });
+        }else{
+          $("#respuesta").val("4:i");
+          $(".box_alert").addClass("wrong");
+          $("#shadowlight").fadeIn(function(){
+           $("#registro").delay(3000).submit();
+          }); 
+        }
+    }else{
+    }
+}
 </script>
 <div class="content">
     <div id="header">
@@ -54,29 +112,38 @@ $(function (){
     </div>
     
     <div class="content">
-        <div class="q6 pregunta">
+        <div class="q4 pregunta">
         
-        <div class="answers">
-            <span class="opt1" rel="4:c"></span>
-            <span class="opt2" rel="4:i"></span>
-            <span class="opt3" rel="4:i"></span>
-            <span class="opt4" rel="4:i"></span>
+          <div class="answers">
+            <%=image_tag("fb_app_lan_cargo_ar/elefante_q4.png", :class => "elefante answer", :alt => "Question", :rel => "elefante")%>
+            <%=image_tag("fb_app_lan_cargo_ar/camello.png", :class => "camello answer", :alt => "Question", :rel => "camello")%>
+            <%=image_tag("fb_app_lan_cargo_ar/puma.png", :class => "puma answer", :alt => "Question", :rel => "puma")%>
+            <%=image_tag("fb_app_lan_cargo_ar/suricate.png", :class => "suricate answer", :alt => "Question", :rel => "suricate")%>
+          </div> <!-- / .questions -->
+          
+          <div class="choices">
+            <div id="choice-1" class="choice choice-1"></div>
+            <div id="choice-2" class="choice choice-2"></div>
+            <div id="choice-3" class="choice choice-3"></div>
+            <div id="choice-4" class="choice choice-4"></div>
+            <%= hidden_field_tag 'rsp_1' %>
+            <%= hidden_field_tag 'rsp_2' %>
+            <%= hidden_field_tag 'rsp_3' %>
+            <%= hidden_field_tag 'rsp_4' %>
             <%= form_tag(fb_app_lan_cargo_ar_respuestas_path,:id=>:registro, :method => "post") do  %>
                 <%= hidden_field_tag 'respuesta' %>
                 <%= hidden_field_tag 'n_preg', 4 %>
             <% end %>
+          </div>        
         </div>
-            <%=image_tag("fb_app_lan_cargo_ar/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
-            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
-            <%=image_tag("fb_app_lan_cargo_ar/confirmar.png", :class => "confirmar", :alt => "Question")%>
+        <div id="shadowlight">
+            <span class="shadow"></span>
+            <div class="box_alert">
+                <span class="close"></span>
+            </div>
         </div>
-
     </div>
     
     <div id="footer">
-        <a href="javascript:void(0);" target="_blank" class="link_natgeo">NatGeoCh</a>
-        <a href="javascript:void(0);" target="_blank" class="tw_cargas">#CargasImposibles</a>
-        <a href="javascript:void(0);" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
-        <a href="http://www.lancargo.com/es/" target="_blank"><span class="logo_cargo"></span></a>
     </div>
 </div>

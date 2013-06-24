@@ -6,15 +6,15 @@
         <div class="main_nav">
             <span class="main_logo"></span>
             <ul>
-                <li><a href="<%= fb_app_lan_cargo_ar_path %>" class="img_quiz">Quiz Imposible</a></li>
-                <li><a href="<%= fb_app_lan_cargo_ar_premios_path %>" class="img_premios" target="_blank">Premios</a></li>
-                <li><a href="/documents/fb_app_lan_cargo_ar.pdf" target="_blank" class="img_bases">Bases</a></li>
+                <li><a href="<%= fb_app_lan_cargo_path %>" class="img_quiz">Quiz Imposible</a></li>
+                <li><a href="<%= fb_app_lan_cargo_premios_path %>" class="img_premios" target="_blank">Premios</a></li>
+                <li><a href="/documents/fb_app_lan_cargo.pdf" target="_blank" class="img_bases">Bases</a></li>
             </ul>
         </div>
     </div>
     
     <div class="content yesorno">
-        <div class="caja_sino rsp_nula"></div>
+        <div class="caja_sino <%= @clase_exito %>"></div>
         <%= link_to "Siguiente", eval("#{@link}"), :class => "continuar" %>
     </div>
     <div id="footer">

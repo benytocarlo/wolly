@@ -2,20 +2,24 @@
 
 <script>
 $(function(){
-    $(".salmon, .camaron, .trucha, .centolla").draggable({ revert: true });
-    $(".choice").droppable({ 
-        accept: ".camaron, .trucha, .salmon, .centolla",
-        drop: function(event, ui ) {
-             $(".choice").removeClass("arrastra");
-             $(".choice").removeClass("camaron");
-             $(".choice").removeClass("trucha");
-             $(".choice").removeClass("salmon");
-             $(".choice").removeClass("centolla");
-             $(this).addClass( ui.draggable.attr('class') );
-             $("#respuesta").val( ui.draggable.attr('rel') );
-            $("#btn_enviar").fadeIn();
-            $(".confirmar").fadeIn();
-        }
+  $(".answers span").click( function(){
+    $(".answers span").removeClass("ON");
+      $(this).addClass("ON");
+      var verifica = $(this).attr('rel');
+      $("#respuesta").val( verifica );
+      clearInterval(countdown);
+      if(verifica=="3:c"){
+        $(".box_alert").addClass("right");
+        $("#shadowlight").fadeIn(function(){
+         $("#registro").delay(3000).submit();
+        }); 
+
+      }else{
+        $(".box_alert").addClass("wrong");
+        $("#shadowlight").fadeIn(function(){
+         $("#registro").delay(3000).submit();
+        }); 
+      }
     });
 
     $("#btn_enviar").click(function(){
@@ -37,12 +41,17 @@ $(function(){
         if(updateTime == 0){
            if($("#respuesta").val() != ""){
              $("span[class=tiempo_numero]").html("--");
-             $("#registro").submit();
+             
            }else{
              $("span[class=tiempo_numero]").html("--");
-             location.href = '<%= fb_app_lan_cargo_ar_nulas_path %>?sgte_preg=q4';
            }
+           $(".box_alert").addClass("times_up");
+           $("#shadowlight").fadeIn(function(){
+            $("#registro").delay(3000).submit();
+           });
+           
         }
+        
     }, 1000);
 })
 </script>
@@ -53,7 +62,7 @@ $(function(){
             <ul>
                 <li><a href="<%= fb_app_lan_cargo_ar_path %>" class="img_quiz">Quiz Imposible</a></li>
                 <li><a href="<%= fb_app_lan_cargo_ar_premios_path %>" target="_blank" class="img_premios">Premios</a></li>
-                <li><a href="/documents/fb_app_lan_ar_cargo.pdf" target="_blank" class="img_bases">Bases</a></li>
+                <li><a href="/documents/fb_app_lan_cargo_ar.pdf" target="_blank" class="img_bases">Bases</a></li>
             </ul>
         </div>
         <div class="game_nav">
@@ -64,33 +73,26 @@ $(function(){
     </div>
 
     <div class="content">
-        <div class="q3 pregunta">
-
-          <div class="answers">
-            <%=image_tag("fb_app_lan_cargo_ar/q3-camaron.png", :class => "camaron answer",:rel => "3:i", :alt => "Question")%>
-            <%=image_tag("fb_app_lan_cargo_ar/q3-trucha.png", :class => "trucha answer",:rel => "3:c", :alt => "Question")%>
-            <%=image_tag("fb_app_lan_cargo_ar/q3-salmon.png", :class => "salmon answer",:rel => "3:i", :alt => "Question")%>
-            <%=image_tag("fb_app_lan_cargo_ar/q3-centolla.png", :class => "centolla answer",:rel => "3:i", :alt => "Question")%>
-          </div> <!-- / .questions -->
-
-          <div class="choices">
-            <div id="choice-1" class="choice arrastra"></div> <!-- / .choice -->
-            <%= form_tag(fb_app_lan_cargo_ar_respuestas_path,:id=>:registro, :method => "post") do  %>
-                <%= hidden_field_tag 'respuesta' %>
-                <%= hidden_field_tag 'n_preg', 3 %>
-            <% end %>
-            </div>
-            <%=image_tag("fb_app_lan_cargo_ar/debes_responder_mensaje.png", :class => "alerta_vacio", :alt => "Question")%>
-            <%= link_to "Continuar", "#", :id => 'btn_enviar' , :class => 'next_question' %>
-            <%=image_tag("fb_app_lan_cargo_ar/confirmar.png", :class => "confirmar", :alt => "Question")%>
+      <div class="q3 pregunta">
+        <div class="answers">
+          <span class="opt1" rel="3:i"></span>
+          <span class="opt2" rel="3:i"></span>
+          <span class="opt3" rel="3:c"></span>
+          <span class="opt4" rel="3:i"></span>
         </div>
-
+        <%= form_tag(fb_app_lan_cargo_ar_respuestas_path,:id=>:registro, :method => "post") do  %>
+            <%= hidden_field_tag 'respuesta' %>
+            <%= hidden_field_tag 'n_preg', 3 %>
+        <% end %>
+      </div>
+        <div id="shadowlight">
+          <span class="shadow"></span>
+            <div class="box_alert">
+              <span class="close"></span>
+            </div>
+        </div>
     </div>
     
     <div id="footer">
-        <a href="javascript:void(0);" target="_blank" class="link_natgeo">NatGeoCh</a>
-        <a href="javascript:void(0);" target="_blank" class="tw_cargas">#CargasImposibles</a>
-        <a href="javascript:void(0);" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
-        <a href="http://www.lancargo.com/es/" target="_blank"><span class="logo_cargo"></span></a>
     </div>
 </div>

@@ -1,12 +1,5 @@
 <%= javascript_include_tag "jquery.validate" %>
 <%= render :partial => "layouts/validator2" %>
-<script type="text/javascript">
-function validar_num_puntos(evt) {
-var keyPressed = (evt.which) ? evt.which : event.keyCode
-return !((keyPressed !=13) && (keyPressed != 46) && (keyPressed < 48 || keyPressed > 57));
-}
-</script>
-
 <script>
   $(document).ready(function(){
     $("#btn_enviar").click(function(){
@@ -27,7 +20,8 @@ return !((keyPressed !=13) && (keyPressed != 46) && (keyPressed < 48 || keyPress
           required: true
         },
         rut: {
-          required: true
+          required: true,
+          valrut: $('#rut').val()
         },
         telefono: {
           required: true,
@@ -56,29 +50,24 @@ return !((keyPressed !=13) && (keyPressed != 46) && (keyPressed < 48 || keyPress
     </div>
     <p id="error" style="color:red;font-size:15px;"><%= flash[:error] %></p>
     <div class="content form">
-      <%= form_tag(fb_app_lan_cargo_ar_comenzar_path,:id=>:registro, :method => "post") do  %>
+      <%= form_tag(fb_app_lan_cargo_ar_q1_path,:id=>:registro, :method => "post") do  %>
         <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
         <%= text_field_tag(:apellido, @apellido, :onkeypress => "return validatxt(event)") %>
-        <%= text_field_tag(:rut, @rut, :onkeypress => "return validar_num_puntos(event)") %>
+        <%= text_field_tag(:rut, @rut, :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
         <%= text_field_tag(:correo, @correo, :maxlength => "150") %>
         <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
         <input type="checkbox" id="read" name="read" value="1">
         <input type="checkbox" id="mail_ok" name="mail_ok" value="1" checked>
       <% end %>
-      <a href="http://wolly.herokuapp.com/documents/fb_app_lan_cargo_ar.pdf" id="btn_basesar" class="btn_basesar" target="_blank">Bases</a>
       <a href="#" id="btn_enviar" class="btn_despega">Despega</a>
     </div>
     <div id="footer">
-      <a href="javascript:void(0);" target="_blank" class="link_natgeo">NatGeoCh</a>
-      <a href="javascript:void(0);" target="_blank" class="tw_cargas">#CargasImposibles</a>
-      <a href="javascript:void(0);" target="_blank" class="tw_lovi">#LoViEnNatGeo</a>
-      <a href="http://www.lancargo.com/es/" target="_blank"><span class="logo_cargo"></span></a>
     </div>
     <div class="alertcheck">
       <span class="black_shadow"></span>
       <span class="img_select">
       <span class="btn_cerrar"></span>
-      <%=image_tag("fb_app_lan_cargo_ar/pop_up_bases.png", :alt => "alert", :class=> "cerrar_all")%>
+      <%=image_tag("fb_app_lan_cargo/pop_up_bases.png", :alt => "alert", :class=> "cerrar_all")%>
       
       </span>
     </div>

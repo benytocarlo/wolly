@@ -54,7 +54,7 @@ class FbAppLanCargoArController < ApplicationController
           @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
         end
       else
-        redirect_to fb_app_lan_cargo_comenzar_path, :flash => { :error => "Faltan campos por llenar." }
+        redirect_to fb_app_lan_cargo_ar_comenzar_path, :flash => { :error => "Faltan campos por llenar." }
       end
     elsif request.get?
     end
@@ -78,8 +78,8 @@ class FbAppLanCargoArController < ApplicationController
 
       session[:siguiente] = 2
       session[:answer] = params[:respuesta]
-      @link = "fb_app_lan_cargo_ar_q"+session[:siguiente].to_s+"_path"
-
+      #@link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+      redirect_to fb_app_lan_cargo_ar_q2_path
     when 2..4
       if params[:respuesta] == params[:n_preg].to_s+":c"
         @clase_exito = "exito"
@@ -90,7 +90,8 @@ class FbAppLanCargoArController < ApplicationController
       session[:siguiente] = params[:n_preg].to_i + 1
 
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
-      @link = "fb_app_lan_cargo_ar_q"+session[:siguiente].to_s+"_path"
+      #@link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
+      redirect_to eval("fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path")
     else
       @respuesta = "5:c"
 
