@@ -38,7 +38,7 @@ class FbAppLanCargoController < ApplicationController
     end    
   end
 
-  def comenzar
+  def q1
     if request.post?
       if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
         @nombre_completo = params[:nombre]+" "+params[:apellido]
