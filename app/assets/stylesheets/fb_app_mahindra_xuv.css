@@ -138,5 +138,6 @@ input[type=checkbox].css-checkbox:checked + label.css-label {  background-positi
 #footer a { color: #fff; float: right; font-size: 12px; padding: 10px 15px 0 0;}
 #footer a:hover {color: #c41e39}
 
-
-
+#registro .error {
+    background: url(alert.jpg) no-repeat 260px 7px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#registro strong{display:none!important;}
