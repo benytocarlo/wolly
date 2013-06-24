@@ -38,7 +38,7 @@ class FbAppLanCargoArController < ApplicationController
     end    
   end
 
-  def comenzar
+  def q1
     if request.post?
       if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
         @nombre_completo = params[:nombre]+" "+params[:apellido]
@@ -91,7 +91,7 @@ class FbAppLanCargoArController < ApplicationController
 
       session[:answer] = session[:answer] +"/"+ params[:respuesta]
       #@link = "fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path"
-      redirect_to eval("fb_app_lan_cargo_q"+session[:siguiente].to_s+"_path")
+      redirect_to eval("fb_app_lan_cargo_ar_q"+session[:siguiente].to_s+"_path")
     else
       @respuesta = "5:c"
 
