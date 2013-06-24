@@ -60,6 +60,7 @@ class FbAppMahindraXuvController < ApplicationController
   end
 
   def share
+    @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
     if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
       @answer = params[:uid_amigo1]+"/"+params[:uid_amigo2]+"/"+params[:uid_amigo3]+"/"+params[:recibir_info]
       @me_from_database_participation.update_attributes(:answer => @answer)
