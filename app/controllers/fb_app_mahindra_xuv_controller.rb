@@ -60,12 +60,11 @@ class FbAppMahindraXuvController < ApplicationController
   end
 
   def share
-    @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-    if params[:uid_amigo1].present? and params[:uid_amigo2].present? and params[:uid_amigo3].present?
-        @fecha = params[:uid_amigo1]+"/"+params[:uid_amigo2]+"/"+params[:uid_amigo3]+"/"+params[:recibir_info]
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:uid_amigo])
+    if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+      @answer = params[:uid_amigo1]+"/"+params[:uid_amigo2]+"/"+params[:uid_amigo3]+"/"+params[:recibir_info]
+      @me_from_database_participation.update_attributes(:answer => @answer)
     else
-      redirect_to fb_app_mahindra_xuv_concurso_path, :flash => { :error => "Faltan campos por llenar." }
+      Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
     end
   end
 
