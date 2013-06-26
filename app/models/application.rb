@@ -23,4 +23,15 @@ class Application < ActiveRecord::Base
   def countparticipants
     return Participation.find(:all, :conditions => ["application_id=?", self.id]).count
   end
+  
+  def self.costototal
+    @applications = Application.all
+    @sumatotal = 0
+    @applications.each do |application|
+      @sumatotal = @sumatotal + application.app_cost.to_i
+    end
+    return @sumatotal
+  end
+  
 end
+
