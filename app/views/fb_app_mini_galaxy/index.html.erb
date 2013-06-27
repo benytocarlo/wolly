@@ -1,0 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function(){
+    $("#fb_app_login").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_mini_galaxy_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+  });
+</script>
+<div id="contenido">
+  <div class="bg_inicio"></div>
+  <a href="#"><div class="btn_bases"></div></a>
+  <a href="#"><div class="btn_participa" id="fb_app_login"></div></a>
+</div>

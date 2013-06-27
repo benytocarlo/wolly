@@ -1,0 +1,101 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $("#enviar").click(function(){
+      if(!$('#acepto').is(":checked")){
+        alert("Debes aceptar las bases del concurso");
+      }else{
+        $("#registro").submit();
+      }
+    });
+    $('input[name=tienes_auto]').click(function(){
+      if ($(this).val() == "si") {
+        $("#caja02").show();
+      }else{
+        $("#caja02").hide();
+      }
+    });
+
+    $("#registro").validate({
+      rules: {
+        nombre: {
+          required: true
+        },
+        rut: {
+          required: true,
+          valrut: $('#rut').val()
+        },
+        telefono: {
+          required: true,
+        },
+        correo: {
+          required: true,
+          email: true
+        },
+        ocupacion: {
+          required: true,
+        },
+        region: {
+          required: true,
+        },
+        comuna: {
+          required: true
+        },
+      }
+    });
+
+  });
+
+  function check(event) {
+    $.ajax({url: 'comunas',type: 'get',data: "type="+event,
+      success: function( resp ) {
+        $("#comuna").html(resp);
+      }
+    });
+  }
+</script>
+<div id="contenido">
+  <%= form_tag(fb_app_mini_galaxy_share_path,:id=>:registro, :method => "post") do  %>
+    <div id="caja01">
+      <div class="bg_registro01">
+        <div class="registro01">
+          <p><%= text_field_tag(:nombre, @nombre,:class => "texto", :onkeypress => "return validatxt(event)") %></p>
+          <p><%= text_field_tag(:correo, @correo,:class => "texto") %></p>
+          <p><%= text_field_tag(:telefono, @telefono,:class => "texto", :onkeypress => "return validanum(event)") %></p>
+          <p><%= text_field_tag(:rut, @rut, :class => 'texto', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></p>
+          <p><%= text_field_tag(:ocupacion, @occupation,:class => "texto") %></p>
+          <p>
+            <%= select_tag :region,options_for_select(@regiones),:class => "seleccion",:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%>
+          </p>
+          <p>
+            <select name="comuna" id ="comuna" class="seleccion">
+            </select>
+          </p>
+          <p>
+            Si<input type="radio" name="tienes_auto" value="si">
+            No<input type="radio" name="tienes_auto" value="no" checked>
+          </p>
+        </div>
+      </div>
+      <a href="#"><div class="btn_bases"></div></a>
+    </div>
+    <div id="caja02" style="display:none;">
+      <div class="bg_registro02">
+        <div class="registro02">
+          <p><input type="text" name="marca" class="texto"></p>
+          <p><input type="text" name="modelo" class="texto"></p>
+          <p><input type="text" name="year" class="texto"></p>
+        </div>
+      </div>
+    </div>
+    <div id="caja03">
+      <div class="bg_registro03">
+        <div class="registro03">
+          <p><input type="checkbox" id="acepto" class="btn_checkbox"></p>
+        </div>
+      </div>
+      <a href="#" id="enviar" class="btn_continuar">Continuar</a>
+    </div>
+  <% end %>
+</div>

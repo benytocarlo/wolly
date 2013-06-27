@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+  background-color: #000;
+  alignment-adjust:central;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size:13px;
+  overflow: hidden;
+}
+	
+#contenido {
+	margin:auto;
+	width:780px;
+	height:722px;
+	position:relative;
+	top:0px;
+	bottom:0px;
+}
+
+/* PANTALLA NO FAN */
+.bg_nofan {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/bg_noFan.jpg);
+	background-repeat: no-repeat;
+	width: 780px;
+	height: 722px;
+	position: absolute;
+	left: 0px;
+	top:0px;
+	}
+.btn_megusta {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/btn_me_gusta_no_fan.jpg);
+	background-repeat: no-repeat;
+	width: 328px;
+	height: 25px;
+	position: absolute;
+	left: 444px;
+	top: 653px;
+	}
+
+/* PANTALLA INICIO */
+.bg_inicio {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/bg_inicio.jpg);
+	background-repeat: no-repeat;
+	width: 780px;
+	height: 722px;
+	position: absolute;
+	left: 0px;
+	top:0px;
+	}
+.btn_bases {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/btn_bases.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 31px;
+	position: absolute;
+	left: 614px;
+	top: 32px;
+	}
+.btn_participa {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/btn_participa_inicio.jpg);
+	background-repeat: no-repeat;
+	width: 126px;
+	height: 20px;
+	position: absolute;
+	left: 145px;
+	top: 593px;
+	}
+	
+/* PANTALLA REGISTRO */
+.bg_registro01 {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/bg_registro01.jpg);
+	background-repeat: no-repeat;
+	width: 780px;
+	height: 460px;
+	/*position: absolute;
+	left: 0px;
+	top: 0px;*/
+	color: #FFF;
+	}
+.registro01 {
+	margin: auto;
+	width: 780px;
+	height: 460px;
+	position: relative;
+	top: 82px;
+	left: 28px;
+	bottom: 0px;
+}
+.bg_registro01 select{
+	background: transparent;
+	padding: 5px;
+	font-size: 16px;
+	border: 1px solid #FFF;
+	height: 34px;
+	 -webkit-appearance: none;
+	overflow: hidden;
+}
+
+.bg_registro01 .seleccion{
+	width: 250px;
+	padding: 5px 0 0 10px;
+	height: 33px;
+	background: url(fb_app_mini_galaxy/flecha_down.jpg) no-repeat 99% #FFF;
+}
+.texto {
+	width: 235px;
+	padding: 7px 0 0 10px;
+	height: 23px;
+	}
+.seleccion {
+	width: 250px;
+	border: medium #005ca9;
+	height:30px;
+	}	
+.bg_registro02 {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/bg_registro02.jpg);
+	background-repeat: no-repeat;
+	width: 780px;
+	height: 149px;
+	/*position: absolute;
+	left: 0px;
+	top:460px;*/
+	color:#FFF;
+	}
+.registro02 {
+	margin: auto;
+	width: 780px;
+	height: 149px;
+	position: relative;
+	top: -7px;
+	left: 28px;
+	bottom: 0px;
+}
+.bg_registro03 {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/bg_registro03.jpg);
+	background-repeat: no-repeat;
+	width: 780px;
+	height: 113px;
+	/*position: absolute;
+	left: 0px;
+	top:609px;*/
+	color:#FFF;
+	}
+.registro03 {
+	margin: auto;
+	width: 780px;
+	height: 113px;
+	position: relative;
+	top: 0px;
+	left: 18px;
+	bottom: 0px;
+}
+.btn_continuar {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/btn_continuar.jpg);
+	background-repeat: no-repeat;
+	width: 97px;
+	height: 20px;
+	margin: -57px 292px;
+	position: relative;
+	z-index: 9999;
+	font-size: 0;
+	display: block;
+}
+.btn_checkbox {
+	position: absolute;
+	left: 277px;
+	top: 0px;
+	}
+	
+/* PANTALLA EXITO */
+.bg_exito {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/bg_exito.jpg);
+	background-repeat: no-repeat;
+	width: 780px;
+	height: 722px;
+	position: absolute;
+	left: 0px;
+	top:0px;
+	}
+.btn_compartir {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/btn_compartir.jpg);
+	background-repeat: no-repeat;
+	width: 96px;
+	height: 14px;
+	position: absolute;
+	left: 235px;
+	top: 648px;
+	}
+.btn_invitar {
+	float: left;
+	background-image: url(fb_app_mini_galaxy/btn_invitar.jpg);
+	background-repeat: no-repeat;
+	width: 123px;
+	height: 14px;
+	position: absolute;
+	left: 435px;
+	top: 648px;
+	}
+input.error {background: url(alert.png) no-repeat 220px 6px;border:0px;background-color: white;}
+select.error {border-color: red;color: red;}
+#registro strong{display:none!important;}
