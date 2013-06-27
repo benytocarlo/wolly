@@ -10,7 +10,6 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-       
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
@@ -36,11 +35,22 @@ end
 ActiveAdmin::Dashboards.build do  
   section "Ultimas Aplicaciones" do  
     table_for Application.order("id desc").limit(10) do  
-      column :name  
-      column :app_cost
+      column :name
+      column :created_at
       column :participant do |application|
         application.countparticipants.to_s
       end
     end  
   end  
-end 
+end
+
+ActiveAdmin::Dashboards.build do
+  section "Balance Mensual" do
+    table_for Application.order("id desc").limit(10) do 
+      column :app_cost
+    end
+    span { "Total Mes: "+Application.costototal.to_s}
+    br
+    strong { link_to "Ver Todas las Aplicaciones", admin_applications_path }
+  end
+end
