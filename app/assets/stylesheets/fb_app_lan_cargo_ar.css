@@ -107,7 +107,7 @@ position: absolute; top: 352px; left: 174px; background-image: url(fb_app_lan_ca
 .home { background-image:url(fb_app_lan_cargo_ar/back_home.jpg)}
 .home .btn_embarcate { width:232px; height:59px; background-image:url(fb_app_lan_cargo_ar/btn_embarcate.jpg); position:absolute; right:67px; top:532px; text-indent:-9999px;}
 .home .btn_embarcate:hover { background-image:url(fb_app_lan_cargo_ar/btn_embarcate_ON.jpg)}
-
+.home.fin { background-image:url(fb_app_lan_cargo_ar/fin_arg_quiz.jpg) !important;}
 
 /* Form */
 .form { background-image:url(fb_app_lan_cargo_ar/back_form.png); height:618px; background-repeat:no-repeat;}
