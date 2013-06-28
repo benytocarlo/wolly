@@ -24,5 +24,5 @@ end
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 
