@@ -2,8 +2,9 @@
 <script>
 $(document).ready(function(){
     $(".answers span").click( function(){
-        $(".answers span").removeClass("ON");
-        $(this).addClass("ON");
+      $(".answers span").removeClass("ON");
+      $(this).addClass("ON");
+    
          clearInterval(countdown);
          var verifica = $(this).attr('rel');
             //$("#btn_enviar").fadeIn();
@@ -35,7 +36,7 @@ $(document).ready(function(){
         }
     });    
 
-     var countdown = setInterval(function() {
+    var countdown = setInterval(function() {
         var timeCounter = $("span[class=tiempo_numero]").html();
         var updateTime = eval(timeCounter)- eval(1);
         $("span[class=tiempo_numero]").html(updateTime);
@@ -69,7 +70,7 @@ $(document).ready(function(){
         </div>
         <div class="game_nav">
             <div class="pager">2/5</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/question_4.png")%></div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_2.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
@@ -77,8 +78,8 @@ $(document).ready(function(){
     <div class="content">
         <div class="q2 pregunta">
             <div class="answers">
-                <span class="opt1" rel="2:c"></span>
-                <span class="opt2" rel="2:i"></span>
+                <span class="opt1" rel="2:i"></span>
+                <span class="opt2" rel="2:c"></span>
                 <span class="opt3" rel="2:i"></span>
                 <span class="opt4" rel="2:i"></span>
             </div>

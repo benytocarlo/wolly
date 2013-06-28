@@ -1,47 +1,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
 $(function(){
-    $(".elefante, .camello, .puma, .suricate").draggable({ revert: true });
-    $(".choice-1").droppable({ 
-             accept: ".elefante, .camello, .puma, .suricate",
-             drop: function(event, ui ) {
-                 $(this).droppable('disable')
-                 $("#rsp_1").val( ui.draggable.attr('rel') );
-                 $(this).addClass( ui.draggable.attr('class') );
-                 $(ui.draggable).hide();
-                 comprueba_resp();
-                 }
+    $(".answers span").click( function(){
+        $(".answers span").removeClass("ON");
+        $(this).addClass("ON");
+          var verifica = $(this).attr('rel');
+          $("#respuesta").val( verifica );
+          clearInterval(countdown);
+          if(verifica=="4:c"){
+            $(".box_alert").addClass("right");
+            $("#shadowlight").fadeIn(function(){
+             $("#registro").delay(3000).submit();
+            }); 
+
+          }else{
+            $(".box_alert").addClass("wrong");
+            $("#shadowlight").fadeIn(function(){
+             $("#registro").delay(3000).submit();
+            }); 
+         }
     });
-    $(".choice-2").droppable({ 
-             accept: ".elefante, .camello, .puma, .suricate",
-             drop: function(event, ui ) {
-                 $(this).droppable('disable')
-                 $("#rsp_2").val( ui.draggable.attr('rel') );
-                 $(this).addClass( ui.draggable.attr('class') );
-                 $(ui.draggable).hide();
-                 comprueba_resp();
-                 }
-    });
-    $(".choice-3").droppable({ 
-             accept: ".elefante, .camello, .puma, .suricate",
-             drop: function(event, ui ) {
-                 $(this).droppable('disable')
-                 $("#rsp_3").val( ui.draggable.attr('rel') );
-                 $(this).addClass( ui.draggable.attr('class') );
-                 $(ui.draggable).hide();
-                 comprueba_resp();
-                 }
-    }); 
-    $(".choice-4").droppable({ 
-             accept: ".elefante, .camello, .puma, .suricate",
-             drop: function(event, ui ) {
-                 $(this).droppable('disable')
-                 $("#rsp_4").val( ui.draggable.attr('rel') );
-                 $(this).addClass( ui.draggable.attr('class') );
-                 $(ui.draggable).hide();
-                 comprueba_resp();
-                 }
-    }); 
     
     $("#btn_enviar").click(function(){
         if( $("#respuesta").val() != "" ){
@@ -106,7 +84,7 @@ function comprueba_resp(){
         </div>
         <div class="game_nav">
             <div class="pager">4/5</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/question_6.png")%></div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_4.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
@@ -114,27 +92,16 @@ function comprueba_resp(){
     <div class="content">
         <div class="q4 pregunta">
         
-          <div class="answers">
-            <%=image_tag("fb_app_lan_cargo/elefante_q4.png", :class => "elefante answer", :alt => "Question", :rel => "elefante")%>
-            <%=image_tag("fb_app_lan_cargo/camello.png", :class => "camello answer", :alt => "Question", :rel => "camello")%>
-            <%=image_tag("fb_app_lan_cargo/puma.png", :class => "puma answer", :alt => "Question", :rel => "puma")%>
-            <%=image_tag("fb_app_lan_cargo/suricate.png", :class => "suricate answer", :alt => "Question", :rel => "suricate")%>
-          </div> <!-- / .questions -->
-          
-          <div class="choices">
-            <div id="choice-1" class="choice choice-1"></div>
-            <div id="choice-2" class="choice choice-2"></div>
-            <div id="choice-3" class="choice choice-3"></div>
-            <div id="choice-4" class="choice choice-4"></div>
-            <%= hidden_field_tag 'rsp_1' %>
-            <%= hidden_field_tag 'rsp_2' %>
-            <%= hidden_field_tag 'rsp_3' %>
-            <%= hidden_field_tag 'rsp_4' %>
-            <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
-                <%= hidden_field_tag 'respuesta' %>
-                <%= hidden_field_tag 'n_preg', 4 %>
-            <% end %>
-          </div>        
+        <div class="answers">
+            <span class="opt1" rel="4:i"></span>
+            <span class="opt2" rel="4:c"></span>
+            <span class="opt3" rel="4:i"></span>
+            <span class="opt4" rel="4:i"></span>
+        </div>
+        <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
+            <%= hidden_field_tag 'respuesta' %>
+            <%= hidden_field_tag 'n_preg', 4 %>
+        <% end %>    
         </div>
         <div id="shadowlight">
             <span class="shadow"></span>
