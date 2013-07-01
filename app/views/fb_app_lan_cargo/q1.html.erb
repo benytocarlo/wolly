@@ -1,34 +1,25 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
 $(function(){
-    $(".elefante, .ballena, .rinoceronte, .tigre").draggable({ revert: true });
-    $(".choice").droppable({
-         accept: ".elefante, .ballena, .rinoceronte, .tigre",
-         drop: function(event, ui ) {
-                 $(".choice").removeClass("elefante");
-                 $(".choice").removeClass("ballena");
-                 $(".choice").removeClass("rinoceronte");
-                 $(".choice").removeClass("tigre");
-                 $(this).addClass( ui.draggable.attr('class') );
+    $(".answers span").click( function(){
+      $(".answers span").removeClass("ON");
+      $(this).addClass("ON");
+         clearInterval(countdown);
+         var verifica = $(this).attr('rel');
+            $("#respuesta").val( verifica );
+            if(verifica=="1:c"){
+              $(".box_alert").addClass("right");
+              $("#shadowlight").fadeIn(function(){
+               $("#registro").delay(3000).submit();
+              }); 
 
-             var verifica = ui.draggable.attr('rel');
-             $("#respuesta").val( verifica );
-             clearInterval(countdown);
-             if(verifica=="1:c"){
-               $(".box_alert").addClass("right");
-               $("#shadowlight").fadeIn(function(){
-                $("#registro").delay(3000).submit();
-               }); 
-
-             }else{
-               $(".box_alert").addClass("wrong");
-               $("#shadowlight").fadeIn(function(){
-                $("#registro").delay(3000).submit();
-               }); 
-             }
-             //$("#registro").delay(3000).submit(); 
-        }
+            }else{
+              $(".box_alert").addClass("wrong");
+              $("#shadowlight").fadeIn(function(){
+               $("#registro").delay(3000).submit();
+              }); 
+            }
     });
+
     $(".close").click(function(){
       $("#registro").submit();
     });
@@ -76,7 +67,7 @@ $(function(){
         </div>
         <div class="game_nav">
             <div class="pager">1/5</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/queston_1.png")%></div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_1.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
@@ -86,19 +77,16 @@ $(function(){
           <%=image_tag("fb_app_lan_cargo/incorrecto_pop.png", :style => "display:none")%>
           <%=image_tag("fb_app_lan_cargo/times_up.png", :style => "display:none")%>
         
-          <div class="answers">
-            <%=image_tag("fb_app_lan_cargo/elefante.png", :class => "elefante", :alt => "Question", :rel => "1:i")%>
-            <%=image_tag("fb_app_lan_cargo/ballena.png", :class => "ballena", :alt => "Question", :rel => "1:i")%>
-            <%=image_tag("fb_app_lan_cargo/rinoceronte.png", :class => "rinoceronte", :alt => "Question", :rel => "1:c")%>
-            <%=image_tag("fb_app_lan_cargo/tigre.png", :class => "tigre", :alt => "Question", :rel => "1:i")%>
-          </div> <!-- / .questions -->
+            <div class="answers">
+              <span class="opt1" rel="1:i"></span>
+              <span class="opt2" rel="1:i"></span>
+              <span class="opt3" rel="1:c"></span>
+              <span class="opt4" rel="1:i"></span>
+            </div>
             <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
                 <%= hidden_field_tag 'respuesta' %>
                 <%= hidden_field_tag 'n_preg', 1 %>
-            <% end %>
-          <div class="choices">
-            <div id="choice-1" class="choice"></div> <!-- / .choice -->
-          </div>        
+            <% end %>       
         </div>
         <div id="shadowlight">
             <span class="shadow"></span>
