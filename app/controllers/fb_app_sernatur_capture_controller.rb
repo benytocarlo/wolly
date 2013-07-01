@@ -42,7 +42,7 @@ class FbAppSernaturCaptureController < ApplicationController
   def share
     @width = '810'
     @height = '650'
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present?
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:direccion].present? and params[:region].present? and params[:zipcode].present? and params[:url_capture].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
         @nombre_completo = params[:nombre]+" "+params[:apellido]
         @answer = params[:zipcode]+"/"+params[:url_capture]
