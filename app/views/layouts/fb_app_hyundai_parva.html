@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_hyundai_parva", :media => "all" %>
+  <%= javascript_include_tag "fb_app_hyundai_parva" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= yield :body_classes %>' screen_capture_injected='true'>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
+  <%= render "layouts/ga" %>
+  <%= yield %>
+</body>
+</html>
