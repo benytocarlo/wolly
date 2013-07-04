@@ -1,0 +1,62 @@
+<% content_for :body_classes, 'registro' %>
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $("#btn_enviar").click(function(){
+      $("#registro").submit();
+    });
+
+    $("#registro").validate({
+      rules: {
+        nombre: {
+          required: true
+        },
+        rut: {
+          required: true,
+          valrut: $('#rut').val()
+        },
+        telefono: {
+          required: true,
+        },
+        correo: {
+          required: true,
+          email: true
+        }
+      }
+    });
+
+  });
+</script>
+<div id="head">
+		<div id="logo"></div>
+	<div id="menu">
+  	<ul>
+    	<li><a href="<%= fb_app_mahindra_teaser_path %>" class="inicio">Inicio</a></li>
+    	<li><a href="/documents/fb_app_mahindra_teaser.pdf" target="_blank" class="bases">Bases</a></li>
+  	</ul>
+	</div>
+</div>
+<center>
+  <div id="form">
+    <%= form_tag(fb_app_mahindra_teaser_share_path,:id=>:registro, :method => "post") do  %>
+      <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+      <%= text_field_tag(:correo, @correo, :class => 'campos') %>
+      <%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
+      <%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %>
+      <div class="chiquitito">
+
+
+        <input id="demo_box_1" name="demo_lbl_1" value="si" class="css-checkbox check1" type="radio" checked/>
+        <label for="demo_box_1" name="demo_lbl_1" class="css-label" style="position: absolute;
+  left: 61px;" ></label>
+        <input id="demo_box_2" name="demo_lbl_1" value="no" class="css-checkbox check2" type="radio" />
+        <label for="demo_box_1" name="demo_lbl_1" class="css-label"></label>
+      </div>
+      <input type="submit" id="enviar">
+      <a id="btn_enviar" class="participar" href="#" title="Enlace a participar"></a>
+  <% end %>
+  </div>
+</center>
+<a></a>
+</div>

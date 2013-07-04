@@ -1,0 +1,492 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*---------------------------------SITE STYLE-----------------------------*/
+
+body{
+	width:810px;
+	height:650px;
+	position:relative;
+	margin:0;
+	padding:0;
+	display:block;
+}
+.gracias{
+	width:810px;
+	height:650px;
+	position:relative;
+	margin:0;
+	padding:0;
+	display:block;
+}
+.registro{
+background: url(fb_app_mahindra_teaser/registro.jpg) no-repeat 0 61px;
+width: 810px;
+height: 650px;
+display: block;
+position: relative;
+}
+#nofan{
+	background:url(fb_app_mahindra_teaser/nofan.jpg) no-repeat 0 0;
+	width:810px;
+	height:610px;
+	display:block;
+	position:relative;
+}
+#main{
+	background:url(fb_app_mahindra_teaser/gracias_bg.jpg) no-repeat 0 0;
+	width:810px;
+	height:590px;
+	display:block;
+	position:relative;
+}
+#mahindra{
+	background:url(fb_app_mahindra_teaser/Mahindra.jpg) no-repeat 0 0;
+	width:810px;
+	height:590px;
+	display:block;
+	position:relative;
+}
+#head {
+	width:810px;
+	height:60px;
+	display:block;
+	clear:both;
+}
+
+#logo {
+	width:171px;
+	background:url(fb_app_mahindra_teaser/logo.jpg) no-repeat 0 0;
+	display:block;
+	height:60px;
+	margin:0;
+	padding:0;
+}
+
+#menu{
+width: 400px;
+height: 60px;
+margin: 0;
+padding: 0;
+position: absolute;
+right: 0;
+top: 0;
+}
+
+#menu li{
+	float:left;
+}
+
+#menu li a{
+	text-indent:-999999px;
+	overflow:hidden;
+}
+
+#menu li a.inicio{
+	background:url(fb_app_mahindra_teaser/btn_inicio_off.png) no-repeat 0 0;
+	width:110px;
+	height:50px;
+	display:block;
+}
+
+#menu li a.inicio:hover{
+	background:url(fb_app_mahindra_teaser/btn_inicio_on.png) no-repeat 0 0;
+}
+
+#menu li a.registro{
+	background:url(fb_app_mahindra_teaser/btn_registro_off.png) no-repeat 0 0;
+	width:133px;
+	height:50px;
+	display:block;
+}
+
+#menu li a.registro:hover{
+	background:url(fb_app_mahindra_teaser/btn_registro_on.png) no-repeat 0 0;
+}
+
+#menu li a.bases{
+	background:url(fb_app_mahindra_teaser/btn_bases_off.png) no-repeat 0 0;
+	width:282px;
+	height:50px;
+	display:block;
+}
+
+#menu li a.bases:hover{
+	background:url(fb_app_mahindra_teaser/btn_bases_on.png) no-repeat 0 0;
+}
+
+#btn_mahindra{
+background-image: url(fb_app_mahindra_teaser/btn_mahindra.png);
+height: 57px;
+width: 182px;
+margin-left: 568px;
+margin-top: 480px;
+position: absolute;
+}
+#btn_mahindra_play{
+background-image: url(fb_app_mahindra_teaser/btn_mahindra_play.png);
+height: 57px;
+width: 185px;
+margin-left: 349px;
+margin-top: 480px;
+position: absolute;
+}
+#btn_invita{
+	background-image: url(fb_app_mahindra_teaser/btn_invita.png);
+	height: 64px;
+	width: 142px;
+	margin-left: 256px;
+	margin-top: 475px;
+	position: absolute;
+}
+#btn_comparte{
+	background-image: url(fb_app_mahindra_teaser/btn_comparte.png);
+	height: 64px;
+	width: 180px;
+	margin-left: 400px;
+	margin-top: 475px;
+	position: absolute;
+}
+#form{
+height: 300px;
+width: 450px;
+margin: 90px 0 0 0;
+}
+
+#registro{
+height: 470px;
+width: 296px;
+}
+
+#registro .campos{
+background: url(fb_app_mahindra_teaser/campos.jpg) no-repeat 0 0;
+height: 30px;
+width: 233px;
+margin: 0 0 50px 0;
+border: none;
+}
+
+#enviar{
+background: url(fb_app_mahindra_teaser/btn_registro_enviar.png) no-repeat 0 0;
+width: 79px;
+height: 79px;
+position: absolute;
+left: 560px;
+top: 560px;
+border: none;
+text-indent: -9999px;
+cursor: pointer;
+}
+
+input[type=checkbox].css-checkbox {
+	display:none;
+						}
+
+						input[type=checkbox].css-checkbox + label.css-label {
+							padding-left:0;
+							height:15px;
+							width:15px;
+							display:inline-block;
+							line-height:15px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:15px;
+							vertical-align:middle;
+							cursor:pointer;
+						}
+
+						input[type=checkbox].css-checkbox:checked + label.css-label {
+							background-position: 0 -15px;
+						}
+						
+						    .css-label{ background-image: url(fb_app_mahindra_teaser/dark-check-green.png); }
+.chiquitito{
+position: absolute;
+top: 495px;
+left: 266px;
+width: 300px;
+height: 20px;
+}
+
+#registro .error {
+	background: url(alert.jpg) no-repeat 210px 6px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#registro strong{display:none!important;}
+
+.check1{
+  position: relative;
+  left: -70px;
+}
+
+.check2{
+  position: relative;
+  left: -10px;
+}
+
+
+/*! fancyBox v2.0.5 fancyapps.com | fancyapps.com/fancybox/#license */
+.fancybox-tmp iframe, .fancybox-tmp object {
+	vertical-align: top;
+	padding: 0;
+	margin: 0;
+}
+
+.fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1002;
+}
+
+.fancybox-outer {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	background: #ffffff;
+	color: #444;
+	text-shadow: none;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+			border-radius: 4px;
+}
+
+.fancybox-opened {
+	z-index: 1003;	
+}
+
+.fancybox-opened .fancybox-outer {
+	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.fancybox-inner {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	outline: none;
+	overflow: hidden;
+}
+
+.fancybox-error {
+	color: #444;
+    font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+
+.fancybox-image, .fancybox-iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	vertical-align: top;
+}
+
+.fancybox-image {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url('fancybox_sprite.png');
+}
+
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -22px;
+	background-position: 0 -108px;
+	opacity: 0.8;
+	cursor: pointer;
+	z-index: 1010;
+}
+
+#fancybox-loading div {
+	width: 44px;
+	height: 44px;
+	background: url('fancybox_loading.gif') center center no-repeat;
+}
+
+.fancybox-close {
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	z-index: 1004;
+}
+
+.fancybox-nav {
+	position: absolute;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	cursor: pointer;
+	background: transparent url('blank.gif'); /* helps IE */
+	z-index: 1003;
+}
+
+.fancybox-prev {
+	left: 0;	
+}
+
+.fancybox-next {
+	right: 0;
+}
+
+.fancybox-nav span {
+	position: absolute;
+	top: 50%;
+	width: 36px;
+	height: 36px;
+	margin-top: -18px;
+	cursor: pointer;
+	z-index: 1003;
+	visibility: hidden;
+}
+
+.fancybox-prev span {
+	left: 20px;
+	background-position: 0 -36px;
+}
+
+.fancybox-next span {
+	right: 20px;
+	background-position: 0 -72px;
+}
+
+.fancybox-nav:hover span {
+	visibility: visible;
+}
+
+.fancybox-tmp {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	padding: 0;
+	overflow: visible;
+	visibility: hidden;
+}
+
+/* Overlay helper */
+
+#fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 1001;
+	background: #000;
+}
+
+/* Title helper */
+
+.fancybox-title {
+	visibility: hidden;	
+	font: normal 13px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	position: relative;
+	text-shadow: none;
+	z-index: 1005;
+}
+
+.fancybox-opened .fancybox-title {
+	visibility: visible;
+}
+
+.fancybox-title-float-wrap {
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	margin-bottom: -35px;
+	z-index: 1003;
+	text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+	display: inline-block;
+	margin-right: -100%;
+	padding: 2px 20px;
+	background: transparent; /* Fallback for web browsers that doesn't support RGBa */
+	background: rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+			border-radius: 15px;
+	text-shadow: 0 1px 2px #222;
+	color: #FFF;
+	font-weight: bold;
+	line-height: 24px;
+	white-space: nowrap;
+}
+
+.fancybox-title-outside-wrap {
+	position: relative;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.fancybox-title-inside-wrap {
+	margin-top: 10px;
+}
+
+.fancybox-title-over-wrap {
+	position: absolute;
+	bottom: 0;
+	left: 0;	
+	color: #fff;
+	padding: 10px;
+	background: #000;
+	background: rgba(0, 0, 0, .8);
+}#btn_redes {
+}

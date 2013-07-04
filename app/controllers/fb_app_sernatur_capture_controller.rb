@@ -53,7 +53,7 @@ class FbAppSernaturCaptureController < ApplicationController
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
       end
     else
-      redirect_to fb_app_sernatur_capture_concurso_path, :flash => { :error => "Faltan campos por llenar." }
+      redirect_to fb_app_sernatur_capture_register_path, :flash => { :error => "Faltan campos por llenar." }
     end
     
   end
