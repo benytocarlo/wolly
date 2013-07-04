@@ -62,18 +62,18 @@ $(function(){
         </div>
         <div class="game_nav">
             <div class="pager">5/5</div>
-            <div class="question"><%=image_tag("fb_app_lan_cargo/question_5.png")%></div>
+            <div class="question"><%=image_tag("fb_app_lan_cargo/question_final.png")%></div>
             <div class="tiempo">Tiempo<span class="tiempo_numero">20</span></div>
         </div>
     </div>
     
     <div class="content">
-      <div class="q5 pregunta">
+      <div class="qfinal pregunta">
         <div class="answers">
           <span class="opt1" rel="5:i"></span>
           <span class="opt2" rel="5:i"></span>
-          <span class="opt3" rel="5:i"></span>
-          <span class="opt4" rel="5:c"></span>
+          <span class="opt3" rel="5:c"></span>
+          <span class="opt4" rel="5:i"></span>
           <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
               <%= hidden_field_tag 'respuesta' %>
               <%= hidden_field_tag 'n_preg', 5 %>

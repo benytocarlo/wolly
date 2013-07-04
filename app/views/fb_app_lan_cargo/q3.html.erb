@@ -33,7 +33,7 @@ $(function(){
         }
     });
 
-     var countdown = setInterval(function() {
+    var countdown = setInterval(function() {
         var timeCounter = $("span[class=tiempo_numero]").html();
         var updateTime = eval(timeCounter)- eval(1);
         $("span[class=tiempo_numero]").html(updateTime);
@@ -76,8 +76,8 @@ $(function(){
       <div class="q3 pregunta">
         <div class="answers">
           <span class="opt1" rel="3:i"></span>
-          <span class="opt2" rel="3:i"></span>
-          <span class="opt3" rel="3:c"></span>
+          <span class="opt2" rel="3:c"></span>
+          <span class="opt3" rel="3:i"></span>
           <span class="opt4" rel="3:i"></span>
         </div>
         <%= form_tag(fb_app_lan_cargo_respuestas_path,:id=>:registro, :method => "post") do  %>
