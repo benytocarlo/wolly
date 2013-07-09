@@ -28,7 +28,7 @@ ActiveAdmin.register Participation do
   csv do
     column :answer
     column :name do |participation|
-      "#{participation.participant.facebook_name} #{participation.participant.rut} #{participation.participant.phone} #{participation.participant.facebook_email} #{participation.participant.province}"
+      "#{participation.participant.facebook_name},#{participation.participant.rut},#{participation.participant.phone},#{participation.participant.facebook_email},#{participation.participant.province}"
     end
     column :created_at
     column :updated_at
