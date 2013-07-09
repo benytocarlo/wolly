@@ -41,7 +41,7 @@ ActiveAdmin::Dashboards.build do
         application.countparticipants.to_s
       end
       column :list do |application|
-        link_to "Participantes", root_path
+        link_to "Participantes", participants_list_path
       end
     end  
   end  

@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     render :redirect
   end
 
+  def participants_list
+    @participants = Participant.all
+  end
+
 private
   # Carga el fanpage en @fanpage con tipo Hash.
   #

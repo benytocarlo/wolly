@@ -132,6 +132,8 @@ Wolly::Application.routes.draw do
   post   "fb_app_hyundai_parva/share"
   get    "fb_app_hyundai_parva/comunas"
 
+  get "participants_list" => "application#participants_list", :as => "participants_list"  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
