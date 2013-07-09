@@ -28,19 +28,7 @@ ActiveAdmin.register Participation do
   csv do
     column :answer
     column :name do |participation|
-      participation.participant.facebook_name
-    end
-    column :rut do |participation|
-      participation.participant.rut
-    end
-    column :phone do |participation|
-      participation.participant.phone
-    end
-    column :email do |participation|
-      participation.participant.facebook_email
-    end
-    column :province do |participation|
-      participation.participant.province
+      participation.participant.facebook_name + "," + participation.participant.rut + "," + participation.participant.phone + "," + participation.participant.facebook_email + "," + participation.participant.province
     end
     column :created_at
     column :updated_at
