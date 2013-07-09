@@ -40,6 +40,9 @@ ActiveAdmin::Dashboards.build do
       column :participant do |application|
         application.countparticipants.to_s
       end
+      column :list do |application|
+        link_to "Participantes", root_path
+      end
     end  
   end  
 end
