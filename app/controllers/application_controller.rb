@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def participants_list
-    @participants = Participant.all
+    @participants = Participant.find(:all, :order => "id desc", :limit => 100).reverse
   end
 
 private
