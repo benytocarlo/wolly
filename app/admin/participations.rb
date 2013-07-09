@@ -1,6 +1,8 @@
 ActiveAdmin.register Participation do
   menu :label => "Participaciones"
   filter :application, :as => :select
+  filter :updated_at
+  
   index do                       
     selectable_column
     column :answer
