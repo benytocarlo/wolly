@@ -14,7 +14,7 @@
         nombre: {
           required: true
         },
-        apellido: {
+        /*apellido: {
           required: true
         },
         rut: {
@@ -28,7 +28,7 @@
         },
         zipcode: {
           required: true
-        },
+        },*/
         correo: {
           required: true,
           email: true
@@ -54,18 +54,6 @@
     <div id="uno">
       <label>FIRST NAME</label>
       <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
-			<label>LAST NAME</label>
-			<%= text_field_tag(:apellido, @apellido, :class => 'campos', :onkeypress => "return validatxt(event)") %>
-			<label>I.D</label>
-			<%= text_field_tag(:rut, @rut, :class => 'campos') %>
-			<label>ADRESS</label>
-			<%= text_field_tag(:direccion, @direccion, :class => 'campos') %>
-		</div>
-		<div id="dos">
-			<label>STATE</label>
-			<%= text_field_tag(:region, @region, :class => 'campos') %>
-			<label>ZIP CODE</label>
-			<%= text_field_tag(:zipcode, '', :class => 'campos') %>
 			<label>E-MAIL</label>
 			<%= text_field_tag(:correo, @correo, :class => 'campos') %>
 		</div>
