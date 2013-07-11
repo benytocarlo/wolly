@@ -1,6 +1,8 @@
 ActiveAdmin.register Participation do
   menu :label => "Participaciones"
   filter :application, :as => :select
+  filter :updated_at
+  
   index do                       
     selectable_column
     column :answer
@@ -23,6 +25,8 @@ ActiveAdmin.register Participation do
     column :updated_at
     default_actions
   end
+
+
   csv do
     column :answer
     column :name do |participation|
@@ -43,4 +47,5 @@ ActiveAdmin.register Participation do
     column :created_at
     column :updated_at
   end
+
 end
