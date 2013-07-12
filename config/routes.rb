@@ -129,8 +129,9 @@ Wolly::Application.routes.draw do
   post   "fb_app_hyundai_parva"             => "fb_app_hyundai_parva#index"
   post   "fb_app_hyundai_parva/canvas"
   get    "fb_app_hyundai_parva/formulario"
-  post   "fb_app_hyundai_parva/share"
-  get    "fb_app_hyundai_parva/comunas"
+  post   "fb_app_hyundai_parva/redirect_share"
+  get   "fb_app_hyundai_parva/share_laparva"
+  get   "fb_app_hyundai_parva/share_kidzania"
 
   get "participants_list" => "application#participants_list", :as => "participants_list"  
 

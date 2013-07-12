@@ -1,0 +1,198 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	color: #000;
+	background-color: #fff;
+}
+
+#contenido {
+	width: 100%;
+}
+#home {
+	background-image: url(fb_app_hyundai_parva/bg.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:600px;
+	position:relative;
+}
+.cartel1{
+	width: 236px;
+	height: 236px;
+	display: block;
+	position: absolute;
+	top: 260px;
+	left: 286px;
+	background-image: url(fb_app_hyundai_parva/txt_fan.png);
+	text-indent: -9999px;
+}
+
+.nofan{
+	width: 236px;
+	height: 236px;
+	display: block;
+	position: absolute;
+	top: 270px;
+	left: 286px;
+	background-image: url(fb_app_hyundai_parva/txt_nofan.png);
+	text-indent: -9999px;
+}
+
+.botonparticipa {
+	width: 197px;
+	height: 68px;
+	display: block;
+	position: absolute;
+	top: 500px;
+	left: 305px;
+	background-image: url(fb_app_hyundai_parva/btn_participa.png);
+	text-indent: -9999px;
+}
+.bases {
+	width: 160px;
+	height: 21px;
+	display: block;
+	position: absolute;
+	top: 565px;
+	left: 0px;
+	background-image: url(fb_app_hyundai_parva/btn_bases.png);
+	text-indent: -9999px;
+}
+#registro {
+	background-image: url(fb_app_hyundai_parva/bg_registro.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:600px;
+	position:relative;
+}
+#kidzania {
+	background: url(fb_app_hyundai_parva/bg_final_kidzania.jpg) no-repeat 0 0;
+	width:810px;
+	margin:0 auto;
+	height:600px;
+	position:relative;
+}
+#laparva {
+	background: url(fb_app_hyundai_parva/bg_final_laparva.jpg) no-repeat 0 0;
+	width:810px;
+	margin:0 auto;
+	height:600px;
+	position:relative;
+}
+.invitar {
+	width: 124px;
+	height: 52px;
+	display: block;
+	position: absolute;
+	top: 410px;
+	left: 414px;
+	background-image: url(fb_app_hyundai_parva/btn_invitar.png);
+	text-indent: -9999px;
+}
+.compartir {
+	width: 135px;
+	height: 47px;
+	display: block;
+	position: absolute;
+	top: 470px;
+	left: 260px;;
+	background-image: url(fb_app_hyundai_parva/btn_compartir.png);
+	text-indent: -9999px;
+}
+.invitar2 {
+	width: 124px;
+	height: 52px;
+	display: block;
+	position: absolute;
+	top: 485px;
+	left: 414px;
+	background-image: url(fb_app_hyundai_parva/btn_invitar.png);
+	text-indent: -9999px;
+}
+.compartir2 {
+	width: 135px;
+	height: 47px;
+	display: block;
+	position: absolute;
+	top: 530px;
+	left: 260px;;
+	background-image: url(fb_app_hyundai_parva/btn_compartir.png);
+	text-indent: -9999px;
+}
+.listadatos{
+	display: block;
+	position: absolute;
+	top: 175px;
+	left: 348px;
+}
+.listadatos li{
+	list-style:none;
+	margin-bottom:9px;
+}
+.campos {
+	background:url(fb_app_hyundai_parva/campo_form.png) no-repeat 0 0;
+	border:none;
+	height:30px;
+	width:335px;
+	color:#FFF;
+	padding-left:10px;
+	font-size:16px;
+}
+.radiob{
+	/*background:url(fb_app_hyundai_parva/radio_off.jpg) no-repeat 0 0;*/
+	border:none;
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: 228px;
+	left: 45px;	
+}
+.radiob2{
+	/*background:url(fb_app_hyundai_parva/radio_off.jpg) no-repeat 0 0;*/
+	border:none;
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: 228px;
+	left: 223px;		
+}
+.checkbases{
+	border:none;
+	width:20px;
+	height:20px;
+	position: absolute;
+	top: 278px;
+	left: 46px;		
+}
+#enviar{
+	width: 188px;
+	height: 66px;
+	position: absolute;
+	left: -50px;
+	top: 330px;
+	border: none;
+	text-indent: -9999px;
+	cursor: pointer;
+	background:url(fb_app_hyundai_parva/btn_continuar.jpg) no-repeat 0 0;
+}
+.continuar {
+	width: 188px;
+	height: 66px;
+	display: block;
+	position: absolute;
+	top: 330px;
+	left: -50px;
+	text-indent: -9999px;
+}
+/*input.error {background: url(alert.png) no-repeat 310px 6px;border:0px;}*/
+#registro strong{ 
+	background: url(alert.png) no-repeat scroll left bottom transparent;
+	float: right;
+	height: 15px;
+	margin-right: 7%;
+	margin-top: -7%;
+	text-indent: -9999px;
+	width: 16px;
+	position: relative;
+}
