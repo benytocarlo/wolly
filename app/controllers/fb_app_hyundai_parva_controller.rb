@@ -47,6 +47,11 @@ class FbAppHyundaiParvaController < ApplicationController
     else
       redirect_to fb_app_hyundai_parva_registro_path, :flash => { :error => "Faltan campos por llenar." }
     end
+    if params[:actividad] == "laparva"
+      @app.share_description = "Ya estoy participando por tickets a La Parva con Hyundai Chile."
+    else
+      @app.share_description = "Ya estoy participando por entradas a Kidzania con Hyundai Chile."
+    end
       redirect_to eval("fb_app_hyundai_parva_share_#{params[:actividad].to_s}_path")
   end
 private
