@@ -46,10 +46,10 @@ class FbAppSernaturCaptureController < ApplicationController
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
         @nombre_completo = params[:nombre]+" "+params[:apellido]
         @answer = params[:zipcode]+"/"+params[:url_capture]
-        @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :province => params[:region], :address => params[:direccion])
+        @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @nombre_completo, :facebook_email => params[:correo], :facebook_gender => @me_from_graph[:gender], :province => params[:region], :address => params[:direccion])
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @nombre_completo, :facebook_email => params[:correo], :facebook_gender => @me_from_graph[:gender])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
       end
     else
