@@ -6,9 +6,11 @@
   <%= javascript_include_tag "fb_app_hyundai_parva" %>
   <%= csrf_meta_tags %>
 </head>
-<body class='<%= yield :body_classes %>' screen_capture_injected='true'>
-  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '650' } %>
+<body>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '600' } %>
   <%= render "layouts/ga" %>
-  <%= yield %>
+  <div id="contenido">
+    <%= yield %>
+  </div>
 </body>
 </html>

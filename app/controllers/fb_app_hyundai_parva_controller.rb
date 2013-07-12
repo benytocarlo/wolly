@@ -16,12 +16,13 @@ class FbAppHyundaiParvaController < ApplicationController
     end
   end
   
-  def concurso
+  def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @nombre   = @me_from_database.facebook_name
       @rut      = @me_from_database.rut
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
+      @direccion = @me_from_database.address
     else
       @nombre   = @me_from_graph[:name]
       @correo   = @me_from_graph[:email]
@@ -34,20 +35,20 @@ class FbAppHyundaiParvaController < ApplicationController
   def bases
   end
 
-  def share
+  def redirect_share
     if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:demo_lbl_1])
+        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :address => params[:direccion])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:actividad])
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:demo_lbl_1])
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :address => params[:direccion])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:actividad])
       end
     else
-      redirect_to fb_app_mahindra_teaser_concurso_path, :flash => { :error => "Faltan campos por llenar." }
-    end    
+      redirect_to fb_app_hyundai_parva_registro_path, :flash => { :error => "Faltan campos por llenar." }
+    end
+      redirect_to eval("fb_app_hyundai_parva_share_#{params[:actividad].to_s}_path")
   end
-
 private
 
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.

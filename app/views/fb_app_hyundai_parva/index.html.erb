@@ -1,7 +1,6 @@
-<% content_for :body_classes, 'mahindra' %>
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    $("#btn_mahindra").click(function(){
+    $(".botonparticipa").click(function(){
       FB.login(function(response){
         if (response.authResponse){
           location.href = '<%= fb_app_hyundai_parva_formulario_path %>';
@@ -10,12 +9,8 @@
     });
 });
 </script>
-  <div id="head">
-    <div id="logo"></div>
-    <div id="menu">
-      <ul>
-      <li><a href="<%= fb_app_hyundai_parva_formulario_path %>" class="inicio">Inicio</a></li>
-      <li><a href="/documents/fb_app_hyundai_parva.pdf" target="_blank" class="bases">Bases</a></li>
-      </ul>
-    </div>
+  <div id="home">
+    <div class="cartel1">cartel1</div>
+    <a href="#" class="botonparticipa">Participa</a>
+    <a href="#" class="bases" target="_blank">Bases</a>
   </div>

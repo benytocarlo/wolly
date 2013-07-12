@@ -1,62 +1,39 @@
-<% content_for :body_classes, 'registro' %>
 <%= javascript_include_tag "jquery.validate" %>
 <%= render :partial => "layouts/validator2" %>
 <script>
   $(document).ready(function(){
-    $("#btn_enviar").click(function(){
-      $("#registro").submit();
-    });
-
-    $("#registro").validate({
-      rules: {
-        nombre: {
-          required: true
-        },
-        rut: {
-          required: true,
-          valrut: $('#rut').val()
-        },
-        telefono: {
-          required: true,
-        },
-        correo: {
-          required: true,
-          email: true
-        }
+    $(".continuar").click(function(){
+      if(!$('#checkbox').is(":checked")){
+        alert("Debes aceptar las bases del concurso");
+      }else{
+        $("#form_registro").submit();
       }
     });
 
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        rut:       { required: true,valrut: $('#rut').val() },
+        telefono:  { required: true },
+        direccion: { required: true },
+        correo:    { required: true,email: true }
+      }
+    });
   });
 </script>
-<div id="head">
-		<div id="logo"></div>
-	<div id="menu">
-  	<ul>
-    	<li><a href="<%= fb_app_mahindra_teaser_path %>" class="inicio">Inicio</a></li>
-    	<li><a href="/documents/fb_app_mahindra_teaser.pdf" target="_blank" class="bases">Bases</a></li>
-  	</ul>
-	</div>
-</div>
-<center>
-  <div id="form">
-    <%= form_tag(fb_app_mahindra_teaser_share_path,:id=>:registro, :method => "post") do  %>
-      <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
-      <%= text_field_tag(:correo, @correo, :class => 'campos') %>
-      <%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
-      <%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %>
-      <div class="chiquitito">
-
-
-        <input id="demo_box_1" name="demo_lbl_1" value="si" class="css-checkbox check1" type="radio" checked/>
-        <label for="demo_box_1" name="demo_lbl_1" class="css-label" style="position: absolute;
-  left: 61px;" ></label>
-        <input id="demo_box_2" name="demo_lbl_1" value="no" class="css-checkbox check2" type="radio" />
-        <label for="demo_box_1" name="demo_lbl_1" class="css-label"></label>
-      </div>
-      <input type="submit" id="enviar">
-      <a id="btn_enviar" class="participar" href="#" title="Enlace a participar"></a>
+<div id="registro">
+  <%= form_tag(fb_app_hyundai_parva_redirect_share_path,:id=>:form_registro, :method => "post") do  %>
+    <ul class="listadatos">
+      <li><%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %></li>
+      <li><%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></li>
+      <li><%= text_field_tag(:correo, @correo, :class => 'campos') %></li>
+      <li><%= text_field_tag(:direccion, @direccion, :class => 'campos') %></li>
+      <li><%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %></li>
+      <li><input name="actividad" class="radiob" type="radio" value="laparva" checked/><input name="actividad" class="radiob2" type="radio" value="kidzania" /></li>
+      <li><input name="check" class="checkbases" id="checkbox" type="checkbox" value="checkbases" /></li>
+      <input type="submit" id="enviar" />
+      <a href="#" class="continuar">Continuar</a>                
+    </ul>
   <% end %>
-  </div>
-</center>
-<a></a>
+  <a href="#" class="bases">Bases</a>
 </div>
