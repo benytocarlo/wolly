@@ -132,6 +132,12 @@ Wolly::Application.routes.draw do
   post   "fb_app_hyundai_parva/redirect_share"
   get   "fb_app_hyundai_parva/share_laparva"
   get   "fb_app_hyundai_parva/share_kidzania"
+  
+  post   "fb_app_mini_parva"             => "fb_app_mini_parva#index"
+  post   "fb_app_mini_parva/canvas"
+  get    "fb_app_mini_parva/formulario"
+  post   "fb_app_mini_parva/share"
+  get    "fb_app_mini_parva/comunas"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
