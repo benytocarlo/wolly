@@ -1,0 +1,39 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $(".continuar").click(function(){
+      if(!$('#checkbox').is(":checked")){
+        alert("Debes aceptar las condiciones del concurso");
+      }else{
+        $("#form_registro").submit();
+      }
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        rut:       { required: true,valrut: $('#rut').val() },
+        telefono:  { required: true },
+        direccion: { required: true },
+        correo:    { required: true,email: true }
+      }
+    });
+  });
+</script>
+<div id="registro">
+  <%= form_tag(fb_app_mini_parva_redirect_share_path,:id=>:form_registro, :method => "post") do  %>
+    <ul class="listadatos">
+      <li><%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %></li>
+      <li><%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></li>
+      <li><%= text_field_tag(:correo, @correo, :class => 'campos') %></li>
+      <li><%= text_field_tag(:direccion, @direccion, :class => 'campos') %></li>
+      <li><%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %></li>
+      <li><input name="actividad" class="radiob" type="radio" value="laparva" checked/><input name="actividad" class="radiob2" type="radio" value="kidzania" /></li>
+      <li><input name="check" class="checkbases" id="checkbox" type="checkbox" value="checkbases" /></li>
+      <input type="submit" id="enviar" />
+      <a href="#" class="continuar">Continuar</a>                
+    </ul>
+  <% end %>
+  <a href="/documents/fb_app_mini_parva.pdf" class="bases" target="_blank">Bases</a>
+</div>

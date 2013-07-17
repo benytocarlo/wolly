@@ -1,0 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".botonparticipa").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_mini_parva_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+});
+</script>
+  <div id="home">
+    <div class="cartel1">cartel1</div>
+    <a href="#" class="botonparticipa">Participa</a>
+    <a href="/documents/fb_app_mini_parva.pdf" class="bases" target="_blank">Bases</a>
+  </div>
