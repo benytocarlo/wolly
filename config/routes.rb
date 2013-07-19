@@ -139,6 +139,14 @@ Wolly::Application.routes.draw do
   post   "fb_app_mini_parva/share"
   get    "fb_app_mini_parva/comunas"
 
+  post   "fb_app_mm_wanted"             => "fb_app_mm_wanted#index"
+  post   "fb_app_mm_wanted/canvas"
+  get    "fb_app_mm_wanted/formulario"
+  post    "fb_app_mm_wanted/check_respuesta"
+  get   "fb_app_mm_wanted/share_millon"
+  get   "fb_app_mm_wanted/share_entradas"
+  get   "fb_app_mm_wanted/share_ups"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   

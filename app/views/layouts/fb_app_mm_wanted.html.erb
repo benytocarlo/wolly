@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_mm_wanted", :media => "all" %>
+  <%= javascript_include_tag "fb_app_mm_wanted" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '1265', :height => '660' } %>
+  <%= render "layouts/ga" %>
+  <div id="contenido">
+    <%= yield %>
+  </div>
+</body>
+</html>
