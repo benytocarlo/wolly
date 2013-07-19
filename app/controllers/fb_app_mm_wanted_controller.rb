@@ -34,51 +34,39 @@ class FbAppMmWantedController < ApplicationController
   def check_respuesta
     require 'open-uri'
     require 'json'
-
-    @result = JSON.parse(open("http://ws-wanted.herokuapp.com/facebook_id/#{@me_from_graph[:id]}/code/#{params[:codigo]}.json").read)
-    @result = @result.deep_symbolize_keys#@result = eval(@result)
-    logger.info "DEBUG: #{@result}"
-    if @result[:codigo] == 0
-      redirect_to eval("fb_app_mm_wanted_share_ups_path")
-    elsif @result[:codigo] == 1
-      redirect_to eval("fb_app_mm_wanted_share_entradas_path")
-    else
-      redirect_to eval("fb_app_mm_wanted_share_millon_path")
-    end
-
-=begin
-    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present?
-      if ['Cat', 'Dog', 'Bird'].include? params[:codigo]
+    if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:codigo].present?
+      @result = JSON.parse(open("http://ws-wanted.herokuapp.com/facebook_id/#{@me_from_graph[:id]}/code/#{params[:codigo]}.json").read)
+      @result = @result.deep_symbolize_keys#@result = eval(@result)
+      logger.info "DEBUG: #{@result}"
+      if @result[:codigo] == 0
+        redirect_to eval("fb_app_mm_wanted_share_ups_path")
+      elsif @result[:codigo] == 1
         redirect_to eval("fb_app_mm_wanted_share_entradas_path")
       else
-        redirect_to eval("fb_app_mm_wanted_share_ups_path")
+        redirect_to eval("fb_app_mm_wanted_share_millon_path")
       end
-    else
-      redirect_to fb_app_hyundai_parva_registro_path, :flash => { :error => "Faltan campos por llenar." }
-    end
-=end
-  end
-private
-
-=begin 
+      @answer = params[:codigo]+"/"+@result[:respuesta].to_s
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @me_from_graph[:name], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :address => params[:direccion])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:actividad])
+        @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+          @me_from_database_participation.update_attributes(:answer => @me_from_database_participation.answer+"/"+@answer)
+        else
+          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
+        end
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :address => params[:direccion])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:actividad])
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+          @me_from_database_participation.update_attributes(:answer => @me_from_database_participation.answer+"/"+@answer)
+        else
+          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @answer)
+        end
       end
     else
-      redirect_to fb_app_hyundai_parva_registro_path, :flash => { :error => "Faltan campos por llenar." }
+      redirect_to fb_app_mm_wanted_formulario_path, :flash => { :error => "Faltan campos por llenar." } 
     end
-    if params[:actividad] == "laparva"
-      @app.share_description = "Ya estoy participando por tickets a La Parva con Hyundai Chile."
-    else
-      @app.share_description = "Ya estoy participando por entradas a Kidzania con Hyundai Chile."
-    end
-      redirect_to eval("fb_app_hyundai_parva_share_#{params[:actividad].to_s}_path")
-=end
+  end
 
+private
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
   #
   def load_application_data
