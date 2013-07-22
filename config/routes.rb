@@ -146,7 +146,16 @@ Wolly::Application.routes.draw do
   get   "fb_app_mm_wanted/share_millon"
   get   "fb_app_mm_wanted/share_entradas"
   get   "fb_app_mm_wanted/share_ups"
-
+  
+  post   "fb_app_sony_codes"             => "fb_app_sony_codes#index"
+  post   "fb_app_sony_codes/canvas"
+  get    "fb_app_sony_codes/formulario"
+  post    "fb_app_sony_codes/new_code"
+  get    "fb_app_sony_codes/new_code"
+  post    "fb_app_sony_codes/check_respuesta"
+  get   "fb_app_sony_codes/share_play"
+  get   "fb_app_sony_codes/share_ups"
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
