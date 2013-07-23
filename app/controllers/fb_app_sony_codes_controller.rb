@@ -18,7 +18,7 @@ class FbAppSonyCodesController < ApplicationController
   
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND answer = 'Ganador' AND application_id = ?",@me_from_database.id,@app.id])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
         redirect_to fb_app_sony_codes_count_path
       elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
         session[:registrado] = true
