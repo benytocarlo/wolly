@@ -1,0 +1,22 @@
+<%= javascript_include_tag "jquery.countdown" %>
+<%= javascript_include_tag "jquery.countdown-es" %>
+<script type="text/javascript">
+	$(function() {
+		var austDay = new Date();
+    var fecha = new Date();
+    var nextday = fecha.getDate() + 1; // dia
+    //fecha.getMonth(); // mes
+    //fecha.getFullYear(); 
+    austDay = new Date(fecha.getFullYear(), 07 -1,nextday, 09, 00, 0);
+		$.countdown.setDefaults($.countdown.regional['es']);
+		$('#defaultCountdown').countdown({
+			until : austDay
+		});
+		$('#year').text(austDay.getFullYear());
+	});
+</script>
+<div id="defaultCountdown"></div>
+<div id="home">
+  
+  <a href="/documents/fb_app_sony_codes.pdf" class="bases" target="_blank">Bases</a>
+</div>

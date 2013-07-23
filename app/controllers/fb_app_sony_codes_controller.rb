@@ -18,10 +18,17 @@ class FbAppSonyCodesController < ApplicationController
   
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND answer = 'Ganador' AND application_id = ?",@me_from_database.id,@app.id])
+        redirect_to fb_app_sony_codes_count_path
+      elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
         session[:registrado] = true
+        redirect_to fb_app_sony_codes_new_code_path
+      else
+        @nombre   = @me_from_database.facebook_name
+        @rut      = @me_from_database.rut
+        @correo   = @me_from_database.facebook_email
+        @telefono = @me_from_database.phone
       end
-      redirect_to fb_app_sony_codes_new_code_path
     else
       @nombre   = @me_from_graph[:name]
       @correo   = @me_from_graph[:email]
@@ -31,7 +38,11 @@ class FbAppSonyCodesController < ApplicationController
   end
   
   def new_code
-    
+    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+    else
+      @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+    end
   end
 
   def check_respuesta
@@ -43,9 +54,19 @@ class FbAppSonyCodesController < ApplicationController
       #logger.info "DEBUG: #{@result}"
       result = 0
       if result == 0
-        redirect_to eval("fb_app_sony_codes_share_ups_path")
+        # restar un intento al usuario, validar que no quede en negativo el numero de intento
+        #redirect_to eval("fb_app_sony_codes_share_ups_path")
+        if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+          if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+            answer = @me_from_database_participation.answer.to_i + 10
+            @me_from_database_participation.update_attributes(:answer => answer )
+          else
+            Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "2")
+          end
+        end
+        render :text => 1
       elsif result == 1
-        redirect_to eval("fb_app_sony_codes_play_path")
+        redirect_to eval("fb_app_sony_codes_share_play_path")
       end
     else
       redirect_to fb_app_sony_codes_new_code_path, :flash => { :error => "No ha enviado ningun codigo." } 

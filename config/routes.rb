@@ -152,9 +152,10 @@ Wolly::Application.routes.draw do
   get    "fb_app_sony_codes/formulario"
   post    "fb_app_sony_codes/new_code"
   get    "fb_app_sony_codes/new_code"
-  post    "fb_app_sony_codes/check_respuesta"
+  get    "fb_app_sony_codes/check_respuesta"
   get   "fb_app_sony_codes/share_play"
   get   "fb_app_sony_codes/share_ups"
+  get   "fb_app_sony_codes/count"
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
