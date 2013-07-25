@@ -20,6 +20,8 @@ class Application < ActiveRecord::Base
   validates_presence_of :fb_app_idnumber
   validates_uniqueness_of :fb_app_idnumber
   attr_accessible :fb_app_idnumber, :fb_app_secret, :invite_message, :name, :share_caption, :share_description, :ga, :fanpage_link,:app_cost,:date_create
+  attr_accessible :number_of_participants
+  
   def countparticipants
     return Participation.find(:all, :conditions => ["application_id=?", self.id]).count
   end
@@ -32,6 +34,12 @@ class Application < ActiveRecord::Base
     end
     return @sumatotal
   end
-  
+
+  def self.update_participants_in_all_apps
+    @applications = Application.all
+    @applications.each do |application|
+      application.update_attributes :number_of_participants => application.countparticipants
+    end
+  end
 end
 

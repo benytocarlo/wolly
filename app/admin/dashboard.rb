@@ -1,3 +1,4 @@
+#coding: utf-8
 ActiveAdmin.register_page "Dashboard" do
 
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
@@ -11,13 +12,11 @@ ActiveAdmin.register_page "Dashboard" do
     strong { link_to "Ver Todas las Aplicaciones", admin_applications_path }
   end
   
-  content :title => "Ultimas Aplicaciones" do  
+  content :title => "Últimas Aplicaciones" do  
     table_for Application.order("id desc").limit(10) do  
       column :name
       column :created_at
-      column :participant do |application|
-        application.countparticipants.to_s
-      end
+      column :number_of_participants
       column :list do |application|
         link_to "Participantes", participants_list_path
       end

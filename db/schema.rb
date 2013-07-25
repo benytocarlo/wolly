@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603211700) do
+ActiveRecord::Schema.define(:version => 20130725162436) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,12 +53,13 @@ ActiveRecord::Schema.define(:version => 20130603211700) do
     t.string   "share_caption"
     t.string   "share_description"
     t.string   "invite_message"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "ga"
     t.string   "fanpage_link"
     t.string   "app_cost"
     t.date     "date_create"
+    t.integer  "number_of_participants"
   end
 
   create_table "participants", :force => true do |t|
