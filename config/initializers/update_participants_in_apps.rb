@@ -7,7 +7,7 @@ Thread.new{
     rescue
       puts "[INFO] Sorry, me caí."
     ensure
-      sleep 60.0
+      sleep 600.0
     end
   end
 }
