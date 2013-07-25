@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     render :redirect
   end
 
+  def participants_list
+    @participants = Participant.find(:all, :order => "id desc", :limit => 100).reverse
+  end
+
 private
   # Carga el fanpage en @fanpage con tipo Hash.
   #

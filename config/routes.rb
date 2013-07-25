@@ -139,6 +139,8 @@ Wolly::Application.routes.draw do
   post   "fb_app_mini_parva/share"
   get    "fb_app_mini_parva/comunas"
 
+  get "participants_list" => "application#participants_list", :as => "participants_list"  
+
   post   "fb_app_mm_wanted"             => "fb_app_mm_wanted#index"
   post   "fb_app_mm_wanted/canvas"
   get    "fb_app_mm_wanted/formulario"
