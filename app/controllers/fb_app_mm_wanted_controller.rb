@@ -47,7 +47,7 @@ class FbAppMmWantedController < ApplicationController
       end
       @answer = params[:codigo]+"/"+@result[:respuesta].to_s
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
         if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
           @me_from_database_participation.update_attributes(:answer => @me_from_database_participation.answer+"/"+@answer)
         else
