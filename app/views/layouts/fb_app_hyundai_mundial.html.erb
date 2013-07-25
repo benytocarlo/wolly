@@ -3,7 +3,6 @@
 <head>
   <title><%= @app.name %></title>	
   <%= stylesheet_link_tag    "fb_app_hyundai_mundial", :media => "all" %>
-  <%= javascript_include_tag "fb_app_hyundai_mundial" %>
   <%= csrf_meta_tags %>
   <meta http-equiv="expires" content="mon, 27 sep 2020 14:30:00 GMT">
 </head>
@@ -19,5 +18,6 @@
   </ul>
   <% end %>
   <%= yield %>
+  <%= javascript_include_tag "fb_app_hyundai_mundial" %>
   </body>
 </html>
