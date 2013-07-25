@@ -15,7 +15,9 @@ ActiveAdmin.register_page "Dashboard" do
   content :title => "Últimas Aplicaciones" do  
     table_for Application.order("id desc").limit(10) do  
       column :name
-      column :created_at
+      column :created_at do |application|
+        application.created_at.to_date
+      end
       column :number_of_participants
       column :list do |application|
         link_to "Participantes", participants_list_path
