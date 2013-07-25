@@ -1,0 +1,98 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  /*$(document).bind("contextmenu",function(e){
+    e.preventDefault();
+  });*/
+  $(document).ready(function(){
+    function borrar(){
+      $(".pad label").each(function() {
+        $(this).removeAttr("class");
+        $(this).addClass("buttonps3 inactive");
+        $(".codigo").val("");
+      });
+    }
+    $(".borrar").click(function(){
+      borrar();
+    });
+    
+    $(".control a").click(function(){
+      var valboton = $(this).attr("rel");
+      var classboton = $(this).attr("class");
+      $(".pad .inactive:first").each(function() {
+        $(this).removeClass("inactive");
+        $(this).addClass("active"+" "+classboton);
+        var valcod = $(".codigo").val();
+        $(".codigo").val(valcod+valboton);
+      });
+    });
+    
+    $(".enviar").click(function(){
+        //$("#form_registro").submit();
+         var valcod = $(".codigo").val();
+        $.ajax({url: 'check_respuesta',type: 'get',data: "code="+valcod,
+          success: function( resp ) {
+            alert(resp);
+            borrar();
+          }
+        });
+    });
+    
+    $("#form_registro").validate({
+      rules: {
+        code: { required: true }
+      }
+    });
+  });
+</script>
+<style>
+.buttonps3{
+  float:left;
+  padding:15px;
+  border: 2px solid black;
+  width:25px;
+  height:25px;
+}
+.buttonps3.cuadrado{
+  background-color:pink;
+}
+
+.buttonps3.triangulo{
+  background-color:green;
+}
+
+.buttonps3.circulo{
+  background-color:red;
+}
+
+.buttonps3.equis{
+  background-color:blue;
+}
+</style>
+<div id="registro">
+  <%= link_to "Bases", "/documents/fb_app_sony_codes.pdf" , :class => "bases", :target => "_blank" %>
+  <%= form_tag(fb_app_sony_codes_check_respuesta_path,:id=>:form_registro, :method => "post") do  %>
+    <div class="lista1">
+      <div class="registro01">
+        <p id="notice"><%= flash[:error] %></p>
+        <div class="pad">
+          <label class="buttonps3 inactive" rel="1"></label>
+          <label class="buttonps3 inactive" rel="2"></label>
+          <label class="buttonps3 inactive" rel="3"></label>
+          <label class="buttonps3 inactive" rel="4"></label>
+          <label class="buttonps3 inactive" rel="5"></label>
+          <label class="buttonps3 inactive" rel="6"></label>
+        </div>
+        <p><%= text_field_tag(:code,'', :class => 'codigo',:readonly => "readonly") %></p>
+      </div>
+    </div>
+    <div class="control">
+      <%= link_to "Triangulo", "#" , :class => "triangulo", :rel => "A" %>
+      <%= link_to "Circulo", "#" , :class => "circulo", :rel => "O" %>
+      <%= link_to "Equis", "#" , :class => "equis", :rel => "X" %>
+      <%= link_to "Cuadrado", "#" , :class => "cuadrado", :rel => "C" %>
+    </div>
+    <%= link_to "Resetear Combinacion", "#" , :class => "borrar" %>
+    <%= link_to "Enviar", "#" , :class => "enviar" %>
+  <% end %>
+</div>

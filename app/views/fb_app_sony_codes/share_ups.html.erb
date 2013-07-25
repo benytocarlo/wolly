@@ -1,0 +1,36 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $(".sharefb").click(function(){
+      FB.ui({
+          method: 'feed',
+          name: '<%= @app.name %>',
+          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
+          picture: 'http://wolly.herokuapp.com/assets/<%= controller_path %>/75x75.jpg',
+          caption: '<%= @app.share_caption %>',
+          description: '<%= @app.share_description %>'
+        }
+      return false;
+    });
+    $(".invitar").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '<%= @app.invite_message %>',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+            exclude_ids: [1155649748], // # guardar los amigos y luego excluirlos no se puede  a invitar amigos mas de 1 vez
+      max_recipients: '3'
+      },requestCallback);
+    });
+    
+    function requestCallback(response) {
+        $("#invitacion").val(response.to);
+        // agregar vidas via get, solo puede sumar 3 vidas, no puede tener mas de 3 vidas
+        // desactivar boton enviar
+    }
+    
+  });
+</script>
+<div id="ups">
+  <%= link_to "Invitar Amigos", "#", :id => 'invitar2' , :class => 'invitar2 invitar' %>
+  <%= link_to "Compartir", "#", :id => 'compartir2' , :class => 'compartir2 sharefb' %>
+  <a href="/documents/fb_app_sony_codes.pdf" class="bases" target="_blank">Bases</a>
+</div>

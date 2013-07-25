@@ -1,0 +1,49 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $(".continuar").click(function(){
+      if(!$('#checkbox').is(":checked")){
+        alert("Debes aceptar las condiciones del concurso");
+      }else{
+        $("#form_registro").submit();
+      }
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        rut:       { required: true,valrut: $('#rut').val() },
+        telefono:  { required: true },
+        correo:    { required: true,email: true },
+        ciudad:    { required: true }
+      }
+    });
+  });
+</script>
+<div id="registro">
+  <a href="/documents/fb_app_sony_codes.pdf" class="bases" target="_blank">Bases</a>
+  <%= form_tag(fb_app_sony_codes_new_code_path,:id=>:form_registro, :method => "post") do  %>
+    <div class="lista1">
+      <div class="registro01">
+        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
+        <p><%= text_field_tag(:rut, @rut, :class => 'datos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></p>
+        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)") %></p>
+      </div>
+    </div>
+    <div class="lista2">
+      <div class="registro02">
+        <p><%= text_field_tag(:correo, @correo, :class => 'datos') %></p>
+        <div class="txt_nacimiento">Ciudad:</div>
+        <p><%= text_field_tag(:ciudad, @rut, :class => 'datos') %></p>
+      </div>
+      <div class="lista3">
+        <div class="registro03">
+          <div class="txt_bases">Acepto las bases del concurso</div>
+          <input type="checkbox" id="checkbox" class="btn_checkbox">
+        </div>
+      </div>
+    </div>
+    <a href="#" class="continuar"><div class="btn_enviar">Enviar</div></a>
+  <% end %>
+</div>

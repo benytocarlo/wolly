@@ -1,0 +1,264 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	color: #000;
+	background-color: #fff;
+}
+
+#contenido {
+	width: 100%;
+}
+/* Home */
+#home {
+	background-image: url(fb_app_mm_wanted/backg_home.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:660px;
+	position:relative;
+}
+.botonparticipa {
+	width: 168px;
+	height: 35px;
+	display: block;
+	position: absolute;
+	top: 540px;
+	left: 305px;
+	background-image: url(fb_app_mm_wanted/btn_entrar.jpg);
+	text-indent: -9999px;
+}
+.bases {
+	width: 51px;
+	height: 21px;
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-image: url(fb_app_mm_wanted/btn_bases.gif);
+	text-indent: -9999px;
+}
+
+/* No fan */
+#nofan {
+	background-image: url(fb_app_mm_wanted/backg_nofan.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:660px;
+	position:relative;
+}
+
+/* Registro */
+#registro {
+	background-image: url(fb_app_mm_wanted/backg_registro.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:660px;
+	position:relative;
+}
+#registro2 {
+	background-image: url(fb_app_mm_wanted/backg_registro2.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:660px;
+	position:relative;
+}
+.listcodigo{
+	display:block;
+	position:absolute;
+	top: 306px;
+	left: 303px;
+}
+.listcodigo2{
+	display:block;
+	position:absolute;
+	top: 448px;
+	left: 374px;
+}
+.codigo{
+	border:5px solid #c92329;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:16px;
+	color:#000;
+	height:26px;
+	padding-left:5px;
+}
+.registro01 {
+	float:left;
+	width: 220px;
+	height: 180px;
+	position: absolute;
+	left: 195px;
+	top: 369px;
+}
+.seleccion {
+	width: 220px;
+	height:30px;
+	}	
+.registro02 {
+	float: left;
+	width: 230px;
+	height: 120px;
+	position: absolute;
+	left: 415px;
+	top:368px;
+	}
+.registro02 select{
+	background: transparent;
+	padding: 0;
+	font-size: 12px;
+	color:#999;
+	height: 30px;
+	-webkit-appearance: none;
+	overflow: hidden;
+}
+.registro02 .seleccion{
+	width: 68px;
+	padding: 0;
+	height: 23px;
+	background: url(fb_app_mm_wanted/flecha_down.jpg) no-repeat 99% #FFF;
+}
+.registro03 {
+	float: left;
+	width: 230px;
+	height: 50px;
+	position: absolute;
+	left: 415px;
+	top:492px;
+	}
+.txt_nacimiento{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	color:#666;
+	height:15px;
+	width:230px;
+	padding:0 0 5px 0;
+}
+.txt_bases{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:#666;
+	height:15px;
+	width:200px;
+	padding:3px 0 5px 20px;
+}
+.datos{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	color:#999;
+	height:30px;
+	width:200px;
+	padding-left:5px;
+}
+.btn_enviar {
+	float: left;
+	background-image: url(fb_app_mm_wanted/btn_enviar.gif);
+	background-repeat: no-repeat;
+	width: 103px;
+	height: 25px;
+	position: absolute;
+	left: 355px;
+	top: 546px;
+}
+.btn_enviar2 {
+	float: left;
+	background-image: url(fb_app_mm_wanted/btn_enviar.gif);
+	background-repeat: no-repeat;
+	width: 103px;
+	height: 25px;
+	position: absolute;
+	left: 0px;
+	top: 50px;
+}
+.btn_checkbox {
+	position: absolute;
+	left: -1px;
+	top: 0px;
+	}
+
+/* finales */
+#ups {
+	background-image: url(fb_app_mm_wanted/backg_ups.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:660px;
+	position:relative;
+}
+
+#millon {
+	background-image: url(fb_app_mm_wanted/backg_millon.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:660px;
+	position:relative;
+}
+
+#entradas {
+	background-image: url(fb_app_mm_wanted/backg_entradas.jpg);
+	background-repeat: no-repeat;
+	width:810px;
+	margin:0 auto;
+	height:660px;
+	position:relative;
+}
+
+.invitar {
+	width: 138px;
+	height: 35px;
+	display: block;
+	position: absolute;
+	top: 450px;
+	left: 414px;
+	background-image: url(fb_app_mm_wanted/btn_invita.gif);
+	text-indent: -9999px;
+}
+.compartir {
+	width: 138px;
+	height: 35px;
+	display: block;
+	position: absolute;
+	top: 450px;
+	left: 260px;
+	background-image: url(fb_app_mm_wanted/btn_comparte.gif);
+	text-indent: -9999px;
+}
+
+.invitar2 {
+	width: 138px;
+	height: 35px;
+	display: block;
+	position: absolute;
+	top: 525px;
+	left: 414px;
+	background-image: url(fb_app_mm_wanted/btn_invita.gif);
+	text-indent: -9999px;
+}
+.compartir2 {
+	width: 138px;
+	height: 35px;
+	display: block;
+	position: absolute;
+	top: 525px;
+	left: 260px;
+	background-image: url(fb_app_mm_wanted/btn_comparte.gif);
+	text-indent: -9999px;
+}
+#enviar{
+	width: 138px;
+	height: 35px;
+	position: absolute;
+	left: 0px;
+	top: 50px;
+	border: none;
+	text-indent: -9999px;
+	cursor: pointer;
+	background:url(fb_app_mm_wanted/btn_enviar.gif) no-repeat 0 0;
+}
+#registro .error {
+    background: url(alert.jpg) no-repeat 185px 7px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#registro strong{display:none!important;}
+/*-----------------------------*/
