@@ -1,3 +1,4 @@
+#coding: utf-8
 class ParticipantMailer < ActionMailer::Base
   default from: "concurso@mym.com"
 
