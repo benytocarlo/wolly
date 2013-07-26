@@ -26,18 +26,18 @@
   <a href="/documents/fb_app_mm_wanted.pdf" class="bases" target="_blank">Bases</a>
   <%= form_tag(fb_app_mm_wanted_check_respuesta_path,:id=>:form_registro, :method => "post") do  %>
     <div class="listcodigo">
-      <p><input type="text" value="" name="codigo" class="codigo" /></p>
+      <p><%= text_field_tag(:codigo, '', :class => 'codigo', :placeholder => 'Inserte Codigo') %></p>
     </div>
     <div class="lista1">
       <div class="registro01">
-        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
-        <p><%= text_field_tag(:rut, @rut, :class => 'datos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></p>
-        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)") %></p>
+        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)", :placeholder => 'Nombre Completo') %></p>
+        <p><%= text_field_tag(:rut, @rut, :class => 'datos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10", :placeholder => 'Rut') %></p>
+        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)", :placeholder => 'Telefono') %></p>
       </div>
     </div>
     <div class="lista2">
       <div class="registro02">
-        <p><%= text_field_tag(:correo, @correo, :class => 'datos') %></p>
+        <p><%= text_field_tag(:correo, @correo, :class => 'datos', :placeholder => 'Email') %></p>
         <div class="txt_nacimiento">Fecha de Nacimiento:</div>
         <select name="dia" class="seleccion">
           <% (1..31).each do |num| %>

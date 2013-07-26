@@ -259,6 +259,6 @@ body {
 	background:url(fb_app_mm_wanted/btn_enviar.gif) no-repeat 0 0;
 }
 #registro .error {
-    background: url(alert.jpg) no-repeat 185px 7px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+    background: url(alert.jpg) no-repeat 170px 7px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
 #registro strong{display:none!important;}
 /*-----------------------------*/
