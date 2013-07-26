@@ -41,8 +41,11 @@ class FbAppMmWantedController < ApplicationController
       if @result[:codigo] == 0
         redirect_to eval("fb_app_mm_wanted_share_ups_path")
       elsif @result[:codigo] == 1
+        mail_mym_4entradas params[:correo]
         redirect_to eval("fb_app_mm_wanted_share_entradas_path")
+        
       else
+        mail_mym_1millon params[:correo]
         redirect_to eval("fb_app_mm_wanted_share_millon_path")
       end
       @answer = params[:codigo]+"/"+@result[:respuesta].to_s
