@@ -8,6 +8,7 @@
       xfbml  : true  
     });
     FB.Canvas.setSize({ width: <%= width %>, height: <%= height %> });      
+    FB.Event.subscribe('edge.create', function(response){ top.location.href = '<%= "http://www.facebook.com/hmgdev#{@app.fanpage_link}/app_#{@app_id}" %>'; });
   };
   (function(d) {
     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}

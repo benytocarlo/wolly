@@ -3,6 +3,7 @@
 <head>
   <title><%= @app.name %></title>	
   <%= stylesheet_link_tag    "fb_app_sony_codes", :media => "all" %>
+  <%= javascript_include_tag "fb_app_sony_codes" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,6 +12,5 @@
   <div id="contenido">
     <%= yield %>
   </div>
-  <%= javascript_include_tag "fb_app_sony_codes" %>
 </body>
 </html>
