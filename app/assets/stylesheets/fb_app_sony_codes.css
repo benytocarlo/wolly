@@ -1,13 +1,110 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-	padding: 0px;
-	margin: 0px;
-	color: #000;
-	background-color: #fff;
+	line-height: 1;
+	overflow:hidden;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-#contenido {
-	width: 100%;
-}
+/******** Main Styles
+*********************************/
+
+body {font-size: 1.0em; margin: 0; padding: 0; width: 810px; height: 650px; position: relative; top:0px; left:0px;}
+
+a, input[type="submit"]{-webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease;}
+
+a img { border:0px;}
+
+#wrapper { width:810px; height:689px; overflow:hidden; position:relative; background-repeat:no-repeat; background-image:url(fb_app_sony_codes/background.jpg); background-position:top center} 
+
+
+/* Juego */
+
+.game { background-image:url(fb_app_sony_codes/4.jpg) !important; overflow:hidden; color:#FFF;}
+
+.game_content h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto}
+
+.game_content h2 { font-family:Arial, Helvetica, sans-serif; text-align:center; margin-bottom:4px; line-height:21px;}
+.game_content h3 { font-family:Arial, Helvetica, sans-serif; font-size:24px; text-align:center; font-weight:bold; text-transform:uppercase;}
+
+.game_content .contador { position:absolute; top:68px; right:7px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-800px -150px; padding: 46px 43px 65px 48px; font-size: 35px; font-family: arial;}
+
+.game_content .pad {background-image: url(fb_app_sony_codes/sprite.png); background-position: -150px -600px; overflow: hidden; width: 458px; margin: auto; height: 149px; padding-left: 10px; margin-top:182px}
+
+.game_content .intentos{display: block; width: 102px; margin: auto; height: 25px; margin-top: 4px; }
+
+.game_content .intento1, .game_content .intento2, .game_content .intento3 { background-image:url(fb_app_sony_codes/game_sprite.png); }
+.game_content .intento1 { background-position:2px 1px;}
+.game_content .intento2 { background-position:2px -23px;}
+.game_content .intento3 { background-position:2px -48px;}
+
+.game_content .buttonps3{ float:left; padding:15px; width:60px; height:49px; background-image:url(fb_app_sony_codes/blank.png); background-repeat:no-repeat; }
+
+.game_content .buttonps3.cuadrado, .buttonps3.triangulo, .buttonps3.circulo, .buttonps3.equis { background-image:url(fb_app_sony_codes/game_sprite.png)}
+.game_content .buttonps3.cuadrado{ background-position:-47px -350px;}
+.game_content .buttonps3.triangulo{ background-position:-140px -350px;}
+.game_content .buttonps3.equis { background-position:-230px -350px;}
+.game_content .buttonps3.circulo{ background-position:-320px -350px;}
+
+.game_content .control { width:274px; margin:auto;}
+
+.game_content .control .triangulo, .game_content .control .cuadrado, .game_content .control .equis, .game_content .control .circulo { width:68px; height:69px; display:block; float:left; background-image:url(fb_app_sony_codes/buttons_of.png); text-indent:-99999px;}
+.game_content .control .triangulo{ }
+.game_content .control .circulo { background-position:-203px 0px;}
+.game_content .control .equis { background-position:-409px 0px;}
+.game_content .control .cuadrado{background-position:-69px 0px;}
+
+.game_content .control a:hover { background-image:url(fb_app_sony_codes/buttons_hover.png);}
+.game_content .control a:active { background-image:url(fb_app_sony_codes/buttons_click.png);}
+
+.alert { position:absolute; top:0px; left:0px; width:810px; height:630px;  margin-top:61px; background-image:url(fb_app_sony_codes/alert.png); background-position:background-position: 0px -5px;}
+.alert h2 { font-family:Arial, Helvetica, sans-serif; text-align:center; font-size:36px; font-weight:bold; margin-top:130px; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38);}
+.alert .intentos_alert { background-image:url(fb_app_sony_codes/sprite.png); width:160px; height:170px; background-position:-1212px -118px; padding: 50px 64px 76px 56px; text-align: center; font-family: arial; font-weight: bold; font-size: 46px; width: 36px; height: 44px; margin:auto; margin-top:48px;}
+
+.alert_loader { width:25px; height:25px; position:absolute; top:-45px; left:-45px; background-image:url(fb_app_sony_codes/alert.png);}
+
+/* Footer */
+
+#footer { position:absolute; bottom:0px; left:0px; width:100%;}
+#footer .ver_bases { background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -1350px; display:block; text-indent:-9999px; width:80px; height:4px; margin:10px; padding:5px; float:left;}
+#footer .facebook{ float:right; display:block; background-image:url(fb_app_sony_codes/sprite.png); background-position:-250px -1350px; width:80px; height:42px; margin-right:16px; text-indent:-9999px;}
 
 .fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
   display: none !important;

@@ -31,8 +31,9 @@ class FbAppClaroMonsterController < ApplicationController
   end
 
   def share
-    file = params[:file][:tempfile]
+    require 'net/ftp'
     begin
+      file = params[:file]
       if file.size > 500000 then
         redirect_to fb_app_claro_monster_formulario_path, :flash => { :notice => "El archivo es muy grande. Por favor, selecciona un archivo con un peso menor a 300Kb." }
       else  
@@ -54,14 +55,6 @@ class FbAppClaroMonsterController < ApplicationController
         else
           redirect_to fb_app_brother_combo_formulario_path, :flash => { :error => "Faltan campos por llenar." }
         end
-=begin
-        if file.size > 150000 then
-          @bubu = session[:facebook_id] + "_image.jpg"
-          url = 'http://miapp.cl/heroku/pe/script.php?img=' + @bubu
-          Net::HTTP.get_response(URI.parse(url))
-        end
-        redirect url(:images, :edit)
-=end
       end
     rescue
       redirect_to fb_app_claro_monster_formulario_path, :flash => { :notice => "Tienes que elegir un archivo antes de dar clic a Subir archivo." }

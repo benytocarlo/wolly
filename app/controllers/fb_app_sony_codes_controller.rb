@@ -52,7 +52,7 @@ class FbAppSonyCodesController < ApplicationController
       #@result = JSON.parse(open("http://ws-wanted.herokuapp.com/facebook_id/#{@me_from_graph[:id]}/code/#{params[:codigo]}.json").read)
       #@result = @result.deep_symbolize_keys#@result = eval(@result)
       #logger.info "DEBUG: #{@result}"
-      result = 0
+      result = 1
       if result == 0
         # restar un intento al usuario, validar que no quede en negativo el numero de intento
         #redirect_to eval("fb_app_sony_codes_share_ups_path")
@@ -64,12 +64,14 @@ class FbAppSonyCodesController < ApplicationController
             Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "2")
           end
         end
-        render :text => 1
+        if intentos < 1
+          render :text => 1
+        elsif intentos > 0
+          render :text => 1
+        end
       elsif result == 1
-        redirect_to eval("fb_app_sony_codes_share_play_path")
+        render :text => 2
       end
-    else
-      redirect_to fb_app_sony_codes_new_code_path, :flash => { :error => "No ha enviado ningun codigo." } 
     end
   end
 
