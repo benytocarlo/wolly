@@ -168,6 +168,7 @@ Wolly::Application.routes.draw do
   post  "fb_app_claro_monster/canvas"
   get   "fb_app_claro_monster/formulario"
   post  "fb_app_claro_monster/share"
+  get  "fb_app_claro_monster/share"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

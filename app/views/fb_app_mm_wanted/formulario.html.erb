@@ -26,7 +26,7 @@
   <a href="/documents/fb_app_mm_wanted.pdf" class="bases" target="_blank">Bases</a>
   <%= form_tag(fb_app_mm_wanted_check_respuesta_path,:id=>:form_registro, :method => "post") do  %>
     <div class="listcodigo">
-      <p><%= text_field_tag(:codigo, '', :class => 'codigo', :placeholder => 'Inserte Codigo') %></p>
+      <p><%= text_field_tag(:codigo, '', :class => 'codigo', :placeholder => 'Código') %></p>
     </div>
     <div class="lista1">
       <div class="registro01">
@@ -59,7 +59,7 @@
           <option value"12">Diciembre</option>
         </select>
         <select name="anio" class="seleccion">
-          <% (1950..2013).each do |num| %>
+          <% (1950..1999).each do |num| %>
             <option value="<%= num %>"><%= num %></option>
           <% end %>
         </select>

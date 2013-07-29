@@ -15,13 +15,17 @@ class FbAppClaroMonsterController < ApplicationController
       render :nofans
     end
   end
-  
+
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_graph[:first_name]
-      @apellido   = @me_from_graph[:last_name]
-      @correo   = @me_from_database.facebook_email
-      @telefono = @me_from_database.phone
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        redirect_to fb_app_claro_monster_share_path
+      else
+        @nombre   = @me_from_graph[:first_name]
+        @apellido = @me_from_graph[:last_name]
+        @correo   = @me_from_database.facebook_email
+        @telefono = @me_from_database.phone
+      end
     else
       @nombre   = @me_from_graph[:name]
       @apellido   = @me_from_graph[:last_name]
