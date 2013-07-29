@@ -148,7 +148,7 @@ Wolly::Application.routes.draw do
   get   "fb_app_mm_wanted/share_millon"
   get   "fb_app_mm_wanted/share_entradas"
   get   "fb_app_mm_wanted/share_ups"
-  
+
   post   "fb_app_sony_codes"             => "fb_app_sony_codes#index"
   post   "fb_app_sony_codes/canvas"
   get    "fb_app_sony_codes/formulario"
@@ -159,6 +159,11 @@ Wolly::Application.routes.draw do
   get   "fb_app_sony_codes/share_ups"
   get   "fb_app_sony_codes/count"
   
+  post  "fb_app_brother_combo"             => "fb_app_brother_combo#index"
+  post  "fb_app_brother_combo/canvas"
+  get   "fb_app_brother_combo/formulario"
+  post  "fb_app_brother_combo/share"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   

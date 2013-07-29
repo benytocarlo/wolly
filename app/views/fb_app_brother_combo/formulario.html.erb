@@ -1,0 +1,25 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $(".continuar").click(function(){
+      $("#form_registro").submit();
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        apellido:    { required: true },
+        telefono:  { required: true },
+        correo:    { required: true,email: true }
+      }
+    });
+  });
+</script>
+  <%= form_tag(fb_app_brother_combo_share_path,:id=>:form_registro, :method => "post") do  %>
+        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
+        <p><%= text_field_tag(:apellido, @apellido, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
+        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)") %></p>
+        <p><%= text_field_tag(:correo, @correo, :class => 'datos') %></p>
+    <a href="#" class="continuar">Continuar</a>
+  <% end %>

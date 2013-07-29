@@ -1,0 +1,76 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $(".continuar").click(function(){
+      if(!$('#checkbox').is(":checked")){
+        alert("Debes aceptar las condiciones del concurso");
+      }else{
+        $("#form_registro").submit();
+      }
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        rut:       { required: true,valrut: $('#rut').val() },
+        telefono:  { required: true },
+        direccion: { required: true },
+        correo:    { required: true,email: true },
+        codigo:    { required: true }
+      }
+    });
+  });
+</script>
+<div id="registro">
+  <a href="/documents/fb_app_mm_wanted.pdf" class="bases" target="_blank">Bases</a>
+  <%= form_tag(fb_app_mm_wanted_check_respuesta_path,:id=>:form_registro, :method => "post") do  %>
+    <div class="listcodigo">
+      <p><input type="text" value="" name="codigo" class="codigo" /></p>
+    </div>
+    <div class="lista1">
+      <div class="registro01">
+        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
+        <p><%= text_field_tag(:rut, @rut, :class => 'datos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></p>
+        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)") %></p>
+      </div>
+    </div>
+    <div class="lista2">
+      <div class="registro02">
+        <p><%= text_field_tag(:correo, @correo, :class => 'datos') %></p>
+        <div class="txt_nacimiento">Fecha de Nacimiento:</div>
+        <select name="dia" class="seleccion">
+          <% (1..31).each do |num| %>
+            <option value="<%= num %>"><%= num %></option>
+          <% end %>
+        </select>
+        <select name="mes" class="seleccion">
+          <option value"01">Enero</option>
+          <option value"02">Febrero</option>
+          <option value"03">Marzo</option>
+          <option value"04">Abril</option>
+          <option value"05">Mayo</option>
+          <option value"06">Junio</option>
+          <option value"07">Julio</option>
+          <option value"08">Agosto</option>
+          <option value"09">Septiembre</option>
+          <option value"10">Ocutubre</option>
+          <option value"11">Noviembre</option>
+          <option value"12">Diciembre</option>
+        </select>
+        <select name="anio" class="seleccion">
+          <% (1950..2013).each do |num| %>
+            <option value="<%= num %>"><%= num %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="lista3">
+        <div class="registro03">
+          <div class="txt_bases">Acepto las bases del concurso</div>
+          <input type="checkbox" id="checkbox" class="btn_checkbox">
+        </div>
+      </div>
+    </div>
+    <a href="#" class="continuar"><div class="btn_enviar"></div></a>
+  <% end %>
+</div>
