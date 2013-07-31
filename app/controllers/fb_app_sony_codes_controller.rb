@@ -97,9 +97,9 @@ class FbAppSonyCodesController < ApplicationController
       logger.info "DEBUG: Devuelve Intentos #{@result}"
       if @resultado[:respuesta] == "Winner"
         render :text => "win"
-      elsif @resultado[:respuesta] == "Loser" || @resultado[:intentos].to_i <= 0 || @resultado[:intentos].to_i > 3
+      elsif @resultado[:respuesta] == "Loser" && @resultado[:intentos].to_i <= 0 && @resultado[:intentos].to_i > 3
         render :text => "nointentos"
-      elsif @resultado[:respuesta] == "Loser" || @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
+      elsif @resultado[:respuesta] == "Loser" && @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
         render :text => @resultado[:intentos].to_i
       end
     end

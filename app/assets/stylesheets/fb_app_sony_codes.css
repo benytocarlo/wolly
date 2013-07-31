@@ -125,7 +125,7 @@ a img { border:0px;}
 .form .form_content .form_pie { text-align:center; text-transform:uppercase; font-size:12px; width:100%; display:block; margin-top:13px;}
 
 .dk_container { float:left; width:183px; background-image:url(fb_app_sony_codes/select_bg.png); background-repeat:no-repeat; height:28px; position:relative}
-.dk_container .dk_toggle{ height: 25px; display: block; font-size: 13px; padding-left: 33px; line-height: 26px; cursor:pointer;}
+.dk_container .dk_toggle{ height: 25px; display: block; font-size: 13px; padding-left: 33px; line-height: 26px; cursor:pointer;overflow: hidden; width: 195px !important;}
 .dk_container .dk_options { position:absolute; display:none; background-color: #051539; width: 178px; margin-top: 5px; margin-left: 2px;}
 .dk_container .dk_options_inner li:first-child { display:none;} 
 .dk_container .dk_options_inner li { font-size:13px; padding:8px;}
