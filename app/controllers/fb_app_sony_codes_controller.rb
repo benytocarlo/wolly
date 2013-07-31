@@ -34,17 +34,17 @@ class FbAppSonyCodesController < ApplicationController
         @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
         @result = @result.deep_symbolize_keys#@result = eval(@result)
         logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
-        #begin
-          #@graph.put_wall_post("", {
-              #:name => "Sony Codes",
-              #:link => "http://www.facebook.com/SonyChile/app_480454252044047",
-              #:caption => "¡Participa tú también AQUÍ!",
-              #:description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
-              #:picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
-          #}, @me_from_graph[:id])
-        #rescue
-          #@nopost = 1
-        #end
+        begin
+          @graph.put_wall_post("", {
+              :name => "¡Participa en Sony Code!",
+              :link => "http://www.facebook.com/SonyChile/app_480454252044047",
+              :caption => "¡Participa tú también AQUÍ!",
+              :description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
+              :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
+          }, @me_from_graph[:id])
+        rescue
+          @nopost = 1
+        end
       end
     else
       @nombre   = @me_from_graph[:name]
@@ -54,17 +54,17 @@ class FbAppSonyCodesController < ApplicationController
       @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
       @result = @result.deep_symbolize_keys#@result = eval(@result)
       logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
-      #begin
-        #@graph.put_wall_post("", {
-            #:name => "Sony Codes",
-            #:link => "http://www.facebook.com/SonyChile/app_480454252044047",
-            #:caption => "¡Participa tú también AQUÍ!",
-            #:description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
-            #:picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
-        #}, @me_from_graph[:id])
-      #rescue
-        #@nopost = 1
-      #end
+      begin
+        @graph.put_wall_post("", {
+            :name => "¡Participa en Sony Code!",
+            :link => "http://www.facebook.com/SonyChile/app_480454252044047",
+            :caption => "¡Participa tú también AQUÍ!",
+            :description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
+            :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
+        }, @me_from_graph[:id])
+      rescue
+        @nopost = 1
+      end
     end
     regions_of_chile
   end
@@ -82,9 +82,6 @@ class FbAppSonyCodesController < ApplicationController
     @result = @result.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Intentos #{@result}"
     
-    #@premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios/premios.json").read)
-    #@premios = @premios.deep_symbolize_keys#@result = eval(@result)
-    #logger.info "DEBUG: Devuelve Premios ya entregadas #{@result}"
   end
 
   def check_respuesta
@@ -97,11 +94,25 @@ class FbAppSonyCodesController < ApplicationController
       logger.info "DEBUG: Devuelve Intentos #{@result}"
       if @resultado[:respuesta] == "Winner"
         render :text => "win"
-      elsif @resultado[:respuesta] == "Loser" && @resultado[:intentos].to_i <= 0 && @resultado[:intentos].to_i > 3
+      elsif (@resultado[:respuesta] == "Loser") && (@resultado[:intentos].to_i <= 0 || @resultado[:intentos].to_i > 3)
         render :text => "nointentos"
       elsif @resultado[:respuesta] == "Loser" && @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
         render :text => @resultado[:intentos].to_i
       end
+    end
+  end
+  
+  def share_play
+    begin
+      @graph.put_wall_post("", {
+          :name => "¡Soy el ganador de un PlayStation 3!",
+          :link => "http://www.facebook.com/SonyChile/app_480454252044047",
+          :caption => "¡Participa tú también AQUÍ!",
+          :description => "Descifre el Sony código del día y desactive los láser. Esto es vivir en estado Play.",
+          :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
+      }, @me_from_graph[:id])
+    rescue
+      @nopost = 1
     end
   end
 

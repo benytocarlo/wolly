@@ -61,8 +61,8 @@ $(document).ready(function(){
       </div>
       <div class="fila">
         <label>*Teléfono</label>
-        <%= text_field_tag(:codigotel,'', :class => 'input-corto', :onkeypress => "return validanum(event)", :maxlength => "3") %>
-        <%= text_field_tag(:telefono, '', :class => 'input-medio', :onkeypress => "return validanum(event)", :maxlength => "10") %>
+        <%= text_field_tag(:codigotel,'', :class => 'input-corto', :onkeypress => "return validanum(event)", :maxlength => "3", :placeholder => "09") %>
+        <%= text_field_tag(:telefono, '', :class => 'input-medio', :onkeypress => "return validanum(event)", :maxlength => "10", :placeholder => "63831394") %>
       </div>
       <div class="fila">
         <label>*Región</label>
