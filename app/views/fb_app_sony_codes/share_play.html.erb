@@ -1,6 +1,16 @@
-<div id="ups">
-  GANO
-  <%= link_to "Invitar Amigos", "#", :id => 'invitar2' , :class => 'invitar2 invitar' %>
-  <%= link_to "Compartir", "#", :id => 'compartir2' , :class => 'compartir2 sharefb' %>
-  <a href="/documents/fb_app_sony_codes.pdf" class="bases" target="_blank">Bases</a>
+<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
+<div id="wrapper" class="ganaste">
+	<div id="top_bar"><img src="/assets/fb_app_sony_codes/top_bar.jpg" alt="Playstation - Vive en estado play" /></div>
+  <div class="ganaste_content">
+  	<h1>CODE</h1>
+    <h2>¡Felicitaciones!</h2>
+    <h3>Ganaste un PS3</h3>
+    <p class="parrafo_1">Eso es vivir en estado Play, lograste descifrar el<br /> 
+Sony Code del día y desactivar los laser.</p>
+    <p class="parrafo_2">Pronto estaremos en contacto contigo.</p>
+  </div>
+  <div id="footer">
+  	<a href="#" class="ver_bases">Ver las bases</a>
+    <%= link_to "Comparte", "#", :id => 'facebook' , :class => 'facebook sharefb' %>
+  </div>
 </div>

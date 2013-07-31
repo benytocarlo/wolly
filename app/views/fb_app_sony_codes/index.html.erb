@@ -1,15 +1,54 @@
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    $(".botonparticipa").click(function(){
-      FB.login(function(response){
-        if (response.authResponse){
-          location.href = '<%= fb_app_sony_codes_formulario_path %>';
-        }
-      },{scope:'<%= @scope %>'});
-    });
+<script>
+$(document).ready(function(){
+  $(".startbutton").click(function(){
+    FB.login(function(response){
+      if (response.authResponse){
+        location.href = '<%= fb_app_sony_codes_formulario_path %>';
+      }
+    },{scope:'<%= @scope %>'});
+  });
+  $(".startbutton").hover(
+    function () {
+      $('.hands').addClass("hands_move");
+    },
+    function () {
+      $('.hands').removeClass("hands_move");
+    }
+  );
 });
 </script>
-<div id="home">
-  <a href="#" class="botonparticipa">Participa</a>
-  <a href="/documents/fb_app_sony_codes.pdf" class="bases" target="_blank">Bases</a>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".sharefb").click(function(){
+      FB.ui({
+          method: 'feed',
+          name: '¡Participa en Sony Code!',
+          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
+          picture: 'http://wolly.herokuapp.com/assets/<%= controller_path %>/75x75.jpg',
+          caption: '<%= @app.share_caption %>',
+          description: '<%= @app.share_description %>'
+        },
+        function(response) {
+        
+        });
+      return false;
+    });
+    
+  });
+</script>
+<div id="wrapper" class="start">
+	<div id="top_bar"><img src="assets/fb_app_sony_codes/top_bar.jpg" alt="Playstation - Vive en estado play" /></div>
+  <div class="start_content">
+	  <h1>Titulo</h1>
+    <h2>En el día del niño, celebramos todos los que vivimos en estado Play.</br>
+Descifra el código de seguridad para desactivar los láser y </h2>
+    <h3>gana una PlayStation 3 al instante. </h3>
+    <a href="#" class="startbutton">Start</a>
+    <span class="start_load"></span>
+	</div>
+  <div id="footer">
+  	<a href="/documents/fb_app_sony_codes.pdf" class="ver_bases" target="_blank">Ver las bases</a>
+    <%= link_to "Comparte", "#" , :class => "facebook sharefb" %>
+  </div>
+  <div class="hands"></div>
 </div>

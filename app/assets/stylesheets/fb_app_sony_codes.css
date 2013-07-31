@@ -43,6 +43,24 @@ table {
 	border-spacing: 0;
 }
 
+
+@font-face {
+	font-family: 'helvetica-roman';
+	src: url('/assets/fonts/HelveticaNeueLTStd-Roman.eot');
+	src: local('â˜º'), url('/assets/fonts/HelveticaNeueLTStd-Roman.woff') format('woff'), url('/assets/fonts/HelveticaNeueLTStd-Roman.ttf') format('truetype'), url('../fonts/HelveticaNeueLTStd-Roman.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'helvetica-bold';
+	src: url('/assets/fonts/HelveticaNeueLTStd-Bd.eot');
+	src: local('â˜º'), url('/assets/fonts/HelveticaNeueLTStd-Bd.woff') format('woff'), url('/assets/fonts/HelveticaNeueLTStd-Bd.ttf') format('truetype'), url('../fonts/HelveticaNeueLTStd-Bd.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 /******** Main Styles
 *********************************/
 
@@ -52,17 +70,77 @@ a, input[type="submit"]{-webkit-transition: all 200ms ease; -moz-transition: all
 
 a img { border:0px;}
 
-#wrapper { width:810px; height:689px; overflow:hidden; position:relative; background-repeat:no-repeat; background-image:url(fb_app_sony_codes/background.jpg); background-position:top center} 
+#wrapper { width:810px; height:689px; overflow:hidden; position:relative; background-repeat:no-repeat; background-image:url(fb_app_sony_codes/background.jpg); background-position:top center; color:#FFF;} 
 
+
+/* NoFan */
+
+.nofan { background-image:url(fb_app_sony_codes/1.jpg) !important; overflow:hidden; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38); }
+
+.nofan h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto; margin-top:131px;}
+.nofan h2 { font-family:'helvetica-bold', Arial; font-size:24px; text-transform:uppercase; text-align:center; font-weight:bold; margin-top:20px ;}
+.nofan h3 { font-family:'helvetica-roman', Arial, Helvetica, sans-serif; font-size:16px; text-align:center; margin-top:5px;}
+.nofan .boton_fan {  width:134px; height:55px; margin:auto; display:block; margin-top:40px; overflow:hidden; background-image:url(fb_app_sony_codes/sprite.png); background-position:-733px -800px;}
+.nofan .boton_fan:hover { opacity: 0.5;}
+.nofan .boton_fan .btn_facebook{width: 71px; display: block; overflow: hidden; margin: auto; margin-top:15px;}
+
+/* Start */
+
+.start { background-image:url(fb_app_sony_codes/4.jpg) !important; overflow:hidden;}
+
+.start h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto}
+
+.start h2 {  font-family:'helvetica-roman', Arial, Helvetica, sans-serif; text-align:center; margin-bottom:4px; line-height:19px; max-width:550px; margin:auto; margin-bottom:4px; margin-top:-5px;}
+.start h3 { font-family:'helvetica-bold', Arial, Helvetica, sans-serif; font-size:24px; text-align:center; font-weight:bold; text-transform:uppercase;  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38);}
+.start .startbutton { background-image:url(fb_app_sony_codes/start_of.png); background-position:center center; background-repeat:no-repeat; width:126px; height:124px; margin:auto; display:block; text-indent:-9999px; margin-top:20px;}
+.start .startbutton:hover { background-image:url(fb_app_sony_codes/start_on.png);/* transform:rotate(360deg); -ms-transform:rotate(360deg); -webkit-transform:rotate(360deg); */}
+
+.start .hands { position:absolute; bottom:-300px; left:196px; width:413px; height:313px; background-image:url(fb_app_sony_codes/hands.png); -webkit-transition: all 200ms ease; -moz-transition: all 200ms ease; -ms-transition: all 200ms ease; -o-transition: all 200ms ease; transition: all 200ms ease;}
+
+.start .hands_move { bottom:-78px !important;}
+
+.start .start_load {width:25px; height:25px; position:absolute; top:-45px; left:-45px; background-image:url(fb_app_sony_codes/start_on.png)}
+
+
+/* form */
+
+.form { background-image:url(fb_app_sony_codes/3.jpg) !important; overflow:hidden; font-family:Arial, Helvetica, sans-serif;}
+.form .form_content { width:450px; margin:auto; margin-top:200px;}
+.form .form_content h2 {font-family:'helvetica-roman', Arial, Helvetica, sans-serif; text-align:center; margin-bottom:4px; font-size:15px; }
+.form .form_content h3 {font-family:'helvetica-bold', Arial, Helvetica, sans-serif; font-size:17px; text-align:center; font-weight:bold; text-transform:uppercase;}
+
+.form .form_content .fila{ float:left; width:100%;}
+.form .form_content form { font-family:'helvetica-roman', Arial; margin-top:25px; padding:0px 35px; margin: auto; margin-top: 19px; width:315px; height:143px;}
+.form .form_content label{ float:left; font-size:11px; text-transform:uppercase; width:120px; line-height:30px; margin-right:8px;}
+
+.form .form_content input { float:left; background-image:url(fb_app_sony_codes/input_form.png); background-repeat:no-repeat; background-color:transparent; border:0px; padding: 6px 13px; width:160px; color:#FFF;}
+.form .form_content input.error { background-position:0px -33px; color:#051735}
+
+.form .form_content .input-corto { width:31px; background-image:url(fb_app_sony_codes/input_form_chico.png); margin-left:2px;}
+.form .form_content .input-medio { width:99px; background-image:url(fb_app_sony_codes/input_form_medio.png); margin-left:3px;}
+
+.form .form_content .participar{ display:block; margin:auto; width:177px; height:70px; text-indent:-9999px; background-image:url(fb_app_sony_codes/participar.png);}
+.form .form_content .participar:hover { background-image:url(fb_app_sony_codes/participar_ON.png)}
+
+.form .form_content .form_pie { text-align:center; text-transform:uppercase; font-size:12px; width:100%; display:block; margin-top:13px;}
+
+.dk_container { float:left; width:183px; background-image:url(fb_app_sony_codes/select_bg.png); background-repeat:no-repeat; height:28px; position:relative}
+.dk_container .dk_toggle{ height: 25px; display: block; font-size: 13px; padding-left: 33px; line-height: 26px; cursor:pointer;overflow: hidden; width: 195px !important;}
+.dk_container .dk_options { position:absolute; display:none; background-color: #051539; width: 178px; margin-top: 5px; margin-left: 2px;}
+.dk_container .dk_options_inner li:first-child { display:none;} 
+.dk_container .dk_options_inner li { font-size:13px; padding:8px;}
+.dk_container .dk_options_inner li a{ cursor:pointer }
+
+.dk_options_inner { max-height:165px; overflow:auto; font-size:12px;}
 
 /* Juego */
 
-.game { background-image:url(fb_app_sony_codes/4.jpg) !important; overflow:hidden; color:#FFF;}
+.game { background-image:url(fb_app_sony_codes/4.jpg) !important; overflow:hidden;}
 
 .game_content h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto}
 
-.game_content h2 { font-family:Arial, Helvetica, sans-serif; text-align:center; margin-bottom:4px; line-height:21px;}
-.game_content h3 { font-family:Arial, Helvetica, sans-serif; font-size:24px; text-align:center; font-weight:bold; text-transform:uppercase;}
+.game_content h2 { font-family:'helvetica-roman', Arial, Helvetica, sans-serif; text-align:center; margin-bottom:4px; line-height:19px; margin-top:-6px;}
+.game_content h3 { font-family:'helvetica-bold', Arial, Helvetica, sans-serif; font-size:24px; text-align:center; font-weight:bold; text-transform:uppercase;}
 
 .game_content .contador { position:absolute; top:68px; right:7px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-800px -150px; padding: 46px 43px 65px 48px; font-size: 35px; font-family: arial;}
 
@@ -91,21 +169,56 @@ a img { border:0px;}
 .game_content .control .equis { background-position:-409px 0px;}
 .game_content .control .cuadrado{background-position:-69px 0px;}
 
-.game_content .control a:hover { background-image:url(fb_app_sony_codes/buttons_hover.png);}
-.game_content .control a:active { background-image:url(fb_app_sony_codes/buttons_click.png);}
+.game_content .control a:hover { background-image:url(fb_app_sony_codes/buttons_click.png);}
+.game_content .control a:active { background-image:url(fb_app_sony_codes/buttons_hover.png);}
 
-.alert { position:absolute; top:0px; left:0px; width:810px; height:630px;  margin-top:61px; background-image:url(fb_app_sony_codes/alert.png); background-position:background-position: 0px -5px;}
-.alert h2 { font-family:Arial, Helvetica, sans-serif; text-align:center; font-size:36px; font-weight:bold; margin-top:130px; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38);}
-.alert .intentos_alert { background-image:url(fb_app_sony_codes/sprite.png); width:160px; height:170px; background-position:-1212px -118px; padding: 50px 64px 76px 56px; text-align: center; font-family: arial; font-weight: bold; font-size: 46px; width: 36px; height: 44px; margin:auto; margin-top:48px;}
+.alert { position:absolute; top:0px; left:0px; width:810px; height:630px;  margin-top:61px; background-image:url(fb_app_sony_codes/alert.png); background-position: 0px -5px; opacity:0.93; display:none;}
+.alert h2 { font-family:'helvetica-bold', Arial, Helvetica, sans-serif; text-align:center; font-size:36px; font-weight:bold; margin-top:130px; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38); text-transform:uppercase;}
+.alert .intentos_alert { background-image:url(fb_app_sony_codes/sprite.png); width:160px; height:170px; background-position:-1212px -118px; padding: 50px 64px 76px 56px; text-align: center; font-family:'helvetica-bold', arial; font-weight: bold; font-size: 46px; width: 36px; height: 44px; margin:auto; margin-top:48px;}
+
+.alert_amigos { position:absolute; top:0px; left:0px; width:810px; height:630px;  margin-top:61px; background-image:url(fb_app_sony_codes/alert_amigos.png); background-position: 0px -5px; font-family:Arial, Helvetica, sans-serif;}
+.alert_amigos h2{ font-family:'helvetica-bold', Arial; text-align:center; width:500px; margin:auto; margin-top:230px; font-size:24px; text-transform:uppercase; font-weight:bold;}
+.alert_amigos p{ font-family:'helvetica-roman', Arial; width:350px; margin:auto; text-align:center; margin-top:10px; font-size:14px; line-height:16px;}
+.alert_amigos .invitar_amigos { display:block; width:301px; height:77px; margin:auto; background-image:url(fb_app_sony_codes/invitar_of.png); margin-top:21px; text-indent:-9999px;}
+.alert_amigos .invitar_amigos:hover { background-image:url(fb_app_sony_codes/invitar_ON.png);}
+.alert_amigos .close_amigos { position:absolute; top:127px; right:151px; display:block; width:39px; height:27px; text-indent:-9999px; cursor:pointer;}
 
 .alert_loader { width:25px; height:25px; position:absolute; top:-45px; left:-45px; background-image:url(fb_app_sony_codes/alert.png);}
+
+/* Ganaste */
+
+.ganaste { background-image:url(fb_app_sony_codes/fondo_win.jpg) !important; overflow:hidden; font-family:Arial, Helvetica, sans-serif;}
+.ganaste .ganaste_content { text-align:center}
+.ganaste_content h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto}
+.ganaste_content h2 { font-family:'helvetica-bold', Arial, Helvetica, sans-serif; text-align: center; margin-bottom: 4px;  font-size: 23px; text-transform: uppercase; font-weight: bold; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38)}
+.ganaste_content h3 { font-family:'helvetica-roman', Arial, Helvetica, sans-serif; text-align: center; margin-bottom: 4px;; font-size: 23px; text-transform: uppercase; margin-bottom:320px; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38);}
+.ganaste_content .parrafo_1{ line-height:20px; margin-bottom:15px;}
+.ganaste_content .parrafo_2 { font-size:13px;}
+
+/* Counter */
+
+.counter { background-image:url(fb_app_sony_codes/1.jpg) !important; overflow:hidden; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38); font-family:Arial, Helvetica, sans-serif; }
+
+.counter h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto;  margin-top:7px;}
+.counter h2 { font-family:'helvetica-bold', Arial, Helvetica, sans-serif; font-size:24px; text-transform:uppercase; text-align:center; font-weight:bold; margin:auto; margin-top:5px; width:322px; margin-bottom:8px;}
+.counter h3 { font-family:'helvetica-roman', Arial, Helvetica, sans-serif; font-size:18px; text-align:center; margin:auto; margin-top:5px; width:630px; margin-bottom:8px; line-height:21px;}
+
+.counter .ps3_quedan {width: 52px; height: 80px; margin: auto; background-image: url(fb_app_sony_codes/sprite.png);
+background-position: -1250px -500px; font-size: 41px; font-family: Arial; padding: 57px;}
+
+.counter .counter_wrapper { width:300px; height:124px; margin:auto; background-image:url(fb_app_sony_codes/sprite.png); background-position:-1050px -1100px;} 
+.counter .counter_wrapper .counter_title { display:none;} 
+
+.counter .counter_wrapper .dacounter { font-family: 'Open Sans', sans-serif; font-weight:300; color:#25cfd7 }
+
+.counter .counter_wrapper .Horas {font-size: 56px; padding: 27px 19px;display: block; width: 67px; margin: 0px; float: left; text-align:center;}
+.counter .counter_wrapper .Minutos {font-size: 56px; padding: 27px 13px;  display: block; width: 69px; margin: 0px; float: left; text-align:center; }
+.counter .counter_wrapper .Segundos {font-size: 22px; padding: 27px 13px;  display: block; width: 51px; margin: 0px; float: left; text-align:center; padding-top: 54px;}
 
 /* Footer */
 
 #footer { position:absolute; bottom:0px; left:0px; width:100%;}
-#footer .ver_bases { background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -1350px; display:block; text-indent:-9999px; width:80px; height:4px; margin:10px; padding:5px; float:left;}
+#footer .ver_bases { background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -1350px; display:block; text-indent:-9999px; width:80px; height:4px; margin-top: 14px; padding:5px; float:left; margin-left:25px;}
 #footer .facebook{ float:right; display:block; background-image:url(fb_app_sony_codes/sprite.png); background-position:-250px -1350px; width:80px; height:42px; margin-right:16px; text-indent:-9999px;}
 
-.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
-  display: none !important;
-}
+.form .fila strong { display:none !important;} 
