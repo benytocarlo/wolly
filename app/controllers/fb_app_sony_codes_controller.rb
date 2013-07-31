@@ -74,14 +74,14 @@ class FbAppSonyCodesController < ApplicationController
     else
       @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
     end
+    
     @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intento/facebook_id/#{@me_from_graph[:id]}.json").read)
     @result = @result.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Intentos #{@result}"
     
-    @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios/premios.json").read)
-    @premios = @premios.deep_symbolize_keys#@result = eval(@result)
-    logger.info "DEBUG: Devuelve Premios ya entregadas #{@result}"
-    
+    #@premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios/premios.json").read)
+    #@premios = @premios.deep_symbolize_keys#@result = eval(@result)
+    #logger.info "DEBUG: Devuelve Premios ya entregadas #{@result}"
   end
 
   def check_respuesta
@@ -89,20 +89,17 @@ class FbAppSonyCodesController < ApplicationController
     require 'json'
     if params[:code].present? 
       
-      @intentos = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/codigo/facebook_id/#{@me_from_graph[:id]}/code/#{params[:code]}.json").read)
-      @intentos = @intentos.deep_symbolize_keys#@result = eval(@result)
-      logger.info "DEBUG: Devuelve Intentos #{@result}"
-      
-      if @intentos[:resultado].to_i > 0 && @intentos[:resultado].to_i <= 3    
-        if @result[:resultado]=="Valido"
-          render :text => 2
-        elsif @result[:resultado]=="Invalido"
-          # restar un intento al usuario, validar que no quede en negativo el numero de intento
-          render :text => "intento1"
-        end
-      elsif @intentos[:resultado].to_i == 0 || @intentos[:resultado].to_i < 0
-        render :text => 1
-      end
+      #@resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/codigo/facebook_id/#{@me_from_graph[:id]}/code/#{params[:code]}.json").read)
+      #@resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
+      #logger.info "DEBUG: Devuelve Intentos #{@result}"
+      #if @resultado[:resultado] == "Gano"
+        #render :text => 2
+      #elsif @resultado[:intentos].to_i <= 0 || @resultado[:intentos].to_i > 3
+        #render :text => "sinintentos"
+      #elsif @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
+        #render :text => "tieneintentos"
+      #end
+      render :text => "tieneintentos"
     end
   end
 
