@@ -18,6 +18,8 @@ class FbAppSonyCodesController < ApplicationController
   end
   
   def formulario
+    require 'open-uri'
+    require 'json'
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
         redirect_to fb_app_sony_codes_count_path
@@ -69,6 +71,8 @@ class FbAppSonyCodesController < ApplicationController
   end
   
   def new_code
+    require 'open-uri'
+    require 'json'
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
     else
