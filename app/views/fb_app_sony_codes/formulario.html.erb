@@ -1,49 +1,76 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<%= javascript_include_tag "jquery.dropkick" %>
+<script>
+$(document).ready(function(){    
+  $('.custom_theme').dropkick({
+    theme: 'black',
+    change: function (value, label) {
+      $(this).dropkick('theme', value);
+    }
+  });
+  $('.dk_toggle').click(function(){
+    $('.dk_options').slideToggle('fast');
+  });
+  $('.dk_options_inner li a').click(function(){
+    $('.dk_options').hide();		  
+  });
+});
+</script>
 <%= javascript_include_tag "jquery.validate" %>
 <%= render :partial => "layouts/validator2" %>
 <script>
   $(document).ready(function(){
-    $(".continuar").click(function(){
-      if(!$('#checkbox').is(":checked")){
-        alert("Debes aceptar las condiciones del concurso");
-      }else{
-        $("#form_registro").submit();
-      }
+    
+    $(".participar").click(function(){
+      $("#enviar").click();
+    });
+    
+    $("#enviar").click(function(){
+      $("#form_registro").submit();
     });
 
     $("#form_registro").validate({
       rules: {
         nombre:    { required: true },
-        rut:       { required: true,valrut: $('#rut').val() },
         telefono:  { required: true },
+        codigotel: { required: true },
         correo:    { required: true,email: true },
-        ciudad:    { required: true }
+        region:    { required: true }
+      },
+      invalidHandler: function(form, validator) {
+        $(".error").attr("placeholder","Falta información");
+        $("#codigotel").attr("placeholder","");
       }
     });
+
   });
 </script>
-<div id="registro">
-  <a href="/documents/fb_app_sony_codes.pdf" class="bases" target="_blank">Bases</a>
-  <%= form_tag(fb_app_sony_codes_new_code_path,:id=>:form_registro, :method => "post") do  %>
-    <div class="lista1">
-      <div class="registro01">
-        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
-        <p><%= text_field_tag(:rut, @rut, :class => 'datos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></p>
-        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)") %></p>
+<div id="wrapper" class="form">
+  <div id="top_bar"><img src="/assets/fb_app_sony_codes/top_bar.jpg" alt="Playstation - Vive en estado play" /></div>
+  <div class="form_content">
+    <h2>Completa el formulario para adivinar el Sony Code del día </h2>
+    <h3>y podrás ganar una PlayStation 3 al instante</h3>
+    <%= form_tag(fb_app_sony_codes_new_code_path,:id=>:form_registro, :method => "post") do  %>
+      <div class="fila">
+        <label>*Nombre/Apellido</label>
+        <%= text_field_tag(:nombre, @nombre, :class => 'nombre', :onkeypress => "return validatxt(event)") %>
       </div>
-    </div>
-    <div class="lista2">
-      <div class="registro02">
-        <p><%= text_field_tag(:correo, @correo, :class => 'datos') %></p>
-        <div class="txt_nacimiento">Ciudad:</div>
-        <p><%= text_field_tag(:ciudad, @rut, :class => 'datos') %></p>
+      <div class="fila">
+        <label>*Mail</label>
+        <%= text_field_tag(:correo, @correo, :class => 'mail') %>
       </div>
-      <div class="lista3">
-        <div class="registro03">
-          <div class="txt_bases">Acepto las bases del concurso</div>
-          <input type="checkbox" id="checkbox" class="btn_checkbox">
-        </div>
+      <div class="fila">
+        <label>*Telefono</label>
+        <%= text_field_tag(:codigotel,'', :class => 'input-corto', :onkeypress => "return validanum(event)") %>
+        <%= text_field_tag(:telefono, '', :class => 'input-medio', :onkeypress => "return validanum(event)") %>
       </div>
-    </div>
-    <a href="#" class="continuar"><div class="btn_enviar">Enviar</div></a>
-  <% end %>
+      <div class="fila">
+        <label>*Región</label>
+        <%= select_tag :region,options_for_select(@regiones),:class => "custom_theme",:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%>
+      </div>
+      <input type="submit" id="enviar" style="display:none">
+    <% end %>
+    <a href="#" class="participar">Participar</a>
+    <span class="form_pie">*todos los campos son requeridos</span>
+  </div>
 </div>

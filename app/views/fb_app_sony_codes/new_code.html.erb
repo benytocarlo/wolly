@@ -1,8 +1,6 @@
-<script>
-  /*$(document).bind("contextmenu",function(e){
-    e.preventDefault();
-  });*/
+<script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
+    
     function borrar(){
       $(".pad label").each(function() {
         $(this).removeAttr("class");
@@ -20,15 +18,31 @@
         var valcod = $(".codigo").val();
         $(".codigo").val(valcod+valboton);
         var vallength = $(".codigo").val().length;
-        if(vallength==0){
+        if(vallength==5){
           var valcodigo = $(".codigo").val();
-          borrar();
-          $.ajax({url: 'check_respuesta',type: 'get',data: "code="+valcodigo,
+          $.ajax({url: 'check_respuesta',type: 'post',data: "code="+valcodigo,
            success: function( resp ) {
-             if(resp==1){
-               $(".alert").fadeIn("slow");
-               $(".alert").fadeOut(1200);
-             }else if(resp==2){
+             borrar();
+             resp ="intento1"
+             if(resp==0){
+               $(".alert").fadeIn(2200);
+               $(".alert").fadeOut("slow");
+             } else if(resp=="intento1"){
+               $(".alert").fadeIn(2200);
+               $(".alert").fadeOut("slow");
+               $(".intentos").addClass(resp);
+               $(".intentos_alert").html("1");
+             } else if(resp=="intento2"){
+               $(".alert").fadeIn(2200);
+               $(".alert").fadeOut("slow");
+               $(".intentos").addClass(resp);
+               $(".intentos_alert").html("2");
+             } else if(resp=="intento0"){
+               $(".alert").fadeIn(2200);
+               $(".alert").fadeOut("slow");
+               $(".alert_amigos").fadeIn("slow");
+               $(".intentos_alert").html("0"); 
+             } else if(resp==2){
                location.href = '/fb_app_sony_codes/share_play';
              }
            }
@@ -36,6 +50,38 @@
         }
       });
     });
+  
+    $(".sharefb").click(function(){
+      FB.ui({
+          method: 'feed',
+          name: '<%= @app.name %>',
+          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
+          picture: 'http://wolly.herokuapp.com/assets/<%= controller_path %>/75x75.jpg',
+          caption: '<%= @app.share_caption %>',
+          description: '<%= @app.share_description %>'
+        },
+        function(response) {
+        
+        });
+      return false;
+    });
+    
+    
+    $(".invitar_amigos").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: 'asdasdas',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+            exclude_ids: [1155649748],
+      max_recipients: '3'
+      },requestCallback);
+    });
+    
+    function requestCallback(response) {
+        $("#invitacion").val(response.to);
+        // agregar vidas via get, solo puede sumar 3 vidas, no puede tener mas de 3 vidas
+        // desactivar boton enviar
+    }
   });
 </script>
 <div id="wrapper" class="game">
@@ -64,11 +110,19 @@
 	</div>
   <div id="footer">
     <%= link_to "Ver bases legales", "/documents/fb_app_sony_codes.pdf" , :class => "ver_bases", :target => "_blank" %>
-    <%= link_to "Comparte", "#" , :class => "facebook" %>
+    <%= link_to "Comparte", "#" , :class => "facebook sharefb" %>
   </div>  
   <div class="alert" style="display:none">
   	<h2>¡Codigo Incorrecto!</h2>
-      <div class="intentos_alert">3</div>
+    <div class="intentos_alert">3</div>
+  </div>
+  <div class="alert_amigos" style="display:none">
+    <h2>¡Ya haz agotado tus intentos!</h2>
+    <p>Invita a tus amigos para conseguir 3 intentos más 
+y seguir participando. Recuerda sólo podrás invitar a 
+3 amigos cada vez.</p>
+		<a href="#" class="invitar_amigos invitar">Invitar amigos</a>
+    <span class="close_amigos">close</span>
   </div>
   <div class="alert_loader"></div>
 </div>

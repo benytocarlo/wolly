@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title><%= @app.name %></title>	
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "fb_app_sony_codes", :media => "all" %>
   <%= javascript_include_tag "fb_app_sony_codes" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '1265', :height => '660' } %>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '1265', :height => '690' } %>
   <%= render "layouts/ga" %>
   <div id="contenido">
     <%= yield %>

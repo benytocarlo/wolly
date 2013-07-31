@@ -7,7 +7,8 @@ class FbAppSonyCodesController < ApplicationController
   before_filter :load_graph_api
   before_filter :load_facebook_user, :except => [:index, :canvas]
   before_filter :load_fanpage, :except => [:canvas]
-
+  include ApplicationHelper
+  
   def index
     if session[:signed_request][:page][:liked]
       render :index
@@ -35,6 +36,21 @@ class FbAppSonyCodesController < ApplicationController
       @rut      = ""
       @telefono = ""
     end
+    regions_of_chile
+    #begin
+      #@graph.put_wall_post("", {
+          #:name => "Sony Codes",
+          #:link => "http://www.facebook.com/SonyChile/app_480454252044047",
+          #:caption => "¡Participa tú también AQUÍ!",
+          #:description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
+          #:picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
+      #}, @me_from_graph[:id])
+    #rescue
+      #@nopost = 1
+    #end
+    @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
+    @result = @result.deep_symbolize_keys#@result = eval(@result)
+    logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
   end
   
   def new_code
@@ -52,7 +68,7 @@ class FbAppSonyCodesController < ApplicationController
       #@result = JSON.parse(open("http://ws-wanted.herokuapp.com/facebook_id/#{@me_from_graph[:id]}/code/#{params[:codigo]}.json").read)
       #@result = @result.deep_symbolize_keys#@result = eval(@result)
       #logger.info "DEBUG: #{@result}"
-      result = 1
+      result = 0
       if result == 0
         # restar un intento al usuario, validar que no quede en negativo el numero de intento
         #redirect_to eval("fb_app_sony_codes_share_ups_path")
@@ -64,13 +80,17 @@ class FbAppSonyCodesController < ApplicationController
             Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "2")
           end
         end
-        if intentos < 1
-          render :text => 1
-        elsif intentos > 0
-          render :text => 1
-        end
+        render :text => 0
       elsif result == 1
         render :text => 2
+      elsif result == "intento1"
+        render :text => "intento1"
+      elsif result == "intento2"
+        render :text => "intento2"
+      elsif result == "intento3"
+        render :text => "intento3"  
+      elsif result == "intento0"
+        render :text => "intento0"
       end
     end
   end
