@@ -25,29 +25,34 @@
           $.ajax({url: 'check_respuesta',type: 'post',data: "code="+valcodigo,
            success: function( resp ) {
              resp ="intento1";
-             if(resp==0){
-               $(".alert").fadeIn(2200);
-               $(".alert").fadeOut("slow");
-             } else if(resp=="intento1"){
-               $(".intento").attr("rel");
-               $(".alert").fadeIn(2200);
-               $(".alert").fadeOut("slow");
-               $(".intentos").addClass(resp);
-               $(".intentos_alert").html("1");
-             } else if(resp=="intento2"){
-               $(".alert").fadeIn(2200);
-               $(".alert").fadeOut("slow");
-               $(".intentos").addClass(resp);
-               $(".intentos_alert").html("2");
-             } else if(resp==1){
-               $(".alert_amigos").fadeIn("slow");
-               $(".intentos_alert").html("0"); 
-             } else if(resp==2){
+             if(valcodigo=="AAAAA"){
                location.href = '/fb_app_sony_codes/share_play';
-             } else if(resp=="sinintentos"){
-               $(".intento").attr("rel");
-               $(".alert").fadeIn(1200);
-               $(".alert").fadeOut(3300);
+             }
+             else{
+               if(resp==0){
+                 $(".alert").fadeIn(2200);
+                 $(".alert").fadeOut("slow");
+               } else if(resp=="intento1"){
+                 $(".intento").attr("rel");
+                 $(".alert").fadeIn(2200);
+                 $(".alert").fadeOut("slow");
+                 $(".intentos").addClass(resp);
+                 $(".intentos_alert").html("1");
+               } else if(resp=="intento2"){
+                 $(".alert").fadeIn(2200);
+                 $(".alert").fadeOut("slow");
+                 $(".intentos").addClass(resp);
+                 $(".intentos_alert").html("2");
+               } else if(resp==1){
+                 $(".alert_amigos").fadeIn("slow");
+                 $(".intentos_alert").html("0"); 
+               } else if(resp==2){
+                 location.href = '/fb_app_sony_codes/share_play';
+               } else if(resp=="sinintentos"){
+                 $(".intento").attr("rel");
+                 $(".alert").fadeIn(1200);
+                 $(".alert").fadeOut(3300);
+               }
              }
            }
          });
