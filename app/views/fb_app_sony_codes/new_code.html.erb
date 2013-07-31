@@ -19,6 +19,7 @@
         $(".codigo").val(valcod+valboton);
         var vallength = $(".codigo").val().length;
         if(vallength==5){
+          var intento = $(".intento").attr("rel",valcodigo-1);
           var valcodigo = $(".codigo").val();
           $.ajax({url: 'check_respuesta',type: 'post',data: "code="+valcodigo,
            success: function( resp ) {
@@ -28,6 +29,7 @@
                $(".alert").fadeIn(2200);
                $(".alert").fadeOut("slow");
              } else if(resp=="intento1"){
+               $(".intento").attr("rel");
                $(".alert").fadeIn(2200);
                $(".alert").fadeOut("slow");
                $(".intentos").addClass(resp);
@@ -37,9 +39,7 @@
                $(".alert").fadeOut("slow");
                $(".intentos").addClass(resp);
                $(".intentos_alert").html("2");
-             } else if(resp=="intento0"){
-               $(".alert").fadeIn(2200);
-               $(".alert").fadeOut("slow");
+             } else if(resp==1){
                $(".alert_amigos").fadeIn("slow");
                $(".intentos_alert").html("0"); 
              } else if(resp==2){
@@ -91,9 +91,9 @@
         <h2>Ingresa el código de seguridad para desactivar<br />los láser y gana una PlayStation 3 por día. </h2>
         <p id="notice"><%= flash[:error] %></p>
         <h3>¡tienes sólo 3 oportunidades!</h3>
-        <div class="contador">10</div>
+        <div class="contador"><%= @premios[:premios].to_i - 10 %></div>
         <div class="pad">
-	      <div class="intentos intento1"></div>
+	      <div class="intentos intento<%= @result[:intentos] %>" rel="<%= @result[:intentos] %>"></div>
           <label class="buttonps3 inactive" rel="1"></label>
           <label class="buttonps3 inactive" rel="2"></label>
           <label class="buttonps3 inactive" rel="3"></label>
