@@ -60,13 +60,13 @@ $(document).ready(function(){
         <%= text_field_tag(:correo, @correo, :class => 'mail') %>
       </div>
       <div class="fila">
-        <label>*Telefono</label>
-        <%= text_field_tag(:codigotel,'', :class => 'input-corto', :onkeypress => "return validanum(event)") %>
-        <%= text_field_tag(:telefono, '', :class => 'input-medio', :onkeypress => "return validanum(event)") %>
+        <label>*Teléfono</label>
+        <%= text_field_tag(:codigotel,'', :class => 'input-corto', :onkeypress => "return validanum(event)", :maxlength => "3") %>
+        <%= text_field_tag(:telefono, '', :class => 'input-medio', :onkeypress => "return validanum(event)", :maxlength => "10") %>
       </div>
       <div class="fila">
         <label>*Región</label>
-        <%= select_tag :region,options_for_select(@regiones),:class => "custom_theme",:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%>
+        <%= select_tag :region,options_for_select(@regiones),:class => "custom_theme",:prompt => "Selecciona tu región",:onChange => 'check(this.options[this.selectedIndex].value);'%>
       </div>
       <input type="submit" id="enviar" style="display:none">
     <% end %>

@@ -1,4 +1,3 @@
-<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
 <script>
 $(document).ready(function(){
   $(".startbutton").click(function(){
@@ -18,11 +17,30 @@ $(document).ready(function(){
   );
 });
 </script>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".sharefb").click(function(){
+      FB.ui({
+          method: 'feed',
+          name: '¡Participa en Sony Code!',
+          link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
+          picture: 'http://wolly.herokuapp.com/assets/<%= controller_path %>/75x75.jpg',
+          caption: '<%= @app.share_caption %>',
+          description: '<%= @app.share_description %>'
+        },
+        function(response) {
+        
+        });
+      return false;
+    });
+    
+  });
+</script>
 <div id="wrapper" class="start">
 	<div id="top_bar"><img src="assets/fb_app_sony_codes/top_bar.jpg" alt="Playstation - Vive en estado play" /></div>
   <div class="start_content">
 	  <h1>Titulo</h1>
-    <h2>En el día del niño, celebramos todos los que vivimos en estado Play. 
+    <h2>En el día del niño, celebramos todos los que vivimos en estado Play.</br>
 Descifra el código de seguridad para desactivar los láser y </h2>
     <h3>gana una PlayStation 3 al instante. </h3>
     <a href="#" class="startbutton">Start</a>

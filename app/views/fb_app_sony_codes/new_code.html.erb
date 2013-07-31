@@ -7,6 +7,9 @@
         $(this).addClass("buttonps3 inactive");
       });
     }
+    $(".close_amigos").click(function(){
+      $(".alert_amigos").fadeOut();
+    });
     
     $(".control a").click(function(){
       var valboton = $(this).attr("rel");
@@ -20,39 +23,20 @@
         if(vallength==5){
           var intento = $(".intento").attr("rel",valcodigo-1);
           var valcodigo = $(".codigo").val();
-          borrar();
-          $(".codigo").val("");
           $.ajax({url: 'check_respuesta',type: 'post',data: "code="+valcodigo,
            success: function( resp ) {
-             resp ="intento1";
-             if(valcodigo=="AAAAA"){
+             $(".codigo").val("");
+             borrar();
+             if(resp=="win"){
                location.href = '/fb_app_sony_codes/share_play';
-             }
-             else{
-               if(resp==0){
-                 $(".alert").fadeIn(2200);
-                 $(".alert").fadeOut("slow");
-               } else if(resp=="intento1"){
-                 $(".intento").attr("rel");
-                 $(".alert").fadeIn(2200);
-                 $(".alert").fadeOut("slow");
-                 $(".intentos").addClass(resp);
-                 $(".intentos_alert").html("1");
-               } else if(resp=="intento2"){
-                 $(".alert").fadeIn(2200);
-                 $(".alert").fadeOut("slow");
-                 $(".intentos").addClass(resp);
-                 $(".intentos_alert").html("2");
-               } else if(resp==1){
-                 $(".alert_amigos").fadeIn("slow");
-                 $(".intentos_alert").html("0"); 
-               } else if(resp==2){
-                 location.href = '/fb_app_sony_codes/share_play';
-               } else if(resp=="sinintentos"){
-                 $(".intento").attr("rel");
-                 $(".alert").fadeIn(1200);
-                 $(".alert").fadeOut(3300);
-               }
+             } else if(resp=="nointentos"){
+               $(".alert_amigos").fadeIn(1200);
+               $(".intentos_alert").html("0"); 
+             } else if(resp>0 && resp<=3){
+               $(".intento").attr("rel");
+               $(".intentos").addClass(resp);
+               $(".alert").fadeIn(1200);
+               $(".alert").fadeOut(3000);
              }
            }
          });
@@ -63,7 +47,7 @@
     $(".sharefb").click(function(){
       FB.ui({
           method: 'feed',
-          name: '<%= @app.name %>',
+          name: '¡Participa en Sony Code!',
           link: '<%= @fanpage[:link] %>/app_<%= @app.fb_app_idnumber %>',
           picture: 'http://wolly.herokuapp.com/assets/<%= controller_path %>/75x75.jpg',
           caption: '<%= @app.share_caption %>',

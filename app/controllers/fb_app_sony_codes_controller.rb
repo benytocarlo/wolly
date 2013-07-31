@@ -67,7 +67,6 @@ class FbAppSonyCodesController < ApplicationController
       #end
     end
     regions_of_chile
-    
   end
   
   def new_code
@@ -92,18 +91,17 @@ class FbAppSonyCodesController < ApplicationController
     require 'open-uri'
     require 'json'
     if params[:code].present? 
-      
-      #@resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/codigo/facebook_id/#{@me_from_graph[:id]}/code/#{params[:code]}.json").read)
-      #@resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
-      #logger.info "DEBUG: Devuelve Intentos #{@result}"
-      #if @resultado[:resultado] == "Gano"
-        #render :text => 2
-      #elsif @resultado[:intentos].to_i <= 0 || @resultado[:intentos].to_i > 3
-        #render :text => "sinintentos"
-      #elsif @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
-        #render :text => "tieneintentos"
-      #end
-      render :text => "tieneintentos"
+  
+      @resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/create_winner/facebook_id/#{@me_from_graph[:id]}/code/#{params[:code]}.json").read)
+      @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
+      logger.info "DEBUG: Devuelve Intentos #{@result}"
+      if @resultado[:respuesta] == "Winner"
+        render :text => "win"
+      elsif @resultado[:respuesta] == "Loser" || @resultado[:intentos].to_i <= 0 || @resultado[:intentos].to_i > 3
+        render :text => "nointentos"
+      elsif @resultado[:respuesta] == "Loser" || @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
+        render :text => @resultado[:intentos].to_i
+      end
     end
   end
 
@@ -126,4 +124,3 @@ private
     @scope = 'email,read_stream,publish_stream,user_photos'
   end
 end
-  
