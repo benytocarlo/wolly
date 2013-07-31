@@ -163,12 +163,16 @@ Wolly::Application.routes.draw do
   post  "fb_app_brother_combo/canvas"
   get   "fb_app_brother_combo/formulario"
   post  "fb_app_brother_combo/share"
+  get  "fb_app_brother_combo/premios"
 
   post  "fb_app_claro_monster"             => "fb_app_claro_monster#index"
+  get  "fb_app_claro_monster"             => "fb_app_claro_monster#index"
   post  "fb_app_claro_monster/canvas"
   get   "fb_app_claro_monster/formulario"
   post  "fb_app_claro_monster/share"
   get  "fb_app_claro_monster/share"
+  get  "fb_app_claro_monster/premios"
+  get  "fb_app_claro_monster/galeria"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

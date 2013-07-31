@@ -1,0 +1,55 @@
+<%= javascript_include_tag "jquery.carouFredSel-6.2.1-packed.js" %>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#foo2").carouFredSel({
+	circular: false,
+	infinite: false,
+	auto 	: false,
+    pagination  : "#foo2_pag"
+  });
+
+  $(".nav_primary li a").removeClass("active");
+  $(".nav_primary li #premios").addClass("active");
+});
+</script>
+    <div id="content">
+        <div id="heading" style="margin-top: -13px; height: 82px;">
+            <p class="p2">vuelve a ser un niño y participa por exclusivos premios</p>
+        </div>
+        <div class="phones">
+            <span class="sh_left"></span>
+            <h2 style="text-align: center; position: relative; left: -9px;">INCREÍBLES SMARTPHONES</h2>
+            <div class="image_carousel" id="awards">
+                <div id="foo2">
+                    <div class="slide">
+                        <h3 style="float: left; width: 100%; text-align: center; margin-bottom: 15px; position: relative; left: 12px;">LG E400</h3>
+                        <%=image_tag("fb_app_claro_monster/awards/lg_e400.png", :width=>"253", :height=>"337")%>
+                    </div>
+                    <div class="slide">
+                        <h3 style="float: left; width: 100%; text-align: center; margin-bottom: 15px; position: relative; left: 12px;">NOKIA 306</h3>
+                        <%=image_tag("fb_app_claro_monster/awards/nokia_306.png", :width=>"253", :height=>"337")%>
+                    </div>
+                    <div class="slide">
+                        <h3 style="float: left; width: 100%; text-align: center; margin-bottom: 15px; position: relative; left: 12px;">NOKIA 311</h3>
+                        <%=image_tag("fb_app_claro_monster/awards/nokia_311.png", :width=>"253", :height=>"337")%>
+                    </div>
+                    <div class="slide">
+                        <h3 style="float: left; width: 100%; text-align: center; margin-bottom: 15px; position: relative; left: 12px;">SAMSUNG 5630</h3>
+                        <%=image_tag("fb_app_claro_monster/awards/samsung_5630.png", :width=>"253", :height=>"337")%>
+                    </div>
+                    <div class="slide">
+                        <h3 style="float: left; width: 100%; text-align: center; margin-bottom: 15px; position: relative; left: 12px;">SAMSUNG 5830</h3>
+                        <%=image_tag("fb_app_claro_monster/awards/samsung_5830.png", :width=>"253", :height=>"337")%>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="pagination" id="foo2_pag"></div>
+            </div>
+            <span class="sh_right"></span>
+        </div>
+        <div class="awards_box">
+            <div class="kit" style="margin-bottom: 18px;"></div>
+            <h4 style="float: left; text-align: center; width: 100%;"><span style="font-family: Arial; color: #666;">———————</span> cada kit contiene<span style="font-family: Arial; color: #666;">———————</span></h4>
+            <div class="awards_in_box"></div>
+        </div>
+    </div>

@@ -9,8 +9,7 @@
 <body>
   <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '1265', :height => '660' } %>
   <%= render "layouts/ga" %>
-  <div id="contenido">
-    <%= yield %>
-  </div>
+  <%= link_to "Premios",fb_app_brother_combo_premios_path %>
+  <%= yield %>
 </body>
 </html>

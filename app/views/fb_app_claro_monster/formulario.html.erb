@@ -2,8 +2,16 @@
 <%= render :partial => "layouts/validator2" %>
 <script>
   $(document).ready(function(){
-    $(".continuar").click(function(){
-      $("#form_registro").submit();
+    $(".bt_red_icon").click(function(){
+      if(!$('#checkbox').is(":checked")){
+        alert("Debes aceptar las condiciones del concurso");
+      }else{
+        $("#form_registro").submit();
+      }
+    });
+
+    $("#bt_file").click(function(){
+      $("#file").click();
     });
 
     $("#form_registro").validate({
@@ -16,12 +24,37 @@
     });
   });
 </script>
-  <p id="notice"><%= flash[:notice] %></p>
-  <%= form_tag(fb_app_claro_monster_share_path,:id=>:form_registro, :method => "post",:enctype => "multipart/form-data") do  %>
-        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
-        <p><%= text_field_tag(:apellido, @apellido, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
-        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)") %></p>
-        <p><%= text_field_tag(:correo, @correo, :class => 'datos') %></p>
-        <p><input type="file" name="file" id="file"></p>
-    <a href="#" class="continuar">Continuar</a>
-  <% end %>
+    <div id="content">
+        <div id="heading">
+            <div class="copybook"></div>
+            <h1>¡CELEBREMOS TODOS EL DÍA DEL NIÑO!</h1>
+            <p>completa tus datos para participar por un kit de monsters university</p>
+        </div>
+        <p id="notice" style="position: absolute;top: 200px;left: 230px;"><%= flash[:notice] %></p>
+        <%= form_tag(fb_app_claro_monster_share_path,:id=>:form_registro, :method => "post",:enctype => "multipart/form-data") do  %>
+           <div class="register">
+                   <div class="separator_field" style="margin-top: 10px;">
+                      <span>ADJUNTA TU FOTO COMO ASUSTADOR PROFESIONAL</span>
+                      <input style="visibility: hidden" type="file" />
+                      <a class="bt_file" id="bt_file" href="#">EXAMINAR</a>
+                      <input type="file" name="file" id="file" style="display:none">
+                   </div>
+                   <div class="separator_field">
+                      <label>Nombre:</label>
+                      <%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
+                   </div>
+                  <div class="separator_field">
+                      <label>Correo:</label>
+                      <%= text_field_tag(:correo, @correo) %>
+                 </div>
+                 <div class="separator_field">
+                      <label>Teléfono:</label>
+                      <%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
+                 </div>
+                 <div class="separator_field">
+                      <input type="checkbox" id="checkbox"/><label style="line-height: 13px;">Acepto las bases del concurso</label>
+                 </div>
+        </div>
+        <a style="background-position: -869px -582px; position: absolute; bottom: 13px; right: 12px;" class="bt_red_icon" href="#">CONTINUAR</a>
+      <% end %>
+</div>
