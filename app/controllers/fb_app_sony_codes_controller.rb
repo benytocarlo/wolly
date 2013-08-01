@@ -20,38 +20,16 @@ class FbAppSonyCodesController < ApplicationController
   def formulario
     require 'open-uri'
     require 'json'
-    @jugada = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/participacion.json").read)
-    @jugada = @jugada.deep_symbolize_keys#@result = eval(@result)
-    
-    if @jugada[:respuesta] == "jugar"
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
-          redirect_to fb_app_sony_codes_count_path    
-        elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
-          session[:registrado] = true
-          redirect_to fb_app_sony_codes_new_code_path
-        else
-          @nombre   = @me_from_database.facebook_name
-          @correo   = @me_from_database.facebook_email
-          @telefono = @me_from_database.phone
-          @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
-          @result = @result.deep_symbolize_keys#@result = eval(@result)
-          logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
-          begin
-            @graph.put_wall_post("", {
-                :name => "¡Participa en Sony Code!",
-                :link => "http://www.facebook.com/SonyChile/app_480454252044047",
-                :caption => "¡Participa tú también AQUÍ!",
-                :description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
-                :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
-            }, @me_from_graph[:id])
-          rescue
-            @nopost = 1
-          end
-        end
+    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
+        redirect_to fb_app_sony_codes_count_path    
+      elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        session[:registrado] = true
+        redirect_to fb_app_sony_codes_new_code_path
       else
-        @nombre   = @me_from_graph[:name]
-        @correo   = @me_from_graph[:email]
+        @nombre   = @me_from_database.facebook_name
+        @correo   = @me_from_database.facebook_email
+        @telefono = @me_from_database.phone
         @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
         @result = @result.deep_symbolize_keys#@result = eval(@result)
         logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
@@ -67,10 +45,25 @@ class FbAppSonyCodesController < ApplicationController
           @nopost = 1
         end
       end
-      regions_of_chile
     else
-      redirect_to fb_app_sony_codes_count_path
-    end  
+      @nombre   = @me_from_graph[:name]
+      @correo   = @me_from_graph[:email]
+      @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
+      @result = @result.deep_symbolize_keys#@result = eval(@result)
+      logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
+      begin
+        @graph.put_wall_post("", {
+            :name => "¡Participa en Sony Code!",
+            :link => "http://www.facebook.com/SonyChile/app_480454252044047",
+            :caption => "¡Participa tú también AQUÍ!",
+            :description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
+            :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
+        }, @me_from_graph[:id])
+      rescue
+        @nopost = 1
+      end
+    end
+    regions_of_chile
   end
   
   def new_code
