@@ -8,7 +8,7 @@
     var nextday = fecha.getDate() + 1; // dia
     //fecha.getMonth(); // mes
     //fecha.getFullYear(); 
-    austDay = new Date(fecha.getFullYear(), 07 -1,nextday, 09, 00, 0);
+    austDay = new Date(fecha.getFullYear(), 08 -1,nextday, 09, 00, 0);
 		$.countdown.setDefaults($.countdown.regional['es']);
 		$('.dacounter').countdown({
 			until : austDay
@@ -17,14 +17,14 @@
 	});
 </script>
 <div id="wrapper" class="counter">
-	<div id="top_bar"><img src="assets/top_bar.jpg" alt="Playstation - Vive en estado play" /></div>
-    <div class="counter_content">
-    	<h1>Code Logo</h1>
-      <h2>¡el Sony Code del día ya ha sido descifrado!</h2>
-      <div class="ps3_quedan"><%= @premios[:premios].to_i %></div>
-      <h3>La cuenta regresiva ha comenzado. Ingresa cuando el contador haya terminado para desactivar los laser y ganar una PlayStation 3 al instante.</h3>
-      <div class="counter_wrapper">
-          <div class="dacounter"></div>
-      </div>
-	</div>
+	<div id="top_bar"><img src="/assets/fb_app_sony_codes/top_bar.jpg" alt="Playstation - Vive en estado play" /></div>
+  <div class="counter_content">
+  	<h1>Code Logo</h1>
+    <h2>¡el Sony Code del día ya ha sido descifrado!</h2>
+    <div class="ps3_quedan"><%= @premios[:premios].to_i %></div>
+    <h3>La cuenta regresiva ha comenzado. Ingresa cuando el contador haya terminado para desactivar los laser y ganar una PlayStation 3 al instante.</h3>
+    <div class="counter_wrapper">
+        <div class="dacounter"></div>
+    </div>
+  </div>
 </div>
