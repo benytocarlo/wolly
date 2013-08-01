@@ -21,7 +21,6 @@
         $(".codigo").val(valcod+valboton);
         var vallength = $(".codigo").val().length;
         if(vallength==5){
-          var intento = $(".intento").attr("rel",valcodigo-1);
           var valcodigo = $(".codigo").val();
           $.ajax({url: 'check_respuesta',type: 'post',data: "code="+valcodigo,
            success: function( resp ) {
@@ -33,7 +32,6 @@
                $(".alert_amigos").fadeIn(1200);
                $(".intentos_alert").html("0"); 
              } else if(resp>0 && resp<=3){
-               $(".intento").attr("rel");
                $(".intentos").addClass("intento"+resp);
                $(".intentos_alert").val(resp);
                $(".alert").fadeIn(1200);
