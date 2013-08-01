@@ -3,9 +3,9 @@ $(document).ready(function(){
   $(".startbutton").click(function(){
     FB.login(function(response){
       if (response.authResponse){
-        top.location.href = '<%= fb_app_sony_codes_formulario_path %>';
+        location.href = '<%= fb_app_sony_codes_formulario_path %>';
       }
-    },{scope:'<%= @scope %>'});
+    },{scope:'<%= @scope %>',display: 'popup'});
   });
   $(".startbutton").hover(
     function () {
