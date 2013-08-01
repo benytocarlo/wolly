@@ -97,7 +97,7 @@ class FbAppSonyCodesController < ApplicationController
         render :text => "nointentos"
       elsif @resultado[:respuesta] == "Loser" && @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
         render :text => @resultado[:intentos].to_i
-      elsif @resultado[:respuesta] == "NoPremio"
+      elsif @resultado[:respuesta] == "No_Prizes_Left"
         render :text => "nopremio"
       end
     end
