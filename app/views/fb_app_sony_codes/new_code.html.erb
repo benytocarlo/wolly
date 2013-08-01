@@ -29,6 +29,8 @@
              if(resp=="win"){
                location.href = '/fb_app_sony_codes/share_play';
              } else if(resp=="nointentos"){
+               $("#intentos").removeAttr("class");
+               $("#intentos").addClass("intento0");
                $(".alert_amigos").fadeIn(1200);
                $(".intentos_alert").html("0");
              } else if(resp>0 && resp<=3){
@@ -79,7 +81,25 @@
     
     function requestCallback(response) {
         var amigos = response.to;
-        $.ajax({url: 'check_respuesta',type: 'post',data: "friend="+amigos,
+        function validarString (cadenaAnalizar) {
+            var contador = 0;
+           for (var i = 0; i< cadenaAnalizar.length; i++) {
+                 var caracter = cadenaAnalizar.charAt(i);
+                  if( caracter == ",") {
+                     contador=contador+1;
+                  }
+            }
+            return contador + 1
+        }  
+        var countamigos = validarString(amigos);
+        var parametros{
+          count: countamigos,
+          friend: amigos
+        }
+        $.ajax({ 
+          url: 'check_respuesta',
+          type: 'post',
+          data:  parametros,
          success: function( resp ) {
            if(resp=="exito"){
              $("#intentos").removeAttr("class");

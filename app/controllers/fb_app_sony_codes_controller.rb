@@ -117,8 +117,8 @@ class FbAppSonyCodesController < ApplicationController
         render :text => "nopremio"
       end
     end
-    if params[:friend].present?
-      @resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/actualizar_participante/facebook_id/#{@me_from_graph[:id]}/amigos_share/#{params[:friend]}.json").read)
+    if params[:friend].present? && params[:count].present?
+      @resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/actualizar_participante/facebook_id/#{@me_from_graph[:id]}/amigos_share/#{params[:friend]}/count/#{params[:count]}.json").read)
       @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
       if @resultado[:respuesta] == "update_participation" 
         render :text => "exito"
