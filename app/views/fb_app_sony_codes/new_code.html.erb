@@ -33,10 +33,11 @@
                $(".intentos_alert").html("0"); 
              } else if(resp>0 && resp<=3){
                $(".intentos").addClass("intento"+resp);
-               $(".intentos_alert").val(resp);
+               $(".intentos_alert").html(resp);
                $(".alert").fadeIn(1200);
                $(".alert").fadeOut(3000);
              } else if(resp<=0){
+               $(".intentos").addClass("intento0");
                $(".alert_amigos").fadeIn(1200);
                $(".intentos_alert").html("0");
              } else if(resp=="nopremio"){
@@ -75,7 +76,7 @@
     });
     
     function requestCallback(response) {
-        var amigos = $("#invitacion").val(response.to);
+        var amigos = response.to;
         $.ajax({url: 'check_respuesta',type: 'post',data: "friend="+amigos,
          success: function( resp ) {
            if(resp=="exito"){

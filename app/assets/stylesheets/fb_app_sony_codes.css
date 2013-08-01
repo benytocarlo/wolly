@@ -139,9 +139,11 @@ text-align: center;}
 .game_content .intentos{display: block; width: 102px; margin: auto; height: 25px; margin-top: 4px; }
 
 .game_content .intento1, .game_content .intento2, .game_content .intento3 { background-image:url(fb_app_sony_codes/game_sprite.png); }
-.game_content .intento1 { background-position:2px 1px;}
-.game_content .intento2 { background-position:2px -23px;}
+
 .game_content .intento3 { background-position:2px -48px;}
+.game_content .intento2 { background-position:2px -23px !important;}
+.game_content .intento1 { background-position:2px 1px !important;}
+.game_content .intento0 { background-image:none !important;}
 
 .game_content .buttonps3{ float:left; padding:15px; width:60px; height:49px; background-image:url(fb_app_sony_codes/blank.png); background-repeat:no-repeat; }
 
