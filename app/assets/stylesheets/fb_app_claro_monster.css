@@ -590,3 +590,12 @@ a.prev span, a.next span {
 #form_registro .error {
     background: url(alert.png) no-repeat 290px 5px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
 #form_registro strong{display:none!important;}
+
+.error_upload{
+    position: absolute;
+    top: 220px;
+    left: 195px;
+    color: #B00C10;
+    font-size: 17px;
+    font-weight: bold;
+}

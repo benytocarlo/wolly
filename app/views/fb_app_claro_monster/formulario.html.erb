@@ -4,7 +4,7 @@
   $(document).ready(function(){
     $(".bt_red_icon").click(function(){
       if(!$('#checkbox').is(":checked")){
-        alert("Debes aceptar las condiciones del concurso");
+        alert("Debes aceptar las bases del concurso");
       }else{
         $("#form_registro").submit();
       }
@@ -30,7 +30,7 @@
             <h1>¡CELEBREMOS TODOS EL DÍA DEL NIÑO!</h1>
             <p>completa tus datos para participar por un kit de monsters university</p>
         </div>
-        <p id="notice" style="position: absolute;top: 200px;left: 230px;"><%= flash[:notice] %></p>
+        <p id="notice" class="error_upload"><%= flash[:notice] %></p>
         <%= form_tag(fb_app_claro_monster_share_path,:id=>:form_registro, :method => "post",:enctype => "multipart/form-data") do  %>
            <div class="register">
                    <div class="separator_field" style="margin-top: 10px;">

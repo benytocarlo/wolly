@@ -62,7 +62,7 @@ class FbAppClaroMonsterController < ApplicationController
           end
         end
       rescue
-        redirect_to fb_app_claro_monster_formulario_path, :flash => { :notice => "Tienes que elegir un archivo antes de dar clic a Subir archivo." }
+        redirect_to fb_app_claro_monster_formulario_path, :flash => { :notice => "Tienes que elegir un archivo para continuar" }
       end
     elsif request.get?
     end
