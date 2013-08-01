@@ -86,10 +86,10 @@
         <h3>¡tienes sólo 3 oportunidades!</h3>
         <div class="contador">10</div>
         <div class="pad">
-	      <div class="intentos intento<&= @result["intentos"] %>" rel="<&= @result["intentos"] %>"></div>
+	      <div class="intentos intento<%= @result['intentos'] %>" rel="<%= @result['intentos'] %>"></div>
           <label class="buttonps3 inactive" rel="1"></label>
           <label class="buttonps3 inactive" rel="2"></label>
-          <label class="buttonps3 inactive" rel="3"></label>
+          <label class="buttonps3 inactive" rel="3"></label>¡
           <label class="buttonps3 inactive" rel="4"></label>
           <label class="buttonps3 inactive" rel="5"></label>
           <%= hidden_field_tag(:code,'', :class => 'codigo',:readonly => "readonly") %>
