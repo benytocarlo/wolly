@@ -92,10 +92,10 @@
             return contador + 1
         }  
         var countamigos = validarString(amigos);
-        var parametros{
+        var parametros = {
           count: countamigos,
           friend: amigos
-        }
+        };
         $.ajax({ 
           url: 'check_respuesta',
           type: 'post',
