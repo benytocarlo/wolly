@@ -86,7 +86,7 @@ class FbAppSonyCodesController < ApplicationController
     @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
     @result = @result.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Intentos #{@result}"
-    @div = @result['numero_de_intentos']
+    @div = @result['numero_de_intentos'].to_i
     @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
     @premios = @premios.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Premios #{@premios}"
