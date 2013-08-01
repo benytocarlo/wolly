@@ -1,0 +1,592 @@
+
+/* inicio reset */
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}
+/* fin reset */
+
+
+
+/* FontFace*/
+@font-face {
+                font-family: 'DINCond-Black';
+                src: url('dincondblack.eot');
+                src: url('dincondblack.eot?#iefix') format('embedded-opentype'),
+                         url('dincondblack.woff') format('woff'),
+                         url('dincondblack.ttf') format('truetype'),
+                         url('dincondblack.svg#dincondblack') format('svg');
+                font-weight: normal;
+                font-style: normal;
+        }
+
+@font-face {
+                font-family: 'DIN-RegularAlternate';
+                src: url('dinra.eot');
+                src: url('dinra.eot?#iefix') format('embedded-opentype'),
+                         url('dinra.woff') format('woff'),
+                         url('dinra.ttf') format('truetype'),
+                         url('dinra.svg#dinra') format('svg');
+                font-weight: normal;
+                font-style: normal;
+        }
+
+@font-face {
+                font-family: 'DIN-Regular';
+                src: url('dinr.eot');
+                src: url('dinr.eot?#iefix') format('embedded-opentype'),
+                         url('dinr.woff') format('woff'),
+                         url('dinr.ttf') format('truetype'),
+                         url('dinr.svg#dinr') format('svg');
+                font-weight: normal;
+                font-style: normal;
+        }
+
+@font-face {
+                font-family: 'DIN-Medium';
+                src: url('dinm.eot');
+                src: url('dinm.eot?#iefix') format('embedded-opentype'),
+                         url('dinm.woff') format('woff'),
+                         url('dinm.ttf') format('truetype'),
+                         url('dinm.svg#dinm') format('svg');
+                font-weight: normal;
+                font-style: normal;
+        }
+
+/* Fin FontFace*/
+
+
+
+body {
+    background: none repeat scroll 0 0 #A41B21;
+    float: left;
+}
+#main_container {
+
+    border-radius: 7px 7px 7px 7px;
+    float: left;
+    height: 660px;
+    margin: 5px;
+    position: relative;
+    width: 800px;
+    background-image: url(fb_app_claro_monster/bg_body.jpg);
+    background-repeat: repeat-x;
+    background-color: #F5F5F5;
+}
+.nav_primary {
+    background: none repeat scroll 0 0 #A41B21;
+    border-radius: 0 0 0 7px;
+    color: #FFFFFF;
+    float: right;
+    font-family: DIN-Regular;
+    font-size: 16px;
+    height: 39px;
+    padding-left: 11px;
+    padding-top: 13px;
+    width: 333px;
+}
+.nav_primary li {
+    float: left;
+    margin-left: 0;
+}
+.nav_primary a {
+    color: #FFFFFF;
+    padding: 8px 13px;
+    text-decoration: none;
+}
+.nav_primary a.active, .nav_primary a:hover  {
+    background: none repeat scroll 0 0 #333333;
+    border-radius: 5px 5px 5px 5px;
+}
+
+
+
+#heading {
+    float: left;
+    height: 145px;
+    margin-left: 25px;
+    margin-top: 8px;
+    width: 745px;
+}
+h1 {
+    color: #CC2229;
+    float: left;
+    font-family: 'DIN-Medium';
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 1px #999999;
+}
+
+
+h2 {
+    color: #666666;
+    font-family: 'DIN-Regular';
+    font-size: 17px;
+    font-weight: bold;
+}
+
+h3 {
+  color: #a41b21;
+  font-size: 17px;
+  font-family: 'DIN-Medium';
+
+}
+
+h4 {
+    color: #666666;
+    font-family: 'DIN-Regular';
+    font-size: 17px;
+    text-transform: uppercase;
+
+}
+
+#heading p {
+    background: none repeat scroll 0 0 #A41B21;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    float: left;
+    font-family: 'DIN-Medium';
+    font-size: 19px;
+    margin-left: -46px;
+    padding: 13px 28px 13px 64px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 530px;
+    z-index: 1;
+}
+
+
+
+
+#heading .p2 {
+    float: none;
+    margin: 0 auto;
+    padding-left: 28px;
+    width: 562px;
+}
+
+.copybook {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 157px;
+    position: relative;
+    width: 168px;
+    z-index: 2;
+}
+#footer {
+    bottom: 3px;
+    color: #333333;
+    float: left;
+    font-family: DIN-Regular;
+    font-size: 14px;
+    padding-left: 10px;
+    position: absolute;
+    text-align: left;
+}
+
+.tv {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -623px -22px transparent;
+    float: left;
+    height: 387px;
+    width: 389px;
+}
+
+
+.bt_red_icon {
+
+    border-radius: 8px 8px 8px 8px;
+    background-color:#A41B21;
+    background-image:  url("fb_app_claro_monster/sprite.png");
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    float: left;
+    font-family: 'DIN-Medium';
+    font-size: 24px;
+    padding: 12px 40px 12px 15px;
+    text-decoration: none;
+
+}
+
+
+
+.bt_red_icon:hover {
+
+
+    background-color:#333333;
+
+
+
+
+}
+
+
+
+.big_box {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -253px 0 transparent;
+    clear: both;
+    display: block;
+    height: 314px;
+    left: 32px;
+    margin: 0 auto;
+    position: relative;
+    width: 369px;
+}
+
+
+.bt_red {
+    background-color: #A41B21;
+
+    border-radius: 8px 8px 8px 8px;
+    color: #FFFFFF;
+    float: left;
+    font-family: 'DIN-Medium';
+    font-size: 16px;
+    padding: 12px 15px;
+    text-decoration: none;
+}
+
+.bt_red:hover {
+    background-color: #333;
+
+
+}
+
+
+
+.kit_small_box {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -4px -170px transparent;
+    float: left;
+    height: 390px;
+    margin-left: 60px;
+    width: 253px;
+}
+
+
+.awards_box {
+    float: left;
+    width: 460px;
+}
+
+
+.kit {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -4px -170px transparent;
+    display: block;
+    height: 152px;
+    margin: 0 auto;
+    width: 253px;
+}
+
+.logo {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -4px -562px transparent;
+    float: left;
+    height: 80px;
+    margin-left: 8px;
+    margin-top: 3px;
+    width: 80px;
+}
+
+
+.ilike {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -275px -329px transparent;
+    float: right;
+    height: 72px;
+    margin-right: 21px;
+    width: 232px;
+}
+
+
+
+.register {
+
+    background: #C9181E;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#C9181E), to(#9B0205));
+    background: -webkit-linear-gradient(#C9181E, #9B0205);
+    background: -moz-linear-gradient(#C9181E, #9B0205);
+    background: -ms-linear-gradient(#C9181E, #9B0205);
+    background: -o-linear-gradient(#C9181E, #9B0205);
+    background: linear-gradient(#C9181E, #9B0205);
+    border-radius: 3px 3px 3px 3px;
+    clear: both;
+    color: #FFFFFF;
+    display: block;
+    font-family: DIN-Regular;
+    height: 285px;
+    margin: 0 auto;
+    padding-top: 12px;
+    position: relative;
+    top: 22px;
+    width: 520px;
+
+}
+
+
+
+.register input[type="text"] {
+    border: 1px solid #777777;
+    clear: both;
+    color: #B00C10;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    height: 26px;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 295px;
+}
+
+.register input[type="file"] {
+  clear: both;
+
+
+}
+
+
+.register input[type="checkbox"] {
+    border: 0 none !important;
+    float: left;
+    margin-left: 73px;
+    margin-right: 5px;
+}
+
+.register label {
+  clear: both;
+  font-size: 16px;
+  line-height: 23px;
+
+}
+
+.bt_file {
+
+
+
+background: #FF2020;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FF2020), to(#CF1717));
+background: -webkit-linear-gradient(#FF2020, #CF1717);
+background: -moz-linear-gradient(#FF2020, #CF1717);
+background: -ms-linear-gradient(#FF2020, #CF1717);
+background: -o-linear-gradient(#FF2020, #CF1717);
+background: linear-gradient(#FF2020, #CF1717);
+border-color: #AB0E15;
+border-radius: 4px 4px 4px 4px;
+border-style: solid;
+border-width: 1px 1px 3px;
+color: #FFFFFF;
+display: block;
+margin: -10px auto 22px;
+padding: 12px 20px;
+text-align: center;
+text-decoration: none;
+width: 100px;
+font-family: 'DIN-Medium';
+}
+
+.bt_file:hover {
+
+
+
+background: #535050;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#535050), to(#333));
+background: -webkit-linear-gradient(#535050, #333);
+background: -moz-linear-gradient(#535050, #333);
+background: -ms-linear-gradient(#535050, #333);
+background: -o-linear-gradient(#535050, #333);
+background: linear-gradient(#535050, #333);
+
+}
+
+
+
+
+
+
+.separator_field {
+    clear: both;
+    display: block;
+
+    margin: 0 auto;
+    width: 390px;
+}
+
+
+
+
+#childs .slide {
+    float: left;
+    width: 460px;
+}
+
+
+#childs.image_carousel {
+
+    clear: both;
+    left: 29px;
+    margin: 0 auto;
+    position: relative;
+    top: 10px;
+    width: 440px;
+}
+
+#childs.image_carousel img {
+    box-shadow: 0 0 5px #000000;
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+
+
+#awards.image_carousel {
+    float: left;
+    position: relative;
+    top: 10px;
+    width: 253px;
+}
+
+#awards.image_carousel img {
+
+    display: block;
+    float: left;
+
+}
+
+#awards .slide {
+    float: left;
+    width: 253px;
+
+}
+
+.awards_in_box {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -329px -404px transparent;
+    clear: both;
+    display: block;
+    height: 264px;
+    margin: 0 auto;
+    position: relative;
+    top: 15px;
+    width: 393px;
+}
+
+.phones {
+    float: left;
+    height: 436px;
+    margin-left: 48px;
+    position: relative;
+    width: 292px;
+}
+
+
+.sh_left {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -1046px -60px transparent;
+    float: left;
+    height: 442px;
+    margin-right: 4px;
+    width: 13px;
+}
+
+
+
+.sh_right {
+    background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -1016px -60px transparent;
+    float: right;
+    height: 442px;
+    width: 13px;
+}
+
+
+a.prev, a.next {
+    background-image: url("fb_app_claro_monster/sprite.png");
+    display: block;
+    height: 50px;
+    position: absolute;
+    top: 110px;
+    width: 45px;
+}
+a.prev {
+    background-position: -756px -472px;
+    left: -35px;
+}
+ a.prev:hover {      }
+  a.prev.disabled { opacity: 0.2   }
+a.next {
+    background-position: -834px -472px;
+    right: -73px;
+}
+a.next:hover {     }
+a.next.disabled { opacity: 0.2  }
+a.prev.disabled, a.next.disabled {
+    cursor: default;
+}
+
+a.prev span, a.next span {
+    display: none;
+}
+.pagination {
+    margin-top: 35px;
+    text-align: center;
+}
+.pagination a {
+
+   background: url("fb_app_claro_monster/sprite.png") no-repeat scroll -940px -494px transparent;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px 0 0;
+    display: inline-block;
+}
+.pagination a.selected {
+    background-position: -900px -494px;
+    cursor: default;
+}
+.pagination a span {
+    display: none;
+}
+.clearfix {
+    float: none;
+    clear: both;
+}
+.bt_share, .name {
+    color: #FFFFFF;
+    float: left;
+    font-family: 'DIN-Medium';
+    font-size: 17px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+.name {
+    background: none repeat scroll 0 0 #BF141C;
+    float: left;
+    margin-left: 10px;
+    margin-top: 9px;
+    padding-left: 7px;
+    padding-right: 7px;
+    width: 203px;
+    cursor: default;
+}
+
+.name span {
+    float: left;
+    overflow: hidden;
+    width: 203px;
+}
+
+
+
+.bt_share {
+    background: none repeat scroll 0 0 #303030;
+    float: right;
+    margin-right: 10px;
+    margin-top: 9px;
+    width: 220px;
+}
+
+.bt_share:hover {
+    background: none repeat scroll 0 0 #BF141C;
+
+}
+
+
+#form_registro .error {
+    background: url(alert.jpg) no-repeat 290px 5px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#form_registro strong{display:none!important;}

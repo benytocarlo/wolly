@@ -1,16 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title><%= @app.name %></title>	
-  <%= stylesheet_link_tag    "fb_app_brother_combo", :media => "all" %>
-  <%= javascript_include_tag "fb_app_brother_combo" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '1265', :height => '660' } %>
-  <%= render "layouts/ga" %>
-  <div id="contenido">
-    <%= yield %>
-  </div>
-</body>
+  <head>
+    <title><%= @app.name %></title>	
+    <%= stylesheet_link_tag    "fb_app_claro_monster", :media => "all" %>
+    <%= javascript_include_tag "fb_app_claro_monster" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '670' } %>
+    <%= render "layouts/ga" %>
+    <div id="main_container">
+      <div id="header">
+        <a href="#" class="logo"></a>
+  	    <% if @nofans %>
+        <span class="ilike"></span>
+  	    <% end %>
+  	    <% if @fans %>
+  	    <ul class="nav_primary">
+          <li><%= link_to "INICIO", fb_app_claro_monster_path,:id =>"inicio",:class =>"active" %></li>
+          <li><%= link_to "GALERÍA", fb_app_claro_monster_galeria_path,:id => "galeria" %></li>
+          <li><%= link_to "PREMIOS", fb_app_claro_monster_premios_path,:id=> "premios" %></li>
+          <li><a href="/documents/fb_app_claro_monster.pdf" target="_blank">BASES</a></li>
+  	    </ul>
+  	    <% end %>
+      </div>
+      <%= yield %>
+      <div id="footer">
+        <span>2013 Disney/pixar</span>
+      </div>
+    </div>
+  </body>
 </html>

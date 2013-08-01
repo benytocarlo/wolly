@@ -1,0 +1,42 @@
+<%= javascript_include_tag "jquery.carouFredSel-6.2.1-packed.js" %>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $(".nav_primary li a").removeClass("active");
+      $(".nav_primary li #galeria").addClass("active");
+	  $("#foo2").carouFredSel({
+	    circular: false,
+	    infinite: false,
+	    auto 	: false,
+	    prev	: {
+		  button	: "#foo2_prev",
+		  key		: "left"
+	    },
+	    next	: {
+		  button	: "#foo2_next",
+		  key		: "right"
+	    }
+	  });
+    });
+</script>
+<div id="content">
+    <div id="heading">
+        <div class="copybook"></div>
+        <p style="margin-top:42px">galería de asustadores profesionales monsters university</p>
+    </div>
+    <div class="image_carousel" id="childs">
+        <div id="foo2">
+            <!--
+            <% @gallery.each do |gallery| %>
+                <div class="slide">
+                    <img src="http://www.miapp.cl/heroku/claro/monster/<%= gallery[:image] %>" width="440" height="275">
+                    <div class="name"><span><%= gallery[:name] %></span></div>
+                    <a href='http://www.facebook.com/sharer.php?s=100&p[title]=Asusta como un profesional&p[summary]=Asusta como un profesional y participa por uno de los 11 kits Monsters University de Claro&p[url]=http://www.facebook.com/clarochile/app_1374235916136044&p[images][0]=http://www.miapp.cl/heroku/claro/monster/<%= gallery[:image] %>' target="_blank" class="bt_share">compartir en tu muro</a>
+                </div>
+            <% end %>
+            -->
+        </div>
+        <div class="clearfix"></div>
+        <a class="prev" id="foo2_prev" href="#"><span>prev</span></a>
+        <a class="next" id="foo2_next" href="#"><span>next</span></a>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    $(".botonparticipa").click(function(){
+    $(".bt_red_icon").click(function(){
       FB.login(function(response){
         if (response.authResponse){
           location.href = '<%= fb_app_claro_monster_formulario_path %>';
@@ -9,7 +9,14 @@
     });
 });
 </script>
-<div id="home">
-  <a href="#" class="botonparticipa">Participa</a>
-  <a href="/documents/fb_app_claro_monster.pdf" class="bases" target="_blank">Bases</a>
+<div id="content">
+    <div id="heading">
+        <div class="copybook"></div>
+        <h1>¡CELEBREMOS TODOS EL DÍA DEL NIÑO!</h1>
+        <p>vuelve a ser un niño y pon tu mejor cara de susto y participa por un kit de monsters university</p>
+    </div>
+    <div style="margin-left: 41px; margin-top: 25px;" class="tv"></div>
+    <div class="kit_small_box"></div>
+    <a style="background-position: -882px -582px; position: absolute; bottom: 13px; right: 12px;" class="bt_red_icon" href="#">PARTICIPA</a>
+
 </div>
