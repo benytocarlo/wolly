@@ -78,7 +78,7 @@ class FbAppSonyCodesController < ApplicationController
       @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
     end
     
-    @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/facebook_ids/#{@me_from_graph[:id]}.json").read)
+    @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
     @result = @result.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Intentos #{@result}"
   end
