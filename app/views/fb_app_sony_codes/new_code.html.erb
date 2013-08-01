@@ -38,6 +38,9 @@
                $(".intentos_alert").val(resp);
                $(".alert").fadeIn(1200);
                $(".alert").fadeOut(3000);
+             } else if(resp<=0){
+               $(".alert_amigos").fadeIn(1200);
+               $(".intentos_alert").html("0");
              }
            }
          });
@@ -63,7 +66,7 @@
     
     $(".invitar_amigos").click(function(){
       FB.ui({ method: 'apprequests',
-            message: 'asdasdas',
+            message: 'Selecciona 3 amigos y obtén 3 oportunidades extras para desactivar los láser.',
             filters: ['app_non_users'],
             title: 'Invitación',
             exclude_ids: [1155649748],
@@ -72,9 +75,16 @@
     });
     
     function requestCallback(response) {
-        $("#invitacion").val(response.to);
-        // agregar vidas via get, solo puede sumar 3 vidas, no puede tener mas de 3 vidas
-        // desactivar boton enviar
+        var amigos = $("#invitacion").val(response.to);
+        $.ajax({url: 'check_respuesta',type: 'post',data: "friend="+amigos,
+         success: function( resp ) {
+           if(resp=="exito"){
+             $(".alert_amigos").fadeOut(1000);
+             $(".intentos_alert").html("0");
+             $(".intentos").addClass("intento"+resp);
+           }
+         }
+       });
     }
   });
 </script>
@@ -90,7 +100,7 @@
 	      <div class="intentos intento<%= @result['intentos'] %>" rel="<%= @result['intentos'] %>"></div>
           <label class="buttonps3 inactive" rel="1"></label>
           <label class="buttonps3 inactive" rel="2"></label>
-          <label class="buttonps3 inactive" rel="3"></label>¡
+          <label class="buttonps3 inactive" rel="3"></label>
           <label class="buttonps3 inactive" rel="4"></label>
           <label class="buttonps3 inactive" rel="5"></label>
           <%= hidden_field_tag(:code,'', :class => 'codigo',:readonly => "readonly") %>

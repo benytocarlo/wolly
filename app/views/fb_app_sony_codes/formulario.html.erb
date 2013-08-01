@@ -1,4 +1,4 @@
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <%= javascript_include_tag "jquery.dropkick" %>
 <script>
 $(document).ready(function(){    
@@ -62,7 +62,7 @@ $(document).ready(function(){
       <div class="fila">
         <label>*Teléfono</label>
         <%= text_field_tag(:codigotel,'', :class => 'input-corto', :onkeypress => "return validanum(event)", :maxlength => "3", :placeholder => "09") %>
-        <%= text_field_tag(:telefono, '', :class => 'input-medio', :onkeypress => "return validanum(event)", :maxlength => "10", :placeholder => "63831394") %>
+        <%= text_field_tag(:telefono, '', :class => 'input-medio', :onkeypress => "return validanum(event)", :maxlength => "10", :placeholder => "00000000") %>
       </div>
       <div class="fila">
         <label>*Región</label>
