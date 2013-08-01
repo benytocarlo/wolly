@@ -22,7 +22,7 @@ class FbAppSonyCodesController < ApplicationController
     require 'json'
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
-        redirect_to fb_app_sony_codes_count_path    
+        redirect_to fb_app_sony_codes_count_path
       elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
         session[:registrado] = true
         redirect_to fb_app_sony_codes_new_code_path
@@ -106,11 +106,7 @@ class FbAppSonyCodesController < ApplicationController
     if params[:friend].present?
       @resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/update_friend/facebook_id/#{@me_from_graph[:id]}/friend/#{params[:friend]}.json").read)
       @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
-      if @resultado[:respuesta] == "update_participation" 
-        render :text => "exito"
-      elsif @resultado[:respuesta] == "no update_participation"
-        render :text => "fracaso"
-      end
+      render :text => "exito"
     end
   end
   
@@ -139,7 +135,7 @@ private
   #
   def load_application_data
     @app_id = '574833172560312' if Rails.env.development?
-    @app_id = '284323218372810' if Rails.env.production?
+    @app_id = '480454252044047' if Rails.env.production?
     
     if session[:app].blank? then
       @app = Application.find_by_fb_app_idnumber @app_id
@@ -150,6 +146,6 @@ private
 
     #@app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
-    @scope = 'email,read_stream,publish_stream'
+    @scope = 'email,read_stream,publish_stream,user_photos'
   end
 end
