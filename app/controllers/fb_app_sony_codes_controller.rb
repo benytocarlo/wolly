@@ -121,6 +121,8 @@ class FbAppSonyCodesController < ApplicationController
   end
   
   def count
+    require 'open-uri'
+    require 'json'
     @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
     @premios = @premios.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Premios #{@result}"
