@@ -83,10 +83,10 @@ class FbAppSonyCodesController < ApplicationController
       Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
     end
     
-    @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
-    @result = @result.deep_symbolize_keys#@result = eval(@result)
-    logger.info "DEBUG: Devuelve Intentos #{@result}"
-    @div = @result['numero_de_intentos'].to_i
+    @intentos = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
+    @intentos = @intentos.deep_symbolize_keys#@result = eval(@result)
+    logger.info "DEBUG: Devuelve Intentos #{@intentos}"
+    @intentos = @intentos['numero_de_intentos'].to_i
     @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
     @premios = @premios.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Premios #{@premios}"
