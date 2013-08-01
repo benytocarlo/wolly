@@ -7,9 +7,11 @@
       cookie : true, 
       xfbml  : true  
     });
-    FB.Canvas.setSize({ width: <%= width %>, height: <%= height %> });      
-    FB.Event.subscribe('edge.create', function(response){ top.location.href = '<%= "#{@app.fanpage_link}/app_#{@app_id}" %>'; });
-    $(".boton_fan").hide();
+    FB.Canvas.setSize({ width: <%= width %>, height: <%= height %> });
+    FB.Event.subscribe('edge.create', function(response){ 
+      top.location.href = '<%= "#{@app.fanpage_link}/app_#{@app_id}" %>';
+      $(".boton_fan").hide();
+    });
   };
   (function(d) {
     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
