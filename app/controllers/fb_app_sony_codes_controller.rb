@@ -139,7 +139,7 @@ private
   #
   def load_application_data
     @app_id = '574833172560312' if Rails.env.development?
-    @app_id = '480454252044047' if Rails.env.production?
+    @app_id = '284323218372810' if Rails.env.production?
     
     if session[:app].blank? then
       @app = Application.find_by_fb_app_idnumber @app_id
@@ -150,6 +150,6 @@ private
 
     #@app = Application.find_by_fb_app_idnumber @app_id
     @app_secret = @app.fb_app_secret    
-    @scope = 'email,read_stream,publish_stream,user_photos'
+    @scope = 'email,read_stream,publish_stream'
   end
 end
