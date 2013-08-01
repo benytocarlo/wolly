@@ -30,14 +30,16 @@
                location.href = '/fb_app_sony_codes/share_play';
              } else if(resp=="nointentos"){
                $(".alert_amigos").fadeIn(1200);
-               $(".intentos_alert").html("0"); 
+               $(".intentos_alert").html("0");
              } else if(resp>0 && resp<=3){
-               $(".intentos").addClass("intento"+resp);
+               $("#intentos").removeAttr("class");
+               $("#intentos").addClass("intento"+resp);
                $(".intentos_alert").html(resp);
                $(".alert").fadeIn(1200);
                $(".alert").fadeOut(3000);
              } else if(resp<=0){
-               $(".intentos").addClass("intento0");
+               $("#intentos").removeAttr("class");
+               $("#intentos").addClass("intento0");
                $(".alert_amigos").fadeIn(1200);
                $(".intentos_alert").html("0");
              } else if(resp=="nopremio"){
@@ -80,9 +82,10 @@
         $.ajax({url: 'check_respuesta',type: 'post',data: "friend="+amigos,
          success: function( resp ) {
            if(resp=="exito"){
+             $("#intentos").removeAttr("class");
+             $("#intentos").addClass("intento3");
              $(".alert_amigos").fadeOut(1000);
              $(".intentos_alert").html("0");
-             $(".intentos").addClass("intento3");
            }
          }
        });
@@ -98,7 +101,7 @@
         <h3>¡tienes sólo 3 oportunidades!</h3>
         <div class="contador"><%= @premios[:premios].to_i %></div>
         <div class="pad">
-	      <div class="intentos intento<%= @intentos[:numero_de_intentos].to_i %>" rel="<%= @intentos[:numero_de_intentos].to_i %>"></div>
+	      <div id="intentos" class="intento<%= @intentos[:numero_de_intentos].to_i %>" rel="<%= @intentos[:numero_de_intentos].to_i %>"></div>
           <label class="buttonps3 inactive" rel="1"></label>
           <label class="buttonps3 inactive" rel="2"></label>
           <label class="buttonps3 inactive" rel="3"></label>

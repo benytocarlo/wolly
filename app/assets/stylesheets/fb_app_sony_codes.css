@@ -136,7 +136,7 @@ text-align: center;}
 
 .game_content .pad {background-image: url(fb_app_sony_codes/sprite.png); background-position: -150px -600px; overflow: hidden; width: 458px; margin: auto; height: 149px; padding-left: 10px; margin-top:182px}
 
-.game_content .intentos{display: block; width: 102px; margin: auto; height: 25px; margin-top: 4px; }
+.game_content #intentos{display: block; width: 102px; margin: auto; height: 25px; margin-top: 4px; }
 
 .game_content .intento1, .game_content .intento2, .game_content .intento3 { background-image:url(fb_app_sony_codes/game_sprite.png); }
 
