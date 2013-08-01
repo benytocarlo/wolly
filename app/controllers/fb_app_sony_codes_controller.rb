@@ -78,6 +78,10 @@ class FbAppSonyCodesController < ApplicationController
     @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
     @result = @result.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Intentos #{@result}"
+    
+    @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
+    @premios = @premios.deep_symbolize_keys#@result = eval(@result)
+    logger.info "DEBUG: Devuelve Premios #{@result}"
   end
 
   def check_respuesta
@@ -93,6 +97,8 @@ class FbAppSonyCodesController < ApplicationController
         render :text => "nointentos"
       elsif @resultado[:respuesta] == "Loser" && @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
         render :text => @resultado[:intentos].to_i
+      elsif @resultado[:respuesta] == "NoPremio"
+        render :text => "nopremio"
       end
     end
     if params[:friend].present?
@@ -102,6 +108,11 @@ class FbAppSonyCodesController < ApplicationController
     end
   end
   
+  def count
+    @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
+    @premios = @premios.deep_symbolize_keys#@result = eval(@result)
+    logger.info "DEBUG: Devuelve Premios #{@result}"
+  end
   def share_play
     begin
       @graph.put_wall_post("", {
