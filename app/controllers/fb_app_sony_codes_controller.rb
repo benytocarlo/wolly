@@ -11,7 +11,15 @@ class FbAppSonyCodesController < ApplicationController
   
   def index
     if session[:signed_request][:page][:liked]
-      render :index
+      require 'open-uri'
+      require 'json'
+      @jugada = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/participacion.json").read)
+      @jugada = @jugada.deep_symbolize_keys#@result = eval(@result)
+      if @jugada[:respuesta] == "jugar"
+        render :index
+      else
+        redirect_to fb_app_sony_codes_count_path
+      end  
     else
       render :nofans
     end
