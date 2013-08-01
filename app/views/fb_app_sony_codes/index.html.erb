@@ -3,7 +3,7 @@ $(document).ready(function(){
   $(".startbutton").click(function(){
     FB.login(function(response){
       if (response.authResponse){
-        location.href = '<%= fb_app_sony_codes_formulario_path %>';
+        top.location.href = '<%= fb_app_sony_codes_formulario_path %>';
       }
     },{scope:'<%= @scope %>'});
   });
