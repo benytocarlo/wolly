@@ -3,10 +3,10 @@ class FbAppSonyCodesController < ApplicationController
   layout "fb_app_sony_codes"
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request
-  before_filter :parse_facebook_cookies, :except => [:index, :canvas]
+  before_filter :parse_facebook_cookies, :except => [:index, :canvas, :count]
   before_filter :load_graph_api
-  before_filter :load_facebook_user, :except => [:index, :canvas]
-  before_filter :load_fanpage, :except => [:canvas]
+  before_filter :load_facebook_user, :except => [:index, :canvas, :count]
+  before_filter :load_fanpage, :except => [:canvas, :count]
   include ApplicationHelper
   
   def index
