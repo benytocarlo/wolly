@@ -188,6 +188,8 @@ h4 {
     float: left;
     height: 387px;
     width: 389px;
+    position: relative;
+    z-index: 999;
 }
 
 
@@ -585,6 +587,27 @@ a.prev span, a.next span {
     background: none repeat scroll 0 0 #BF141C;
 
 }
+
+.nicole {
+
+}
+
+.mask_nicole {
+    left: 0;
+    position: absolute;
+    z-index: 9999 !important;
+}
+
+
+
+.nicole {
+    left: 57px;
+    position: absolute;
+    top: 340px;
+    z-index: 1 !important;
+}
+
+
 
 
 #form_registro .error {
