@@ -193,7 +193,7 @@ text-align: center;}
 
 .counter h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto;  margin-top:7px;}
 .counter h2 { font-family:Arial, Helvetica, sans-serif; font-size:24px; text-transform:uppercase; text-align:center; font-weight:bold; margin:auto; margin-top:5px; width:288px; height:48px; background-image:url(fb_app_sony_codes/texto_counter.png); text-indent:-9999px; display:block; margin-bottom:10px;}
-.counter h3 { font-family:Arial, Helvetica, sans-serif; font-size:18px; text-align:center; margin:auto; margin-top:5px; width:630px; margin-bottom:8px; line-height:21px; background-image:url(fb_app_sony_codes/texto_counter2.png); width:585px; height:39px; margin:auto; display:block; text-indent:-99999px; margin-bottom:18px;}
+.counter h3 { font-family:Arial, Helvetica, sans-serif; font-size:18px; text-align:center; margin:auto; margin-top:5px; width:630px; margin-bottom:8px; line-height:21px; background-image:url(fb_app_sony_codes/texto_counter2.png); width:574px; height:62px; margin:auto; display:block; text-indent:-99999px; margin-bottom:18px;background-repeat:no-repeat;}
 
 .counter .ps3_quedan {width: 52px; height: 80px; margin: auto; background-image: url(fb_app_sony_codes/sprite.png);
 background-position: -1250px -500px; font-size: 41px; font-family: Arial; padding: 57px; text-align:center;}
