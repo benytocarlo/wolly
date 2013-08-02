@@ -81,10 +81,11 @@
     
     function requestCallback(response) {
         var amigos = response.to;
+        var amigosstring = amigos + "";
         var countamigos = amigos.toString().split(',').length;
         var parametros = {
           count: countamigos,
-          friend: amigos
+          friend: amigosstring.toString()
         };
         $.ajax({ 
           url: 'check_respuesta',
