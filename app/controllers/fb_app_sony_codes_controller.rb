@@ -120,8 +120,11 @@ class FbAppSonyCodesController < ApplicationController
     if params[:friend].present? && params[:count].present?
       @resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/actualizar_participante/facebook_id/#{@me_from_graph[:id]}/amigos_share/#{params[:friend]}/count/#{params[:count]}.json").read)
       @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
-      if @resultado[:respuesta] == "update_participation" 
-        render :text => "exito"
+      if @resultado[:respuesta] == "update_participation"
+        @intentos = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
+        @intentos = @intentos.deep_symbolize_keys#@result = eval(@result)
+        logger.info "DEBUG: Devuelve Intentos #{@intentos}"
+        render :text => @intentos[:numero_de_intentos].to_i
       elsif @resultado[:respuesta] == "no update_participation"
         render :text => "fracaso"
       end

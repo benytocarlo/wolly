@@ -92,9 +92,9 @@
           type: 'post',
           data:  parametros,
          success: function( resp ) {
-           if(resp=="exito"){
+           if(resp!="fracaso" && resp>0 && resp<=3){
              $("#intentos").removeAttr("class");
-             $("#intentos").addClass("intento3");
+             $("#intentos").addClass("intento"+resp);
              $(".alert_amigos").fadeOut(1000);
              $(".intentos_alert").html("0");
            }
