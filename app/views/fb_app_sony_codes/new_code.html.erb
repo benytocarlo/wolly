@@ -1,5 +1,10 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
+    <% if @intentos[:numero_de_intentos].to_i < 1 || @intentos[:numero_de_intentos].to_i=="" %>
+      $(".alert_amigos").fadeIn(1000);
+      $(".intentos_alert").html("0");
+      $(".friend").val("0");
+    <% end %>
     
     function borrar(){
       $(".pad label").each(function() {
