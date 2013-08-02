@@ -19,14 +19,13 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: d26elvdepspfs3
-  username: uc353j22gs1hec
-  password: pep6m3c0g7frf5dt9qs5gsug378
-  host: ec2-107-22-254-168.compute-1.amazonaws.com
-  port: 5462
+  adapter: mysql2
+  encoding: utf8
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
 
 
 
