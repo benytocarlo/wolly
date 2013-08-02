@@ -74,7 +74,7 @@
             message: 'Selecciona 3 amigos y obtén 3 oportunidades extras para desactivar los láser.',
             filters: ['app_non_users'],
             title: 'Invitación',
-            exclude_ids: [1155649748],
+            exclude_ids: [<%= @friend[:amigos].to_s %>],
       max_recipients: '3'
       },requestCallback);
     });
