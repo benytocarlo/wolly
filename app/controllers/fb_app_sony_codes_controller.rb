@@ -99,9 +99,9 @@ class FbAppSonyCodesController < ApplicationController
     @premios = @premios.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Premios #{@premios}"
     
-    @friend = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/friends/#{@me_from_graph[:id]}.json").read)
+    @friend = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/friends/facebook_id/#{@me_from_graph[:id]}.json").read)
     @friend = @friend.deep_symbolize_keys#@result = eval(@result)
-    logger.info "DEBUG: Devuelve Amigos #{@intentos}"
+    logger.info "DEBUG: Devuelve Amigos #{@friend}"
   end
 
   def check_respuesta
