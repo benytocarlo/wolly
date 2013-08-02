@@ -22,6 +22,7 @@
         var vallength = $(".codigo").val().length;
         if(vallength==5){
           var valcodigo = $(".codigo").val();
+          var valfriend = $(".friend").val();
           $.ajax({url: 'check_respuesta',type: 'post',data: "code="+valcodigo,
            success: function( resp ) {
              $(".codigo").val("");
@@ -29,10 +30,15 @@
              if(resp=="win"){
                location.href = '/fb_app_sony_codes/share_play';
              } else if(resp=="nointentos"){
-               $("#intentos").removeAttr("class");
-               $("#intentos").addClass("intento0");
-               $(".alert_amigos").fadeIn(1200);
-               $(".intentos_alert").html("0");
+               if(valfriend==1){
+                 $("#intentos").removeAttr("class");
+                 $("#intentos").addClass("intento0");
+                 $(".alert_amigos").fadeIn(1200);
+                 $(".intentos_alert").html("0");
+                 $(".friend").val("0");
+                }else if(valfriend==0){
+                 location.href = '/fb_app_sony_codes/new_code';
+                }
              } else if(resp>0 && resp<=3){
                $("#intentos").removeAttr("class");
                $("#intentos").addClass("intento"+resp);
@@ -119,6 +125,7 @@
           <label class="buttonps3 inactive" rel="4"></label>
           <label class="buttonps3 inactive" rel="5"></label>
           <%= hidden_field_tag(:code,'', :class => 'codigo',:readonly => "readonly") %>
+          <%= hidden_field_tag(:friend,'', :class => 'friend',:readonly => "readonly",:value => "1") %>
         </div>
         <div class="control">
           <%= link_to "Triangulo", "#" , :class => "triangulo", :rel => "A" %>
