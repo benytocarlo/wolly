@@ -1,0 +1,14 @@
+[global]
+ApplicationName=wolly
+AwsCredentialFile=/Users/lortega/.elasticbeanstalk/aws_credential_file
+DevToolsEndpoint=git.elasticbeanstalk.sa-east-1.amazonaws.com
+EnvironmentName=production
+InstanceProfileName=aws-elasticbeanstalk-ec2-role
+OptionSettingFile=/Users/lortega/Dropbox/workspace/havas/wolly/.elasticbeanstalk/optionsettings.production
+RdsDeletionPolicy=Delete
+RdsEnabled=Yes
+RdsSourceSnapshotName=
+Region=sa-east-1
+ServiceEndpoint=https://elasticbeanstalk.sa-east-1.amazonaws.com
+SolutionStack=32bit Amazon Linux running Ruby 1.9.3
+
