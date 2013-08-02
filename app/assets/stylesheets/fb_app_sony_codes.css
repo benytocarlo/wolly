@@ -61,7 +61,7 @@ a img { border:0px;}
 
 .nofan { background-image:url(fb_app_sony_codes/1.jpg) !important; overflow:hidden; text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.38); }
 
-.nofan h1{ width:400px;height:142px; background-image:url(fb_app_sony_codes/sprite.png); background-position:-100px -127px; display:block; text-indent:-9999px; margin:auto; margin-top:131px;}
+.nofan h1 { background-image: url("fb_app_sony_codes/sprite.png");background-position: -100px -109px;display: block;height: 157px;margin: 84px auto auto;text-indent: -9999px;width: 400px; }
 .nofan h2 { font-family:Arial; font-size:24px; text-transform:uppercase; text-align:center; font-weight:bold; margin-top:20px ;}
 .nofan h3 { font-family:Arial, Helvetica, sans-serif; font-size:16px; text-align:center; margin-top:5px;}
 .nofan .boton_fan {  width:134px; height:55px; margin:auto; display:block; margin-top:40px; overflow:hidden; background-image:url(fb_app_sony_codes/sprite.png); background-position:-733px -800px;}
