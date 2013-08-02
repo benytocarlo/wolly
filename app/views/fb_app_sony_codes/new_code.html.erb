@@ -81,6 +81,7 @@
     
     function requestCallback(response) {
         var amigos = response.to;
+        alert(amigos);
         var countamigos = amigos.split(',').length;
         var parametros = {
           count: countamigos,
