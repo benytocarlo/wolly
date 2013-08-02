@@ -81,17 +81,7 @@
     
     function requestCallback(response) {
         var amigos = response.to;
-        function validarString (cadenaAnalizar) {
-            var contador = 0;
-           for (var i = 0; i< cadenaAnalizar.length; i++) {
-                 var caracter = cadenaAnalizar.charAt(i);
-                  if( caracter == ",") {
-                     contador=contador+1;
-                  }
-            }
-            return contador + 1
-        }  
-        var countamigos = validarString(amigos);
+        var countamigos = amigos.split(',').length;
         var parametros = {
           count: countamigos,
           friend: amigos
