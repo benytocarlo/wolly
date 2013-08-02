@@ -18,8 +18,8 @@
   });
 </script>
   <div class="wrap back_registro">
-    <a title="Enlace a home" href="index.html" class="inicio"></a>
-    <a title="Enlace a bases legales" href="#" class="bases">Bases legales</a>
+    <%= link_to "", fb_app_brother_combo_path,:id =>"inicio",:class =>"inicio" %>
+    <a class="bases" href="/documents/fb_app_brother_combo.pdf" target="_blank">Bases legales</a>
     <div class="registro">
       <%= form_tag(fb_app_brother_combo_share_path,:id=>:form_registro, :method => "post") do  %>
         <div class="brother">
