@@ -1,5 +1,10 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
+    <% if @intentos[:numero_de_intentos].to_i < 1 || @intentos[:numero_de_intentos].to_i=="" %>
+      $(".alert_amigos").fadeIn(1000);
+      $(".intentos_alert").html("0");
+      $(".friend").val("0");
+    <% end %>
     
     function borrar(){
       $(".pad label").each(function() {
@@ -22,6 +27,7 @@
         var vallength = $(".codigo").val().length;
         if(vallength==5){
           var valcodigo = $(".codigo").val();
+          var valfriend = $(".friend").val();
           $.ajax({url: 'check_respuesta',type: 'post',data: "code="+valcodigo,
            success: function( resp ) {
              $(".codigo").val("");
@@ -29,10 +35,15 @@
              if(resp=="win"){
                location.href = '/fb_app_sony_codes/share_play';
              } else if(resp=="nointentos"){
-               $("#intentos").removeAttr("class");
-               $("#intentos").addClass("intento0");
-               $(".alert_amigos").fadeIn(1200);
-               $(".intentos_alert").html("0");
+               if(valfriend==1){
+                 $("#intentos").removeAttr("class");
+                 $("#intentos").addClass("intento0");
+                 $(".alert_amigos").fadeIn(1200);
+                 $(".intentos_alert").html("0");
+                 $(".friend").val("0");
+                }else if(valfriend==0){
+                 location.href = '/fb_app_sony_codes/new_code';
+                }
              } else if(resp>0 && resp<=3){
                $("#intentos").removeAttr("class");
                $("#intentos").addClass("intento"+resp);
@@ -74,7 +85,7 @@
             message: 'Selecciona 3 amigos y obtén 3 oportunidades extras para desactivar los láser.',
             filters: ['app_non_users'],
             title: 'Invitación',
-            exclude_ids: [1155649748],
+            exclude_ids: [<%= @friend[:amigos].to_s %>],
       max_recipients: '3'
       },requestCallback);
     });
@@ -119,6 +130,7 @@
           <label class="buttonps3 inactive" rel="4"></label>
           <label class="buttonps3 inactive" rel="5"></label>
           <%= hidden_field_tag(:code,'', :class => 'codigo',:readonly => "readonly") %>
+          <%= hidden_field_tag(:friend,'', :class => 'friend',:readonly => "readonly",:value => "1") %>
         </div>
         <div class="control">
           <%= link_to "Triangulo", "#" , :class => "triangulo", :rel => "A" %>
@@ -141,7 +153,7 @@
 y seguir participando. Recuerda sólo podrás invitar a 
 3 amigos cada vez.</p>
 		<a href="#" class="invitar_amigos invitar">Invitar amigos</a>
-    <span class="close_amigos">close</span>
+    <span class="close_amigos" style="display:none">close</span>
   </div>
   <div class="alert_loader"></div>
 </div>
