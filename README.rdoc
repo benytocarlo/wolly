@@ -1,21 +1,24 @@
-Pasos a seguir para crear app
+= \Crear una aplicación en Wolly
+Los siguientes pasos se pueden realizar en cualquier orden.
 
----------Actualizar archivo de rutas------------
-#config/routes.rb
+== \Actualizar archivo de rutas
+El archivo de rutas se encuentra en +config/routes.rb+.
 
-post "fb_app_claro_ganate_la_parabolica"             => "fb_app_claro_ganate_la_parabolica#index"
-    (ruta solicitada)
-    
-    #post "blablabla/gato" 
-    (otra forma de solictar ruta) 
+Para la siguiente llamada HTTP: +wolly.aws.com/ruta_solicitada+, es necesario definir una línea que le explique a la aplicación qué hacer ante dicha petición.
 
+    Wolly::Application.routes.draw do
 
------- crear controlador -----------
-Duplicar existente
+      # Línea que explica cómo reaccionar a la aplicación. 
+      #
+      get|post|put|delete "ruta_solicitada" => "nombre_controlador#metodo", :as => "alias"
+    end
 
-------- crear layout ------------
-Duplicar existente
+== \Crear un controlador (Controller)
+    Duplicar existente
 
--------- crear archivo css y js -----------
-Duplicar existentes
+== \Crear un Layout
+    Duplicar existente
+
+== \Crear archivos CSS y JS para la aplicación
+    Duplicar existentes
 
