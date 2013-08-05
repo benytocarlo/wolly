@@ -83,12 +83,16 @@ class FbAppSonyCodesController < ApplicationController
   def new_code
     require 'open-uri'
     require 'json'
-    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :phone => params[:telefono])
-      Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
-    else
-      @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-      Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+    
+    if request.post?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :phone => params[:telefono])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+      else
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+      end
+    elsif request.get?
     end
     
     @intentos = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
