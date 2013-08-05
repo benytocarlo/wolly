@@ -31,7 +31,8 @@ class FbAppSonyCodesController < ApplicationController
     @jugada = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/participacion.json").read)
     @jugada = @jugada.deep_symbolize_keys#@result = eval(@result)
     if @jugada[:respuesta] == "jugar"
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      #if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database = Participant.find(:first,:conditions=>["facebook_idnumber=? AND facebook_name !=''",1155649748])
         if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
           redirect_to fb_app_sony_codes_count_path
         elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
@@ -86,10 +87,10 @@ class FbAppSonyCodesController < ApplicationController
     
     if request.post?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :phone => params[:telefono])
+        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :phone => params[:codigotel]+"-"+params[:telefono], :province => params[:region])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :phone => params[:codigotel]+"-"+params[:telefono], :facebook_gender => @me_from_graph[:gender], :province => params[:region])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
       end
     elsif request.get?
