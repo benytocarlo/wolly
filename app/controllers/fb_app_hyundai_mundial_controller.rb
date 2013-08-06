@@ -12,6 +12,7 @@ class FbAppHyundaiMundialController < ApplicationController
 
   def index
     if session[:signed_request][:page][:liked]
+      @header = false
       render :index
     else
       @header = false
