@@ -27,7 +27,7 @@
         <div id="foo2">
             <% @gallery.each do |gallery| %>
                 <div class="slide">
-                    <img src="http://www.miapp.cl/heroku/claro/monster/<%= gallery[:image] %>" width="440" height="275">
+                    <img src="http://www.miapp.cl/heroku/claro/monster/<%= gallery[:image] %>" width="440" height="275"> 
                     <div class="name"><span><%= gallery[:name] %></span></div>
                     <a href='http://www.facebook.com/sharer.php?s=100&p[title]=Asusta como un profesional&p[summary]=Asusta como un profesional y participa por uno de los 11 kits Monsters University de Claro&p[url]=http://www.facebook.com/clarochile/app_1374235916136044&p[images][0]=http://www.miapp.cl/heroku/claro/monster/<%= gallery[:image] %>' target="_blank" class="bt_share">compartir en tu muro</a>
                 </div>
