@@ -160,10 +160,10 @@ Wolly::Application.routes.draw do
   get   "fb_app_sony_codes/count"
   
   post  "fb_app_brother_combo"             => "fb_app_brother_combo#index"
+  get  "fb_app_brother_combo"             => "fb_app_brother_combo#index"
   post  "fb_app_brother_combo/canvas"
   get   "fb_app_brother_combo/formulario"
   post  "fb_app_brother_combo/share"
-  get  "fb_app_brother_combo/premios"
 
   post  "fb_app_claro_monster"             => "fb_app_claro_monster#index"
   get  "fb_app_claro_monster"             => "fb_app_claro_monster#index"

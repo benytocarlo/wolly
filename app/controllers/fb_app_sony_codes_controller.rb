@@ -3,15 +3,23 @@ class FbAppSonyCodesController < ApplicationController
   layout "fb_app_sony_codes"
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request
-  before_filter :parse_facebook_cookies, :except => [:index, :canvas]
+  before_filter :parse_facebook_cookies, :except => [:index, :canvas, :count]
   before_filter :load_graph_api
-  before_filter :load_facebook_user, :except => [:index, :canvas]
-  before_filter :load_fanpage, :except => [:canvas]
+  before_filter :load_facebook_user, :except => [:index, :canvas, :count]
+  before_filter :load_fanpage, :except => [:canvas, :count]
   include ApplicationHelper
   
   def index
     if session[:signed_request][:page][:liked]
-      render :index
+      require 'open-uri'
+      require 'json'
+      @jugada = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/participacion.json").read)
+      @jugada = @jugada.deep_symbolize_keys#@result = eval(@result)
+      if @jugada[:respuesta] == "jugar"
+        render :index
+      else
+        redirect_to fb_app_sony_codes_count_path
+      end  
     else
       render :nofans
     end
@@ -20,16 +28,38 @@ class FbAppSonyCodesController < ApplicationController
   def formulario
     require 'open-uri'
     require 'json'
-    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
-        redirect_to fb_app_sony_codes_count_path
-      elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
-        session[:registrado] = true
-        redirect_to fb_app_sony_codes_new_code_path
+    @jugada = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/participacion.json").read)
+    @jugada = @jugada.deep_symbolize_keys#@result = eval(@result)
+    if @jugada[:respuesta] == "jugar"
+      #if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database = Participant.find(:first,:conditions=>["facebook_idnumber=? AND facebook_name !=''",@me_from_graph[:id]])
+        if @me_from_database_participation = Participation.find(:first,:conditions =>["answer = 'Ganador' AND application_id = ?",@app.id])
+          redirect_to fb_app_sony_codes_count_path
+        elsif @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+          session[:registrado] = true
+          redirect_to fb_app_sony_codes_new_code_path
+        else
+          @nombre   = @me_from_database.facebook_name
+          @correo   = @me_from_database.facebook_email
+          @telefono = @me_from_database.phone
+          @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
+          @result = @result.deep_symbolize_keys#@result = eval(@result)
+          logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
+          begin
+            @graph.put_wall_post("", {
+                :name => "¡Participa en Sony Code!",
+                :link => "http://www.facebook.com/SonyChile/app_480454252044047",
+                :caption => "¡Participa tú también AQUÍ!",
+                :description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
+                :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
+            }, @me_from_graph[:id])
+          rescue
+            @nopost = 1
+          end
+        end
       else
-        @nombre   = @me_from_database.facebook_name
-        @correo   = @me_from_database.facebook_email
-        @telefono = @me_from_database.phone
+        @nombre   = @me_from_graph[:name]
+        @correo   = @me_from_graph[:email]
         @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
         @result = @result.deep_symbolize_keys#@result = eval(@result)
         logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
@@ -45,43 +75,38 @@ class FbAppSonyCodesController < ApplicationController
           @nopost = 1
         end
       end
+      regions_of_chile
     else
-      @nombre   = @me_from_graph[:name]
-      @correo   = @me_from_graph[:email]
-      @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/crear_participante/facebook_id/#{@me_from_graph[:id]}.json").read)
-      @result = @result.deep_symbolize_keys#@result = eval(@result)
-      logger.info "DEBUG: Ingresa Usuario al WS #{@result}"
-      begin
-        @graph.put_wall_post("", {
-            :name => "¡Participa en Sony Code!",
-            :link => "http://www.facebook.com/SonyChile/app_480454252044047",
-            :caption => "¡Participa tú también AQUÍ!",
-            :description => "Estoy descifrando el Sony Code del Día para ganar un PlayStation 3 al instante",
-            :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
-        }, @me_from_graph[:id])
-      rescue
-        @nopost = 1
-      end
-    end
-    regions_of_chile
+      redirect_to fb_app_sony_codes_count_path
+    end  
   end
   
   def new_code
     require 'open-uri'
     require 'json'
-    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-    else
-      @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+    
+    if request.post?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :phone => params[:codigotel]+"-"+params[:telefono], :province => params[:region])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+      else
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :phone => params[:codigotel]+"-"+params[:telefono], :facebook_gender => @me_from_graph[:gender], :province => params[:region])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+      end
+    elsif request.get?
     end
     
-    @result = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
-    @result = @result.deep_symbolize_keys#@result = eval(@result)
-    logger.info "DEBUG: Devuelve Intentos #{@result}"
-    
+    @intentos = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
+    @intentos = @intentos.deep_symbolize_keys#@result = eval(@result)
+    logger.info "DEBUG: Devuelve Intentos #{@intentos}"
+
     @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
     @premios = @premios.deep_symbolize_keys#@result = eval(@result)
-    logger.info "DEBUG: Devuelve Premios #{@result}"
+    logger.info "DEBUG: Devuelve Premios #{@premios}"
+    
+    @friend = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/friends/facebook_id/#{@me_from_graph[:id]}.json").read)
+    @friend = @friend.deep_symbolize_keys#@result = eval(@result)
+    logger.info "DEBUG: Devuelve Amigos #{@friend}"
   end
 
   def check_respuesta
@@ -97,22 +122,32 @@ class FbAppSonyCodesController < ApplicationController
         render :text => "nointentos"
       elsif @resultado[:respuesta] == "Loser" && @resultado[:intentos].to_i > 0 && @resultado[:intentos].to_i <= 3
         render :text => @resultado[:intentos].to_i
-      elsif @resultado[:respuesta] == "NoPremio"
+      elsif @resultado[:respuesta] == "No_Prizes_Left"
         render :text => "nopremio"
       end
     end
-    if params[:friend].present?
-      @resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/update_friend/facebook_id/#{@me_from_graph[:id]}/friend/#{params[:friend]}.json").read)
+    if params[:friend].present? && params[:count].present?
+      @resultado = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/actualizar_participante/facebook_id/#{@me_from_graph[:id]}/amigos_share/#{params[:friend]}/count/#{params[:count]}.json").read)
       @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
-      render :text => "exito"
+      if @resultado[:respuesta] == "update_participation"
+        @intentos = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/intentos/#{@me_from_graph[:id]}.json").read)
+        @intentos = @intentos.deep_symbolize_keys#@result = eval(@result)
+        logger.info "DEBUG: Devuelve Intentos #{@intentos}"
+        render :text => @intentos[:numero_de_intentos].to_i
+      elsif @resultado[:respuesta] == "no update_participation"
+        render :text => "fracaso"
+      end
     end
   end
   
   def count
+    require 'open-uri'
+    require 'json'
     @premios = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
     @premios = @premios.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Premios #{@result}"
   end
+
   def share_play
     begin
       @graph.put_wall_post("", {

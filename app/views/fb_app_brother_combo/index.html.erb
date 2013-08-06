@@ -1,15 +1,16 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function(){
-    $(".botonparticipa").click(function(){
+    $(".participa").click(function(){
       FB.login(function(response){
         if (response.authResponse){
           location.href = '<%= fb_app_brother_combo_formulario_path %>';
         }
-      },{scope:'<%= @scope %>'});
+      },{scope:'<%= @scope %>',display: 'popup'});
     });
 });
 </script>
-<div id="home">
-  <a href="#" class="botonparticipa">Participa</a>
-  <a href="/documents/fb_app_brother_combo.pdf" class="bases" target="_blank">Bases</a>
+<div class="wrap home">
+  <%= link_to "", fb_app_brother_combo_path,:id =>"inicio",:class =>"inicio" %>
+  <a class="bases" href="/documents/fb_app_brother_combo.pdf" target="_blank">Bases legales</a>
+  <a title="Enlace a bases legales" href="#" class="participa"></a>
 </div>

@@ -62,14 +62,14 @@ class FbAppClaroMonsterController < ApplicationController
           end
         end
       rescue
-        redirect_to fb_app_claro_monster_formulario_path, :flash => { :notice => "Tienes que elegir un archivo antes de dar clic a Subir archivo." }
+        redirect_to fb_app_claro_monster_formulario_path, :flash => { :notice => "Tienes que elegir un archivo para continuar" }
       end
     elsif request.get?
     end
   end
 
   def galeria
-    @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id}"],:limit=>2,:order => "created_at ASC")
+    @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id} AND wants_to_be_mailed ='t'"],:limit=>15,:order => "created_at ASC")
     @gallery = Array.new
     @participations.each do |participations|
       @participant = Participant.find_by_id(participations.participant_id)
