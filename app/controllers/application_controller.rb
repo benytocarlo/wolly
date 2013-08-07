@@ -2,6 +2,31 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  # Método para migrar la base de datos
+  #
+  def migrar_base_de_datos_a_aws
+    require 'open-uri'
+    require 'json'
+    
+    @applications   = Application.all
+    @participants   = Participant.all
+    @participations = Participation.all
+
+    @applications.each do |application|
+      @result = JSON.parse(open("http://production-swt4s47mt8.elasticbeanstalk.com/application/").read)
+    end
+    
+    @participants.each do |participant|
+      #@result = JSON.parse(open("production-swt4s47mt8.elasticbeanstalk.com/participant/").read)
+    end
+    
+    @participations.each do |participation|
+      #@result = JSON.parse(open("production-swt4s47mt8.elasticbeanstalk.com/participations/").read)
+    end
+    
+    render :layout => false
+  end
+  
   # Este método debe ser llamado cuando alguien trate de cargar la aplicación en un canvas.
   #  
   def canvas
