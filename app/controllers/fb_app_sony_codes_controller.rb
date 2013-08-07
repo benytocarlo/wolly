@@ -151,7 +151,7 @@ class FbAppSonyCodesController < ApplicationController
   def share_play
     require 'open-uri'
     require 'json'
-    @ganador = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
+    @ganador = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/ganador/facebook_id/#{@me_from_graph[:id]}.json").read)
     @ganador = @ganador.deep_symbolize_keys#@result = eval(@result)
     if @ganador[:respuesta] == "ganador"
       begin
