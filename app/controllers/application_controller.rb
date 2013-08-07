@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # Método para recibir aplicaciones nuevas.
   #
   def nuevas_app
-    Application.create(params[:application])
+    Application.create(:name => params[:application])
   end
   
   # Este método debe ser llamado cuando alguien trate de cargar la aplicación en un canvas.
