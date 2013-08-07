@@ -149,16 +149,24 @@ class FbAppSonyCodesController < ApplicationController
   end
 
   def share_play
-    begin
-      @graph.put_wall_post("", {
-          :name => "¡Soy el ganador de un PlayStation 3!",
-          :link => "http://www.facebook.com/SonyChile/app_480454252044047",
-          :caption => "¡Participa tú también AQUÍ!",
-          :description => "Descifre el Sony código del día y desactive los láser. Esto es vivir en estado Play.",
-          :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
-      }, @me_from_graph[:id])
-    rescue
-      @nopost = 1
+    require 'open-uri'
+    require 'json'
+    @ganador = JSON.parse(open("http://ws-wanted.herokuapp.com/sony/premios.json").read)
+    @ganador = @ganador.deep_symbolize_keys#@result = eval(@result)
+    if @ganador[:respuesta] == "ganador"
+      begin
+        @graph.put_wall_post("", {
+            :name => "¡Soy el ganador de un PlayStation 3!",
+            :link => "http://www.facebook.com/SonyChile/app_480454252044047",
+            :caption => "¡Participa tú también AQUÍ!",
+            :description => "Descifre el Sony código del día y desactive los láser. Esto es vivir en estado Play.",
+            :picture => "http://wolly.herokuapp.com/assets/fb_app_sony_codes/75x75.jpg"
+        }, @me_from_graph[:id])
+      rescue
+        @nopost = 1
+      end
+    else
+      redirect_to fb_app_sony_codes_new_code_path
     end
   end
 
