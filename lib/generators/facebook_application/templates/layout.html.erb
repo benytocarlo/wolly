@@ -1,0 +1,15 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title><%%= @app.name unless @app.name.blank? %></title>	
+  <%%= stylesheet_link_tag    "<%= app_name %>", :media => "all" %>
+  <%%= javascript_include_tag "<%= app_name %>" %>
+  <%%= csrf_meta_tags %>
+</head>
+<body>
+  <%%= render "layouts/facebook_javascript_sdk" %>
+  <%%= render "layouts/ga" %>
+<%%= yield %>
+</body>
+</html>
+

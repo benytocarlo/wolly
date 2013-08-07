@@ -1,0 +1,74 @@
+<%%= javascript_include_tag "jquery.validate" %>
+<%%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $("#btn_enviar").click(function(){
+      if(!$('#read').is(":checked")){
+        $('.alertcheck').show();
+      }else{
+        $('.alertcheck').hide();
+        $("#registro").submit();
+      }
+    });
+
+    $("#registro").validate({
+      rules: {
+        nombre: {
+          required: true
+        },
+        apellido: {
+          required: true
+        },
+        rut: {
+          required: true,
+          valrut: $('#rut').val()
+        },
+        telefono: {
+          required: true,
+        },
+        correo: {
+          required: true,
+          email: true
+        },
+        read: {
+          required: true
+        }
+      }
+    });
+    
+    $('.cerrar_all').click(function (){
+      $('.alertcheck').hide();
+    });
+    
+  });
+</script>
+<div class="content">
+    <div id="header">
+        <div class="main_nav">
+            <span class="main_logo"></span>
+        </div>
+    </div>
+    <p id="error" style="color:red;font-size:15px;"><%%= flash[:error] %></p>
+    <div class="content form">
+      <%%= form_tag(<%= app_name %>_new_participant_path,:id=>:registro, :method => "post") do  %>
+        <%%= text_field_tag(:nombre, @nombre, :onkeypress => "return validatxt(event)") %>
+        <%%= text_field_tag(:apellido, @apellido, :onkeypress => "return validatxt(event)") %>
+        <%%= text_field_tag(:rut, @rut, :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
+        <%%= text_field_tag(:correo, @correo, :maxlength => "150") %>
+        <%%= text_field_tag(:telefono, @telefono, :onkeypress => "return validanum(event)") %>
+        <input type="checkbox" id="read" name="read" value="1">
+        <input type="checkbox" id="mail_ok" name="mail_ok" value="1" checked>
+      <%% end %>
+      <a href="#" id="btn_enviar" class="btn_despega">Despega</a>
+    </div>
+    <div id="footer">
+    </div>
+    <div class="alertcheck">
+      <span class="black_shadow"></span>
+      <span class="img_select">
+      <span class="btn_cerrar"></span>
+      <%%=image_tag("fb_app_lan_cargo/pop_up_bases.png", :alt => "alert", :class=> "cerrar_all")%>
+      
+      </span>
+    </div>
+</div>

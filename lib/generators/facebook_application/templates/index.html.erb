@@ -1,0 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+		$("#fb_app_login").click(function(){
+			FB.login(function(response){
+				if (response.authResponse){
+				  location.href = '<%%= <%= app_name %>_register_path %>';
+				}
+			},{scope:'<%%= @scope %>'});
+		});
+	});
+</script>
+
+<div id="home">
+  <h2 class="home_btn"><a id="fb_app_login" href="#">Participa</a></h2>
+</div>
+
