@@ -1,4 +1,6 @@
 Wolly::Application.routes.draw do
+  get "nuevas_app/:application" => "application#nuevas_app"
+
   post "fb_app_mahindra_reforestemos" => "fb_app_mahindra_reforestemos#index"
 
   post   "fb_app_brilliance_chile"                  => "fb_app_brilliance_chile#index"

@@ -2,6 +2,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  # Método para recibir aplicaciones nuevas.
+  #
+  def nuevas_app
+    Application.create(params[:application])
+  end
+  
   # Este método debe ser llamado cuando alguien trate de cargar la aplicación en un canvas.
   #  
   def canvas
