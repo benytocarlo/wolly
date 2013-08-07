@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     @participations = Participation.all
 
     @applications.each do |application|
-      @result = JSON.parse(open("http://production-swt4s47mt8.elasticbeanstalk.com/application/").read)
+      @result = JSON.parse(open("http://production-swt4s47mt8.elasticbeanstalk.com/nuevas_app/#{application}").read)
     end
     
     @participants.each do |participant|
