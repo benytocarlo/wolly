@@ -1,4 +1,7 @@
 Wolly::Application.routes.draw do
+  
+  get "migrar_bd_a_ws" => "application#migrar_base_de_datos_a_aws"
+  
   post "fb_app_mahindra_reforestemos" => "fb_app_mahindra_reforestemos#index"
 
   post   "fb_app_brilliance_chile"                  => "fb_app_brilliance_chile#index"
