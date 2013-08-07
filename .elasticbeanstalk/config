@@ -12,3 +12,15 @@ Region=sa-east-1
 ServiceEndpoint=https://elasticbeanstalk.sa-east-1.amazonaws.com
 SolutionStack=32bit Amazon Linux running Ruby 1.9.3
 
+[branches]
+aws-master=production
+
+[branch:aws-master]
+ApplicationVersionName=Sample Application
+EnvironmentName=production
+InstanceProfileName=aws-elasticbeanstalk-ec2-role
+OptionSettingFile=/Users/lortega/Dropbox/workspace/havas/wolly/.elasticbeanstalk/optionsettings.production
+RdsDeletionPolicy=Delete
+RdsEnabled=Yes
+RdsSourceSnapshotName=
+
