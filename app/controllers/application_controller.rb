@@ -1,22 +1,12 @@
 #coding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  # Método para recibir aplicaciones nuevas.
+
+  # Carga la URL de la aplicación dentro de un Fanpage de Facebook. 
   #
-  def nuevas_app
-    Application.create(:name => params[:application])
-  end
-  
-  # Este método debe ser llamado cuando alguien trate de cargar la aplicación en un canvas.
-  #  
   def canvas
     @page_url = "#{@app.fanpage_link}/app_#{@app_id}"
     render :redirect
-  end
-
-  def participants_list
-    @participations = Participation.find :all, :conditions => ["application_id = ?", params[:application_id]]
   end
 
 private
