@@ -1,4 +1,13 @@
 Wolly::Application.routes.draw do
+
+  get  'fb_app_judas_chile/new_participant' => 'fb_app_judas_chile#new_participant'
+
+  post 'fb_app_judas_chile/share' => 'fb_app_judas_chile#share', :as => 'fb_app_judas_chile_share'
+
+  post 'fb_app_judas_chile/canvas'
+
+  post 'fb_app_judas_chile' => 'fb_app_judas_chile#index'
+
   get "nuevas_app/:application" => "application#nuevas_app"
 
   post "fb_app_mahindra_reforestemos" => "fb_app_mahindra_reforestemos#index"

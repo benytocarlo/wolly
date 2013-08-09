@@ -1,24 +1,8 @@
-= \Crear una aplicación en Wolly
-Los siguientes pasos se pueden realizar en cualquier orden.
+== \Crear una aplicación de Facebook en Wolly
 
-== \Actualizar archivo de rutas
-El archivo de rutas se encuentra en +config/routes.rb+.
+Se debe ejecutar el generador de aplicaciones de facebook:
 
-Para la siguiente llamada HTTP: +wolly.aws.com/ruta_solicitada+, es necesario definir una línea que le explique a la aplicación qué hacer ante dicha petición.
+    rails generate facebook_application [NOMBRE DE LA APLICACIÓN]
 
-    Wolly::Application.routes.draw do
 
-      # Línea que explica cómo reaccionar a la aplicación. 
-      #
-      get|post|put|delete "ruta_solicitada" => "nombre_controlador#metodo", :as => "alias"
-    end
-
-== \Crear un controlador (Controller)
-    Duplicar existente
-
-== \Crear un Layout
-    Duplicar existente
-
-== \Crear archivos CSS y JS para la aplicación
-    Duplicar existentes
 

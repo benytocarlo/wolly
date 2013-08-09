@@ -14,6 +14,13 @@ class FacebookApplicationGenerator < Rails::Generators::Base
     copy_file "share.html.erb",     "app/views/fb_app_#{full_name}/share.html.erb"
     template "register.html.erb",   "app/views/fb_app_#{full_name}/register.html.erb"
     template "layout.html.erb",     "app/views/layouts/fb_app_#{full_name}.html.erb"
+
+
+    route "post '#{app_name}' => '#{app_name}#index'"
+    route "post '#{app_name}/canvas'"
+    route "post '#{app_name}/share' => '#{app_name}#share', :as => '#{app_name}_share'"
+    route "get  '#{app_name}/new_participant' => '#{app_name}#new_participant'"
+
   end
   
   private
