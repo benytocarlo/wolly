@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>module ApplicationHelper - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/helpers/application_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-communes_of">#communes_of</a>
+    
+    <li><a href="#method-i-regions_of_chile">#regions_of_chile</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./AdminUser.html">AdminUser</a>
+  
+    <li><a href="./Application.html">Application</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./FacebookApplicationGenerator.html">FacebookApplicationGenerator</a>
+  
+    <li><a href="./FbAppBrillianceChileController.html">FbAppBrillianceChileController</a>
+  
+    <li><a href="./FbAppBrillianceChileHelper.html">FbAppBrillianceChileHelper</a>
+  
+    <li><a href="./FbAppBrotherComboController.html">FbAppBrotherComboController</a>
+  
+    <li><a href="./FbAppBrotherDiapapaChController.html">FbAppBrotherDiapapaChController</a>
+  
+    <li><a href="./FbAppClaroGanateLaParabolicaController.html">FbAppClaroGanateLaParabolicaController</a>
+  
+    <li><a href="./FbAppClaroGanateLaParabolicaHelper.html">FbAppClaroGanateLaParabolicaHelper</a>
+  
+    <li><a href="./FbAppClaroMonsterController.html">FbAppClaroMonsterController</a>
+  
+    <li><a href="./FbAppExampleController.html">FbAppExampleController</a>
+  
+    <li><a href="./FbAppExampleHelper.html">FbAppExampleHelper</a>
+  
+    <li><a href="./FbAppHyundaiMundialController.html">FbAppHyundaiMundialController</a>
+  
+    <li><a href="./FbAppHyundaiParvaController.html">FbAppHyundaiParvaController</a>
+  
+    <li><a href="./FbAppJudasController.html">FbAppJudasController</a>
+  
+    <li><a href="./FbAppJudasPriestController.html">FbAppJudasPriestController</a>
+  
+    <li><a href="./FbAppLanCargoArController.html">FbAppLanCargoArController</a>
+  
+    <li><a href="./FbAppLanCargoController.html">FbAppLanCargoController</a>
+  
+    <li><a href="./FbAppMahindraReforestemosController.html">FbAppMahindraReforestemosController</a>
+  
+    <li><a href="./FbAppMahindraTeaserController.html">FbAppMahindraTeaserController</a>
+  
+    <li><a href="./FbAppMahindraXuvController.html">FbAppMahindraXuvController</a>
+  
+    <li><a href="./FbAppMiniGalaxyController.html">FbAppMiniGalaxyController</a>
+  
+    <li><a href="./FbAppMiniParvaController.html">FbAppMiniParvaController</a>
+  
+    <li><a href="./FbAppMmDiaDelPapaController.html">FbAppMmDiaDelPapaController</a>
+  
+    <li><a href="./FbAppMmWantedController.html">FbAppMmWantedController</a>
+  
+    <li><a href="./FbAppPacoRabanneController.html">FbAppPacoRabanneController</a>
+  
+    <li><a href="./FbAppSernaturCaptureController.html">FbAppSernaturCaptureController</a>
+  
+    <li><a href="./FbAppSnickersRedhotController.html">FbAppSnickersRedhotController</a>
+  
+    <li><a href="./FbAppSonyCodesController.html">FbAppSonyCodesController</a>
+  
+    <li><a href="./Participant.html">Participant</a>
+  
+    <li><a href="./ParticipantMailer.html">ParticipantMailer</a>
+  
+    <li><a href="./Participation.html">Participation</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module ApplicationHelper</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-communes_of" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">communes_of</span><span
+            class="method-args">(region)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="communes_of-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">communes_of</span> <span class="ruby-identifier">region</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'XV de Arica y Parinacota'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Arica'</span>, <span class="ruby-string">'Camarones'</span>, <span class="ruby-string">'Putre'</span>, <span class="ruby-string">'General Lagos'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'I de Tarapacá'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Alto Hospicio'</span>, <span class="ruby-string">'Iquique'</span>, <span class="ruby-string">'Huara'</span>, <span class="ruby-string">'Camiña'</span>, <span class="ruby-string">'Colchane'</span>, <span class="ruby-string">'Pica'</span>, <span class="ruby-string">'Pozo Almonte'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'II de Antofagasta'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Tocopilla'</span>,<span class="ruby-string">'María Elena'</span>,<span class="ruby-string">'Calama'</span>,<span class="ruby-string">'Ollagüe'</span>,<span class="ruby-string">'San Pedro de Atacama'</span>,<span class="ruby-string">'Antofagasta'</span>,<span class="ruby-string">'Mejillones'</span>,<span class="ruby-string">'Sierra Gorda'</span>,<span class="ruby-string">'Taltal'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'III de Atacama'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Chañaral'</span>,<span class="ruby-string">'Diego de Almagro'</span>,<span class="ruby-string">'Copiapó'</span>,<span class="ruby-string">'Caldera'</span>,<span class="ruby-string">'Tierra Amarilla'</span>,<span class="ruby-string">'Vallenar'</span>,<span class="ruby-string">'Freirina'</span>,<span class="ruby-string">'Huasco'</span>,<span class="ruby-string">'Alto del Carmen'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'IV de Coquimbo'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'La Serena'</span>,<span class="ruby-string">'La Higuera'</span>,<span class="ruby-string">'Coquimbo'</span>,<span class="ruby-string">'Andacollo'</span>,<span class="ruby-string">'Vicuña'</span>,<span class="ruby-string">'Paihuano'</span>,<span class="ruby-string">'Ovalle'</span>,<span class="ruby-string">'Río Hurtado'</span>,<span class="ruby-string">'Monte Patria'</span>,<span class="ruby-string">'Cambarbaá'</span>,<span class="ruby-string">'Punitaqui'</span>,<span class="ruby-string">'Illapel'</span>,<span class="ruby-string">'Salamanca'</span>,<span class="ruby-string">'Los Vilos'</span>,<span class="ruby-string">'Canela'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'V de Valparaíso'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'La Ligua'</span>,<span class="ruby-string">'Petrorca'</span>,<span class="ruby-string">'Cabildo'</span>,<span class="ruby-string">'Zapallar'</span>,<span class="ruby-string">'Papudo'</span>,<span class="ruby-string">'Los Andes'</span>,<span class="ruby-string">'San Esteban'</span>,<span class="ruby-string">'Calle Larga'</span>,<span class="ruby-string">'Rinconada'</span>,<span class="ruby-string">'San Felipe'</span>,<span class="ruby-string">'Putaendo'</span>,<span class="ruby-string">'Santa María'</span>,<span class="ruby-string">'Panquehue'</span>,<span class="ruby-string">'Llayllay'</span>,<span class="ruby-string">'Catemu'</span>,<span class="ruby-string">'Quillota'</span>,<span class="ruby-string">'La Cruz'</span>,<span class="ruby-string">'Calera'</span>,<span class="ruby-string">'Nogales'</span>,<span class="ruby-string">'Hijuelas'</span>,<span class="ruby-string">'Limache'</span>,<span class="ruby-string">'Olmué'</span>,<span class="ruby-string">'Valparaíso'</span>,<span class="ruby-string">'Viña del Mar'</span>,<span class="ruby-string">'Quintero'</span>,<span class="ruby-string">'Puchuncaví'</span>,<span class="ruby-string">'Quilpué'</span>,<span class="ruby-string">'Villa Alemana'</span>,<span class="ruby-string">'Casablanca'</span>,<span class="ruby-string">'Concón'</span>,<span class="ruby-string">'Juan Fernández'</span>,<span class="ruby-string">'San Antonio'</span>,<span class="ruby-string">'Cartagena'</span>,<span class="ruby-string">'El Tabo'</span>,<span class="ruby-string">'El Quisco'</span>,<span class="ruby-string">'Algarrobo'</span>,<span class="ruby-string">'Santo Domingo'</span>,<span class="ruby-string">'Isla de Pascua'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;VI del Libertador General Bernardo O'Higgins&quot;</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Rancagua'</span>,<span class="ruby-string">'Graneros'</span>,<span class="ruby-string">'Mostazal'</span>,<span class="ruby-string">'Codegua'</span>,<span class="ruby-string">'Machalí'</span>,<span class="ruby-string">'Olivar'</span>,<span class="ruby-string">'Requinoa'</span>,<span class="ruby-string">'Rengo'</span>,<span class="ruby-string">'Malloa'</span>,<span class="ruby-string">'Quinta de Tilcoco'</span>,<span class="ruby-string">'San Vicente'</span>,<span class="ruby-string">'Pichidegua'</span>,<span class="ruby-string">'Peumo'</span>,<span class="ruby-string">'Coltauco'</span>,<span class="ruby-string">'Coinco'</span>,<span class="ruby-string">'Doñihue'</span>,<span class="ruby-string">'Las Cabras'</span>,<span class="ruby-string">'San Fernando'</span>,<span class="ruby-string">'Chimbarongo'</span>,<span class="ruby-string">'Placilla'</span>,<span class="ruby-string">'Nancagua'</span>,<span class="ruby-string">'Chépica'</span>,<span class="ruby-string">'Santa Cruz'</span>,<span class="ruby-string">'Lolol'</span>,<span class="ruby-string">'Pumanque'</span>,<span class="ruby-string">'Palmilla'</span>,<span class="ruby-string">'Peralillo'</span>,<span class="ruby-string">'Pichilemu'</span>,<span class="ruby-string">'Navidad'</span>,<span class="ruby-string">'Litueche'</span>,<span class="ruby-string">'La Estrella'</span>,<span class="ruby-string">'Marchigue'</span>,<span class="ruby-string">'Paredones'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'VII del Maule'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Curicó'</span>,<span class="ruby-string">'Teno'</span>,<span class="ruby-string">'Romeral'</span>,<span class="ruby-string">'Molina'</span>,<span class="ruby-string">'Sagrada Familia'</span>,<span class="ruby-string">'Hualañé'</span>,<span class="ruby-string">'Licantén'</span>,<span class="ruby-string">'Vichuquén'</span>,<span class="ruby-string">'Rauco'</span>,<span class="ruby-string">'Talca'</span>,<span class="ruby-string">'Pelarco'</span>,<span class="ruby-string">'Río Claro'</span>,<span class="ruby-string">'San Clemente'</span>,<span class="ruby-string">'Maule'</span>,<span class="ruby-string">'San Rafael'</span>,<span class="ruby-string">'Empedrado'</span>,<span class="ruby-string">'Pencahue'</span>,<span class="ruby-string">'Constitución'</span>,<span class="ruby-string">'Curepto'</span>,<span class="ruby-string">'Linares'</span>,<span class="ruby-string">'Yerbas Buenas'</span>,<span class="ruby-string">'Colbún'</span>,<span class="ruby-string">'Longaví'</span>,<span class="ruby-string">'Parral'</span>,<span class="ruby-string">'Retiro'</span>,<span class="ruby-string">'Villa Alegre'</span>,<span class="ruby-string">'San Javier'</span>,<span class="ruby-string">'Cauquenes'</span>,<span class="ruby-string">'Pelluhue'</span>,<span class="ruby-string">'Chanco'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'VIII del Biobío'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Chillán'</span>,<span class="ruby-string">'San Carlos'</span>,<span class="ruby-string">'Ñiquén'</span>,<span class="ruby-string">'San Fabián'</span>,<span class="ruby-string">'Coihueco'</span>,<span class="ruby-string">'Pinto'</span>,<span class="ruby-string">'San Ignacio'</span>,<span class="ruby-string">'El Carmen'</span>,<span class="ruby-string">'Yungay'</span>,<span class="ruby-string">'Pemuco'</span>,<span class="ruby-string">'Bulnes'</span>,<span class="ruby-string">'Quillón'</span>,<span class="ruby-string">'Ranquil'</span>,<span class="ruby-string">'Portezuelo'</span>,<span class="ruby-string">'Coelemu'</span>,<span class="ruby-string">'Treguaco'</span>,<span class="ruby-string">'Cobquecura'</span>,<span class="ruby-string">'Quirihue'</span>,<span class="ruby-string">'Ninhue'</span>,<span class="ruby-string">'San Nicolás'</span>,<span class="ruby-string">'Chillan Viejo'</span>,<span class="ruby-string">'Alto Biobío'</span>,<span class="ruby-string">'Los Angeles'</span>,<span class="ruby-string">'Cabrero'</span>,<span class="ruby-string">'Tucapel'</span>,<span class="ruby-string">'Antuco'</span>,<span class="ruby-string">'Quilleco'</span>,<span class="ruby-string">'Santa Bárbara'</span>,<span class="ruby-string">'Quilaco'</span>,<span class="ruby-string">'Mulchén'</span>,<span class="ruby-string">'Negrete'</span>,<span class="ruby-string">'Nacimiento'</span>,<span class="ruby-string">'Laja'</span>,<span class="ruby-string">'San Rosendo'</span>,<span class="ruby-string">'Yumbel'</span>,<span class="ruby-string">'Concepción'</span>,<span class="ruby-string">'Talcahuano'</span>,<span class="ruby-string">'Penco'</span>,<span class="ruby-string">'Tomé'</span>,<span class="ruby-string">'Florida'</span>,<span class="ruby-string">'Hualpén'</span>,<span class="ruby-string">'Hualquil'</span>,<span class="ruby-string">'Santa Juana'</span>,<span class="ruby-string">'Lota'</span>,<span class="ruby-string">'Coronel'</span>,<span class="ruby-string">'San Pedro de la Paz'</span>,<span class="ruby-string">'Chiguayente'</span>,<span class="ruby-string">'Lebu'</span>,<span class="ruby-string">'Arauco'</span>,<span class="ruby-string">'Curanilahue'</span>,<span class="ruby-string">'Los Alamos'</span>,<span class="ruby-string">'Cañete'</span>,<span class="ruby-string">'Contulmo'</span>,<span class="ruby-string">'Tirua'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'IX de la Araucanía'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Angol'</span>,<span class="ruby-string">'Renalco'</span>,<span class="ruby-string">'Collipulli'</span>,<span class="ruby-string">'Lonquimay'</span>,<span class="ruby-string">'Curacautín'</span>,<span class="ruby-string">'Ercilla'</span>,<span class="ruby-string">'Victoria'</span>,<span class="ruby-string">'Traiguén'</span>,<span class="ruby-string">'Lumaco'</span>,<span class="ruby-string">'Purén'</span>,<span class="ruby-string">'Los Sauces'</span>,<span class="ruby-string">'Temuco'</span>,<span class="ruby-string">'Lautaro'</span>,<span class="ruby-string">'Perquenco'</span>,<span class="ruby-string">'Vilcún'</span>,<span class="ruby-string">'Cholchol'</span>,<span class="ruby-string">'Cunco'</span>,<span class="ruby-string">'Melipeuco'</span>,<span class="ruby-string">'Curarrehue'</span>,<span class="ruby-string">'Pucón'</span>,<span class="ruby-string">'Villarrica'</span>,<span class="ruby-string">'Freire'</span>,<span class="ruby-string">'Pitrufquén'</span>,<span class="ruby-string">'Gorbea'</span>,<span class="ruby-string">'Loncoche'</span>,<span class="ruby-string">'Toltén'</span>,<span class="ruby-string">'Teodoro Schmidt'</span>,<span class="ruby-string">'Saavedra'</span>,<span class="ruby-string">'Carahue'</span>,<span class="ruby-string">'Nueva Imperial'</span>,<span class="ruby-string">'Galvarino'</span>,<span class="ruby-string">'Padre las Casas'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'XIV de los Ríos'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Valdivia'</span>,<span class="ruby-string">'Mariquina'</span>,<span class="ruby-string">'Lanco'</span>,<span class="ruby-string">'Máfil'</span>,<span class="ruby-string">'Corral'</span>,<span class="ruby-string">'Los Lagos'</span>,<span class="ruby-string">'Pnaguipulli'</span>,<span class="ruby-string">'Paillaco'</span>,<span class="ruby-string">'La Unión'</span>,<span class="ruby-string">'Futrono'</span>,<span class="ruby-string">'Río Bueno'</span>,<span class="ruby-string">'Lago Ranco'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'X de los Lagos'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Osorno'</span>,<span class="ruby-string">'San Pablo'</span>,<span class="ruby-string">'Puyehue'</span>,<span class="ruby-string">'Puerto Octay'</span>,<span class="ruby-string">'Purranque'</span>,<span class="ruby-string">'Río Negro'</span>,<span class="ruby-string">'San Juan de la Costa'</span>,<span class="ruby-string">'Puerto Montt'</span>,<span class="ruby-string">'Puerto Varas'</span>,<span class="ruby-string">'Cochamó'</span>,<span class="ruby-string">'Calbuco'</span>,<span class="ruby-string">'Maullín'</span>,<span class="ruby-string">'Los Muermos'</span>,<span class="ruby-string">'Fresia'</span>,<span class="ruby-string">'Llanquihue'</span>,<span class="ruby-string">'Frutillar'</span>,<span class="ruby-string">'Castro'</span>,<span class="ruby-string">'Ancud'</span>,<span class="ruby-string">'Quemchi'</span>,<span class="ruby-string">'Dalcahue'</span>,<span class="ruby-string">'Curaco de Vélez'</span>,<span class="ruby-string">'Quinchao'</span>,<span class="ruby-string">'Puquedón'</span>,<span class="ruby-string">'Chonchi'</span>,<span class="ruby-string">'Quellén'</span>,<span class="ruby-string">'Quellón'</span>,<span class="ruby-string">'Chaitén'</span>,<span class="ruby-string">'Hualaihue'</span>,<span class="ruby-string">'Futaleufú'</span>,<span class="ruby-string">'Palena'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'XI Aysén del General Carlos Ibáñez del Campo'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Coyhaique'</span>,<span class="ruby-string">'Lago Verde'</span>,<span class="ruby-string">'Aisén'</span>,<span class="ruby-string">'Cisnes'</span>,<span class="ruby-string">'Guaitecas'</span>,<span class="ruby-string">'Chile Chico'</span>,<span class="ruby-string">'Río Ibáñez'</span>,<span class="ruby-string">'Cochrane'</span>,<span class="ruby-string">&quot;O´Higgins&quot;</span>,<span class="ruby-string">'Tortel'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'XII de Magallanes y Antártica Chilena'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Natales'</span>,<span class="ruby-string">'Torres del Paine'</span>,<span class="ruby-string">'Punta Arenas'</span>,<span class="ruby-string">'Río Verde'</span>,<span class="ruby-string">'Laguna Blanca'</span>,<span class="ruby-string">'San Gregorio'</span>,<span class="ruby-string">'Porvenir'</span>,<span class="ruby-string">'Primavera'</span>,<span class="ruby-string">'Timaukel'</span>,<span class="ruby-string">'Cabo de Hornos'</span>,<span class="ruby-string">'Antártica'</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">region</span> <span class="ruby-operator">==</span> <span class="ruby-string">'Metropolitana de Santiago'</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-string">'Santiago'</span>,<span class="ruby-string">'Independencia'</span>,<span class="ruby-string">'Conchalí'</span>,<span class="ruby-string">'Huechuraba'</span>,<span class="ruby-string">'Recoleta'</span>,<span class="ruby-string">'Providencia'</span>,<span class="ruby-string">'Vitacura'</span>,<span class="ruby-string">'Lo Barnechea'</span>,<span class="ruby-string">'Las Condes'</span>,<span class="ruby-string">'Ñuñoa'</span>,<span class="ruby-string">'La Reina'</span>,<span class="ruby-string">'Macul'</span>,<span class="ruby-string">'Peñalolén'</span>,<span class="ruby-string">'La Florida'</span>,<span class="ruby-string">'San Joaquín'</span>,<span class="ruby-string">'La Granja'</span>,<span class="ruby-string">'La Pintana'</span>,<span class="ruby-string">'San Ramón'</span>,<span class="ruby-string">'San Miguel'</span>,<span class="ruby-string">'La Cisterna'</span>,<span class="ruby-string">'El Bosque'</span>,<span class="ruby-string">'Pedro Aguirre Cerda'</span>,<span class="ruby-string">'Lo Espejo'</span>,<span class="ruby-string">'Estación Central'</span>,<span class="ruby-string">'Cerrillos'</span>,<span class="ruby-string">'Maipú'</span>,<span class="ruby-string">'Quinta Normal'</span>,<span class="ruby-string">'Lo Prado'</span>,<span class="ruby-string">'Pudahuel'</span>,<span class="ruby-string">'Cerro Navia'</span>,<span class="ruby-string">'Renca'</span>,<span class="ruby-string">'Quilicura'</span>,<span class="ruby-string">'Colina'</span>,<span class="ruby-string">'Lampa'</span>,<span class="ruby-string">'Tiltil'</span>,<span class="ruby-string">'Puente Alto'</span>,<span class="ruby-string">'San José de Maipo'</span>,<span class="ruby-string">'Pirque'</span>,<span class="ruby-string">'San Bernardo'</span>,<span class="ruby-string">'Buin'</span>,<span class="ruby-string">'Paine'</span>,<span class="ruby-string">'Calera de Tango'</span>,<span class="ruby-string">'Melipilla'</span>,<span class="ruby-string">'María Pinto'</span>,<span class="ruby-string">'Curacaví'</span>,<span class="ruby-string">'Alhué'</span>,<span class="ruby-string">'San Pedro'</span>,<span class="ruby-string">'Talagante'</span>,<span class="ruby-string">'Peñaflor'</span>,<span class="ruby-string">'Isla de Maipo'</span>,<span class="ruby-string">'El Monte'</span>,<span class="ruby-string">'Padre Hurtado'</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- communes_of-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- communes_of-method -->
+
+    
+      <div id="method-i-regions_of_chile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">regions_of_chile</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="regions_of_chile-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">regions_of_chile</span> 
+  <span class="ruby-ivar">@regiones</span> = []
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'XV de Arica y Parinacota'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'I de Tarapacá'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'II de Antofagasta'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'III de Atacama'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'IV de Coquimbo'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'V de Valparaíso'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;VI del Libertador General Bernardo O'Higgins&quot;</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'VII del Maule'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'VIII del Biobío'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'IX de la Araucanía'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'XIV de los Ríos'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'X de los Lagos'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'XI Aysén del General Carlos Ibáñez del Campo'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'XII de Magallanes y Antártica Chilena'</span>
+  <span class="ruby-ivar">@regiones</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">'Metropolitana de Santiago'</span>    
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@regiones</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- regions_of_chile-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- regions_of_chile-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

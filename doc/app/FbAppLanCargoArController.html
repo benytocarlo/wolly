@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class FbAppLanCargoArController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/fb_app_lan_cargo_ar_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-bases">#bases</a>
+    
+    <li><a href="#method-i-concurso">#concurso</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-nulas">#nulas</a>
+    
+    <li><a href="#method-i-premios">#premios</a>
+    
+    <li><a href="#method-i-q1">#q1</a>
+    
+    <li><a href="#method-i-respuestas">#respuestas</a>
+    
+    <li><a href="#method-i-share">#share</a>
+    
+    <li><a href="#method-i-volver_jugar">#volver_jugar</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./AdminUser.html">AdminUser</a>
+  
+    <li><a href="./Application.html">Application</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./FacebookApplicationGenerator.html">FacebookApplicationGenerator</a>
+  
+    <li><a href="./FbAppBrillianceChileController.html">FbAppBrillianceChileController</a>
+  
+    <li><a href="./FbAppBrillianceChileHelper.html">FbAppBrillianceChileHelper</a>
+  
+    <li><a href="./FbAppBrotherComboController.html">FbAppBrotherComboController</a>
+  
+    <li><a href="./FbAppBrotherDiapapaChController.html">FbAppBrotherDiapapaChController</a>
+  
+    <li><a href="./FbAppClaroGanateLaParabolicaController.html">FbAppClaroGanateLaParabolicaController</a>
+  
+    <li><a href="./FbAppClaroGanateLaParabolicaHelper.html">FbAppClaroGanateLaParabolicaHelper</a>
+  
+    <li><a href="./FbAppClaroMonsterController.html">FbAppClaroMonsterController</a>
+  
+    <li><a href="./FbAppExampleController.html">FbAppExampleController</a>
+  
+    <li><a href="./FbAppExampleHelper.html">FbAppExampleHelper</a>
+  
+    <li><a href="./FbAppHyundaiMundialController.html">FbAppHyundaiMundialController</a>
+  
+    <li><a href="./FbAppHyundaiParvaController.html">FbAppHyundaiParvaController</a>
+  
+    <li><a href="./FbAppJudasController.html">FbAppJudasController</a>
+  
+    <li><a href="./FbAppJudasPriestController.html">FbAppJudasPriestController</a>
+  
+    <li><a href="./FbAppLanCargoArController.html">FbAppLanCargoArController</a>
+  
+    <li><a href="./FbAppLanCargoController.html">FbAppLanCargoController</a>
+  
+    <li><a href="./FbAppMahindraReforestemosController.html">FbAppMahindraReforestemosController</a>
+  
+    <li><a href="./FbAppMahindraTeaserController.html">FbAppMahindraTeaserController</a>
+  
+    <li><a href="./FbAppMahindraXuvController.html">FbAppMahindraXuvController</a>
+  
+    <li><a href="./FbAppMiniGalaxyController.html">FbAppMiniGalaxyController</a>
+  
+    <li><a href="./FbAppMiniParvaController.html">FbAppMiniParvaController</a>
+  
+    <li><a href="./FbAppMmDiaDelPapaController.html">FbAppMmDiaDelPapaController</a>
+  
+    <li><a href="./FbAppMmWantedController.html">FbAppMmWantedController</a>
+  
+    <li><a href="./FbAppPacoRabanneController.html">FbAppPacoRabanneController</a>
+  
+    <li><a href="./FbAppSernaturCaptureController.html">FbAppSernaturCaptureController</a>
+  
+    <li><a href="./FbAppSnickersRedhotController.html">FbAppSnickersRedhotController</a>
+  
+    <li><a href="./FbAppSonyCodesController.html">FbAppSonyCodesController</a>
+  
+    <li><a href="./Participant.html">Participant</a>
+  
+    <li><a href="./ParticipantMailer.html">ParticipantMailer</a>
+  
+    <li><a href="./Participation.html">Participation</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class FbAppLanCargoArController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-bases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bases</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bases-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bases</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bases-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bases-method -->
+
+    
+      <div id="method-i-concurso" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">concurso</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="concurso-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">concurso</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@me_from_database</span> = <span class="ruby-constant">Participant</span>.<span class="ruby-identifier">find_by_facebook_idnumber</span>(<span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-ivar">@nombre</span>   = <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:first_name</span>]
+    <span class="ruby-ivar">@apellido</span> = <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:last_name</span>]
+    <span class="ruby-ivar">@rut</span>      = <span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">rut</span>
+    <span class="ruby-ivar">@correo</span>   = <span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">facebook_email</span>
+    <span class="ruby-ivar">@telefono</span> = <span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">phone</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@nombre</span>   = <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:first_name</span>]
+      <span class="ruby-ivar">@apellido</span>   = <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:last_name</span>]
+      <span class="ruby-ivar">@correo</span>   = <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:email</span>]
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-ivar">@nombre</span>   = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-ivar">@apellido</span> = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-ivar">@correo</span>   = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@rut</span>      = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-ivar">@telefono</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">end</span>    
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- concurso-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- concurso-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:signed_request</span>][<span class="ruby-value">:page</span>][<span class="ruby-value">:liked</span>]      
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:index</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nofans</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-nulas" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nulas</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nulas-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nulas</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>]
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>] = <span class="ruby-value">2</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>] = <span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>]<span class="ruby-operator">+</span><span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@link</span> = <span class="ruby-string">&quot;fb_app_lan_cargo_ar_q&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>].<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;_path&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nulas-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nulas-method -->
+
+    
+      <div id="method-i-premios" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">premios</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="premios-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">premios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- premios-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- premios-method -->
+
+    
+      <div id="method-i-q1" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">q1</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="q1-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">q1</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:nombre</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:correo</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:rut</span>].<span class="ruby-identifier">present?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:telefono</span>].<span class="ruby-identifier">present?</span>
+      <span class="ruby-ivar">@nombre_completo</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:nombre</span>]<span class="ruby-operator">+</span><span class="ruby-string">&quot; &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:apellido</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mail_ok</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span>
+         <span class="ruby-identifier">session</span>[<span class="ruby-value">:mail_ok</span>] = <span class="ruby-string">&quot;si&quot;</span>
+      <span class="ruby-keyword">else</span>
+         <span class="ruby-identifier">session</span>[<span class="ruby-value">:mail_ok</span>] = <span class="ruby-string">&quot;no&quot;</span>
+      <span class="ruby-keyword">end</span> 
+
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@me_from_database</span> = <span class="ruby-constant">Participant</span>.<span class="ruby-identifier">find_by_facebook_idnumber</span>(<span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:id</span>])
+        <span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-value">:facebook_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@nombre_completo</span>, <span class="ruby-value">:facebook_gender</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:gender</span>], <span class="ruby-value">:facebook_email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:correo</span>], <span class="ruby-value">:rut</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:rut</span>], <span class="ruby-value">:phone</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:telefono</span>])
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@me_from_database</span> = <span class="ruby-constant">Participant</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:facebook_idnumber</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:id</span>], <span class="ruby-value">:facebook_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:name</span>], <span class="ruby-value">:facebook_email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:correo</span>], <span class="ruby-value">:rut</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:rut</span>], <span class="ruby-value">:phone</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:telefono</span>], <span class="ruby-value">:facebook_gender</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:gender</span>])
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fb_app_lan_cargo_ar_comenzar_path</span>, <span class="ruby-value">:flash</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Faltan campos por llenar.&quot;</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">get?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- q1-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- q1-method -->
+
+    
+      <div id="method-i-respuestas" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respuestas</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="respuestas-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">respuestas</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>]
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>] = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:n_preg</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:respuesta</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1:c&quot;</span>
+      <span class="ruby-ivar">@clase_exito</span> = <span class="ruby-string">&quot;exito&quot;</span>
+      <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] = <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@clase_exito</span> = <span class="ruby-string">&quot;error&quot;</span>
+      <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>] = <span class="ruby-value">2</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:respuesta</span>]
+    <span class="ruby-comment">#@link = &quot;fb_app_lan_cargo_q&quot;+session[:siguiente].to_s+&quot;_path&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fb_app_lan_cargo_ar_q2_path</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:respuesta</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:n_preg</span>].<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;:c&quot;</span>
+      <span class="ruby-ivar">@clase_exito</span> = <span class="ruby-string">&quot;exito&quot;</span>
+      <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] = <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@clase_exito</span> = <span class="ruby-string">&quot;error&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:n_preg</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>] = <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>] <span class="ruby-operator">+</span><span class="ruby-string">&quot;/&quot;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:respuesta</span>]
+    <span class="ruby-comment">#@link = &quot;fb_app_lan_cargo_q&quot;+session[:siguiente].to_s+&quot;_path&quot;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">eval</span>(<span class="ruby-string">&quot;fb_app_lan_cargo_ar_q&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:siguiente</span>].<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;_path&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@respuesta</span> = <span class="ruby-string">&quot;5:c&quot;</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:respuesta</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@respuesta</span>
+      <span class="ruby-ivar">@clase_exito</span> = <span class="ruby-string">&quot;exito&quot;</span>
+      <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] = <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@clase_exito</span> = <span class="ruby-string">&quot;error&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>] = <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>] <span class="ruby-operator">+</span><span class="ruby-string">&quot;/&quot;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:respuesta</span>] <span class="ruby-operator">+</span><span class="ruby-string">&quot;/p:&quot;</span><span class="ruby-operator">+</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>].<span class="ruby-identifier">to_s</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] <span class="ruby-operator">==</span> <span class="ruby-value">5</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fb_app_lan_cargo_ar_share_path</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>
+        <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] = <span class="ruby-value">5</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">fb_app_lan_cargo_ar_volver_jugar_path</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- respuestas-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- respuestas-method -->
+
+    
+      <div id="method-i-share" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">share</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="share-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">share</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@me_from_database</span> = <span class="ruby-constant">Participant</span>.<span class="ruby-identifier">find_by_facebook_idnumber</span>(<span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@me_from_database_participation</span> = <span class="ruby-constant">Participation</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:first</span>,<span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span>[<span class="ruby-string">&quot;participant_id = ? AND application_id = ?&quot;</span>,<span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">id</span>,<span class="ruby-ivar">@app</span>.<span class="ruby-identifier">id</span>])
+      <span class="ruby-ivar">@me_from_database_participation</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-value">:answer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>]<span class="ruby-operator">+</span><span class="ruby-string">&quot;/mail:&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:mail_ok</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Participation</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:application_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:participant_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:answer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>]<span class="ruby-operator">+</span><span class="ruby-string">&quot;/mail:&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:mail_ok</span>])
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@graph</span>.<span class="ruby-identifier">put_wall_post</span>(<span class="ruby-string">&quot;&quot;</span>, {
+        <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Cargas Imposibles de Nat Geo y LAN CARGO&quot;</span>,
+        <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;http://www.facebook.com/LANenArgentina/app_182105771955231&quot;</span>,
+        <span class="ruby-value">:caption</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Cargas Imposibles de Nat Geo y LAN CARGO&quot;</span>,
+        <span class="ruby-value">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;¡Ya jugué en la Trivia Cargas Imposible y estoy concursando por 2 pasajes a Lima! ¡Participá tú también AQUÍ!&quot;</span>,
+        <span class="ruby-value">:picture</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;http://wolly.herokuapp.com/assets/fb_app_lan_cargo_ar/75x75.jpg&quot;</span>
+    }, <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-ivar">@nopost</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- share-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- share-method -->
+
+    
+      <div id="method-i-volver_jugar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">volver_jugar</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="volver_jugar-source">
+            <pre><span class="ruby-comment"># File app/controllers/fb_app_lan_cargo_ar_controller.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">volver_jugar</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>]
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>] = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:puntaje</span>] = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@me_from_database</span> = <span class="ruby-constant">Participant</span>.<span class="ruby-identifier">find_by_facebook_idnumber</span>(<span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@me_from_database_participation</span> = <span class="ruby-constant">Participation</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:first</span>,<span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span>[<span class="ruby-string">&quot;participant_id = ? AND application_id = ?&quot;</span>,<span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">id</span>,<span class="ruby-ivar">@app</span>.<span class="ruby-identifier">id</span>])
+      <span class="ruby-ivar">@me_from_database_participation</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-value">:answer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>]<span class="ruby-operator">+</span><span class="ruby-string">&quot;/mail:&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:mail_ok</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Participation</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:application_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:participant_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@me_from_database</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:answer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:answer</span>]<span class="ruby-operator">+</span><span class="ruby-string">&quot;/mail:&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">session</span>[<span class="ruby-value">:mail_ok</span>])
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">share_caption</span> = <span class="ruby-string">&quot;http://www.facebook.com/LANenArgentina/app_182105771955231&quot;</span>
+  <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">share_description</span> = <span class="ruby-string">&quot;¡Estoy jugando en la Trivia Cargas Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursá tú también AQUÍ!&quot;</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@graph</span>.<span class="ruby-identifier">put_wall_post</span>(<span class="ruby-string">&quot;&quot;</span>, {
+        <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Cargas Imposibles de Nat Geo y LAN CARGO&quot;</span>,
+        <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;http://www.facebook.com/LANenArgentina/app_182105771955231&quot;</span>,
+        <span class="ruby-value">:caption</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Cargas Imposibles de Nat Geo y LAN CARGO&quot;</span>,
+        <span class="ruby-value">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;¡Estoy jugando en la Trivia Cargas Imposible de Nat Geo y LAN CARGO para participar por 2 pasajes a Lima, Perú! ¡Concursá tú también AQUÍ!&quot;</span>,
+        <span class="ruby-value">:picture</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;http://wolly.herokuapp.com/assets/fb_app_lan_cargo_ar/75x75.jpg&quot;</span>
+    }, <span class="ruby-ivar">@me_from_graph</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-ivar">@nopost</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- volver_jugar-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- volver_jugar-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
