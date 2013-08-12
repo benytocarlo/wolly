@@ -187,6 +187,13 @@ Wolly::Application.routes.draw do
   get  "fb_app_brilliance_euforia/ranking"
   get  "fb_app_ws_wolly/ws_brilliance/facebook_id/:facebook_id/creditos/:creditos" => "fb_app_ws_wolly#ws_brilliance"
 
+
+  post  "fb_app_haima"             => "fb_app_haima#index"
+  post  "fb_app_haima/canvas"
+  get   "fb_app_haima/formulario"
+  post  "fb_app_haima/share"
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   

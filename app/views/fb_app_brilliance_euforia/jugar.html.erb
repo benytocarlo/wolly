@@ -1,26 +1,38 @@
 <%= javascript_include_tag "swfobject_modified" %>
 <div class="tombola">
   <div class="resultado">
-      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" FlashVars="fid=<%= @me_from_graph[:id] %>" width="810" height="532" id="FlashID" title="Brilliance">
-        <param name="movie" value="http://appdigital.cl/brilliance/tombola/swf/test.swf">
-        <param name="quality" value="high">
-        <param name="wmode" value="opaque">
-        <param name="swfversion" value="6.0.65.0">
-        <param name="expressinstall" value="Scripts/expressInstall.swf">
-        <param name="FlashVars" value="fid<%= @me_from_graph[:id] %>">
+      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="810" height="532" id="casino" align="middle" FlashVars="fid=<%= @me_from_graph[:id] %>">
+        <param name="movie" value="http://appdigital.cl/brilliance/test/casino.swf" />
+        <param name="quality" value="high" />
+        <param name="bgcolor" value="#000000" />
+        <param name="play" value="true" />
+        <param name="loop" value="true" />
+        <param name="wmode" value="window" />
+        <param name="scale" value="showall" />
+        <param name="menu" value="true" />
+        <param name="devicefont" value="false" />
+        <param name="salign" value="" />
+        <param name="allowScriptAccess" value="sameDomain" />
+        <param name="FlashVars" value="fid=<%= @me_from_graph[:id] %>">
         <!--[if !IE]>-->
-        <object type="application/x-shockwave-flash" data="http://appdigital.cl/brilliance/tombola/swf/test.swf" width="810" height="532">
-          <!--<![endif]-->
-          <param name="quality" value="high">
-          <param name="wmode" value="opaque">
-          <param name="swfversion" value="6.0.65.0">
-          <param name="expressinstall" value="Scripts/expressInstall.swf">
-          <param name="FlashVars" value="fid<%= @me_from_graph[:id] %>">
-          <div>
-            <h4>El contenido de esta p&aacute;gina requiere una versi&oacute;n m&aacute;s reciente de Adobe Flash Player.</h4>
-            <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtener Adobe Flash Player" width="112" height="33" /></a></p>
-          </div>
-          <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="http://appdigital.cl/brilliance/test/casino.swf" width="810" height="532" FlashVars="fid=<%= @me_from_graph[:id] %>">
+          <param name="movie" value="http://appdigital.cl/brilliance/test/casino.swf" />
+          <param name="quality" value="high" />
+          <param name="bgcolor" value="#000000" />
+          <param name="play" value="true" />
+          <param name="loop" value="true" />
+          <param name="wmode" value="window" />
+          <param name="scale" value="showall" />
+          <param name="menu" value="true" />
+          <param name="devicefont" value="false" />
+                    <param name= "FlashVars" value="fid=<%= @me_from_graph[:id] %>">
+          <param name="salign" value="" />
+          <param name="allowScriptAccess" value="sameDomain" />
+        <!--<![endif]-->
+          <a href="http://www.adobe.com/go/getflash">
+            <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtener Adobe Flash Player" />
+          </a>
+        <!--[if !IE]>-->
         </object>
         <!--<![endif]-->
       </object>
