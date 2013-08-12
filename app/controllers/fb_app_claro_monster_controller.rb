@@ -69,7 +69,7 @@ class FbAppClaroMonsterController < ApplicationController
   end
 
   def galeria
-    @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id} AND wants_to_be_mailed ='t'"],:limit=>15,:order => "RANDOM()")
+    @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id} AND wants_to_be_mailed ='t'"],:limit=>30,:order => "RANDOM()")
     @gallery = Array.new
     @participations.each do |participations|
       @participant = Participant.find_by_id(participations.participant_id)
