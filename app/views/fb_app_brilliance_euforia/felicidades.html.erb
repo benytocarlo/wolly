@@ -1,0 +1,16 @@
+<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
+<div class="gracias">
+  <div class="fin">
+    <div class="content_fin">
+      <h1 class="felicitaciones">¡FELICIDADES!</h1>
+      <p>Ya estás participando por<br><strong>un fin de semana en enjoy</strong><br>gracias a brilliance euphoria</p>
+      <p>recuerda que puedes<br>seguir participando.<br><strong>el jugador que tenga<br>la mayor cantidad de créditos<br>se llevará el prémio.</strong></p>
+      <ul>
+        <li><%= link_to "", fb_app_brilliance_euforia_ranking_path,:id =>"ranking",:class=>"btn_ranking" %></li>
+        <li><%= link_to "", fb_app_brilliance_euforia_path,:id =>"ranking",:class=>"btn_otravez" %></li>
+      </ul>
+    </div> 
+  </div>
+  <%=image_tag("fb_app_brilliance_euforia/auto.png",:class=>"auto")%>
+  <%=image_tag("fb_app_brilliance_euforia/carta.png",:class=>"carta")%>
+</div>

@@ -1,0 +1,42 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $(".continuar").click(function(){
+      $("#form_registro").submit();
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        apellido:    { required: true },
+        telefono:  { required: true },
+        direccion:  { required: true },
+        rut: {
+          required: true,
+          valrut: $('#rut').val()
+        },
+        correo:    { required: true,email: true }
+      }
+    });
+  });
+</script>
+  <div class="gracias">
+    <%= form_tag(fb_app_brilliance_euforia_jugar_path,:id=>:form_registro, :method => "post") do  %>
+      <div class="cont_form">
+        <ul  class="datos">
+          <li><label>Nombre</label><%= text_field_tag(:nombre, @nombre, :class => 'input_form', :onkeypress => "return validatxt(event)") %></li>
+          <li><label>Rut</label><%= text_field_tag(:rut, @rut, :class => 'input_form', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %></li>
+          <li><label>Email</label><%= text_field_tag(:correo, @correo, :class => 'input_form') %></li>
+          <li><label>Tel&eacute;fono</label><%= text_field_tag(:telefono, @telefono, :class => 'input_form', :onkeypress => "return validanum(event)") %></li>
+          <li><label>Direcci&oacute;n</label><%= text_field_tag(:direccion, @direccion, :class => 'input_form') %></li>
+          <li class="envio"><input type="submit" value="" class="btn_enviar"></li>
+        </ul>
+      </div>
+      <div class="comentario">
+        <p>reg&iacute;strate y participa por un fin de semana en enjoy junto a brilliance euphoria</p>
+      </div>
+    <% end %>
+    <%=image_tag("fb_app_brilliance_euforia/auto.png", :class => "auto")%>
+    <%=image_tag("fb_app_brilliance_euforia/carta.png", :class => "carta")%>
+  </div>

@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_brilliance_euforia.css", :media => "all" %>
+  <%= javascript_include_tag "fb_app_brilliance_euforia" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '1265', :height => '601' } %>
+  <%= render "layouts/ga" %>
+	<div id="contenedor">
+	  <div id="nav">
+	  <h1><%= link_to "logo", fb_app_brilliance_euforia_path,:id =>"logo"%></a></h1>
+	  <% if @menu_fan %>
+	  <h2>Nuevo Euphoria</h2>
+	  <% end %>
+	  <% if @menu_int %>
+		<ul id="nav_superior">
+			<li><%= link_to "inicio", fb_app_brilliance_euforia_path,:id =>"inicio",:class=>"active_nav "%></li>
+			<li><%= link_to "Ranking", fb_app_brilliance_euforia_ranking_path,:id =>"ranking" %></li>
+			<li><a  href="/documents/fb_app_brilliance_euforia.pdf" target="_blank" title="Enlace a inicio">Bases</a></li>
+		</ul>
+	  <% end %>
+	  </div>
+	  <%= yield %>
+	</div>
+</body>
+</html>

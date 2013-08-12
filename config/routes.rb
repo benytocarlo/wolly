@@ -177,6 +177,16 @@ Wolly::Application.routes.draw do
   get  "fb_app_claro_monster/premios"
   get  "fb_app_claro_monster/galeria"
 
+  post  "fb_app_brilliance_euforia"             => "fb_app_brilliance_euforia#index"
+  get  "fb_app_brilliance_euforia"             => "fb_app_brilliance_euforia#index"
+  post  "fb_app_brilliance_euforia/canvas"
+  get   "fb_app_brilliance_euforia/formulario"
+  post  "fb_app_brilliance_euforia/jugar"
+  get  "fb_app_brilliance_euforia/gracias"
+  get  "fb_app_brilliance_euforia/felicidades"
+  get  "fb_app_brilliance_euforia/ranking"
+  get  "fb_app_ws_wolly/ws_brilliance/facebook_id/:facebook_id/creditos/:creditos" => "fb_app_ws_wolly#ws_brilliance"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   

@@ -1,0 +1,18 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#nav_superior li a").removeClass("active_nav");
+    $("#nav_superior li #ranking").addClass("active_nav");
+  });
+</script>
+<div class="ranking">
+	<div class="ranking_box">
+    	<div class="box_title fila"><span>Lugar</span><span>Nombre</span><span>Créditos</span></div>
+      <% @lugar = 1 %>
+        <% @ranking.sort_by { |x| -x[:answer] }.each do |ranking| %>
+          <div class="fila"><span><%= @lugar %></span><span><%= ranking[:name] %></span><span><%= ranking[:answer] %></span></div>
+        <% @lugar = @lugar+1 %>
+        <% end %>
+    </div>
+    <div class="auto"><%=image_tag("fb_app_brilliance_euforia/auto.png")%></div>
+    <div class="logo"><%=image_tag("fb_app_brilliance_euforia/carta.png")%></div>
+</div>
