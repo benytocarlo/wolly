@@ -20,7 +20,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
 
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
         redirect_to fb_app_brilliance_euforia_jugar_path
       else
         @nombre   = @me_from_database.facebook_name
@@ -52,10 +52,10 @@ class FbAppBrillianceEuforiaController < ApplicationController
       if !@me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "100")
       end
-      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_database.id
+      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_graph[:id].to_s
     elsif request.get?
       @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_database.id
+      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_graph[:id].to_s
     end
   end
 
