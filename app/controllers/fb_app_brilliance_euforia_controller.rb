@@ -47,7 +47,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
   end
 
   def ranking 
-    @participations = Participation.find(:all, :conditions => ["application_id = #{@app.id}"],:limit=>10,:order => "answer DESC")
+    @participations = Participation.find(:all, :conditions => ["application_id = 20"],:limit=>10,:order => "answer DESC")
     @ranking = Array.new
     @participations.each do |participations|
       @participant = Participant.find_by_id(participations.participant_id)
@@ -58,7 +58,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
   def felicidades
     if params[:fb_id].present? and params[:creditos].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(params[:fb_id])
-        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
           @me_from_database_participation.update_attributes(:answer => params[:creditos])
         else
           Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:creditos])
@@ -70,7 +70,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
   def gracias
     if params[:fb_id].present? and params[:creditos].present?
       if @me_from_database = Participant.find_by_facebook_idnumber(params[:fb_id])
-        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
           @me_from_database_participation.update_attributes(:answer => "0")
         else
           Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "0")
