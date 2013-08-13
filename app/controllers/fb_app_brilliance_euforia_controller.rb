@@ -55,6 +55,34 @@ class FbAppBrillianceEuforiaController < ApplicationController
     end
   end
 
+  def felicidades
+    if params[:fb_id].present? and params[:creditos].present?
+      if @me_from_database = Participant.find_by_facebook_idnumber(params[:fb_id])
+        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+          @me_from_database_participation.update_attributes(:answer => params[:creditos])
+        else
+          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:creditos])
+        end
+      end
+    else
+      redirect_to fb_app_mm_wanted_formulario_path, :flash => { :error => "Faltan campos por llenar." } 
+    end
+  end
+
+  def gracias
+    if params[:fb_id].present? and params[:creditos].present?
+      if @me_from_database = Participant.find_by_facebook_idnumber(params[:fb_id])
+        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+          @me_from_database_participation.update_attributes(:answer => "0")
+        else
+          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "0")
+        end
+      end
+    else
+      redirect_to fb_app_mm_wanted_formulario_path, :flash => { :error => "Faltan campos por llenar." } 
+    end
+  end
+
 private
   # Carga los datos de la aplicación: @app_id, @app_secret y @scope.
   #
