@@ -43,6 +43,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
     else
       redirect_to fb_app_brilliance_euforia_formulario_path, :flash => { :error => "Faltan campos por llenar." }
     end
+    redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid=111"
   end
 
   def ranking 
