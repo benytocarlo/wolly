@@ -69,27 +69,11 @@ class FbAppBrillianceEuforiaController < ApplicationController
   end
 
   def felicidades
-    if params[:fb_id].present? and params[:creditos].present?
-      if @me_from_database = Participant.find_by_facebook_idnumber(params[:fb_id])
-        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
-          @me_from_database_participation.update_attributes(:answer => params[:creditos])
-        else
-          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:creditos])
-        end
-      end
-    end
+
   end
 
   def gracias
-    if params[:fb_id].present? and params[:creditos].present?
-      if @me_from_database = Participant.find_by_facebook_idnumber(params[:fb_id])
-        if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
-          @me_from_database_participation.update_attributes(:answer => "0")
-        else
-          Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "0")
-        end
-      end
-   end
+  
   end
 
 private
