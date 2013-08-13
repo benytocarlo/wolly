@@ -2,8 +2,10 @@
 <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
   <allow-access-from domain="*" to-ports="*" secure="false" /> 
-  <!-- 
- This domain can accept any header from a SWF file on any subdomain of example.com and supports https requests 
-  --> 
+  <allow-access-from domain="wolly.herokuapp.com" />
+  <allow-access-from domain="*.herokuapp.com" />
+  <allow-access-from domain="*.appdigital.cl" />
+  <allow-access-from domain="www.appdigital.cl" />
+  <allow-access-from domain="localhost" /> 
   <allow-http-request-headers-from domain="*" headers="*" secure="true" /> 
 </cross-domain-policy>
