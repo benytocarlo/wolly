@@ -64,8 +64,6 @@ class FbAppBrillianceEuforiaController < ApplicationController
           Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:creditos])
         end
       end
-    else
-      redirect_to fb_app_mm_wanted_formulario_path, :flash => { :error => "Faltan campos por llenar." } 
     end
   end
 
@@ -78,9 +76,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
           Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "0")
         end
       end
-    else
-      redirect_to fb_app_mm_wanted_formulario_path, :flash => { :error => "Faltan campos por llenar." } 
-    end
+   end
   end
 
 private
