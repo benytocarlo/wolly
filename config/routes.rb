@@ -182,6 +182,7 @@ Wolly::Application.routes.draw do
   post  "fb_app_brilliance_euforia/canvas"
   get   "fb_app_brilliance_euforia/formulario"
   post  "fb_app_brilliance_euforia/jugar"
+  get  "fb_app_brilliance_euforia/jugar"
   get  "fb_app_brilliance_euforia/gracias"
   get  "fb_app_brilliance_euforia/felicidades"
   get  "fb_app_brilliance_euforia/ranking"

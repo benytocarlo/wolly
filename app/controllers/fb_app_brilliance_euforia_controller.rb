@@ -20,30 +20,43 @@ class FbAppBrillianceEuforiaController < ApplicationController
 
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_database.facebook_name
-      @correo   = @me_from_database.facebook_email
-      @rut = @me_from_database.rut
-      @telefono = @me_from_database.phone
-      @direccion = @me_from_database.address
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
+        redirect_to fb_app_brilliance_euforia_jugar_path
+      else
+        @nombre   = @me_from_database.facebook_name
+        @correo   = @me_from_database.facebook_email
+        @rut = @me_from_database.rut
+        @telefono = @me_from_database.phone
+        @direccion = @me_from_database.address
+      end
     else
       @nombre   = @me_from_graph[:name]
       @apellido   = @me_from_graph[:last_name]
       @correo   = @me_from_graph[:email]
       @telefono = ""
     end
+    
   end
 
   def jugar
-    if params[:nombre].present? and params[:rut].present? and params[:telefono].present? and params[:correo].present?
-      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :address => params[:direccion])
+    if request.post?
+      if params[:nombre].present? and params[:rut].present? and params[:telefono].present? and params[:correo].present?
+        if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+          @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :address => params[:direccion])
+        else
+          @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :address => params[:direccion])
+        end
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender], :address => params[:direccion])
+        redirect_to fb_app_brilliance_euforia_formulario_path, :flash => { :error => "Faltan campos por llenar." }
       end
-    else
-      redirect_to fb_app_brilliance_euforia_formulario_path, :flash => { :error => "Faltan campos por llenar." }
+      if !@me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "100")
+      end
+      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_database.id
+    elsif request.get?
+      @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_database.id
     end
-    redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid=111"
   end
 
   def ranking 
