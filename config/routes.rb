@@ -186,8 +186,8 @@ Wolly::Application.routes.draw do
   get  "fb_app_brilliance_euforia/gracias"
   get  "fb_app_brilliance_euforia/felicidades"
   get  "fb_app_brilliance_euforia/ranking"
+  post  "fb_app_brilliance_euforia/invitar"
   get  "fb_app_ws_wolly/ws_brilliance/facebook_id/:facebook_id/creditos/:creditos" => "fb_app_ws_wolly#ws_brilliance"
-  get  "fb_app_brilliance_euforia/invitar"
 
 
   post  "fb_app_haima"             => "fb_app_haima#index"

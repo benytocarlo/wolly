@@ -3,10 +3,10 @@ class FbAppBrillianceEuforiaController < ApplicationController
   layout "fb_app_brilliance_euforia"
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request
-  before_filter :parse_facebook_cookies, :except => [:index, :canvas,:ranking,:felicidades,:gracias]
+  before_filter :parse_facebook_cookies, :except => [:index, :canvas,:ranking,:felicidades,:gracias,:invitar]
   before_filter :load_graph_api
-  before_filter :load_facebook_user, :except => [:index, :canvas,:ranking,:felicidades,:gracias]
-  before_filter :load_fanpage, :except => [:canvas,:ranking,:felicidades,:gracias]
+  before_filter :load_facebook_user, :except => [:index, :canvas,:ranking,:felicidades,:gracias,:invitar]
+  before_filter :load_fanpage, :except => [:canvas,:ranking,:felicidades,:gracias,:invitar]
 
   def index
     if session[:signed_request][:page][:liked]
