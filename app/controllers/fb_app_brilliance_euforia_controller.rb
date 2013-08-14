@@ -72,7 +72,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
     @resultado = JSON.parse(open("http://wolly.herokuapp.com/fb_app_ws_wolly/ws_brilliance/facebook_id/"+@me_from_graph[:id].to_s+"/creditos/100").read)
     @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
     logger.info "DEBUG: Devuelve Intentos #{@result}"
-    
+    render :text => @resultado
   end
 
 private
