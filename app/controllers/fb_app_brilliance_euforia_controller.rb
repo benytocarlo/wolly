@@ -74,6 +74,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
         @me_from_database_participation.update_attributes(:answer => "100")
       end
     end
+    render :text => 'Actualizado'
   end
   
   def gracias
