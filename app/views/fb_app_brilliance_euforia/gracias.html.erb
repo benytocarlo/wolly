@@ -15,15 +15,24 @@
         });
       return false;
     });
+
     $(".invitar").click(function(){
       FB.ui({ method: 'apprequests',
             message: '¡Juega en el tragamonedas de Brilliance Euphoria y gana una estadia en Enjoy para dos personas!',
             filters: ['app_non_users'],
             title: 'Invitación',
       max_recipients: '50'
-      });
+      },requestCallback);
     });
+
   });
+
+  function requestCallback(response) {
+    var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar";
+    $.post(ajaxurl, data, function(e) {
+      alert(e);
+    });
+  }
 </script>
 <div class="gracias">
   <div class="fin">

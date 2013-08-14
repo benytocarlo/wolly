@@ -68,12 +68,11 @@ class FbAppBrillianceEuforiaController < ApplicationController
     end
   end
 
-  def felicidades
-
-  end
-
-  def gracias
-  
+  def invitar
+    @resultado = JSON.parse(open("http://wolly.herokuapp.com/fb_app_ws_wolly/ws_brilliance/facebook_id/1155649748/creditos/100").read)
+    @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
+    logger.info "DEBUG: Devuelve Intentos #{@result}"
+    
   end
 
 private
