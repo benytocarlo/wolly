@@ -11,7 +11,7 @@
           description: '¡Juega en el tragamonedas de Brilliance Euphoria y gana una estadia en Enjoy para dos personas!'
         },
         function(response) {
-        
+          requestCallback();
         });
       return false;
     });
@@ -30,7 +30,8 @@
   function requestCallback(response) {
     var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar?fbid=<%= @fbidvar %>";
     $.get(ajaxurl, function(e) {
-      alert(e);
+      alert("Ahora puedes jugar nuevamente, ¡Seras redirigido al comienzo del Juego!");
+      top.location.href = "http://www.facebook.com/Brilliancechile/app_423085667810855";
     });
   }
 </script>
