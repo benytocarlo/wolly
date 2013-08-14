@@ -29,7 +29,7 @@
 
   function requestCallback(response) {
     var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar";
-    $.post(ajaxurl, data, function(e) {
+    $.post(ajaxurl, function(e) {
       alert(e);
     });
   }
@@ -41,8 +41,8 @@
       <p><strong>&iquest;Te quedaste sin Cr&eacute;ditos?</strong></p>
       <p>Invita a tus amigos  o comparte en tu muro para seguir participando</p>
       <ul>
-        <li><a href="#" class="btn_compartir invitar"></a></li>
-        <li><a href="#" class="btn_amigo sharefb"></a></li>
+        <li><a href="#" class="btn_compartir sharefb"></a></li>
+        <li><a href="#" class="btn_amigo invitar"></a></li>
       </ul>
     </div>
   </div>
