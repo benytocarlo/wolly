@@ -22,7 +22,7 @@ class FbAppBrillianceEuforiaController < ApplicationController
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
         if @me_from_database_participation.answer == "0"
-          redirect_to fb_app_brilliance_euforia_gracias_path
+          redirect_to fb_app_brilliance_euforia_gracias_path(:fbid => @me_from_graph[:id])
         else
           redirect_to fb_app_brilliance_euforia_jugar_path
         end
