@@ -69,10 +69,11 @@ class FbAppBrillianceEuforiaController < ApplicationController
   end
 
   def invitar
-    @resultado = JSON.parse(open("http://wolly.herokuapp.com/fb_app_ws_wolly/ws_brilliance/facebook_id/"+@me_from_graph[:id].to_s+"/creditos/100").read)
-    @resultado = @resultado.deep_symbolize_keys#@result = eval(@result)
-    logger.info "DEBUG: Devuelve Intentos #{@result}"
-    render :text => @resultado
+    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
+        @me_from_database_participation.update_attributes(:answer => "100")
+      end
+    end
   end
 
 private
