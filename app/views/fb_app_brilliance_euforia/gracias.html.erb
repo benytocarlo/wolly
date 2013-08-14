@@ -28,7 +28,7 @@
   });
 
   function requestCallback(response) {
-    var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar";
+    var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar?fbid=<%= @fbidvar %>";
     $.get(ajaxurl, function(e) {
       alert(e);
     });
