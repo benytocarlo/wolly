@@ -29,7 +29,7 @@
 
   function requestCallback(response) {
     var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar";
-    $.post(ajaxurl, function(e) {
+    $.get(ajaxurl, function(e) {
       alert(e);
     });
   }
