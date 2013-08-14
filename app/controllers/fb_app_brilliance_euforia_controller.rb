@@ -21,7 +21,11 @@ class FbAppBrillianceEuforiaController < ApplicationController
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
       if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
-        redirect_to fb_app_brilliance_euforia_jugar_path
+        if @me_from_database_participation.answer == "0"
+          redirect_to fb_app_brilliance_euforia_gracias_path
+        else
+          redirect_to fb_app_brilliance_euforia_jugar_path
+        end
       else
         @nombre   = @me_from_database.facebook_name
         @correo   = @me_from_database.facebook_email
