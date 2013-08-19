@@ -56,10 +56,10 @@ class FbAppBrillianceEuforiaController < ApplicationController
       if !@me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = 20",@me_from_database.id])
         Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "100")
       end
-      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_graph[:id].to_s
+      redirect_to "http://www.miapp.cl/brilliance/slot_machine/casino.php?fid="+@me_from_graph[:id].to_s
     elsif request.get?
       @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      redirect_to "http://www.appdigital.cl/brilliance/test/casino.php?fid="+@me_from_graph[:id].to_s
+      redirect_to "http://www.miapp.cl/brilliance/slot_machine/casino.php?fid="+@me_from_graph[:id].to_s
     end
   end
 
