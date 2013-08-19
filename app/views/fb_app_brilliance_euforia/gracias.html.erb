@@ -1,0 +1,52 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    $("#nav_superior li a").removeClass("active_nav");
+    $(".sharefb").click(function(){
+      FB.ui({
+          method: 'feed',
+          name: 'Brilliance Euforia',
+          link: 'http://www.facebook.com/Brilliancechile/app_423085667810855',
+          picture: 'http://wolly.herokuapp.com/assets/<%= controller_path %>/75x75.jpg',
+          caption: 'Estoy seguro que gano el fin de semana en Enjoy gracias a Brilliance Euphoria ¡Juega en el tragamonedas!',
+          description: '¡Juega en el tragamonedas de Brilliance Euphoria y gana una estadia en Enjoy para dos personas!'
+        },
+        function(response) {
+          requestCallback();
+        });
+      return false;
+    });
+
+    $(".invitar").click(function(){
+      FB.ui({ method: 'apprequests',
+            message: '¡Juega en el tragamonedas de Brilliance Euphoria y gana una estadia en Enjoy para dos personas!',
+            filters: ['app_non_users'],
+            title: 'Invitación',
+      max_recipients: '50'
+      },requestCallback);
+    });
+
+  });
+
+  function requestCallback(response) {
+    var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar?fbid=<%= @fbidvar %>";
+    $.get(ajaxurl, function(e) {
+      alert("Ahora puedes jugar nuevamente, ¡Seras redirigido al comienzo del Juego!");
+      top.location.href = "http://www.facebook.com/Brilliancechile/app_423085667810855";
+    });
+  }
+</script>
+<div class="gracias">
+  <div class="fin">
+    <div class="content_fin">
+      <p class="participar extramarbot">GRACIAS POR PARTICIPAR</p>
+      <p><strong>&iquest;Te quedaste sin Cr&eacute;ditos?</strong></p>
+      <p>Invita a tus amigos  o comparte en tu muro para seguir participando</p>
+      <ul>
+        <li><a href="#" class="btn_compartir sharefb"></a></li>
+        <li><a href="#" class="btn_amigo invitar"></a></li>
+      </ul>
+    </div>
+  </div>
+  <%=image_tag("fb_app_brilliance_euforia/auto.png",:class=>"auto")%>
+  <%=image_tag("fb_app_brilliance_euforia/carta.png",:class=>"carta")%>
+</div>

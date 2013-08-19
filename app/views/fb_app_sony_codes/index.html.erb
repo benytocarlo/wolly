@@ -1,11 +1,11 @@
-<script>
+<script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
   $(".startbutton").click(function(){
     FB.login(function(response){
       if (response.authResponse){
         location.href = '<%= fb_app_sony_codes_formulario_path %>';
       }
-    },{scope:'<%= @scope %>'});
+    },{scope:'<%= @scope %>',display: 'popup'});
   });
   $(".startbutton").hover(
     function () {

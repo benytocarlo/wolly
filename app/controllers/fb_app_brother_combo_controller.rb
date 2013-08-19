@@ -35,10 +35,10 @@ class FbAppBrotherComboController < ApplicationController
       @nombre_completo = params[:nombre]+" " + params[:apellido]
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
         @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "participado")
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:comentario])
       else
         @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "participado")
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => params[:comentario])
       end
     else
       redirect_to fb_app_brother_combo_formulario_path, :flash => { :error => "Faltan campos por llenar." }

@@ -35,7 +35,9 @@ class FbAppMmWantedController < ApplicationController
     require 'open-uri'
     require 'json'
     if params[:nombre].present? and params[:correo].present? and params[:rut].present? and params[:telefono].present? and params[:codigo].present?
-      @result = JSON.parse(open("http://ws-wanted.herokuapp.com/facebook_id/#{@me_from_graph[:id]}/code/#{params[:codigo]}.json").read)
+      @codigomm = params[:codigo].to_s.gsub(".","")
+      @codigomm = @codigomm.to_s.gsub(" ","")
+      @result = JSON.parse(open("http://ws-wanted.herokuapp.com/facebook_id/#{@me_from_graph[:id]}/code/#{@codigomm}.json").read)
       @result = @result.deep_symbolize_keys#@result = eval(@result)
       logger.info "DEBUG: #{@result}"
       if @result[:codigo] == 0

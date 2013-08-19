@@ -522,9 +522,9 @@ $.extend(Countdown.prototype, {
 			return ((!inst.options.significant && show[period]) ||
 				(inst.options.significant && showSignificant[period]) ?
 				'<span class="' + plugin._sectionClass + '">' +
-				'<span class="' + plugin._amountClass + '">' +
-				self._translateDigits(inst, inst._periods[period]) + '</span><br/>' +
-				(labelsNum ? labelsNum[period] : labels[period]) + '</span>' : '');
+				'<span class="' + plugin._amountClass + ' ' + (labelsNum ? labelsNum[period] : labels[period]) +'">' +
+				self._translateDigits(inst, inst._periods[period]) + '</span><span class="counter_title">' +
+				(labelsNum ? labelsNum[period] : labels[period]) + '</span></span>' : '');
 		};
 		return (inst.options.layout ? this._buildLayout(inst, show, inst.options.layout,
 			inst.options.compact, inst.options.significant, showSignificant) :

@@ -11,15 +11,32 @@
         nombre:    { required: true },
         apellido:    { required: true },
         telefono:  { required: true },
-        correo:    { required: true,email: true }
+        correo:    { required: true,email: true },
+        comentario:  { required: true }
       }
     });
   });
 </script>
-  <%= form_tag(fb_app_brother_combo_share_path,:id=>:form_registro, :method => "post") do  %>
-        <p><%= text_field_tag(:nombre, @nombre, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
-        <p><%= text_field_tag(:apellido, @apellido, :class => 'datos', :onkeypress => "return validatxt(event)") %></p>
-        <p><%= text_field_tag(:telefono, @telefono, :class => 'datos', :onkeypress => "return validanum(event)") %></p>
-        <p><%= text_field_tag(:correo, @correo, :class => 'datos') %></p>
-    <a href="#" class="continuar">Continuar</a>
-  <% end %>
+  <div class="wrap back_registro">
+    <%= link_to "", fb_app_brother_combo_path,:id =>"inicio",:class =>"inicio" %>
+    <a class="bases" href="/documents/fb_app_brother_combo.pdf" target="_blank">Bases legales</a>
+    <div class="registro">
+      <%= form_tag(fb_app_brother_combo_share_path,:id=>:form_registro, :method => "post") do  %>
+        <div class="brother">
+          <ul class="datos_registrate">
+            <li class="tarea"><label>¿QUÉ ES LO QUE TE GUSTARÍA CREAR SI GANAS EL COMBO BROTHER?</label>
+            <textarea id="comentario" name="comentario" rows="5" cols="50"></textarea></li>
+          </ul>          
+          <ul class="datos_registrate">
+            <li><label>nombre</label><%= text_field_tag(:nombre, @nombre, :class => 'input_form', :onkeypress => "return validatxt(event)") %></li>
+            <li class="cero"><label>apellido</label><%= text_field_tag(:apellido, @apellido, :class => 'input_form', :onkeypress => "return validatxt(event)") %></li>
+          </ul>
+          <ul class="datos_registrate2">
+            <li><label>tel&eacute;fono</label><%= text_field_tag(:telefono, @telefono, :class => 'input_form', :onkeypress => "return validanum(event)") %></li>
+            <li class="cero"><label>email</label><%= text_field_tag(:correo, @correo, :class => 'input_form') %></li>
+            <li class="envio"><input type="submit" value="" class="btn_enviar"></li>
+          </ul>
+        </div><!--/registrate-->
+      <% end %>
+    </div>
+  </div>

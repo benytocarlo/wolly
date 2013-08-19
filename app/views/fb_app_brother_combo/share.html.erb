@@ -1,3 +1,7 @@
 <%= render :partial => "layouts/facebook_javascript_sdk_share" %>
-<%= link_to "Invitar", "#", :id => 'invitar2' , :class => 'invitar2 invitar' %>
-<%= link_to "Share", "#", :id => 'compartir2' , :class => 'compartir2 sharefb' %>
+<div class="wrap exito">
+  <%= link_to "", fb_app_brother_combo_path,:id =>"inicio",:class =>"inicio" %>
+  <a class="bases" href="/documents/fb_app_brother_combo.pdf" target="_blank">Bases legales</a>
+  <a title="Enlace a invitar amigos" href="#" class="amigos invitar"></a>
+  <a title="Enlace a invitar amigos" href="#" class="compartir sharefb"></a>
+</div>
