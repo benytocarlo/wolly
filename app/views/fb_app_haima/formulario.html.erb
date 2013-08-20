@@ -1,0 +1,58 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $("#enviar").click(function(){
+      if( !$('#demo_box_4').is(":checked") || !$('#demo_box_5').is(":checked") ){
+        alert("Debes aceptar las condiciones del concurso");
+      }else{
+        if( !$('input[name=op_haima]').is(":checked") ){
+          alert("Debes seleccionar una opción");
+        }else{
+          $("#registro").submit();
+        }
+      }
+    });
+
+    $("#registro").validate({
+      rules: {
+        nombre:    { required: true },
+        apellido:    { required: true },
+        telefono:  { required: true },
+        correo:    { required: true,email: true }
+      }
+    });
+  });
+</script>
+<div>
+  <%= form_tag(fb_app_haima_share_path,:id=>:registro, :method => "post") do  %>
+    <h2>Elige tu Haima</h2>
+    <div id="haima2" >
+      <input id="demo_box_1" name="op_haima" value="Haima 2" class="css-checkbox" type="radio" />
+      <label for="demo_box_1" name="demo_lbl_1" class="css-label">&nbsp;</label>
+    </div>
+    <div id="haima3" >
+      <input id="demo_box_2" name="op_haima" value="Haima 3" class="css-checkbox" type="radio" />
+      <label for="demo_box_2" name="demo_lbl_1" class="css-label">&nbsp;</label>
+    </div>
+    <div id="haima7" >
+      <input id="demo_box_3" name="op_haima" value="Haima 7" class="css-checkbox" type="radio" />
+      <label for="demo_box_3" name="demo_lbl_1" class="css-label">&nbsp;</label>
+    </div>
+    <div style="width: 435px;margin: 0 80px 0 30px;position: relative;float: right;height: 300px;">
+      <label class="registro">Nombre:</label>
+      <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+      <label class="registro">Apellido:</label>
+      <%= text_field_tag(:apellido, @apellido, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+      <label class="registro">Mail:</label>
+      <%= text_field_tag(:correo, @correo, :class => 'campos') %>
+      <label class="registro">Teléfono:</label>
+      <%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %>
+      <input id="demo_box_4" class="css-checkbox" type="radio" />
+      <label for="demo_box_4" name="demo_lbl_1" class="css-label condiciones">Acepto los términos<br /> y condiciones</label>
+      <input id="demo_box_5" class="css-checkbox" type="radio" />
+      <label for="demo_box_5" name="demo_lbl_1" class="css-label mayor">Soy mayor de 18 años</label>
+      <a href="#" id="enviar" /></a>
+    </div>
+  <% end %>
+</div>

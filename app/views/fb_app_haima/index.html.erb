@@ -1,0 +1,19 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".participa").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_haima_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>',display: 'popup'});
+    });
+});
+</script>
+<div class="contenedor">
+  <h2 class="fan">Elige tu Haima</h2>
+  <a title="Enlace a bases legales" href="#" class="participa"></a>
+  <div id="haima2" ></div>
+  <div id="haima3" ></div>
+  <div id="haima7" ></div>
+  <a class="bases" href="#">DESCARGAR LAS BASES</a>
+</div>
