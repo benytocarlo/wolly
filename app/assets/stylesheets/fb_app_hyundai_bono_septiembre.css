@@ -1,0 +1,288 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*--------------------------------------------STYLE SITE------------------------------------*/
+
+
+body{
+	background:url(fb_app_hyundai_bono_septiembre/background.jpg) no-repeat 0 0;
+	width:810px;
+	height:700px;
+	margin:0;
+	padding:0;
+	border:0;
+	position:relative;
+}
+
+#logo{
+	background:url(fb_app_hyundai_bono_septiembre/logo.jpg) no-repeat 0 0;
+	width:262px;
+	height:70px;
+	position:absolute;
+	left:274px;
+	top:0;
+}
+
+#contenedor_nofan{
+background: url(fb_app_hyundai_bono_septiembre/nofan.png) no-repeat 0 0;
+width: 622px;
+height: 647px;
+position: absolute;
+right:45px;
+top: 0;
+display: block;
+}
+
+#contenedor{
+background: url(fb_app_hyundai_bono_septiembre/fan.png) no-repeat 0 0;
+width: 489px;
+height: 580px;
+margin: 0 auto;
+position: absolute;
+z-index: 0;
+left: 160px;
+top: 60px;
+	
+}
+
+.contenedor_general{
+background: url(fb_app_hyundai_bono_septiembre/escoge.png) no-repeat 0 0;
+width: 781px;
+height: 509px;
+margin: 100px 0 0 13px;
+float: left;
+position: relative;
+}
+
+.cont_form{
+background: url(fb_app_hyundai_bono_septiembre/formulario.png) no-repeat 0 0 !important;
+}
+
+.contenedor_general ul{
+width: 781px;
+height:257px;
+margin: 100px 0 0 0;
+}
+
+.contenedor_general ul li{
+	margin:0 7px 0 0;
+	float:left;
+width: 190px;
+height:257px;
+}
+
+.contenedor_general ul li img{
+	margin-bottom:6px;
+}
+
+.contenedor_general ul a{
+width:190px;
+height:61px;
+display:block;
+}
+
+.contenedor_general ul #asado{
+	background:url(fb_app_hyundai_bono_septiembre/btn_asado.jpg) no-repeat 0 0;
+}
+
+.contenedor_general ul #asado:hover{
+	background:url(fb_app_hyundai_bono_septiembre/btn_asado_hover.jpg) no-repeat 0 0;
+}
+
+.asado_selected{
+	background:url(fb_app_hyundai_bono_septiembre/btn_asado_hover.jpg) no-repeat 0 0 !important;
+}
+
+.contenedor_general ul #aventura{
+	background:url(fb_app_hyundai_bono_septiembre/btn_aventura.jpg) no-repeat 0 0;
+}
+
+.contenedor_general ul #aventura:hover{
+	background:url(fb_app_hyundai_bono_septiembre/btn_aventura_hover.jpg) no-repeat 0 0;
+}
+
+.aventura_selected{
+	background:url(fb_app_hyundai_bono_septiembre/btn_aventura_hover.jpg) no-repeat 0 0 !important;
+}
+
+.contenedor_general ul #playa{
+	background:url(fb_app_hyundai_bono_septiembre/btn_playa.jpg) no-repeat 0 0;
+}
+
+.contenedor_general ul #playa:hover{
+	background:url(fb_app_hyundai_bono_septiembre/btn_playa_hover.jpg) no-repeat 0 0;
+}
+
+.playa_selected{
+	background:url(fb_app_hyundai_bono_septiembre/btn_playa_hover.jpg) no-repeat 0 0 !important;
+}
+
+.contenedor_general ul #baile{
+	background:url(fb_app_hyundai_bono_septiembre/btn_baile.jpg) no-repeat 0 0;
+}
+
+.contenedor_general ul #baile:hover{
+	background:url(fb_app_hyundai_bono_septiembre/btn_baile_hover.jpg) no-repeat 0 0;
+}
+
+.baile_selected{
+	background:url(fb_app_hyundai_bono_septiembre/btn_baile_hover.jpg) no-repeat 0 0 !important;
+}
+
+.siguiente{
+	background:url(fb_app_hyundai_bono_septiembre/btn_siguiente.png) no-repeat 0 0;
+	width:351px;
+	height:61px;
+	display:block;
+	margin: 30px auto 0 auto;
+}
+
+.contenedor_general form{
+margin: 0;
+position: absolute;
+width: 662px;
+height: 251px;
+top:190px;
+left: 60px;
+}
+
+.contenedor_general form .campos{
+	border:none;
+	margin: 0 34px 45px 0;
+	padding:0;
+	background:#FFF;
+	width:300px;
+	height:44px;
+	padding-left: 10px;
+	font-size: 15px;
+}
+
+.participar{
+background: url(fb_app_hyundai_bono_septiembre/btn_participa.jpg) no-repeat 0 0;
+width: 351px;
+height: 61px;
+display: block;
+margin: 0;
+position: absolute;
+top: 450px;
+left: 68px;
+text-indent: -99999px;
+}
+
+.participar:hover{
+background: url(fb_app_hyundai_bono_septiembre/btn_participa_hover.jpg) no-repeat 0 0;
+}
+
+.bases{
+	background:url(fb_app_hyundai_bono_septiembre/bases.png) no-repeat 0 0;
+	width:130px;
+	height:21px;
+	display:block;
+	position:absolute;
+	bottom:0;
+	left:339px;
+}
+
+#enviar{
+	background:url(fb_app_hyundai_bono_septiembre/enviar.jpg) no-repeat 0 0;
+	width:351px;
+	height:61px;
+	display:block;
+	border:none;
+	text-indent:-9999px;
+	cursor:pointer;
+	margin:0 auto;
+}
+
+#enviar:hover{
+	background:url(fb_app_hyundai_bono_septiembre/enviar_hover.jpg) no-repeat 0 0;
+}
+
+.contenedor_gracias{
+	background:url(fb_app_hyundai_bono_septiembre/gracias.png) no-repeat 0 0;
+	width:609px;
+	height:618px;
+	position:absolute;
+	left:99px;
+	top:61px;
+	
+}
+
+.contenedor_gracias #disfrutando{
+width: 551px;
+height: 425px;
+position: absolute;
+left: 28px;
+top: 80px;
+}
+
+.finales{
+width: 550px;
+height: 61px;
+display: block;
+margin: 526px auto 0 auto;
+}
+
+.finales #invitar{
+	background:url(fb_app_hyundai_bono_septiembre/btn_invitar.png) no-repeat 0 0;
+	display:block;
+	width:261px;
+	height:61px;
+	float:left;
+}
+
+.finales #compartir{
+	background:url(fb_app_hyundai_bono_septiembre/btn_compartir.png) no-repeat 0 0;
+	display:block;
+	width:261px;
+	height:61px;
+	float:right;
+}
+
+#form_registro .error {
+    background: url(alert.jpg) no-repeat 290px 15px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#form_registro strong{display:none!important;}

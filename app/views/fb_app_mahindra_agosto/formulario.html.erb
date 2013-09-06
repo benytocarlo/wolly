@@ -1,0 +1,25 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $(".continuar").click(function(){
+      $("#form_registro").submit();
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        apellido:    { required: true },
+        telefono:  { required: true },
+        correo:    { required: true,email: true }
+      }
+    });
+  });
+</script>
+<%= form_tag(fb_app_mahindra_agosto_share_path,:id=>:form_registro, :method => "post") do  %>  
+      <label>nombre</label><%= text_field_tag(:nombre, @nombre, :class => 'input_form', :onkeypress => "return validatxt(event)") %>
+      <label>apellido</label><%= text_field_tag(:apellido, @apellido, :class => 'input_form', :onkeypress => "return validatxt(event)") %>
+      <label>tel&eacute;fono</label><%= text_field_tag(:telefono, @telefono, :class => 'input_form', :onkeypress => "return validanum(event)") %>
+      <label>email</label><%= text_field_tag(:correo, @correo, :class => 'input_form') %>
+      <a href="#" class="continuar" id="enviar">Enviar</a>
+<% end %>

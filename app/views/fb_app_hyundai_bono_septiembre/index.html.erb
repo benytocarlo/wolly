@@ -1,0 +1,15 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".participar").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_hyundai_bono_septiembre_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+});
+</script>
+<div id="contenedor">
+  <%= link_to "", fb_app_hyundai_bono_septiembre_formulario_path,:id =>"participar",:class =>"participar" %>
+</div>
+<div id="logo"></div>

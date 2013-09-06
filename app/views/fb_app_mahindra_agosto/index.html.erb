@@ -1,0 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".participa").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_mahindra_agosto_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+});
+</script>
+<div class="wrap home">
+  <%= link_to "", fb_app_brother_combo_path,:id =>"inicio",:class =>"inicio" %>
+  <!--a class="bases" href="/documents/fb_app_brother_combo.pdf" target="_blank">Bases legales</a-->
+  <a title="Enlace a bases legales" href="#" class="participa">Participa</a>
+</div>

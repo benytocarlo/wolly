@@ -1,0 +1,28 @@
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $(".continuar").click(function(){
+      $("#form_registro").submit();
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        rut:       { required: true, valrut: $('#rut').val() },
+        telefono:  { required: true },
+        correo:    { required: true,email: true }
+      }
+    });
+  });
+</script>
+<div id="logo"></div>
+<div class="contenedor_general cont_form ">
+<%= form_tag(fb_app_hyundai_bono_septiembre_escoge_path,:id=>:form_registro, :method => "post") do  %>  
+  <%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+<%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10", :style => "margin-right:0;") %>
+<%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %>
+<%= text_field_tag(:correo, @correo, :class => 'campos', :style => "margin-right:0;") %>
+<input type="submit" id="enviar" />
+<% end %>
+</div>
