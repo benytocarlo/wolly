@@ -30,19 +30,29 @@ ActiveAdmin.register Participation do
   csv do
     column :answer
     column :name do |participation|
-      participation.participant.facebook_name
+      unless participation.participant.nil?
+        participation.participant.facebook_name
+      end
     end
     column :rut do |participation|
-      participation.participant.rut
+      unless participation.participant.nil?      
+        participation.participant.rut
+      end
     end
     column :phone do |participation|
-      participation.participant.phone
+      unless participation.participant.nil?      
+        participation.participant.phone
+      end
     end
     column :email do |participation|
-      participation.participant.facebook_email
+      unless participation.participant.nil?
+        participation.participant.facebook_email
+      end 
     end
     column :province do |participation|
-      participation.participant.province
+      unless participation.participant.nil?      
+        participation.participant.province
+      end
     end
     column :created_at
     column :updated_at
