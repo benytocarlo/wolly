@@ -65,6 +65,7 @@ body{
 	position:absolute;
 	left:274px;
 	top:0;
+	z-index: 100;
 }
 
 #contenedor_nofan{
