@@ -205,6 +205,7 @@ Wolly::Application.routes.draw do
   get   "fb_app_hyundai_bono_septiembre/formulario"
   post   "fb_app_hyundai_bono_septiembre/escoge"
   post  "fb_app_hyundai_bono_septiembre/share"
+  get  "fb_app_hyundai_bono_septiembre/share"
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -18,10 +18,14 @@ class FbAppHyundaiBonoSeptiembreController < ApplicationController
 
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        redirect_to fb_app_hyundai_bono_septiembre_share_path(:opcion_selected => @me_from_database_participation.answer)
+      else
       @nombre   = @me_from_database.facebook_name
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
       @rut = @me_from_database.rut
+      end
     else
       @nombre   = @me_from_graph[:name]
       @correo   = @me_from_graph[:email]
@@ -44,10 +48,13 @@ class FbAppHyundaiBonoSeptiembreController < ApplicationController
 
   def share
     @foto_grande = params[:opcion_selected].to_s
-    if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @foto_grande)
-    else
-      Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @foto_grande)
+    if request.post?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @foto_grande)
+      else
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @foto_grande)
+      end
+    elsif request.get?
     end
   end
 
