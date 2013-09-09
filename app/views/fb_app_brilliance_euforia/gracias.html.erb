@@ -28,11 +28,20 @@
   });
 
   function requestCallback(response) {
-    var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar?fbid=<%= @fbidvar %>";
+      var data = {
+        aux:2 
+      };
+      var ajaxurl = "consultas_sql.php";
+      $.post(ajaxurl, data, function(e) {
+        alert("Ahora puedes jugar nuevamente, ¡Seras redirigido al comienzo del Juego!");
+        top.location.href = "http://www.facebook.com/Brilliancechile/app_423085667810855";
+      });
+
+    /*var ajaxurl = "http://wolly.herokuapp.com/fb_app_brilliance_euforia/invitar?fbid=<%= @fbidvar %>";
     $.get(ajaxurl, function(e) {
       alert("Ahora puedes jugar nuevamente, ¡Seras redirigido al comienzo del Juego!");
       top.location.href = "http://www.facebook.com/Brilliancechile/app_423085667810855";
-    });
+    });}*/
   }
 </script>
 <div class="gracias">

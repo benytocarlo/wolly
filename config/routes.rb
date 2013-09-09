@@ -1,18 +1,5 @@
 Wolly::Application.routes.draw do
 
-  get  'fb_app_judas_chile/new_participant' => 'fb_app_judas_chile#new_participant'
-
-  post 'fb_app_judas_chile/share' => 'fb_app_judas_chile#share', :as => 'fb_app_judas_chile_share'
-
-  post 'fb_app_judas_chile/canvas'
-
-  post 'fb_app_judas_chile' => 'fb_app_judas_chile#index'
-
-  get "nuevas_app/:application" => "application#nuevas_app"
-
-  
-  get "migrar_bd_a_ws" => "application#migrar_base_de_datos_a_aws"
-  
   post "fb_app_mahindra_reforestemos" => "fb_app_mahindra_reforestemos#index"
 
   post   "fb_app_brilliance_chile"                  => "fb_app_brilliance_chile#index"
@@ -205,6 +192,20 @@ Wolly::Application.routes.draw do
   post  "fb_app_haima/canvas"
   get   "fb_app_haima/formulario"
   post  "fb_app_haima/share"
+
+  post  "fb_app_hyundai_bono_septiembre"             => "fb_app_hyundai_bono_septiembre#index"
+  post  "fb_app_hyundai_bono_septiembre/canvas"
+  get   "fb_app_hyundai_bono_septiembre/formulario"
+  post   "fb_app_hyundai_bono_septiembre/escoge"
+  post  "fb_app_hyundai_bono_septiembre/share"
+  get  "fb_app_hyundai_bono_septiembre/share"
+
+  post  "fb_app_mahindra_desaparece"             => "fb_app_mahindra_desaparece#index"
+  post  "fb_app_mahindra_desaparece/canvas"
+  get   "fb_app_mahindra_desaparece/formulario"
+  post  "fb_app_mahindra_desaparece/escoge"
+  post  "fb_app_mahindra_desaparece/share"
+  get  "fb_app_mahindra_desaparece/share"
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

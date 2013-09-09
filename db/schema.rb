@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130725162436) do
+ActiveRecord::Schema.define(:version => 20130814162324) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -85,10 +85,10 @@ ActiveRecord::Schema.define(:version => 20130725162436) do
   create_table "participations", :force => true do |t|
     t.integer  "participant_id"
     t.integer  "application_id"
-    t.string   "answer"
+    t.text     "answer",             :limit => 255
     t.boolean  "wants_to_be_mailed"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "participations", ["application_id"], :name => "index_participations_on_application_id"

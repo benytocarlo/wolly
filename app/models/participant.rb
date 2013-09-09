@@ -23,7 +23,7 @@
 #
 
 class Participant < ActiveRecord::Base
-  has_many :participations
+  has_many :participations, :dependent => :restrict
   has_many :applications, :through => :participations
   validates_presence_of :facebook_idnumber
   validates_uniqueness_of :facebook_idnumber
