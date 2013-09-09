@@ -1,0 +1,189 @@
+
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, header, footer, hgroup, menu, nav, section, time, mark, audio, video {
+    border: 0 none;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+}
+article, aside, nav, section, dialog, figure, header, footer, hgroup {
+    display: block;
+}
+legend {
+    display: none;
+}
+:focus {
+    outline: 0 none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption, th, td {
+    font-weight: normal;
+    text-align: left;
+}
+a img, iframe {
+    border: medium none;
+}
+ul {
+    list-style: none outside none;
+}
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: 100%;
+}
+input, select {
+    vertical-align: middle;
+}
+select {
+    margin: inherit;
+}
+button {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    cursor: pointer;
+    padding: 0;
+}
+ol {
+    margin-left: 2em;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+
+
+@font-face {
+    font-family: 'DINPro-Light';
+    src: url('DINPro-Light.eot');
+    src: url('DINPro-Light.eot?#iefix') format('embedded-opentype'),
+         url('DINPro-Light.svg#DINProLight') format('svg'),
+         url('DINPro-Light.woff') format('woff'),
+         url('DINPro-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DINPro-Medium';
+    src: url('DINPro-Medium.eot');
+    src: url('DINPro-Medium.eot?#iefix') format('embedded-opentype'),
+         url('DINPro-Medium.woff') format('woff'),
+         url('DINPro-Medium.ttf') format('truetype'),
+         url('DINPro-Medium.svg#DINProMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DINPro-Bold';
+    src: url('DINPro-Bold.eot');
+    src: url('DINPro-Bold.eot?#iefix') format('embedded-opentype'),
+         url('DINPro-Bold.woff') format('woff'),
+         url('DINPro-Bold.ttf') format('truetype'),
+         url('DINPro-Bold.svg#DINProMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {background: url("fb_app_brilliance_euforia/bg_nav.gif") repeat 0 0; font-family: 'DINPro-Light', arial;}
+h2 {color: #922224; font-size: 21px; font-weight: bold; letter-spacing: 4px; text-transform: uppercase;}
+p {font-size: 12px; font-family: 'DINPro-Light';}
+a {text-decoration: none;}
+#contenedor {/*margin: 0 auto;*/ overflow: hidden; width: 810px;}
+
+/*Nav*/
+h1 a { background: url("fb_app_brilliance_euforia/logo_brillance.png") no-repeat 0 0; display: block; float: left; height: 45px; margin: 10px 0 0 6px; width: 233px; text-indent: -9999px;}
+#nav { float:left; height: 68px; overflow: hidden; width: 810px;}
+#nav h2 { float: right;  margin-bottom: 5px; padding-top: 22px;  width: 240px;}
+#nav ul {float: right; margin-top: 6px; height:60px; width:245px;}
+#nav ul li:first-child { margin-left: 0px;}
+#nav ul li { float: left; margin-left: 32px; font-size: 12px; padding: 11px 0 0; text-transform: uppercase;}
+#nav ul li a {color: #898989; font-size:15px; font-weight:bold; padding: 11px 0 5px;}
+#nav ul li a:hover, .active_nav {border-bottom: 2px solid #922224; color: #922224!important;}
+
+/* Nofan */
+.nofan {background-image:url("fb_app_brilliance_euforia/btn_nofan.jpg"); float:left; height:533px; width:100%; overflow:hidden; position:relative;}
+
+/*Home*/
+.home {background: url("fb_app_brilliance_euforia/back_home.jpg") repeat 0 0; float:left; height:533px; width:100%; overflow:hidden; position:relative;}
+.participa { background:url(fb_app_brilliance_euforia/participa.png) no-repeat left top; display:block; height:39px; left:340px; width:151px; position:absolute; top:190px;}
+.participa:hover { background-position: left bottom;}
+
+/*Tombola*/
+.tombola {float:left; height:533px; width:810px; overflow:hidden; position:relative;}
+.resultado {height:auto; width:auto; position:absolute; left:0px; top:0px;}
+
+/*Ranking*/
+.ranking {background: url("fb_app_brilliance_euforia/bg_ranking.gif") repeat 0 0; float:left; height:533px; width:810px; overflow:hidden; position:relative;}
+.ranking .ranking_box {background: url("fb_app_brilliance_euforia/bg_nav.gif") repeat 0 0; border-radius: 15px; font-weight: bold; overflow: hidden; padding: 0px 35px 0; position: absolute; left: 161px; text-align: center; top: 76px; width: 420px; text-transform:uppercase}
+.ranking .ranking_box .box_title { background-color:#FFF; margin-bottom:15px; padding-top:15px !important; }
+.ranking .ranking_box .fila { float:left;width: 497px !important; margin-left: -37px; padding-top:6px; padding-bottom:3px; font-family:'DINPro-Bold';}
+.ranking .ranking_box .fila:last-child { padding-bottom:40px}
+.ranking .ranking_box .fila span { width:33.2%; float:left;font-size: 13px;}
+.ranking .auto {bottom: 0px;left: 308px;}
+.ranking .auto img{ width:178px; height:auto;}
+.ranking .logo { position:absolute; right:22px; bottom:21px;}
+.extramarbot { margin-bottom:60px !important;}
+
+/*Gracias*/
+.gracias {background: url("fb_app_brilliance_euforia/bg_gracias.jpg") repeat 0 0; float:left; height:533px; width:810px; overflow:hidden; position:relative;}
+.participar { font-size:25px;}
+.fin {background: url("fb_app_brilliance_euforia/bg_nav.gif") repeat 0 0; border-radius:15px; font-weight:bold; overflow:hidden; /*padding: 50px 35px 0;*/ position:absolute; left:270px; text-align:center; top:50px; width:420px;}
+.content_fin { overflow:hidden; margin:40px 25px 30px; height: 360px; padding-bottom: 5px; width: 370px;}
+.content_fin .felicitaciones {font-family:'DINPro-Bold'; font-size:42px;}
+.content_fin p {margin-bottom:15px; text-transform:uppercase;}
+.content_fin p strong { font-family:'DINPro-Bold';}
+.content_fin ul { margin:0 0 0 84px; float:left;}
+.content_fin ul li { margin-bottom:35px;}
+.btn_compartir, .btn_amigo, .btn_ranking, .btn_otravez {border-radius:3px; display:block; height:38px; width:193px; box-shadow: 2px 2px 5px #999999;}
+.btn_compartir {background:url("fb_app_brilliance_euforia/btn_compartir.png") no-repeat left top;}
+.btn_ranking { background-image:url("fb_app_brilliance_euforia/btn_ranking.png")}
+.btn_otravez { background-image:url("fb_app_brilliance_euforia/btn_otravez.png")}
+.btn_amigo {background:url("fb_app_brilliance_euforia/btn_amigo.png") no-repeat left top;}
+.btn_compartir:hover, .btn_amigo:hover, .btn_ranking:hover, .btn_otravez:hover { background-position: left bottom;}
+.auto, .carta {position:absolute; z-index:9;}
+.auto { bottom:37px; left:35px;}
+.carta {right:31px; bottom:31px;}
+
+/*formulario*/
+.cont_form {background: url("fb_app_brilliance_euforia/bg_nav.gif") repeat 0 0; border-radius:15px; font-weight:bold; overflow:hidden; position:absolute; left:270px; text-align:center; top:50px; /*width:420px;*/}
+.datos { overflow:hidden; margin:40px 40px 30px; height: 377px; padding-bottom: 5px; width: 205px;}
+li label {color: #000; float: left!important; font-size: 12px; padding: 6px 0; width: 100%; text-transform: uppercase;}
+li input.input_form { background: none repeat scroll 0 0 #fff; border:none; border-radius: 3px 3px 3px 3px; clear: left; color: #000; float: left; height: 33px; line-height: 29px; overflow: hidden; padding-left: 5px; padding-top: 2px; width: 294px;}
+input:focus {color: #922224!important;}
+input[type="text"]:focus, textarea:focus { color: #922224;}
+.envio {height:39px!important; float:right; margin: 10px 0 0 40px; width:108px; }
+.btn_enviar { background:url("fb_app_brilliance_euforia/enviar.png") no-repeat 0 0; border:none; height:38px; width:106px; display:block; cursor:pointer; }
+.btn_enviar:hover {background-position: 0 -38px;}
+input[type="submit"] {box-shadow: 2px 2px 5px #999999; padding:0; cursor: pointer; height: 38px; width: 104px !important;}
+.comentario { background:url("fb_app_brilliance_euforia/bg_comentario.png") no-repeat 0 0; height:129px; width:206px; overflow:hidden; position:absolute; left:555px; top:80px; color:#fff;}
+.comentario p { height:89px; line-height: 18px; margin:13px; width:180px;font-size: 17px;}
+/*Footer*/
+#footer {height: 74px; overflow: hidden; padding-top: 30px; width: 810px;}
+#footer h2 {text-align:center;}
+
+#form_registro .error {
+    background: url(alert.png) no-repeat 175px 7px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;width: 198px;height: 32px;}
+#form_registro strong{display:none!important;}

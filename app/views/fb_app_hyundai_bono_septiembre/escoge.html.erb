@@ -1,0 +1,33 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#enviar").click(function(){
+      if( $("#opcion_selected").val() != "" ){
+        $("#form_selected").submit();
+      }else{
+      	alert("Por favor seleccione una opción");
+      }
+    });
+
+  	$(".contenedor_general ul li a").click(function(){
+  	  $(".contenedor_general ul li a").each(function(){
+  	    $(this).removeClass($(this).attr("id")+"_selected");
+  	  });
+  	  $(this).addClass($(this).attr("id")+"_selected");
+  	  $("#opcion_selected").val($(this).attr("id"));
+  	});
+  });
+</script>
+<div id="logo"></div>
+<div class="contenedor_general">
+	<ul>
+		<li><%=image_tag("fb_app_hyundai_bono_septiembre/asado.jpg")%><a href="#" id="asado"></a></li>
+		<li><%=image_tag("fb_app_hyundai_bono_septiembre/aventura.jpg")%><a href="#" id="aventura"></a></li>
+		<li><%=image_tag("fb_app_hyundai_bono_septiembre/playa.jpg")%><a href="#" id="playa"></a></li>
+		<li style="margin-right:0;"><%=image_tag("fb_app_hyundai_bono_septiembre/baile.jpg")%><a href="#" id="baile"></a></li>
+	</ul>
+	<a href="#" id="enviar" style="margin-top: 30px;"></a>
+	<%= form_tag(fb_app_hyundai_bono_septiembre_share_path,:id=>:form_selected, :method => "post",:style => "display:none") do  %>
+		<input type="hidden" id="opcion_selected" name="opcion_selected"> 
+	<% end %>
+</div>
+<a href="/documents/fb_app_hyundai_bono_septiembre.pdf" target="_blank" class="bases"></a>

@@ -1,0 +1,14 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".participa").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_brilliance_euforia_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+});
+</script>
+    <div class="home">
+      <a title="enlace a participar" class="participa" href="#"></a>
+    </div>

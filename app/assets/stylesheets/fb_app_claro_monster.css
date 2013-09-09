@@ -188,6 +188,8 @@ h4 {
     float: left;
     height: 387px;
     width: 389px;
+    position: relative;
+    z-index: 999;
 }
 
 
@@ -586,7 +588,30 @@ a.prev span, a.next span {
 
 }
 
+.nicole {
+
+}
+
+.mask_nicole {
+    left: 0;
+    position: absolute;
+    z-index: 9999 !important;
+}
+
+
+
+.nicole {
+    left: 57px;
+    position: absolute;
+    top: 340px;
+    z-index: 1 !important;
+}
+
+
+
 
 #form_registro .error {
     background: url(alert.png) no-repeat 290px 5px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
 #form_registro strong{display:none!important;}
+
+.error_upload{position: absolute;top: 220px;left: 260px;color: #B00C10;font-size: 17px;font-weight: bold;}
