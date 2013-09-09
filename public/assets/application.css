@@ -1559,12 +1559,12 @@ body.active_admin .sidebar_section .attributes_table th {
 body.active_admin #collection_selection_toggle_panel {
   *zoom: 1;
 }
-/* line 18, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.6/app/assets/stylesheets/addons/_clearfix.scss */
+/* line 18, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.8/app/assets/stylesheets/addons/_clearfix.scss */
 body.active_admin #collection_selection_toggle_panel:before, body.active_admin #collection_selection_toggle_panel:after {
   content: " ";
   display: table;
 }
-/* line 23, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.6/app/assets/stylesheets/addons/_clearfix.scss */
+/* line 23, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.8/app/assets/stylesheets/addons/_clearfix.scss */
 body.active_admin #collection_selection_toggle_panel:after {
   clear: both;
 }
@@ -2685,12 +2685,12 @@ body.active_admin #title_bar span.icon svg {
   width: 1em;
   height: 1em;
 }
-/* line 18, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.6/app/assets/stylesheets/addons/_clearfix.scss */
+/* line 18, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.8/app/assets/stylesheets/addons/_clearfix.scss */
 body.active_admin #title_bar:before, body.active_admin #title_bar:after {
   content: " ";
   display: table;
 }
-/* line 23, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.6/app/assets/stylesheets/addons/_clearfix.scss */
+/* line 23, ../../../../../../.rbenv/versions/1.9.3-p327/lib/ruby/gems/1.9.1/gems/bourbon-3.1.8/app/assets/stylesheets/addons/_clearfix.scss */
 body.active_admin #title_bar:after {
   clear: both;
 }
