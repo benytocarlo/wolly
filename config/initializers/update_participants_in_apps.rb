@@ -1,4 +1,5 @@
 #encoding: utf-8
+=begin
 Thread.new{
   while true
     begin
@@ -11,3 +12,4 @@ Thread.new{
     end
   end
 }
+=end
