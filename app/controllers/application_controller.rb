@@ -2,12 +2,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-<<<<<<< HEAD
+=begin
   # Método para recibir aplicaciones nuevas.
   #
   def nuevas_app
     Application.create(:name => params[:application])
-=======
+
   # Método para migrar la base de datos
   #
   def migrar_base_de_datos_a_aws
@@ -31,8 +31,9 @@ class ApplicationController < ActionController::Base
     end
     
     render :layout => false
->>>>>>> 4f94cfb44f65451aff95b95faeff1b728f8f4db7
+
   end
+=end
   
   # Este método debe ser llamado cuando alguien trate de cargar la aplicación en un canvas.
   #  
