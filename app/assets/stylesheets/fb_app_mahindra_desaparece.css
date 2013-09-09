@@ -1,0 +1,279 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*--------------------------------------------STYLE SITE------------------------------------*/
+
+
+body{
+	background:url(fb_app_mahindra_desaparece/background.jpg) no-repeat 0 0;
+	width:810px;
+	height:700px;
+	margin:0;
+	padding:0;
+	border:0;
+	position:relative;
+}
+
+#logo{
+	background:url(fb_app_mahindra_desaparece/logo.jpg) no-repeat 0 0;
+	width:262px;
+	height:70px;
+	position:absolute;
+	left:274px;
+	top:0;
+}
+
+#contenedor_nofan{
+	bbackground: url(fb_app_mahindra_desaparece/nofan.png) no-repeat 0 0;
+	width: 622px;
+	height: 647px;
+	position: absolute;
+	right: 98px;
+	top: 0;
+	display: block;
+	background-image: url(fb_app_mahindra_desaparece/nofan.png);
+}
+
+#contenedor{
+background: url(fb_app_mahindra_desaparece/fan.png) no-repeat 0 0;
+width: 633px;
+height: 473px;
+margin: 60px auto 0 auto;
+position: relative;
+	
+}
+
+.contenedor_general{
+background: url(fb_app_mahindra_desaparece/escoge.png) no-repeat 0 0;
+width: 612px;
+height: 610px;
+margin: 74px 0 0 98px;
+float: left;
+position: relative;
+}
+.cont_form{background:url(fb_app_mahindra_desaparece/formulario.png) no-repeat 0 0;}
+
+.contenedor_general ul{
+width: 616px;
+height: 160px;
+margin: 300px 0 0 0;
+}
+
+.contenedor_general ul li{
+margin:0;
+float:left;
+width:204px;
+height:148px;
+}
+
+.contenedor_general ul li a{
+width:206px;
+height:148px;
+display:block;
+}
+
+.contenedor_general ul li #nieve{
+	background:url(fb_app_mahindra_desaparece/nieve.png) no-repeat 0 0;
+}
+
+.contenedor_general ul li #nieve:hover{
+	background:url(fb_app_mahindra_desaparece/nieve_hover.png) no-repeat 0 0;
+}
+
+.nieve_selected{
+	background:url(fb_app_mahindra_desaparece/nieve_hover.png) no-repeat 0 0 !important;
+}
+
+.contenedor_general ul li #playa{
+	background:url(fb_app_mahindra_desaparece/playa.png) no-repeat 0 0;
+}
+
+.contenedor_general ul li #playa:hover{
+	background:url(fb_app_mahindra_desaparece/playa_hover.png) no-repeat 0 0;
+}
+
+.playa_selected{
+	background:url(fb_app_mahindra_desaparece/playa_hover.png) no-repeat 0 0 !important;
+}
+
+.contenedor_general ul li #montana{
+	background:url(fb_app_mahindra_desaparece/montana.png) no-repeat 0 0;
+}
+
+.contenedor_general ul li #montana:hover{
+	background:url(fb_app_mahindra_desaparece/montana_hover.png) no-repeat 0 0;
+}
+
+.montana_selected{
+	background:url(fb_app_mahindra_desaparece/montana_hover.png) no-repeat 0 0 !important;
+}
+
+
+
+.siguiente{
+background: url(fb_app_mahindra_desaparece/btn_siguiente.png) no-repeat 0 0;
+width: 351px;
+height: 61px;
+display: block;
+}
+
+.siguiente:hover{
+background: url(fb_app_mahindra_desaparece/btn_siguiente_hover.png) no-repeat 0 0;
+display: block;
+}
+
+
+.contenedor_general form{
+margin: 0;
+position: absolute;
+width: 662px;
+height: 251px;
+top: 321px;
+left: 10px;
+}
+
+.contenedor_general form .campos{
+border: 2px solid #000;
+margin: 0 13px 33px 0;
+padding-left: 10px;
+background: #FFF;
+width: 274px;
+height: 44px;
+font-size: 15px;
+}
+
+.participar{
+background: url(fb_app_mahindra_desaparece/participa.png) no-repeat 0 0;
+width: 214px;
+height: 68px;
+display: block;
+margin: 0;
+position: absolute;
+top: 467px;
+left: 0px;
+text-indent: -99999px;
+}
+
+.participar:hover{
+background:url(fb_app_mahindra_desaparece/participa_hover.png) no-repeat 0 0;
+}
+
+.bases{
+background: url(fb_app_mahindra_desaparece/bases.png) no-repeat 0 0;
+width: 111px;
+height: 28px;
+display: block;
+margin: 45px 0 0 0;
+}
+
+#enviar{
+background: url(fb_app_mahindra_desaparece/btn_siguiente.png) no-repeat 0 0;
+width: 225px;
+height: 61px;
+display: block;
+border: none;
+padding: 0;
+text-indent: -9999px;
+cursor: pointer;
+margin: 0;
+}
+
+#enviar:hover{
+	background:url(fb_app_mahindra_desaparece/btn_siguiente_hover.png) no-repeat 0 0;
+}
+
+.contenedor_gracias{
+background: url(fb_app_mahindra_desaparece/gracias.png) no-repeat 0 0;
+width: 609px;
+height: 618px;
+position: relative;
+top: 61px;
+margin: 0 auto;
+	
+}
+
+.contenedor_gracias p{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 32px;
+text-transform: uppercase;
+color: #432304;
+font-weight: bold;
+position: absolute;
+top: 275px;
+left: 110px;
+text-align: center;
+padding: 0;
+}
+
+.finales{
+width: 550px;
+height: 61px;
+display: block;
+position: absolute;
+top: 430px;
+left: 70px;
+}
+
+.finales #invitar{
+	background:url(fb_app_mahindra_desaparece/btn_invitar.png) no-repeat 0 0;
+	display:block;
+	width:261px;
+	height:61px;
+	float:left;
+}
+
+.finales #compartir{
+	background:url(fb_app_mahindra_desaparece/btn_compartir.png) no-repeat 0 0;
+	display:block;
+	width:261px;
+	height:61px;
+	float:right;
+}
+
+#form_registro .error {
+    background: url(alert.jpg) no-repeat 265px 15px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#form_registro strong{display:none!important;}

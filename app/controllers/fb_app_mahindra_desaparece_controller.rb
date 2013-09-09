@@ -1,6 +1,6 @@
 #coding: utf-8
-class FbAppMahindraAgostoController < ApplicationController
-  layout "fb_app_mahindra_agosto"
+class FbAppMahindraDesapareceController < ApplicationController
+  layout "fb_app_mahindra_desaparece"
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request
   before_filter :parse_facebook_cookies, :except => [:index, :canvas]
@@ -18,30 +18,47 @@ class FbAppMahindraAgostoController < ApplicationController
 
   def formulario
     if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-      @nombre   = @me_from_graph[:first_name]
-      @apellido   = @me_from_graph[:last_name]
+      if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
+        redirect_to fb_app_mahindra_desaparece_share_path(:opcion_selected => @me_from_database_participation.answer)
+      else
+      @nombre   = @me_from_database.facebook_name
       @correo   = @me_from_database.facebook_email
       @telefono = @me_from_database.phone
+      @rut = @me_from_database.rut
+      end
     else
       @nombre   = @me_from_graph[:name]
-      @apellido   = @me_from_graph[:last_name]
       @correo   = @me_from_graph[:email]
       @telefono = ""
+      @rut = ""
+    end
+  end
+
+  def escoge
+    if params[:nombre].present? and params[:rut].present? and params[:telefono].present? and params[:correo].present?
+      if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
+        @me_from_database.update_attributes(:facebook_name => params[:nombre], :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
+      else
+        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
+      end
+    else
+      redirect_to fb_app_mahindra_desaparece_formulario_path, :flash => { :error => "Faltan campos por llenar." }
     end
   end
 
   def share
-    if params[:nombre].present? and params[:apellido].present? and params[:telefono].present? and params[:correo].present?
-      @nombre_completo = params[:nombre]+" " + params[:apellido]
+    @respuesta = params[:opcion_selected].to_s
+    if @respuesta == "montana"
+      @respuesta = "montaña"
+    end
+
+    if request.post?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
-        @me_from_database.update_attributes(:facebook_name => @nombre_completo, :facebook_gender => @me_from_graph[:gender], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @respuesta)
       else
-        @me_from_database = Participant.create(:facebook_idnumber => @me_from_graph[:id], :facebook_name => @me_from_graph[:name], :facebook_email => params[:correo], :rut => params[:rut], :phone => params[:telefono], :facebook_gender => @me_from_graph[:gender])
-        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => "Participando")
+        Participation.create(:application_id => @app.id, :participant_id => @me_from_database.id, :answer => @respuesta)
       end
-    else
-      redirect_to fb_app_mahindra_agosto_formulario_path, :flash => { :error => "Faltan campos por llenar." }
+    elsif request.get?
     end
   end
 

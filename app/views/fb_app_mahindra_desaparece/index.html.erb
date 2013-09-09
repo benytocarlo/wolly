@@ -1,0 +1,14 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".participar").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_mahindra_desaparece_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+});
+</script>
+<div id="contenedor">
+  <a href="#" class="participar">participar</a>
+</div>

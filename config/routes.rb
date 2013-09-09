@@ -195,17 +195,19 @@ Wolly::Application.routes.draw do
   get   "fb_app_haima/formulario"
   post  "fb_app_haima/share"
 
-  post  "fb_app_mahindra_agosto"             => "fb_app_mahindra_agosto#index"
-  post  "fb_app_mahindra_agosto/canvas"
-  get   "fb_app_mahindra_agosto/formulario"
-  post  "fb_app_mahindra_agosto/share"
-
   post  "fb_app_hyundai_bono_septiembre"             => "fb_app_hyundai_bono_septiembre#index"
   post  "fb_app_hyundai_bono_septiembre/canvas"
   get   "fb_app_hyundai_bono_septiembre/formulario"
   post   "fb_app_hyundai_bono_septiembre/escoge"
   post  "fb_app_hyundai_bono_septiembre/share"
   get  "fb_app_hyundai_bono_septiembre/share"
+
+  post  "fb_app_mahindra_desaparece"             => "fb_app_mahindra_desaparece#index"
+  post  "fb_app_mahindra_desaparece/canvas"
+  get   "fb_app_mahindra_desaparece/formulario"
+  post  "fb_app_mahindra_desaparece/escoge"
+  post  "fb_app_mahindra_desaparece/share"
+  get  "fb_app_mahindra_desaparece/share"
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
