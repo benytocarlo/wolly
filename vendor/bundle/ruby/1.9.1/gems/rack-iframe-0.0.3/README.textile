@@ -1,0 +1,65 @@
+h1. RACK-IFRAME "!https://secure.travis-ci.org/merchii/rack-iframe.png!":http://travis-ci.org/merchii/rack-iframe
+
+_Rack middleware for enabling problematic web browsers (Internet Explorer and Safari) to use same cookies in iframes as in parent windows._
+
+h2. Background
+
+Best described via:
+
+* "http://tempe.st/tag/ruby-on-rails":http://tempe.st/tag/ruby-on-rails
+* "http://groups.google.com/group/rack-devel/browse_thread/thread/11da5971522b107b":http://groups.google.com/group/rack-devel/browse_thread/thread/11da5971522b107b
+* "http://grack.com/blog/2010/01/06/3rd-party-cookies-dom-storage-and-privacy":http://grack.com/blog/2010/01/06/3rd-party-cookies-dom-storage-and-privacy
+* "http://anantgarg.com/2010/02/18/cross-domain-cookies-in-safari":http://anantgarg.com/2010/02/18/cross-domain-cookies-in-safari
+
+h2. Installation
+
+Add to your @Gemfile@:
+
+<pre>
+  gem 'rack-iframe'
+</pre>
+
+...and @bundle install@.
+
+h2. Usage
+
+*Minimal:*
+
+<pre>
+  require 'rack/iframe'
+
+  use Rack::Iframe
+</pre>
+
+*Custom - P3P header:*
+
+<pre>
+  require 'rack/iframe'
+
+  use Rack::Iframe, :p3p => %(CP="NOI DSP LAW NID")
+</pre>
+
+h2. Test
+
+<pre>
+  $ bundle exec rake test
+</pre>
+
+...or using "Guard":http://github.com/guard/guard:
+
+<pre>
+  $ bundle exec guard
+</pre>
+
+h2. Notes
+
+This gem was developed for our own requirements at *"Merchii":http://github.com/merchii*, so feel free to send pull-requests with enhancements of any kind (features, bug-fixes, documentation, tests, etc.) to make it better or useful for you as well.
+
+h2. To-Do
+
+Still not ready for prime-time. See "TODO":https://github.com/merchii/rack-iframe/blob/master/TODO.
+
+h2. License
+
+Released under the MIT license.
+Copyright (c) "Jonas Grimfelt":http://github.com/grimen, "Jaakko Suutarla":http://github.com/jaakkos, "Merchii":http://github.com/merchii
