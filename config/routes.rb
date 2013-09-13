@@ -209,6 +209,15 @@ Wolly::Application.routes.draw do
   post  "fb_app_mahindra_desaparece/share"
   get  "fb_app_mahindra_desaparece/share"
 
+  post  "fb_app_coleman_aventure_camp"             => "fb_app_coleman_aventure_camp#index"
+  get  "fb_app_coleman_aventure_camp"             => "fb_app_coleman_aventure_camp#index"
+  post  "fb_app_coleman_aventure_camp/canvas"
+  get   "fb_app_coleman_aventure_camp/formulario"
+  post  "fb_app_coleman_aventure_camp/trivia"
+  post  "fb_app_coleman_aventure_camp/share"
+  get  "fb_app_coleman_aventure_camp/share"
+  get  "fb_app_coleman_aventure_camp/premios"
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

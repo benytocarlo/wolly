@@ -1,0 +1,11 @@
+<% content_for :body_classes, 'gracias' %>
+<%= render :partial => "layouts/facebook_javascript_sdk_share" %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#participa").addClass("select");
+  });
+</script>
+<div class="contenedor">
+  <a href="#" class="invitar"></a>
+  <a href="#" class="sharefb compartir"></a>
+</div>

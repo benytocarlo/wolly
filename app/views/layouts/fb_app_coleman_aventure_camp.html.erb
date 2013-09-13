@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= @app.name %></title>	
+  <%= stylesheet_link_tag    "fb_app_coleman_aventure_camp", :media => "all" %>
+  <%= javascript_include_tag "fb_app_coleman_aventure_camp" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= yield :body_classes %>'>
+  <%= render :partial => "layouts/facebook_javascript_sdk", :locals => { :width => '810', :height => '600' } %>
+  <%= render "layouts/ga" %>
+  <% if @menu_int %>
+  <div class="header">
+    <ul>
+      <li><%= link_to "Participa", fb_app_coleman_aventure_camp_path,:id => "participa" %></li>
+      <li><%= link_to "Premio", fb_app_coleman_aventure_camp_premios_path,:id => "premios" %></li>
+      <li><a href="/documents/fb_app_coleman_aventure_camp.pdf" target="_blank">Bases del corcurso</a></li>
+    </ul>
+  </div>
+  <% end %>
+  <%= yield %>
+  <div class="footer"></div>
+</body>
+</html>

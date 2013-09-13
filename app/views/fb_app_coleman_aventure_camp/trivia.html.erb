@@ -1,0 +1,61 @@
+<% content_for :body_classes, 'trivia' %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#preg_1").click(function(){
+      var rsp_1 = "R1:"+$("input:radio[name=trivia_1]:checked").val();
+      $("#respuestas").val(rsp_1);
+      $("#pregunta1").hide();
+      $("#pregunta2").fadeIn();
+    });
+
+    $("#preg_2").click(function(){
+      var rsp_2 = $("#respuestas").val()+"/R2:"+$("input:radio[name=trivia_2]:checked").val();
+      $("#respuestas").val(rsp_2);
+      $("#pregunta2").hide();
+      $("#pregunta3").fadeIn();
+    });
+
+    $("#preg_3").click(function(){
+      var rsp_3 = $("#respuestas").val()+"/R3:"+$("input:radio[name=trivia_3]:checked").val();
+      $("#respuestas").val(rsp_3);
+      $("#form_registro").submit();
+    });
+
+  });
+</script>
+<div class="contenedor">
+  <div id="pregunta1">
+    <form>
+      <h2>¿Quién es el fundador de Coleman?</h2>
+      <input type="radio" name="trivia_1" value="F"> Iván Zamorano<br>
+      <input type="radio" name="trivia_1" value="V" checked> William C. Coleman<br>
+      <input type="radio" name="trivia_1" value="F"> Luis Jara
+      <a href="#" id="preg_1" class="enviar"></a>
+     </form>
+  </div>
+
+  <div id="pregunta2" style="display:none;">
+    <form>
+      <h2>¿En qué año se fundó Coleman?</h2>
+      <input type="radio" name="trivia_2" value="V"> 1900<br>
+      <input type="radio" name="trivia_2" value="F" checked> 2010<br>
+      <input type="radio" name="trivia_2" value="F"> 2001
+      <a href="#" id="preg_2" class="enviar"></a>
+    </form>
+  </div>
+
+
+  <div id="pregunta3" style="display:none;">
+    <form>
+      <h2>¿Cuál fue el primer producto Coleman?</h2>
+      <input type="radio" name="trivia_3" value="F"> Saco de Dormir<br>
+      <input type="radio" name="trivia_3" value="V" checked> Lámpara<br>
+      <input type="radio" name="trivia_3" value="F"> Colchón
+      <a href="#" id="preg_3" class="enviar"></a>
+    </form>
+  </div>
+
+  <%= form_tag(fb_app_coleman_aventure_camp_share_path,:id=>:form_registro, :method => "post", :style=>"display:none;") do  %>  
+    <input type="hidden" id="respuestas" name="respuestas">
+  <% end %>
+</div>

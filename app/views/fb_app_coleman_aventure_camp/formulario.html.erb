@@ -1,0 +1,30 @@
+<% content_for :body_classes, 'registro' %>
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $("#participa").addClass("select");
+    $(".continuar").click(function(){
+      $("#form_registro").submit();
+    });
+
+    $("#form_registro").validate({
+      rules: {
+        nombre:    { required: true },
+        telefono:  { required: true },
+        direccion:  { required: true },
+        correo:    { required: true,email: true }
+      }
+    });
+  });
+</script>
+<div class="contenedor">
+  <%= form_tag(fb_app_coleman_aventure_camp_trivia_path,:id=>:form_registro, :method => "post") do  %>  
+    <h2>Completa tus datos</h2>
+    <label>Nombre y apellido</label><%= text_field_tag(:nombre, @nombre, :class => 'campos', :onkeypress => "return validatxt(event)") %>
+    <label>Email</label><%= text_field_tag(:correo, @correo, :class => 'campos', :style => "margin-right:0;") %>
+    <label>Dirección</label><%= text_field_tag(:direccion, @direccion, :class => 'campos') %>
+    <label>Teléfono de contacto</label><%= text_field_tag(:telefono, @telefono, :class => 'campos', :onkeypress => "return validanum(event)") %>
+    <input type="submit" id="enviar" />
+  <% end %>
+</div>

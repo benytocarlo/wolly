@@ -1,0 +1,21 @@
+<% content_for :body_classes, 'fan' %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $("#participa").addClass("select");
+    $(".participa").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_coleman_aventure_camp_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+});
+</script>
+<div class="contenedor">
+  <p>Coleman Adventure Camp, es un campamento de una noche, desde el 26 de octubre al 27 de octubre, 
+a realizarse en la Reserva Forestal de Peñuelas, V Región.</p>
+  <p class="llamado">Completa la trivia y participa<br />
+por 4 entradas a este evento.</p>
+  <%=image_tag("fb_app_coleman_aventure_camp/lampara.png")%>
+  <a class="participa"></a>
+</div>

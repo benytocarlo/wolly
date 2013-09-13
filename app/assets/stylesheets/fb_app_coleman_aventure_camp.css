@@ -1,0 +1,408 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	margin:0;
+	padding:0;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-----------------------------STYLE SITE------------------------------*/
+
+body {
+	width:810px;
+	height:600px;
+	position:relative;
+	color:#FFF;
+}
+
+.footer{
+	background:url(fb_app_coleman_aventure_camp/footer.png) no-repeat 0 0;
+	width:539px;
+	height:95px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+/*--------------------------NO FAN----------------------------*/
+
+.nofan{
+	background:url(fb_app_coleman_aventure_camp/background_nofan.jpg) no-repeat 0 0;
+}
+
+.nofan .header{
+	width: 410px;
+	height:200px;
+	float:right;
+}
+
+.nofan .header p{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size:24px;
+	font-style:normal;
+	font-weight:lighter;
+	color:#FFF;
+	line-height:30px;
+	padding: 20px 0 0 0;
+}
+
+.nofan .header p span{
+	font-weight:bold;
+}
+
+.nofan .contenedor{
+	margin: 50px 0 0 0;
+	width: 510px;
+	float:left;
+}
+
+.nofan .contenedor p{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size: 18px;
+font-weight: normal;
+font-style: normal;
+color: #FFF;
+line-height: 22px;
+padding: 0 80px 0 30px;
+}
+
+.nofan .contenedor img{
+	margin: 20px 0 0 30px;
+}
+
+/*--------------------------FAN----------------------------*/
+
+
+.fan{
+	background:url(fb_app_coleman_aventure_camp/background_fan.jpg) no-repeat 0 0;
+}
+
+.header{
+width: 810px;
+height: 200px;
+position:relative;
+}
+
+.header ul{
+	float:right;
+	width: 340px;
+}
+
+.header ul li{
+	margin: 20px 0 0 22px;
+	float:left;
+}
+
+.header ul li a{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size: 14px;
+font-weight: bold;
+color: #FFF;
+text-decoration: none;
+line-height: 22px;
+padding: 0;
+}
+
+.header ul li a.select{
+	background:#FFF;
+	padding: 5px;
+	color:#000;
+	-o-border-radius:10px;
+	-ms-border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:3px solid #000;
+}
+
+.fan .contenedor{
+	margin: 50px 0 0 0;
+	width: 510px;
+	float:left;
+}
+
+.fan .contenedor p{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size: 14px;
+font-weight: normal;
+font-style: normal;
+color: #FFF;
+line-height: 18px;
+padding: 0 80px 0 30px;
+}
+
+.fan .contenedor p.llamado{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size: 24px;
+font-weight: bold;
+font-style: normal;
+color: #FFF;
+line-height: 34px;
+padding: 0;
+margin: 10px 0 0 60px;
+text-shadow: 3px 3px 5px #000;
+filter: dropshadow(color=#000, offx=3, offy=3);
+}
+
+.fan .contenedor img{
+margin: 0;
+float: left;
+}
+
+.fan .contenedor a.participa{
+	background:url(fb_app_coleman_aventure_camp/participa.png) no-repeat 0 0;
+	width:209px;
+	height:63px;
+	display:block;
+	float:right;
+	cursor:pointer;
+	margin: 20px 40px 0 0;
+}
+
+
+/*--------------------------REGISTRO----------------------------*/
+
+.registro{
+	background:url(fb_app_coleman_aventure_camp/background_registro.jpg) no-repeat 0 0;
+}
+
+.registro .header ul{
+	width: 380px;
+}
+
+.registro .contenedor{
+	position:relative;
+	width: 400px;
+float: left;
+}
+
+.registro .contenedor form{
+width: 300px;
+height: 370px;
+}
+
+.registro .contenedor form h2{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size: 24px;
+font-weight: bold;
+color: #FFF;
+padding: 0;
+margin: 0 0 10px 20px;
+}
+
+.registro .contenedor form label{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size:12px;
+font-weight: bold;
+color: #FFF;
+padding: 0;
+margin: 10px 0 0 20px;
+float:left;
+}
+
+.registro .contenedor form .campos{
+	background:#FFF;
+	padding:0;
+	color:#000;
+	-o-border-radius:10px;
+	-ms-border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:3px solid #000;
+	width:250px;
+	height:35px;
+	margin: 5px 0 0 16px;
+	float:left;
+}
+
+.registro .contenedor form #enviar{
+background: url(fb_app_coleman_aventure_camp/enviar.png) no-repeat 0 0;
+width: 130px;
+height: 52px;
+display: block;
+cursor: pointer;
+text-indent: -9999px;
+position: absolute;
+top: 255px;
+left: 300px;
+border: none;
+}
+
+/*--------------------------TRIVIA----------------------------*/
+
+.trivia{
+	background:url(fb_app_coleman_aventure_camp/background_trivia.jpg) no-repeat 0 0;
+}
+
+.trivia .header ul{
+	width: 380px;
+}
+
+.trivia .contenedor{
+	position:relative;
+	width: 400px;
+float: left;
+}
+
+.trivia .contenedor form{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size: 24px;
+font-weight: bold;
+color: #FFF;
+width: 350px;
+height: 280px;
+margin: 30px 0 0 50px;
+}
+
+.trivia .contenedor form h2{
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+font-size:18px;
+font-weight: bold;
+color: #FFF;
+padding: 0;
+margin: 0 0 10px 20px;
+}
+
+
+.trivia .contenedor form input[type="radio"]{
+	background:#FFF;
+	padding:0;
+	color:#000;
+	border:3px solid #000;
+	margin: 20px 0 10px 20px;
+	-webkit-appearance: radio;
+	box-sizing:border-box ;
+}
+
+.trivia .contenedor form .enviar{
+background: url(fb_app_coleman_aventure_camp/enviar.png) no-repeat 0 0;
+width: 130px;
+height: 52px;
+display: block;
+cursor: pointer;
+text-indent: -9999px;
+position: absolute;
+top: 215px;
+left: 70px;
+border: none;
+}
+
+/*--------------------------GRACIAS----------------------------*/
+
+.gracias{
+	background:url(fb_app_coleman_aventure_camp/background_gracias.jpg) no-repeat 0 0;
+}
+
+.gracias .header ul{
+	width: 380px;
+}
+
+.gracias .contenedor{
+	position:relative;
+	width: 400px;
+float: left;
+}
+
+.gracias .contenedor a.invitar{
+background: url(fb_app_coleman_aventure_camp/invita.png) no-repeat 0 0;
+width: 209px;
+height: 63px;
+display: block;
+position: absolute;
+top: 205px;
+left: 20px;
+}
+
+.gracias .contenedor a.compartir{
+background: url(fb_app_coleman_aventure_camp/comparte.png) no-repeat 0 0;
+width: 209px;
+height: 63px;
+display: block;
+position: absolute;
+top: 205px;
+left: 250px;
+}
+
+/*--------------------------PREMIOS----------------------------*/
+
+.premios{
+	background:url(fb_app_coleman_aventure_camp/background_premios.jpg) no-repeat 0 0;
+}
+
+.premios .header ul{
+	width: 380px;
+}
+
+.premios .contenedor{
+	position:relative;
+	width: 400px;
+	float: left;
+}
+
+.premios .contenedor a.invitar{
+background: url(fb_app_coleman_aventure_camp/invita.png) no-repeat 0 0;
+width: 209px;
+height: 63px;
+display: block;
+position: absolute;
+top: 205px;
+left: 20px;
+}
+
+.premios .contenedor a.compartir{
+background: url(fb_app_coleman_aventure_camp/comparte.png) no-repeat 0 0;
+width: 209px;
+height: 63px;
+display: block;
+position: absolute;
+top: 205px;
+left: 250px;
+}
+
+#form_registro .error {
+    background: url(alert.jpg) no-repeat 225px 10px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#form_registro strong{display:none!important;}
