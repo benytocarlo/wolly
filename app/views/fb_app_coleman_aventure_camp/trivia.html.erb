@@ -1,6 +1,7 @@
 <% content_for :body_classes, 'trivia' %>
 <script type="text/javascript">
   $(document).ready(function(){
+    $("#participa").addClass("select");
     $("#preg_1").click(function(){
       var rsp_1 = "R1:"+$("input:radio[name=trivia_1]:checked").val();
       $("#respuestas").val(rsp_1);
