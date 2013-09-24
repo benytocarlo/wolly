@@ -218,6 +218,13 @@ Wolly::Application.routes.draw do
   get  "fb_app_coleman_aventure_camp/share"
   get  "fb_app_coleman_aventure_camp/premios"
 
+  post  "fb_app_mini_not_normal"             => "fb_app_mini_not_normal#index"
+  post  "fb_app_mini_not_normal/canvas"
+  get   "fb_app_mini_not_normal/formulario"
+  get  "fb_app_mini_not_normal/comunas"
+  post  "fb_app_mini_not_normal/share"
+  get  "fb_app_mini_not_normal/share"
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

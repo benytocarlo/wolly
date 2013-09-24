@@ -1,0 +1,13 @@
+<% content_for :body_classes, 'fan_nofan' %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $(".participa").click(function(){
+      FB.login(function(response){
+        if (response.authResponse){
+          location.href = '<%= fb_app_mini_not_normal_formulario_path %>';
+        }
+      },{scope:'<%= @scope %>'});
+    });
+});
+</script>
+<a href="#" class="fan participa"></a>

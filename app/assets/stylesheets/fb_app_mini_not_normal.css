@@ -1,0 +1,206 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background:#000;
+	width:810px;
+	height:680px;
+	position:relative;
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+.fan_nofan{
+	background:url(fb_app_mini_not_normal/background_fannofanl.jpg) no-repeat 0 0;
+}
+
+.exito{
+	background:url(fb_app_mini_not_normal/background_exito.jpg) no-repeat  0 0;
+}
+
+.exito .invitar{
+background: url(fb_app_mini_not_normal/btn_invitar.png) no-repeat 0 0;
+width: 181px;
+height: 26px;
+display: block;
+position: absolute;
+top: 355px;
+left: 50px;
+
+}
+
+.exito .invitar:hover{
+	background:url(fb_app_mini_not_normal/btn_invitar_hover.png) no-repeat 0 0;
+}
+
+.exito .compartir{
+background: url(fb_app_mini_not_normal/btn_compartir.png) no-repeat 0 0;
+width: 139px;
+height: 26px;
+display: block;
+position: absolute;
+top: 355px;
+left: 260px;
+}
+
+.exito .compartir:hover{
+	background:url(fb_app_mini_not_normal/btn_compartir_hover.png) no-repeat 0 0;
+}
+
+
+
+.fan_nofan a{
+	display:block;
+	float:right;
+	margin:0;
+	padding:0;
+}
+
+.fan_nofan .nofan{
+background: url(fb_app_mini_not_normal/btn_nofan.png) no-repeat 0 0;
+width: 392px;
+height: 78px;
+margin: 15px 30px 0 0;
+cursor:none;
+}
+
+.fan_nofan .fan{
+background: url(fb_app_mini_not_normal/btn_fan.png) no-repeat 0 0;
+width: 519px;
+height: 28px;
+margin: 90px 60px 0 0;
+}
+
+.formulario{}
+
+.formulario .cabecera{
+background: url(fb_app_mini_not_normal/cabecera.png) no-repeat 0 0;
+width: 810px;
+height: 248px;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 2;
+}
+
+.formulario form{
+	border:#f29301 solid 10px;
+	width:790px;
+	height:460px;
+	position: absolute;
+top: 200px;
+left: 0;
+z-index:0;
+}
+
+.formulario form #izquierda{
+	width:336px;
+	float:left;
+	margin:20px 0 0 38px;
+}
+
+.formulario form #derecha{
+	width:335px;
+	float:right;
+	margin:20px 36px 0 0;
+}
+
+.formulario form #izquierda label{
+margin: 15px 0 0 0;
+padding: 0;
+height: 20px;
+display: block;
+width: 335px;
+text-transform: uppercase;
+color: #FFF;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 14px;
+}
+
+.formulario form #izquierda .campos{
+	height: 27px;
+	width: 330px;
+	border:none;
+	margin:0;
+	padding-left: 10px;
+	font-size: 14px;
+}
+
+input[type=radio].css-checkbox {
+							display:none;
+						}
+
+						input[type=radio].css-checkbox + label.css-label {
+padding-left: 20px !important;
+height: 20px !important;
+display: inline-block !important;
+line-height: 25px !important;
+background-repeat: no-repeat !important;
+background-position: 0 0 !important;
+font-size: 14px !important;
+margin: 15px 0 0 5px !important;
+float: left !important;
+width: 50px !important;
+vertical-align: middle !important;
+cursor: pointer !important;
+						}
+
+						input[type=radio].css-checkbox:checked + label.css-label {
+							 background-image:url(fb_app_mini_not_normal/radio1.png) !important;
+						}
+						
+						    .css-label{ background-image:url(fb_app_mini_not_normal/radio2.png) !important; 
+}
+
+.formulario form #derecha label{
+margin: 15px 0 0 0;
+padding: 0;
+height: 20px;
+display: block;
+width: 335px;
+text-transform: uppercase;
+color: #FFF;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 14px;
+}
+
+.formulario form #derecha .campos{
+	height: 27px;
+	width: 330px;
+	border:none;
+	margin:0;
+	padding-left: 10px;
+	font-size: 14px;
+}
+
+.clear{
+	clear:both;
+	width:100%;
+}
+
+#enviar{
+	background:url(fb_app_mini_not_normal/btn_continuara.png) no-repeat 0 0;
+	width:178px;
+	height:26px;
+	display:block;
+	text-indent:-9999px;
+	overflow:hidden;
+	border:none;
+	cursor:pointer;
+	margin: 37px 0 0 0;
+}
+
+.bases{
+	background:url(fb_app_mini_not_normal/btn_bases.png) no-repeat 0 0;
+	width:178px;
+	height:20px;
+	display:block;
+	margin: 40px 0 0 0;
+}
+
+#registro .error {
+    background: url(alert.jpg) no-repeat 310px 7px;background-color:#FFF; border:1px solid #ff6666; color: #ED0304;}
+#registro strong{display:none!important;}

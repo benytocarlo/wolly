@@ -1,0 +1,88 @@
+<% content_for :body_classes, 'formulario' %>
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $("#enviar").click(function(){
+      if(!$('#demo_box_3').is(":checked")){
+        alert("Debes aceptar las condiciones del concurso");
+      }else{
+        $("#registro").submit();
+      }
+    });
+    $('input[name=tienes_auto]').click(function(){
+      if ($(this).val() == "si") {
+        $("#caja02").fadeIn();
+      }else{
+        $("#caja02").fadeOut();
+      }
+    });
+
+    $("#registro").validate({
+      rules: {
+        nombre: {
+          required: true
+        },
+        rut: {
+          required: true,
+          valrut: $('#rut').val()
+        },
+        telefono: {
+          required: true,
+        },
+        correo: {
+          required: true,
+          email: true
+        },
+        ocupacion: {
+          required: true,
+        },
+        region: {
+          required: true,
+        },
+        comuna: {
+          required: true
+        },
+      }
+    });
+
+  });
+
+  function check(event) {
+    $.ajax({url: 'comunas',type: 'get',data: "type="+event,
+      success: function( resp ) {
+        $("#comuna").html(resp);
+      }
+    });
+  }
+</script>
+<div class="cabecera"></div>
+<%= form_tag(fb_app_mini_not_normal_share_path,:id=>:registro, :method => "post") do  %>
+  <div id="izquierda">
+    <label>NOMBRE:</label><%= text_field_tag(:nombre, @nombre,:class => "campos", :onkeypress => "return validatxt(event)") %>
+    <label>email:</label><%= text_field_tag(:correo, @correo,:class => "campos") %>
+    <label>teléfono:</label><%= text_field_tag(:telefono, @telefono,:class => "campos", :onkeypress => "return validanum(event)") %>
+    <label style="width:50%; float:left;">¿Tienes auto?</label>
+    <input id="demo_box_1" name="tienes_auto" class="css-checkbox" type="radio" value="si" checked/>
+    <label for="demo_box_1" name="demo_lbl_1" class="css-label">Si</label>
+    <input id="demo_box_2" name="tienes_auto" class="css-checkbox" type="radio" value="no" />
+    <label for="demo_box_2" name="demo_lbl_2" class="css-label">No</label>
+    <div class="clear"></div>
+    <div id="caja02" >
+      <label>marca:</label><input type="text" name="marca" class="campos" />
+      <label>modelo:</label><input type="text" name="modelo" class="campos" />
+      <label>año:</label><input type="text" name="year" class="campos" />
+    </div>
+  </div>
+  <div id="derecha">
+    <label>rut:</label><%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
+    <label>ocupación:</label><%= text_field_tag(:ocupacion, @occupation,:class => "campos") %>
+    <label>región:</label><%= select_tag :region,options_for_select(@regiones),:class => "campos",:prompt => "Elige tu región...",:onChange => 'check(this.options[this.selectedIndex].value);'%>
+    <label>comuna:</label><select name="comuna" id ="comuna" class="campos"></select>
+    <input id="demo_box_3" class="css-checkbox" type="radio" />
+    <label for="demo_box_3" name="demo_lbl_3" class="css-label" style="width:310px !important; ">ACEPTO LAS CONDICIONES DEL CONCURSO.</label>
+    <div class="clear"></div>
+    <a id="enviar" href="#"></a>
+    <a class="bases" href="/documents/fb_app_mini_not_normal.pdf" target="_blank"></a>
+  </div>
+<% end %>
