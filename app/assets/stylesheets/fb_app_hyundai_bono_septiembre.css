@@ -49,7 +49,7 @@ table {
 
 
 body{
-	background:url(fb_app_hyundai_bono_septiembre/background.jpg) no-repeat 0 0;
+	background:url(fb_app_hyundai_bono_septiembre/background_ganadores.jpg) no-repeat 0 0;
 	width:810px;
 	height:700px;
 	margin:0;
@@ -59,7 +59,7 @@ body{
 }
 
 #logo{
-	background:url(fb_app_hyundai_bono_septiembre/logo.jpg) no-repeat 0 0;
+/*	background:url(fb_app_hyundai_bono_septiembre/logo.jpg) no-repeat 0 0; */
 	width:262px;
 	height:70px;
 	position:absolute;
@@ -69,7 +69,7 @@ body{
 }
 
 #contenedor_nofan{
-background: url(fb_app_hyundai_bono_septiembre/nofan.png) no-repeat 0 0;
+/* background: url(fb_app_hyundai_bono_septiembre/nofan.png) no-repeat 0 0; */
 width: 622px;
 height: 647px;
 position: absolute;
@@ -79,7 +79,7 @@ display: block;
 }
 
 #contenedor{
-background: url(fb_app_hyundai_bono_septiembre/fan.png) no-repeat 0 0;
+/* background: url(fb_app_hyundai_bono_septiembre/fan.png) no-repeat 0 0; */
 width: 489px;
 height: 580px;
 margin: 0 auto;
