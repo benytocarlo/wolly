@@ -68,7 +68,7 @@ private
   def load_application_data
     @app_id = '1422314701321806' if Rails.env.development?
     @app_id = '396708980455034' if Rails.env.production?
-    @menu = true
+    
     if session[:app].blank? then
       @app = Application.find_by_fb_app_idnumber @app_id
       session[:app] = @app
