@@ -7,6 +7,9 @@ gem 'country-select'
 gem 'newrelic_rpm'
 gem 'rack-iframe'
 
+gem "libv8", ">= 3.11.8"
+gem "therubyracer", ">= 0.11.0", :group => :assets, :platform => :ruby, :require => "v8"
+
 group :development do
   gem 'annotate', '~> 2.5.0'
   gem 'sqlite3'

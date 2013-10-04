@@ -1,0 +1,31 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".siguiente").click(function(){
+      if( $("#opcion_selected").val() != "" ){
+        $("#form_selected").submit();
+      }else{
+      	alert("Por favor seleccione una opción");
+      }
+    });
+
+  	$(".contenedor_general ul li a").click(function(){
+  	  $(".contenedor_general ul li a").each(function(){
+  	    $(this).removeClass($(this).attr("id")+"_selected");
+  	  });
+  	  $(this).addClass($(this).attr("id")+"_selected");
+  	  $("#opcion_selected").val($(this).attr("id"));
+  	});
+  });
+</script>
+<div id="como"></div>
+<div class="contenedor_general">
+  <ul>
+    <li><%=image_tag("fb_app_hyundai_aliento/03_asado.png")%><a href="#" id="asado"></a></li>
+	<li><%=image_tag("fb_app_hyundai_aliento/tele.png")%><a href="#" id="tele"></a></li>
+	<li style="margin-right:0;"><%=image_tag("fb_app_hyundai_aliento/quieras.png")%><a href="#" id="quieras"></a></li>
+  </ul>
+  <a href="#" class="siguiente"></a>
+  <%= form_tag(fb_app_hyundai_aliento_share_path,:id=>:form_selected, :method => "post",:style => "display:none") do  %>
+	<input type="hidden" id="opcion_selected" name="opcion_selected"> 
+  <% end %>
+</div>

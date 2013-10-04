@@ -1,0 +1,333 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*--------------------------------------------STYLE SITE------------------------------------*/
+
+
+body {
+	width:810px;
+	height:650px;
+	margin:0;
+	padding:0;
+	border:0;
+	position:relative;
+	background-image: url(fb_app_hyundai_aliento/background.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+body.inicio {
+	background-image: url(fb_app_hyundai_aliento/background_inicio.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+body.formulario {
+    background:url(fb_app_hyundai_aliento/background_registro.jpg) no-repeat 0 0 ;
+}
+body.gracias {
+    background:url(fb_app_hyundai_aliento/background_gracias.jpg) no-repeat 0 0;
+}
+#menu {
+	width: 175px;
+	float: right;
+	position: relative;
+	right: 20px;
+}
+#menu li {
+	float: left;
+	margin:0;
+	padding: 0;
+	margin:10px 0 0 0;
+}
+#menu li a {
+	color: #fff;
+	text-decoration: none;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	padding:5px 10px;
+}
+#menu li a:hover {
+	color:#104677;
+	background:#dbdbdb;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+#logo {
+	background:url(fb_app_hyundai_aliento/logo.jpg) no-repeat 0 0;
+	width:262px;
+	height:70px;
+	position:absolute;
+	left:274px;
+	top:0;
+	z-index: 100;
+}
+#contenedor_nofan {
+	width: auto;
+	height: auto;
+	position: absolute;
+	right:0px;
+	top: 0;
+	display: block;
+	background-image: url(fb_app_hyundai_aliento/nofan_layer.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	left: 0px;
+	bottom: 0px;
+}
+#contenedor {
+	background: url(fb_app_hyundai_aliento/fan.png) no-repeat 0 0;
+	width: 489px;
+	height: 580px;
+	margin: 0 auto;
+	position: absolute;
+	z-index: 0;
+	left: 160px;
+	top: 60px;
+}
+.contenedor_general {
+	/*background: url(fb_app_hyundai_aliento/escoge.png) no-repeat 0 0;*/
+width: 781px;
+	height: 350px;
+	float: left;
+	position: relative;
+	margin-top: 0px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 13px;
+}
+.contenedor_general ul {
+	width: 650px;
+	height: 257px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+.contenedor_general ul li {
+	margin: 0 40px 0 0;
+	float: left;
+	width: 190px;
+	height: 257px;
+}
+.contenedor_general ul li img {
+	margin-bottom:6px;
+}
+.contenedor_general ul a {
+	width:190px;
+	height:61px;
+	display:block;
+}
+.contenedor_general ul #asado {
+	background:url(fb_app_hyundai_aliento/btn_asado.jpg) no-repeat 0 0;
+}
+.contenedor_general ul #asado:hover {
+	background:url(fb_app_hyundai_aliento/btn_asado_hover.jpg) no-repeat 0 0;
+}
+.contenedor_general ul .asado_selected {
+	background:url(fb_app_hyundai_aliento/btn_asado_hover.jpg) no-repeat 0 0 !important;
+}
+.contenedor_general ul #tele {
+	background:url(fb_app_hyundai_aliento/btn_tele.jpg) no-repeat 0 0;
+}
+.contenedor_general ul #tele:hover {
+	background:url(fb_app_hyundai_aliento/btn_tele_hover.jpg) no-repeat 0 0;
+}
+.contenedor_general ul .tele_selected {
+	background:url(fb_app_hyundai_aliento/btn_tele_hover.jpg) no-repeat 0 0 !important;
+}
+.contenedor_general ul #quieras {
+	background: url(fb_app_hyundai_aliento/btn_quieres.jpg) no-repeat 0 0;
+}
+.contenedor_general ul #quieras:hover {
+	background:url(fb_app_hyundai_aliento/btn_quieres_hover.jpg) no-repeat 0 0;
+}
+.contenedor_general ul .quieras_selected {
+	background:url(fb_app_hyundai_aliento/btn_quieres_hover.jpg) no-repeat 0 0 !important;
+}
+.siguiente {
+	background: url(fb_app_hyundai_aliento/btn_continuar.png) no-repeat 0 0;
+	width: 228px;
+	height: 59px;
+	display: block;
+	margin: 0;
+	position: absolute;
+	bottom: 60px;
+	right: 65px;
+}
+.siguiente:hover {
+	background:url(fb_app_hyundai_aliento/btn_continuar_hover.png) no-repeat 0 0;
+}
+.contenedor_general form {
+	margin: 0;
+	position: absolute;
+	width: 430px;
+	height: 251px;
+	top: 180px;
+	left: 231px;
+}
+.contenedor_general form .campos {
+	border:none;
+	background:url(fb_app_hyundai_aliento/campos.png) no-repeat 0 0;
+	width:350px;
+	height:33px;
+	margin-bottom: 7px;
+	padding-bottom: 0;
+	padding-left: 12px;
+    font-size: 15px;
+}
+.css-checkbox {
+	zoom: 1;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+	position: absolute;
+	right: 496px;
+	top: 211px;
+	width: 16px;
+	height: 17px;
+}
+.participar {
+	background:url(fb_app_hyundai_aliento/participa.png) no-repeat 0 0;
+	width:350px;
+	height:82px;
+	display: block;
+	margin: 0;
+	position: absolute;
+	top: 460px;
+	left: 270px;
+	text-indent: 0px;
+}
+.participar:hover {
+	background:url(fb_app_hyundai_aliento/participa_hover.png) no-repeat 0 0;
+}
+.bases {
+	background:url(fb_app_hyundai_aliento/bases.png) no-repeat 0 0;
+	width:130px;
+	height:21px;
+	display:block;
+	position:absolute;
+	bottom:0;
+	left:339px;
+}
+#enviar {
+	background:url(fb_app_hyundai_aliento/enviar.png) no-repeat 0 0;
+	width:133px;
+	height:48px;
+	display:block;
+	border:none;
+	text-indent:-9999px;
+	cursor:pointer;
+	margin-top: 50px;
+	margin-right: 0px;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+#enviar:hover {
+	background:url(fb_app_hyundai_aliento/enviar_hover.png) no-repeat 0 0;
+}
+.contenedor_gracias {
+	width:auto;
+	height:auto;
+	position:absolute;
+	left:0px;
+	top:0px;
+	background-image: url(fb_app_hyundai_aliento/gracias_layer.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.contenedor_gracias #disfrutando {
+	width: 551px;
+	height: 425px;
+	position: absolute;
+	left: 28px;
+	top: 80px;
+}
+.finales {
+	width: 340px;
+	height: 50px;
+	display: block;
+	position: absolute;
+	top: 418px;
+	left: 180px;
+	margin: 0px;
+	padding: 5px;
+}
+.finales #compartir {
+	background:url(fb_app_hyundai_aliento/btn_compartir.png) no-repeat 0 0;
+	display:block;
+	width:138px;
+	height:38px;
+	float:left;
+}
+.finales #compartir:hover {
+	background:url(fb_app_hyundai_aliento/btn_compartir_hover.png) no-repeat 0 0;
+}
+.finales #compartir2 {
+	display:block;
+	width:190px;
+	height:38px;
+	float:left;
+	background-image: url(fb_app_hyundai_aliento/btn_invitar.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.finales #compartir2:hover {
+	display:block;
+	width:190px;
+	height:38px;
+	float:left;
+	background-image: url(fb_app_hyundai_aliento/btn_invitar_hover.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+#como {
+	background-image: url(fb_app_hyundai_aliento/como.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	z-index: -100;
+	top: 0px;
+	left: 0px;
+	height: 300px;
+	position: relative;
+}
+#registro strong{ 
+	background: url(alert.png) no-repeat scroll left bottom transparent;
+	float: right;
+	height: 15px;
+	margin-right: 85px;
+	margin-top: -7%;
+	text-indent: -9999px;
+	width: 16px;
+	position: relative;
+}

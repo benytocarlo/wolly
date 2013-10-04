@@ -221,9 +221,17 @@ Wolly::Application.routes.draw do
   post  "fb_app_mini_not_normal"             => "fb_app_mini_not_normal#index"
   post  "fb_app_mini_not_normal/canvas"
   get   "fb_app_mini_not_normal/formulario"
-  get  "fb_app_mini_not_normal/comunas"
+  get   "fb_app_mini_not_normal/comunas"
   post  "fb_app_mini_not_normal/share"
-  get  "fb_app_mini_not_normal/share"
+  get   "fb_app_mini_not_normal/share"
+
+  post  "fb_app_hyundai_aliento"             => "fb_app_hyundai_aliento#index"
+  get  "fb_app_hyundai_aliento"             => "fb_app_hyundai_aliento#index"
+  post  "fb_app_hyundai_aliento/canvas"
+  get   "fb_app_hyundai_aliento/formulario"
+  post   "fb_app_hyundai_aliento/escoge"
+  post  "fb_app_hyundai_aliento/share"
+  get   "fb_app_hyundai_aliento/share"
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

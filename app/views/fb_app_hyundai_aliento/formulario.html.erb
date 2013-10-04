@@ -1,0 +1,48 @@
+<% content_for :body_classes, 'formulario' %>
+<%= javascript_include_tag "jquery.validate" %>
+<%= render :partial => "layouts/validator2" %>
+<script>
+  $(document).ready(function(){
+    $("#enviar").click(function(){
+      if(!$('#demo_box_3').is(":checked")){
+        alert("Debes aceptar las bases del concurso");
+      }else{
+        $("#registro").submit();
+      }
+    });
+
+    $("#registro").validate({
+      rules: {
+        nombre: {
+          required: true
+        },
+        rut: {
+          required: true,
+          valrut: $('#rut').val()
+        },
+        telefono: {
+          required: true,
+        },
+        correo: {
+          required: true,
+          email: true
+        },
+        direccion: {
+          required: true
+        }
+      }
+    });
+
+  });
+</script>
+<div class="contenedor_general">
+  <%= form_tag(fb_app_hyundai_aliento_escoge_path,:id=>:registro, :method => "post") do  %>
+  <%= text_field_tag(:nombre, @nombre,:class => "campos", :onkeypress => "return validatxt(event)") %>
+  <%= text_field_tag(:rut, @rut, :class => 'campos', :onkeyup => "this.value = formato_rut(this.value, true)", :maxlength => "10") %>
+  <%= text_field_tag(:correo, @correo,:class => "campos") %>
+  <%= text_field_tag(:direccion, @direccion,:class => "campos") %>
+  <%= text_field_tag(:telefono, @telefono,:class => "campos", :onkeypress => "return validanum(event)") %>
+  <input id="demo_box_3" class="css-checkbox" type="checkbox" />
+  <input type="button" id="enviar" />
+  <% end %>
+</div>
