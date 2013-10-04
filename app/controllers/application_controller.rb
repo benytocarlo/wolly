@@ -80,7 +80,7 @@ private
   # haya sido aceptada por el usuario, de lo contrario no encontrará las Cookies y dará error.
   #
   def parse_facebook_cookies
-    logger.debug "[DEBUG] "+ session[:facebook_cookies]
+    logger.debug "[DEBUG] prueba de las cookies"+ session[:facebook_cookies]
     session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
     logger.debug "[DEBUG] Se ha creado la variable de sesión Facebook Cookies."
   end
