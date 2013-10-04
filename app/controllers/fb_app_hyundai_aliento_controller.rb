@@ -3,10 +3,10 @@ class FbAppHyundaiAlientoController < ApplicationController
   layout "fb_app_hyundai_aliento"
   before_filter :load_application_data
   before_filter :parse_facebook_signed_request
-  before_filter :parse_facebook_cookies, :except => [:index, :canvas,:premios]
+  before_filter :parse_facebook_cookies, :except => [:index, :canvas]
   before_filter :load_graph_api
-  before_filter :load_facebook_user, :except => [:index, :canvas,:premios]
-  before_filter :load_fanpage, :except => [:canvas,:premios]
+  before_filter :load_facebook_user, :except => [:index, :canvas]
+  before_filter :load_fanpage, :except => [:canvas]
   include ApplicationHelper
 
   def index
