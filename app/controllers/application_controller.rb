@@ -80,11 +80,8 @@ private
   # haya sido aceptada por el usuario, de lo contrario no encontrará las Cookies y dará error.
   #
   def parse_facebook_cookies
-    logger.debug "[DEBUG] prueba de las cookies"+ session[:facebook_cookies].to_s
-    if session[:facebook_cookies].blank?
-      session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies)
-      logger.debug "[DEBUG] Se ha creado la variable de sesión Facebook Cookies."
-    end
+    session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
+    logger.debug "[DEBUG] Se ha creado la variable de sesión Facebook Cookies."
   end
 
   # Instancia un objeto de clase Koala con el que se puede conversar con Facebook: @graph.
