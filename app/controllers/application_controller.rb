@@ -82,7 +82,7 @@ private
   #
   def parse_facebook_cookies
     if cookies
-      session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
+      session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys!
     else
       session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(session[:signed_request_param]).deep_symbolize_keys
     end
