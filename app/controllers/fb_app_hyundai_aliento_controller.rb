@@ -18,7 +18,7 @@ class FbAppHyundaiAlientoController < ApplicationController
   end
 
   def formulario
-    if @me_from_graph[:id]
+    if @me_from_graph[:id].blank?
       if @me_from_database = Participant.find_by_facebook_idnumber(@me_from_graph[:id])
         if @me_from_database_participation = Participation.find(:first,:conditions =>["participant_id = ? AND application_id = ?",@me_from_database.id,@app.id])
           redirect_to fb_app_hyundai_aliento_share_path
