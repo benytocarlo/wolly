@@ -69,8 +69,7 @@ private
       end
     else
       # No hay nada que hacer, todo está Ok.
-      session[:signed_request] = session[:signed_request]
-      session[:signed_request_param] = session[:signed_request]
+      session[:signed_request] = session[:signed_request]      
     end
 
     #session[:signed_request] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(params[:signed_request]).deep_symbolize_keys
@@ -81,8 +80,7 @@ private
   # haya sido aceptada por el usuario, de lo contrario no encontrará las Cookies y dará error.
   #
   def parse_facebook_cookies
-    # session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
-    session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).parse_signed_request(session[:signed_request_param]).deep_symbolize_keys
+    session[:facebook_cookies] ||= Koala::Facebook::OAuth.new(@app_id,@app_secret).get_user_info_from_cookie(cookies).deep_symbolize_keys
     logger.debug "[DEBUG] Se ha creado la variable de sesión Facebook Cookies."
   end
 
